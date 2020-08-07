@@ -30,4 +30,15 @@ public class HomeController {
         return mv;
     }
 
+	// 회원가입부분 (POST는 DB 추가후 작업예정)
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public ModelAndView signupGet(ModelAndView mv) {
+		
+		mv.setViewName("/member/signup");
+		
+		
+		return mv;
+	}
+	
 }

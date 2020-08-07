@@ -4,33 +4,78 @@
 	padding: 0;
 	margin: 0 auto;
 }
-
-.logo-home{
-	height: 100%;
+form{
+	display: inline-block;
 }
 
-.logo-home::after, ::before{
-	contain: '';
-	box-sizing: border-box;
-	clear: both;
-}
-
-.logo-wrapper{
+.head-wrapper{
 	
-	width: 1150px;
+	width: 1100px;
 	height: 100px;
 	margin: 0 auto;
 }
 .logo-container{
-	margin: 0 auto;
-	text-align: 100px;	
+	line-height: 100px;
+	position: relative;
+	display: inline-block;
+	left: -15px;
 }
+
 .logo{
-	width: 200px;
-	height: 50px;
 	object-fit: cover;
 }
-.logo-wrapper::after{
+.search-box{
+	width: 250px;
+	height: 30px;	
+	border: solid grey 1px;
+	padding: 4px;
+}
+.search-icon{
+	width: 20px;
+	height: 20px;
+	float: left;
+	text-align: center;
+	margin-top: 2px;
+}
+.search{
+	margin-left: 5px;
+	border: transparent;
+	top: 2px;
+	height: 20px;
+
+}
+.search-box:focus{
+	width: 400px;
+}
+.search:focus{
+	outline: none;
+}
+
+.log-container{
+	margin-top: 10px;
+	float: right;
+}
+a>.log-container{
+	margin-left: 10px;
+}
+
+.head-wrapper::after{
 	contain: '';
 	box-sizing: border-box;
+}
+
+/* 메인 페이지*/
+
+
+
+  
+/* 외원가입 페이지*/
+
+.signup-container{
+	margin-top: 100px;
+	margin-left: 50%;
+	
+}
+.signup-box{
+	margin-bottom: 20px;
 }
