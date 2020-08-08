@@ -1,11 +1,17 @@
 @charset "UTF-8";
 
+
 *{
 	padding: 0;
 	margin: 0 auto;
 }
 form{
 	display: inline-block;
+
+}
+.logo-home{
+	height: 100%;
+
 }
 
 .head-wrapper{
@@ -64,6 +70,7 @@ a>.log-container{
 	box-sizing: border-box;
 }
 
+<<<<<<< Updated upstream
 /* 메인 페이지*/
 
 
@@ -78,4 +85,8 @@ a>.log-container{
 }
 .signup-box{
 	margin-bottom: 20px;
+=======
+@media (){
+	
+>>>>>>> Stashed changes
 }
