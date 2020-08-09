@@ -70,7 +70,19 @@ a>.log-container{
 	box-sizing: border-box;
 }
 
-<<<<<<< Updated upstream
+/* 푸터 페이지 */
+
+.footer-container{
+	width: 100%;
+	height: 200px;
+	padding: 30px;
+
+}
+.footer-menuBox{
+	
+}
+
+
 /* 메인 페이지*/
 
 
@@ -85,8 +97,13 @@ a>.log-container{
 }
 .signup-box{
 	margin-bottom: 20px;
-=======
+
+
+
 @media (){
 	
->>>>>>> Stashed changes
+
 }
+
+
+
