@@ -9,6 +9,7 @@ form{
 	display: inline-block;
 
 }
+/* 헤어 부분*/
 .logo-home{
 	height: 100%;
 
@@ -70,19 +71,62 @@ a>.log-container{
 	box-sizing: border-box;
 }
 
-/* 푸터 페이지 */
-
-.footer-container{
-	width: 100%;
-	height: 200px;
-	padding: 30px;
-
+#collapsibleNavbar{
+	height: 30px;
+	line-height: 35px;
 }
-.footer-menuBox{
+
+.navbar-nav{
+	position: absolute;
 	
 }
 
+/* 푸터 페이지 */
 
+.footer-upperContainer{
+	width: 1100px;
+	display: flex;
+
+}
+.footer-menuBox{
+	margin: 0;
+	margin-inline-end: auto;
+	display: table-cell;
+}
+.footer-lowerContainer{
+	margin-top: 50px;
+	width: 1100px;
+	display: block;
+	margin-inline-end: auto;
+}
+.menu-float{
+	
+	display: block;
+	margin-top: 3px;
+}
+
+.company{
+	width: 35%;
+	margin: 0;
+	position: relative;
+	display: inline-block;
+}
+.company-detail{
+	margin-right: 30px;	
+}
+.companyDescription{
+	width: 65%;
+	margin: 0;
+	position: relative;
+	display: inline-block;
+}
+.footer-menu{
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+}
 /* 메인 페이지*/
 
 
@@ -92,12 +136,14 @@ a>.log-container{
 
 .signup-container{
 	margin-top: 100px;
-	margin-left: 50%;
+	text-align: center;
 	
 }
+
+
 .signup-box{
 	margin-bottom: 20px;
-
+}
 
 
 @media (){

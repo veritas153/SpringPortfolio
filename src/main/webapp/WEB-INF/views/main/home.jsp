@@ -15,6 +15,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="<%=request.getContextPath()%>/resources/image/mainpage/carousel1.jpg" alt="Music for Everyone" width="1100" height="500">
+      <div class="carousal-description">모두를 위한 문화</div>
     </div>
     <div class="carousel-item">
       <img src="<%=request.getContextPath()%>/resources/image/mainpage/carousel2.jpg" alt="Arts for Everyone" width="1100" height="500">

@@ -21,21 +21,23 @@
 </header>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 	<div class="container">
-	  	<a class="navbar-brand" href="#">Navbar</a>
-	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-	    	<span class="navbar-toggler-icon"></span>
-	  	</button>
 	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    	<ul class="navbar-nav">
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">Link</a>
+		        	<a class="nav-link" href="#">전체 강의</a>
 		      	</li>
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">Link</a>
+		        	<a class="nav-link" href="#">VIP클래스</a>
 		      	</li>
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">Link</a>
-		      	</li>    
+		        	<a class="nav-link" href="#">스토어</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="#">이벤트</a>
+		      	</li>        
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="#">고객센터</a>
+		      	</li>        
 	    	</ul>
 		</div> 
 	</div> 
