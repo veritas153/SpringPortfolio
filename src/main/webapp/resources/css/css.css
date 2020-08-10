@@ -9,6 +9,9 @@ form{
 	display: inline-block;
 
 }
+a{
+	font-color: skyblue;
+}
 /* 헤어 부분*/
 .logo-home{
 	height: 100%;
@@ -96,7 +99,7 @@ a>.log-container{
 .footer-lowerContainer{
 	margin-top: 50px;
 	width: 1100px;
-	display: block;
+	display: flex;
 	margin-inline-end: auto;
 }
 .menu-float{
@@ -119,6 +122,8 @@ a>.log-container{
 	margin: 0;
 	position: relative;
 	display: inline-block;
+	font-size: 12px;
+	margin-top: 38px;
 }
 .footer-menu{
 	font-size: 20px;
