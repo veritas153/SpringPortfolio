@@ -43,7 +43,21 @@ public class HomeController {
 	// 로그인 (POST 추가 예정)
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginGet(ModelAndView mv) {
-		mv.setViewName("member/login");
+		mv.setViewName("/member/login");
+		
+		return mv;
+	}
+	// VIP 클래스 접속
+	@RequestMapping(value = "/vipClass", method = RequestMethod.GET)
+	public ModelAndView vipGet(ModelAndView mv) {
+		mv.setViewName("/vip/first");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "/vipClass/plan", method = RequestMethod.GET)
+	public ModelAndView vipPlanGet(ModelAndView mv) {
+		mv.setViewName("/vip/planExplanation");
 		
 		return mv;
 	}

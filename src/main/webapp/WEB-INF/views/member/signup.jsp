@@ -17,6 +17,9 @@
     		<input type="password" id="password2" class="password-box2" placeholder="비밀번호 확인">
     	</div>
     	<div class="signup-box">
+    		<input type="text" id="phoneNumber" class="phone-box" placeholder="-빼고 입력">
+    	</div>
+    	<div class="signup-box">
     		<input type="text" id="email" class="email-box" placeholder="e-mail 입력">
     	</div>
     	<div class="signup-box">

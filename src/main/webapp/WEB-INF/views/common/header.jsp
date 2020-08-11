@@ -23,11 +23,22 @@
 	<div class="container">
 	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    	<ul class="navbar-nav">
-		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">전체 강의</a>
+		      	<li class="nav-item dropdown">
+		        	<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">전체 강의</a>
+		        	<div class="dropdown-menu">
+		        		<a class="dropdown-item" href="#">전체</a>
+		        		<a class="dropdown-item" href="#">순수미술</a>
+		        		<a class="dropdown-item" href="#">일러스트레이션</a>
+		        		<a class="dropdown-item" href="#">공예</a>
+		        		<a class="dropdown-item" href="#">운동</a>
+		        		<a class="dropdown-item" href="#">인문학</a>
+		        		<a class="dropdown-item" href="#">음악</a>
+		        		<a class="dropdown-item" href="#">프로그래밍</a>
+		        		<a class="dropdown-item" href="#">영상/편집</a>
+		        	</div>
 		      	</li>
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">VIP클래스</a>
+		        	<a class="nav-link" href="<%=request.getContextPath()%>/vipClass">VIP클래스</a>
 		      	</li>
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="#">스토어</a>

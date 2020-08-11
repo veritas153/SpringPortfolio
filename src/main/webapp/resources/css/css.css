@@ -9,8 +9,8 @@ form{
 	display: inline-block;
 
 }
-a{
-	font-color: skyblue;
+a:hover{
+	text-decoration: none;
 }
 /* 헤어 부분*/
 .logo-home{
@@ -84,6 +84,73 @@ a>.log-container{
 	
 }
 
+.dropdown-menu{
+	margin-top: -4px;
+	margin-left: -1px;
+}
+
+/* 메인 페이지*/
+
+.main-container{
+	width: 1100px;
+	
+}
+/*vip플랜 페이지*/
+
+.vipPlan-advertisement{
+	margin-top: 50px;
+}
+
+.vipPlan-link{
+	
+}
+
+.vipPlan{
+	height: 150px;
+	background-color: lightskyblue;
+	margin-left: -4px;
+    margin-right: 4px;
+    color: white;
+	
+	
+}
+
+/* 클래스 페이지*/
+
+.class-container{
+	width: 1100px;
+	display: flex;
+}
+
+.class-description-container{
+	width: 60%;
+	height: auto;
+	border: 1px solid black;
+	padding: 30px 15px;
+}
+
+.class-description-container::after{
+	content: '';
+	both: clear;
+	display: table;
+}
+
+.class-description{
+	border: 1px solid grey;
+	
+	
+}
+
+.class-slidebar{
+	width: 40%;
+	height: auto;
+	border: 1px solid black;
+	padding: 30px 15px;
+}
+
+.class-detail{
+	margin-top: 20px;
+}
 /* 푸터 페이지 */
 
 .footer-upperContainer{
@@ -131,12 +198,7 @@ a>.log-container{
 	margin-bottom: 10px;
 }
 
-}
-/* 메인 페이지*/
 
-
-
-  
 /* 외원가입 페이지*/
 
 .signup-container{
