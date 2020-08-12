@@ -115,6 +115,29 @@ a>.log-container{
 	
 }
 
+.stickyTab{
+	display: flex;
+	background-color: lightskyblue;
+}
+
+.stickyTab a {
+	
+	color: f2f2f2;
+	display: block;
+  	text-align: center;
+  	padding: 14px 16px;
+  	text-decoration: none;
+  	font-size: 17px;
+
+}
+
+.sticky {
+	position: fixed;
+  	top: 0;
+  	width: 100%;
+	
+}
+
 /* 클래스 페이지*/
 
 .class-container{
@@ -122,11 +145,15 @@ a>.log-container{
 	display: flex;
 }
 
+
+
 .class-description-container{
 	width: 60%;
 	height: auto;
 	border: 1px solid black;
 	padding: 30px 15px;
+	
+	
 }
 
 .class-description-container::after{
@@ -138,7 +165,7 @@ a>.log-container{
 .class-description{
 	border: 1px solid grey;
 	
-	
+	height: 1500px;
 }
 
 .class-slidebar{
@@ -146,6 +173,8 @@ a>.log-container{
 	height: auto;
 	border: 1px solid black;
 	padding: 30px 15px;
+	
+	height: 600px;
 }
 
 .class-detail{
