@@ -9,11 +9,13 @@ $(function(){
 	function scrollFunction() {
 		if (window.pageYOffset >= sticky){
 			stickyTab.classList.add("sticky");
+			
 		} else {
 			stickyTab.classList.remove("sticky");
-			
+		
 		}
 	}
+	
 	
 	
 })

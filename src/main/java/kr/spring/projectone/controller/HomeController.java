@@ -61,5 +61,14 @@ public class HomeController {
 		
 		return mv;
 	}
+
+	// about us 접속
+	
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public ModelAndView aboutUsGet(ModelAndView mv) {
+		mv.setViewName("/extraPage/aboutus");
+		
+		return mv;
+	}
 	
 }

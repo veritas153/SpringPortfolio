@@ -7,7 +7,7 @@
 			<div class="menu-float">
 				<a href="<%=request.getContextPath()%>/">홈</a>
 			<div class="menu-float">
-				<a href="#">About us</a>
+				<a href="<%=request.getContextPath()%>/about">About us</a>
 			</div>
 		</div>
 		</div>

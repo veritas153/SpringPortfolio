@@ -106,7 +106,7 @@ a>.log-container{
 }
 
 .vipPlan{
-	height: 150px;
+	height: 100px;
 	background-color: lightskyblue;
 	margin-left: -4px;
     margin-right: 4px;
@@ -137,6 +137,7 @@ a>.log-container{
   	width: 628px;
 	
 }
+
 
 .content-division{
 	padding: 16px 0;
@@ -179,6 +180,10 @@ a>.log-container{
 	width: 40%;
 	height: auto;
 	padding: 0 15px;
+	position: -webkit-sticky;
+  	position: sticky;
+  	top: 0;
+  	
 }
 
 .class-slidebar.sticky{
@@ -256,7 +261,13 @@ a>.log-container{
 	background-color: cadetblue;
 }
 
+/* 로그인 페이지*/
 
+.login-container{
+	
+	margin: 0;
+	
+}
 
 /* 푸터 페이지 */
 
@@ -323,6 +334,10 @@ a>.log-container{
 @media (){
 	
 
+}
+.content-division>div{
+	padding-top:53px;
+	margin-top:-53px;
 }
 
 
