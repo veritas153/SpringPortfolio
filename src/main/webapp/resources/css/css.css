@@ -317,6 +317,59 @@ a>.log-container{
 }
 
 
+/* About Us 페이지*/
+
+.aboutUs-description{
+	
+	width: 100%;
+	height: auto;
+	margin-top: 100px;
+	
+}
+
+.aboutUs-belief{
+	
+	background-color: lavender;
+	margin-bottom: 200px;
+}
+
+.belief-section>span>p>span{
+	
+	margin: 0;
+	width: 500px;
+	background: lightskyblue;
+	display: block;
+	height: 5px;
+	margin-top: 10px;
+	
+	
+}
+
+.belief-section>img{
+	position: absolute;
+}
+
+.belief-section>img:nth-of-type(1){
+	width: 313px;
+	right: 0;
+	top: 700px;
+	
+}
+.belief-section>img:nth-of-type(2){
+	width: 333px;
+	left: 1000px;
+	top: 800px;
+	
+}
+
+.aboutUs-belief::after{
+	clear: both;
+	content: '';
+	
+}
+
+
+
 /* 외원가입 페이지*/
 
 .signup-container{

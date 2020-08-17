@@ -16,6 +16,12 @@ $(function(){
 		}
 	}
 	
-	
+	var waypoint = new Waypoint({
+  		element: document.getElementById('mainPage'),
+  		handler: function(direction) {
+    		console.log('Scrolled to waypoint!')
+  		}
+	})
+
 	
 })
