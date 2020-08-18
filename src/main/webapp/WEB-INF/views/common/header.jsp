@@ -26,7 +26,7 @@
 		      	<li class="nav-item dropdown">
 		        	<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">전체 강의</a>
 		        	<div class="dropdown-menu">
-		        		<a class="dropdown-item" href="#">전체</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/all">전체</a>
 		        		<a class="dropdown-item" href="#">순수미술</a>
 		        		<a class="dropdown-item" href="#">일러스트레이션</a>
 		        		<a class="dropdown-item" href="#">공예</a>

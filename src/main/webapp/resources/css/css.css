@@ -368,6 +368,166 @@ a>.log-container{
 	
 }
 
+/* 클래스 목록 페이지*/
+
+.classType-container{
+
+	margin-top: 50px;
+	
+}
+.classType{
+	
+	font-size: 30px;
+	font-weight: bold;
+	
+}
+
+.classList-container{
+	
+	margin-top: 20px;
+	height: auto;
+	
+}
+
+#classList-name{
+	
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+}
+
+.class-selectbox{
+	float: right;
+
+}
+.class-selectbox::after{
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.classList{
+	
+	margin-top: 100px;
+	float: left;
+	
+}
+
+.classList-container::after{
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.class-link{
+	
+	font-decoration: none;
+	
+	
+}
+
+.col-md-4{
+	
+	max-width: 310px;
+	
+}
+
+.cold-md-4::hover{
+	text-decoration: none;
+}
+
+.col-md-4:nth-of-type(1){
+	padding-left: 0;
+}
+
+.col-md-4::after{
+	
+	clear: both;
+	content: '';
+	display: block;
+	
+}
+
+.class-image{
+	
+	overflow: hidden;
+}
+
+.class-image>img{
+	
+	width:100%;
+	height: 210px;
+	
+}
+
+.class-info{
+	margin: 15px;
+	display: inline;
+	font-weight: bold;
+	font-size: 10px;
+	color: black;
+}
+
+#type{
+	
+	float: right;
+	
+}
+
+.class-title{
+	margin-top: 10px;
+	font-size: 20px;
+	
+}
+
+.class-info::after{
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.d-flex{
+	
+	margin: 15px;
+	float: right;
+	margin-top: 10px;
+	
+}
+
+.d-flex::after{
+	
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.sub-group{
+	
+	margin: 0;
+	display: inline-flex;
+	float: left;
+	
+}
+
+.text-muted{
+	
+	
+	right: 0;
+	
+}
+
+.recommend-number, .like-number{
+	
+	width: 60px;
+	height: 30px;
+	border: 1px solid grey;
+	background-color: honeydew;
+	border-radius: 5px;
+	line-height: 30px;
+	text-align: center;
+	margin-right: 10px;
+	
+}
 
 
 /* 외원가입 페이지*/
