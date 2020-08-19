@@ -413,6 +413,12 @@ a>.log-container{
 	
 }
 
+.classList-row{
+	
+	display: flex;
+	
+}
+
 .classList-container::after{
 	clear: both;
 	content: '';
@@ -436,6 +442,7 @@ a>.log-container{
 	text-decoration: none;
 }
 
+
 .col-md-4:nth-of-type(1){
 	padding-left: 0;
 }
@@ -448,25 +455,64 @@ a>.log-container{
 	
 }
 
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img{
+	opacity: 0.5;
+	transform: scale(1.1);
+}
+
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption{
+	opacity: 1;
+}
+
+
+
+.class-info{
+	margin: 0px;
+	display: inline;
+	font-weight: bold;
+	font-size: 10px;
+	color: black;
+	padding: 20px;
+}
+
+
 .class-image{
 	
+	position: relative;
 	overflow: hidden;
+	width:100%;
+	display: inherit;
+	background-color: black;
+	
 }
 
 .class-image>img{
 	
 	width:100%;
 	height: 210px;
+	opacity: 1;
+	transition: 0.3s ease;
+	
 	
 }
 
-.class-info{
+.class-image>figcaption{
+	
+	position: absolute;
+	z-index: 1;
 	margin: 15px;
-	display: inline;
-	font-weight: bold;
-	font-size: 10px;
-	color: black;
+	padding: 15px;
+	font-size: 13px;
+	width: calc(100% - 30px);
+	height: calc(100% - 30px);
+	text-align: center;
+	color: white;
+	opacity: 0;
+	border: 1px solid white;
+	transition: 0.3s ease;
+	
 }
+
 
 #type{
 	
@@ -476,7 +522,7 @@ a>.log-container{
 
 .class-title{
 	margin-top: 10px;
-	font-size: 20px;
+	font-size: 18px;
 	
 }
 
