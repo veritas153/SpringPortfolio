@@ -224,7 +224,16 @@ a>.log-container{
 }
 
 .class-specification{
+	margin: 0;
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
 	
+}
+
+.class-specification>div{
+	margin-bottom: 15px;
+	width: 50%;
 }
 
 .class-specification-division{
@@ -232,6 +241,27 @@ a>.log-container{
 	font-size: 15px;
 	
 }
+
+.btn-recommend, .btn-share{
+	
+	text-align: center;
+	border: none;
+	height: 35px;
+	width: calc(50% - 10px);
+	line-height: 20px;
+	
+}
+
+.btn-recommend:hover, .btn-share:hover{
+	
+	background-color: darkgrey;
+	
+}
+
+.class-sideService{
+	margin-bottom: 30px;
+}
+
 .class-detail{
 	margin-top: 20px;
 }

@@ -30,6 +30,11 @@ public class ClassController {
         return mv;
     }
 
-	
+	@RequestMapping (value = "/class/programming/test", method = RequestMethod.GET)
+	public ModelAndView testGet(ModelAndView mv) {
+		mv.setViewName("/class/classInfo");
+		
+		return mv;
+	}
 	
 }

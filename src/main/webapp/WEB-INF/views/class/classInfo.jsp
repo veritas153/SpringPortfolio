@@ -4,7 +4,7 @@
 <div class="class-container">
 	<div class="class-description-container">
 		<div class="class-description">
-			<img src="<%=request.getContextPath()%>/resources/image/vipPlan/vipPlanImage.jpg"  width="627" height="417">
+			<img src="<%=request.getContextPath()%>/resources/image/classImages/programming1.jpg"  width="627" height="417">
 			<div class="class-detail">
 				<div class="stickyTab">
 					<a class="btn-menu" href="#classInfo">클래스 소개</a>
@@ -27,7 +27,8 @@
 					</div>
 					<div class="plan-offer" id="package">
 						<h3>패키지</h3>
-						
+						<p>패키지는 공부하실 컴퓨터만 있으면 됩니다.</p>
+						<p>프로그램 설치 및 세팅은 강의에서 설명할 예정이니 잘 따라하시면 됩니다.</p>
 					</div>
 					<div class="plan-offer" id="instructor">
 						<h3>강사 소개</h3>
@@ -45,6 +46,8 @@
 						<p><b>A4.</b> 네. 50포인트에 1주일 수강 연장 가능합니다. 단, 포인트는 사용하면 환불이 불가능하니 신중하게 결정해주세요.</p>
 						<p><b>Q5.</b> 코드 리뷰는 얼마인가요?</p>
 						<p><b>A5.</b> 처음 1회는 무료, 그 이후엔 1회당 5,000원 또는 10포인트에 이용 할 수 있습니다. VIP플랜 신청자는 무료입니다.</p>
+						<p><b>Q6.</b> 정말로 돈 받는건가요?</p>
+						<p><b>A6.</b> 아뇨... 포트폴리오용 홈페이지인데 왜 받나요? (혹시나 물어보는 분들을 위해) 생활코딩 홈피로 가셔서 무료도 들어보세요!</p>
 					</div>
 					<div class="class-refund" id="refund">
 						<h3>환불 정책</h3>
@@ -57,13 +60,10 @@
 	</div>
 	<div class="class-slidebar">
 		<div class="slidebar-boundary">
-			<div class="class-instructor">By. 김자바ㄴ</div>
+			<div class="class-instructor">By. 생활코딩</div>
 			<div class="class-name">Python 입문</div>
 			<div class="class-information">
 				<div class="class-service">
-					<div class="class-specification">
-						
-					</div>
 					<div class="price-container">
 						<div class="class-discount"></div>
 						<div class="price-detail">
@@ -71,16 +71,26 @@
 								총 48,500원
 							</span>
 							<span class="class-price-monthlyPay">
-								할부 X
 								<a href="#" class="monthlyPay-rules">
 									<i class="far fa-question-circle"></i>
 								</a>
 							</span>
 						</div>
 					</div>
+					<div class="class-specification">
+						<div class="class-content"><i class="fas fa-book"></i> 32개 강의 제공</div>
+						<div class="class-package"><i class="fas fa-box-open"></i> 패키지 없음</div>
+						<div class="class-difficulty"><i class="far fa-user"></i> 입문자 대상</div>
+						<div class="class-rate"><i class="far fa-thumbs-up"></i> 95%</div>
+					</div>
 				</div>
-				<div class="class-recommend-number">
-					
+				<div class="class-sideService">
+					<button class="btn-recommend">
+						<div class="class-recommend-number"><i class="far fa-heart"></i> 222</div>
+					</button>
+					<button class="btn-share">
+						<div class="class-share"><i class="fas fa-share-alt"></i> 공유하기</div>
+					</button>
 				</div>
 				<a href="#" class="class-subscription">
 					<div class="class-subscription-button">수강 신청하기</div>

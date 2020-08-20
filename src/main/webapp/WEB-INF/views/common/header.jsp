@@ -47,7 +47,7 @@
 		        	<a class="nav-link" href="#">이벤트</a>
 		      	</li>        
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="#">고객센터</a>
+		        	<a class="nav-link" href="<%=request.getContextPath()%>/customerService">고객센터</a>
 		      	</li>        
 	    	</ul>
 		</div> 

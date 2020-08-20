@@ -56,7 +56,7 @@
 	  						</figcaption>
 						</figure>
 						<div class="class-info">
-							<span id="instructor">김자바ㄴ</span>
+							<span id="instructor">생활코딩</span>
 							<span id="type">프로그래밍</span>
 							<div class="class-title">Python 입문</div>
 						</div>
