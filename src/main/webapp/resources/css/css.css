@@ -299,6 +299,48 @@ a>.log-container{
 	
 }
 
+/* 고객센터 페이지 */
+
+.customerService-container{
+	
+}
+
+.customerService-container-row{
+	
+	display: flex;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.customerService-icon{
+	
+	width: 160px;
+	height: 160px;
+	border: 1px solid grey;
+	border-radius: 160px;
+	text-align: center;
+
+	
+}
+
+.customerService-category-container{
+	width: calc(100% / 3);
+}
+
+.customerService-icon>svg, .customerService-icon>i{
+	
+	font-size: 100px;
+	color: powderblue;
+	margin-top: 30px;
+	
+}
+
+.col-lg-4{
+	max-width: 330px;
+}
+
+
+
 /* 푸터 페이지 */
 
 .footer-upperContainer{
