@@ -32,8 +32,8 @@
 			<section class="belief-section">
 				<span class="belief">
 					<h3>Reproduction of Education</h3>
-					<p>진정한 배움은 타인을 가르치는 데서 배운다는 말이 있습니다.</p>
-					<p>저희 Aurts는 이를 위해 학생들에겐 더 많은 교육의 기회를, 강사들에겐 훈육에 열정을 쏳을 수 있는 플랫품으로 확대하고자 합니다.<span></span></p>
+					<p>진정한 배움 끝은 자신이 배운 것을 남에게 가르치는데 있습니다 .</p>
+					<p>저희 Aurts는 이를 위해 학생들에겐 더 많은 교육의 기회를, 강사들에겐 훈육에 열정을 쏟을 수 있는 플랫품으로 만들고자 합니다.<span></span></p>
 				</span>
 			</section>
 		</div>

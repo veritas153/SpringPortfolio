@@ -312,6 +312,10 @@ a>.log-container{
 	margin-top: 30px;
 }
 
+.customerService-container-row>a{
+	width: calc(100% / 3);
+}
+
 .customerService-icon{
 	
 	width: 160px;
@@ -323,8 +327,12 @@ a>.log-container{
 	
 }
 
+.customerService-icon:hover{
+	box-shadow: 0 1px 3px 0 rgba(60, 64, 67, .30), 0 4px 8px 3px rgba(60, 64, 67, .15)
+}
+
 .customerService-category-container{
-	width: calc(100% / 3);
+	
 }
 
 .customerService-icon>svg, .customerService-icon>i{
@@ -334,6 +342,7 @@ a>.log-container{
 	margin-top: 30px;
 	
 }
+
 
 .col-lg-4{
 	max-width: 330px;
