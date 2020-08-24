@@ -34,4 +34,12 @@
   </a>
 </div>
 
+<input type="hidden" id="isLogin" value="${isLogin}">
+<script>
+
+	if ($('#isLogin').val() == 'true'){
+			alert('회원가입이 완료되었습니다.');
+			$('#isLogin').val('')
+		}
+</script>
 

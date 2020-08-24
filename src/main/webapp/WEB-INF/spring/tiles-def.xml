@@ -20,6 +20,16 @@
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
+    
+    <!-- (3) 크리에이터 센터 레이아웃 -->
+    <definition name=".creator" template="/WEB-INF/views/layout/baseLayout.jsp">
+    	<put-attribute name="title" value=""/>
+    	<put-attribute name="header" value="/WEB-INF/views/common/creatorHeader.jsp"/>
+    	<put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
+    
+    
     <!-- (1) -->    
     <definition name="/login/*" extends=".login">
       <put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp" />

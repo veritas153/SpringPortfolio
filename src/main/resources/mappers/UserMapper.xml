@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.projectone.dao.UserDao">
+	
+	<select id="getUser" resultType="kr.spring.projectone.vo.UserVo">
+		 select * from user where st_id = #{st_id};
+	</select>
+	
+	
+	<insert id="insertStudent">
+		insert into
+			student(st_id,st_password,st_name,st_phoneNumber,st_email)
+			values(#{user.st_id},#{user.st_password},#{user.st_name},#{user.st_phoneNumber},#{user.st_email});
+	</insert>
+ 
+</mapper>
+

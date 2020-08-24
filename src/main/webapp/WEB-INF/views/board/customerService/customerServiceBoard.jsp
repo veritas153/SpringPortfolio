@@ -94,17 +94,21 @@
     <thead>
       <tr>
         <th>번호</th>
+        <th>카테고리</th>
         <th>작성자</th>
         <th>제목</th>
         <th>작성날짜</th>
-        <th></th>
+        <th>댓글</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>1</td>
+        <td>결제 문제</td>
+        <td>john</td>
+        <td>환불 받고 싶습니다</td>
+        <td>2020/08/20</td>
+        <td>0</td>
       </tr>
       <tr>
         <td>Mary</td>
