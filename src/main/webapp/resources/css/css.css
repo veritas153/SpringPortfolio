@@ -9,6 +9,8 @@ form{
 	display: inline-block;
 
 }
+
+
 a:hover{
 	text-decoration: none;
 }
@@ -145,6 +147,85 @@ a>.log-container{
 
 .sticky + .content-division{
 	padding-top: 60px;
+}
+
+/*VIP 신청*/
+
+
+.signUp-container>form{
+	display: block;
+}
+
+
+.vipPlan-container{
+	max-width: 700px;
+	border: 1px solid lightgrey;
+	
+}
+
+.vipPlan-header{
+	margin: 0;
+		
+}
+
+
+.vipPlan-headContent{
+	
+	display: flex;
+	padding: 16px 8px;
+	
+}
+
+.vipPlan-gotoHome{
+	margin: 0;
+}
+
+.vipPlan-iconMenu{
+	width: 40px;
+    margin-right: 0;
+    display: inline-flex;
+	line-height: 40px;
+	font-size: 25px;
+	color: lightskyblue;
+}
+
+
+.vipPlan-menu{
+	
+
+	
+}
+
+
+.vipPlan-header:after{
+	clear: both;
+	display: table;
+	content: '';
+}
+
+
+.signUp-container>form{
+	display: block;
+}
+
+
+.signUp-container{
+	
+	margin-top: 20px;
+	padding: 16px 25px;
+	
+}
+
+.greetingMessage{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.vipPlan-infos{
+	margin-top: 15px;
+}
+.box-title{
+	margin-bottom: 6px;
 }
 
 /* 클래스 페이지*/

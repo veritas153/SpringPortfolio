@@ -7,7 +7,7 @@ public class UserVo {
 	private String st_id;
 	private String st_password;
 	private String st_name;
-	private Integer st_phoneNumber;
+	private String st_phoneNumber;
 	private Date st_joinDate;
 	private String st_email;
 	private String st_vip;
@@ -33,10 +33,10 @@ public class UserVo {
 	public void setSt_name(String st_name) {
 		this.st_name = st_name;
 	}
-	public Integer getSt_phoneNumber() {
+	public String getSt_phoneNumber() {
 		return st_phoneNumber;
 	}
-	public void setSt_phoneNumber(Integer st_phoneNumber) {
+	public void setSt_phoneNumber(String st_phoneNumber) {
 		this.st_phoneNumber = st_phoneNumber;
 	}
 	public Date getSt_joinDate() {

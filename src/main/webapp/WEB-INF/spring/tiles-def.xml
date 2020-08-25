@@ -11,6 +11,16 @@
         <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="" />
     </definition>
+    
+    
+     <!-- (4) VIP플랜 가입 레이아웃 -->
+    <definition name=".subscription" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
+    	<put-attribute name="title" value=""/>
+    	<put-attribute name="header" value=""/>
+    	<put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
+        <put-attribute name="footer" value="" />
+    </definition>
+    
  
     <!-- (2) 레이아웃을 적용하는화면-->
     <definition name=".root" template="/WEB-INF/views/layout/baseLayout.jsp">
@@ -21,14 +31,12 @@
     </definition>
     
     
-    <!-- (3) 크리에이터 센터 레이아웃 -->
-    <definition name=".creator" template="/WEB-INF/views/layout/baseLayout.jsp">
-    	<put-attribute name="title" value=""/>
-    	<put-attribute name="header" value="/WEB-INF/views/common/creatorHeader.jsp"/>
-    	<put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
-        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
-    </definition>
     
+   
+    
+    <definition name="/subscription/*" extends=".subscription">      
+      <put-attribute name="body" value="/WEB-INF/views/vip/signPlan.jsp" />
+    </definition>
     
     <!-- (1) -->    
     <definition name="/login/*" extends=".login">
@@ -39,7 +47,9 @@
    <definition name="/*/*" extends=".root">      
       <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
-       <definition name="/*/*/*" extends=".root">      
+    <definition name="/*/*/*" extends=".root">      
       <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
     </definition>
+    
+    
 </tiles-definitions>

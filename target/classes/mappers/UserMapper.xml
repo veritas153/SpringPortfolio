@@ -5,7 +5,7 @@
 <mapper namespace="kr.spring.projectone.dao.UserDao">
 	
 	<select id="getUser" resultType="kr.spring.projectone.vo.UserVo">
-		 select * from user where st_id = #{st_id};
+		 select * from student where st_id = #{id};
 	</select>
 	
 	

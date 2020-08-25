@@ -95,7 +95,7 @@
 				<div class="class-recommend-number">
 					
 				</div>
-				<a href="#" class="class-subscription">
+				<a href="<%=request.getContextPath()%>/subscription" class="class-subscription">
 					<div class="class-subscription-button">가입하기</div>
 				</a>
 			</div>

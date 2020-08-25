@@ -1,5 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <header class="head-wrapper">
 	<div class="logo-container">
 		<a class="logo-home" href="<%=request.getContextPath()%>/">
@@ -14,10 +16,24 @@
 			</div>
 		</form>
 	</div>
-	<div class="log-container">
-		<a href="<%=request.getContextPath()%>/signup">회원가입</a>
-		<a href="<%=request.getContextPath()%>/login">로그인</a>
-	</div>
+	<c:if test="${user == null}">
+		<div class="log-container">
+			<a href="<%=request.getContextPath()%>/signup">회원가입</a>
+			<a href="<%=request.getContextPath()%>/login">로그인</a>
+		</div>
+	</c:if>
+	<c:if test="${user != null}">
+		<div class="log-container">
+			<c:if test="${user.st_value == 'CREATOR'}">
+				<a href="<%=request.getContextPath()%>/creator">크리에이터 센터</a>
+			</c:if>
+			<c:if test="${user.st_value == 'STUDENT'}">
+				<a href="<%=request.getContextPath()%>/joinCreator">크리에이터 신청</a>
+			</c:if>
+			<a href="<%=request.getContextPath()%>/studentInfo">회원정보</a>
+			<a href="<%=request.getContextPath()%>/logout">로그아웃</a>
+		</div>
+	</c:if>
 </header>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 	<div class="container">

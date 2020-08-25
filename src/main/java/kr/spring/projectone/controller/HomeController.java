@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +57,7 @@ public class HomeController {
 	public ModelAndView signupPost(ModelAndView mv, UserVo user) {
 		
 		if (userService.signup(user)) {
-			mv.setViewName("/main/home");
+			mv.setViewName("redirect:/");
 		} else {
 			mv.setViewName("redirect:/signup");	
 		}
@@ -64,7 +65,8 @@ public class HomeController {
 		return mv;
 	}
 	
-	// 로그인 (POST 추가 예정)
+	// 로그인 
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginGet(ModelAndView mv) {
 		mv.setViewName("/member/login");
@@ -79,12 +81,22 @@ public class HomeController {
 		mv.addObject("id", detectUser.getSt_id());
 		if (user == null) {
 			mv.addObject("isLogin", false);
+			mv.setViewName("redirect:/login");
 		} else {
 			mv.addObject("user", user);
+			mv.setViewName("redirect:/");
 		}
 		
-		
-		
+		return mv;
+	}
+	
+	//로그아웃
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView logoutGet(ModelAndView mv, HttpServletRequest request) {
+		request.getSession().removeAttribute("user");
+		mv.setViewName("redirect:/");
+	
 		return mv;
 	}
 	
@@ -102,6 +114,20 @@ public class HomeController {
 		
 		return mv;
 	}
+	
+	// VIP플랜 신청
+	
+	@RequestMapping(value = "/subscription", method = RequestMethod.GET)
+	public ModelAndView vipPlanSignUpGet(ModelAndView mv, HttpServletRequest request) {
+		
+
+		
+	
+			mv.setViewName("/vip/signPlan");
+		
+		return mv;
+	}
+	
 
 	// about us 접속
 	

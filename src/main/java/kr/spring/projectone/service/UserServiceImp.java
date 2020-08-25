@@ -26,10 +26,10 @@ public class UserServiceImp implements UserService{
 			return false;
 		if (user.getSt_email() == null || user.getSt_email().length() == 0)
 			return false;
-		if (user.getSt_phoneNumber() == null || user.getSt_phoneNumber() == 0)
+		if (user.getSt_phoneNumber() == null || user.getSt_phoneNumber().length() == 0)
 			return false;
-		// if (userDao.getUser(user.getSt_id()) != null)
-			// return false; 잠시후 작업
+		if (userDao.getUser(user.getSt_id()) != null)
+			return false;
 		
 		String encodePw = passwordEncoder.encode(user.getSt_password());
 		user.setSt_password(encodePw);
