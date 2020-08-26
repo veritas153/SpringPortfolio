@@ -10,4 +10,6 @@ public interface UserDao {
 
 	UserVo getUser(@Param("id")String st_id);
 
+	UserVo getInstructor(@Param("user")UserVo user);
+
 }

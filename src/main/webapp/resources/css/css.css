@@ -224,6 +224,13 @@ a>.log-container{
 .vipPlan-infos{
 	margin-top: 15px;
 }
+
+.vipPlan-infos:last-of-type{
+	
+	display: flex;
+	
+}
+
 .box-title{
 	margin-bottom: 6px;
 }

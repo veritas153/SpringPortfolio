@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>스프링</title>
+<title>VIP플랜 신청</title>
 <jsp:include page="/WEB-INF/views/include/head.jsp"></jsp:include>
 </head>
 <body>

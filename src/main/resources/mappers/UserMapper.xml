@@ -15,5 +15,12 @@
 			values(#{user.st_id},#{user.st_password},#{user.st_name},#{user.st_phoneNumber},#{user.st_email});
 	</insert>
  
+ 	<update id="getInstructor">
+ 		update student 
+ 			set st_value = 'CREATOR'
+ 			where st_id = #{user.id};
+ 	</update>
+ 
+ 
 </mapper>
 

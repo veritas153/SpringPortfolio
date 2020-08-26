@@ -1,5 +1,7 @@
 package kr.spring.projectone.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -51,6 +53,28 @@ public class UserServiceImp implements UserService{
 		}
 		
 		
+	}
+
+
+	@Override
+	public UserVo getUser(HttpServletRequest request) {
+		
+		return (UserVo)request.getSession().getAttribute("user");
+	}
+
+
+	@Override
+	public UserVo getUser(String st_id) {
+		
+		return userDao.getUser(st_id);
+		
+	}
+
+
+	@Override
+	public UserVo getInstructor(UserVo user) {
+		
+		return userDao.getInstructor(user);
 	}
 
 

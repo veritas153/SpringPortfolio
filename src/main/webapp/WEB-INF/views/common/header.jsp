@@ -28,7 +28,7 @@
 				<a href="<%=request.getContextPath()%>/creator">크리에이터 센터</a>
 			</c:if>
 			<c:if test="${user.st_value == 'STUDENT'}">
-				<a href="<%=request.getContextPath()%>/joinCreator">크리에이터 신청</a>
+				<a href="<%=request.getContextPath()%>/creator/joinCreator">크리에이터 신청</a>
 			</c:if>
 			<a href="<%=request.getContextPath()%>/studentInfo">회원정보</a>
 			<a href="<%=request.getContextPath()%>/logout">로그아웃</a>

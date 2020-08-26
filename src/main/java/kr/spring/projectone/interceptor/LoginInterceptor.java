@@ -23,11 +23,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	    	ModelMap modelMap = modelAndView.getModelMap();
 	    	UserVo user = (UserVo)modelMap.get("user");
 
-	    if(user != null) {
-	        HttpSession session = request.getSession();
-	        session.setAttribute("user", user);
-	    }
-	}
-	
+		    if(user != null) {
+		        HttpSession session = request.getSession();
+		        session.setAttribute("user", user);
+		    }
+		}
+		
 
 }

@@ -2,8 +2,11 @@ package kr.spring.projectone.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,8 +15,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.projectone.service.UserService;
@@ -90,6 +95,17 @@ public class HomeController {
 		return mv;
 	}
 	
+	// 아이디 저장
+	@RequestMapping(value = "/idCheck")
+	@ResponseBody
+	public Map<Object, Object> idCheck(@RequestBody String st_id){
+		 Map<Object, Object> map = new HashMap<Object, Object>();
+		 map.put("check", userService.getUser(st_id) == null);
+		 
+		 return map;
+	}
+	
+	
 	//로그아웃
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -117,13 +133,18 @@ public class HomeController {
 	
 	// VIP플랜 신청
 	
-	@RequestMapping(value = "/subscription", method = RequestMethod.GET)
+	// VIP플랜 회원 확인
+	@RequestMapping(value = "/vipClass/subscription", method = RequestMethod.GET)
 	public ModelAndView vipPlanSignUpGet(ModelAndView mv, HttpServletRequest request) {
 		
-
+		Object user = request.getSession().getAttribute("user");
 		
-	
+		if (user == null) {
+			mv.setViewName("redirect:/login");
+		}
+		if (user != null) {
 			mv.setViewName("/vip/signPlan");
+		}
 		
 		return mv;
 	}

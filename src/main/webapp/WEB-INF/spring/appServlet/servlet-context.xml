@@ -40,11 +40,12 @@
 	<beans:bean id="authInterceptor" class="kr.spring.projectone.interceptor.AuthInterceptor"></beans:bean>
 	<interceptors>
 	    <interceptor>
-	        <mapping path="/"/>
+	        <mapping path="/login"/> <!-- 로그인 인터셉터가 실행되는 URL -->
 	        <beans:ref bean="loginInterceptor"/>
 	    </interceptor>
 	    <interceptor>
-	        <mapping path="/board/*"/>
+	        <mapping path="/vipClass/subscription/*"/>
+	        <mapping path="/joinCreator/*"/>
 	        <beans:ref bean="authInterceptor"/>
 	    </interceptor>
 	</interceptors>
