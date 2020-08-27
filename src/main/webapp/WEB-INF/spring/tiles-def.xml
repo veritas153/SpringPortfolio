@@ -12,8 +12,16 @@
         <put-attribute name="footer" value="" />
     </definition>
     
-    <definition name=".creator" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
+    <definition name=".vip" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
+    	
+    </definition>
     
+    <definition name=".creator" template="/WEB-INF/views/layout/creatorLayout.jsp">
+    	<put-attribute name="title" value="" />
+    	<put-attribute name="sideMenu" value="/WEB-INF/views/common/forCreator/creatorSideMenu.jsp" />
+    	<put-attribute name="header" value="/WEB-INF/views/common/forCreator/creatorHeader.jsp"/>
+    	<put-attribute name="menu" value="/WEB-INF/views/common/forCreator/creatorMenu.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/common/forCreator/creatorFooter.jsp"/>
     </definition>
     
     <!-- (2) 레이아웃을 적용하는화면-->
@@ -30,8 +38,12 @@
       <put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp" />
     </definition>
     
-    <definition name="/vip/signPlan" extends=".creator">
+    <definition name="/vip/signPlan" extends=".vip">
     	<put-attribute name="body" value="/WEB-INF/views/vip/signPlan.jsp" />
+    </definition>
+    
+    <definition name="/creator/creatorCenter/*" extends=".creator">
+    	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/{1}.jsp" />
     </definition>
  
     <!-- (2) -->

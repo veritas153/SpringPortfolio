@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	background-color: #F7F5F2;
+}
+
+/* 크리에이터 헤더 부분*/
+
+.creatorPage-headerMenu{
+	
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+.headerMenu-container{
+	
+	padding: 15px 30px;
+	float: left;
+	
+	
+}
+
+.headerMenu-container:after{
+
+	both: clear;
+	display: block;
+	content: '';
+	
+}
+
+.creator-personalMenu{
+	
+	display: flex;
+	float: right;
+	
+}
+
+.creator-personalMenu>div{
+	
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	line-height: 70px;
+	text-align: center;
+	margin-right: 20px;
+	color: skyblue;
+	
+}
+
+.creator-personalMenu:after{
+	
+	both: clear;
+	display: block;
+	content: '';
+	
+}
+
+
+/* 크리에이터 사이드 메뉴 */
+
+.sideMenu-container{
+	
+	position: fixed;
+	width: 250px;
+	background-color: skyblue;
+	height: 100%;
+	
+}
+
+.sideMenu-area{
+	
+	margin: 70px 0 0;
+	padding: 15px 20px;
+	
+}

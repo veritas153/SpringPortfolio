@@ -160,12 +160,6 @@ public class HomeController {
 	}
 	
 	
-	// 크리에이터 기본 옵션 구현
-	@RequestMapping(value = "/creator", method = RequestMethod.GET)
-	public ModelAndView creatorGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorStatus");
-		
-		return mv;
-	}
+	
 	
 }

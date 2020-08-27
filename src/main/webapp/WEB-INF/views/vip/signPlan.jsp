@@ -35,7 +35,7 @@
 			<div class="vipPlan-infos">
 				<div class="box-title">카드사</div>
 				<div class="signup-box">
-			    	<select>
+			    	<select class="card-maker">
 			    		<option>KB국민카드</option>
 			    		<option>신한카드</option>
 			    		<option>비씨카드</option>
@@ -60,8 +60,9 @@
 				<div class="box-title">카드종류</div>
 				<div class="signup-box">
 			    	<select class="card-option" id="card-option">
-			    		<option id="personal-card" name="personal-card">개인 카드</option>
-			    		<option id="business-card" name="business-card">법인 카드</option>
+			    		<option value="" selected>종류 선택</option>
+			    		<option id="personal-card" name="personal-card" value="personal-card">개인 카드</option>
+			    		<option id="business-card" name="business-card" value="business-card">법인 카드</option>
 			    	</select>
 			    </div>
 			</div>
@@ -72,32 +73,34 @@
 			    </div>
 			</div>
 			<div class="vipPlan-infos">
-				<div class="box-title">CVC</div>
-				<div class="signup-box">
-			    	<input type="text" id="name" name="payment_cardCVC" class="user-name">
+				<div>
+					<div class="box-title">유효기간</div>
+					<div class="signup-box">
+						<select id="payment_dueMonth" name="payment_dueMonth"></select>
+				    	<select id="payment_dueYear"  name="payment_dueYear"></select>
+				    </div>
+			    </div>
+			    <div>
+					<div class="box-title">CVC</div>
+					<div class="signup-box">
+			    		<input type="text" id="name" name="payment_cardCVC" class="user-name" placeholder="카드 뒷면 7자리 숫자중 뒤에 3자리 입력">
+			    	</div>
 			    </div>
 			</div>
-			<div class="vipPlan-infos">
-				<div class="box-title">유효기간</div>
-				<div class="signup-box">
-					<select name="payment_dueMonth"></select>
-			    	<select name="payment_dueYear"></select>
-			    </div>
-			</div>
-			<div class="vipPlan-infos">
+			<div class="vipPlan-infos card-extraInfo">
 				<div>
 					<div class="box-title">비밀번호</div>
 					<div class="signup-box">
 						<input type="text" id="name" name="payment_cardPassword" class="user-name">
 				    </div>
 				</div>
-				<div>
+				<div class = "payment_birthday">
 				   	<div class="box-title" id="birthday">생년월일</div>
 					<div class="signup-box">
-						<input type="text" id="name" name="payment_ownerBirthday" class="user-name">
+						<input type="text" id="name" name="payment_ownerBirthday" class="user-name" placeholder="'/'없이 숫자로만 입력. 예) '19901201'">
 				   	</div>
 			   	</div>
-			   	<div>
+			   	<div class = "payment_business">
 				    <div class="box-title" id="business">사업자 번호</div>
 					<div class="signup-box">
 						<input type="text" id="name" name="payment_businessNumber" class="user-name">

@@ -7,11 +7,12 @@
 <html>
 <head>
 <title>크리에이터 센터</title>
-<jsp:include page="/WEB-INF/views/include/head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/creatorHead.jsp"></jsp:include>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
-    <div class="container">        
+    <div class="body-container">
+    	<tiles:insertAttribute name="sideMenu"/>        
         <tiles:insertAttribute name="body" />
     </div>                                                  
     <tiles:insertAttribute name="footer" />
