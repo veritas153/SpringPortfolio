@@ -12,9 +12,12 @@
 <body>
     <tiles:insertAttribute name="header"/>
     <div class="body-container">
-    	<tiles:insertAttribute name="sideMenu"/>        
-        <tiles:insertAttribute name="body" />
+    	<tiles:insertAttribute name="sideMenu"/> 
+    	<div>       
+        	<tiles:insertAttribute name="body" />
+        	<tiles:insertAttribute name="footer" />
+        </div>
     </div>                                                  
-    <tiles:insertAttribute name="footer" />
+  
 </body>
 </html>

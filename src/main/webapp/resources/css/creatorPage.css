@@ -13,6 +13,7 @@
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+	border-bottom: 1px solid lightgrey;
 }
 
 .headerMenu-container{
@@ -70,9 +71,57 @@
 	
 }
 
-.sideMenu-area{
+.sidemenu-area{
 	
 	margin: 70px 0 0;
-	padding: 15px 20px;
+	padding-top: 15px;
+	
+}
+
+.sidemenu-list{
+	
+	padding: 0 27px;
+	
+}
+
+.sidemenu{
+	
+    
+	font-size: 13px;	
+}
+
+.sidemenu-link{
+	padding: 10px 25px 10px 10px;
+	display: inherit;
+}
+
+.sidemenu-link:hover{
+	
+	text-decoration-line: none;
+	background-color: lightgrey;
+	
+}
+
+
+.sidemenu>a>span>span{
+	color: black;
+}
+
+.sidemenu>a>span>span:hover{
+	background-color: lightgrey;
+}
+
+
+.sidemenu>a>span>i{
+	
+	margin-right: 5px;
+	color: skyblue;
+	font-size: 20px;
+	
+}
+
+.sidemenu>a>span>span{
+	
+	vertical-align: top;
 	
 }

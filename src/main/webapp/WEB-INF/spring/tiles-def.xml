@@ -15,7 +15,7 @@
     <definition name=".vip" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
     	
     </definition>
-    <definition name=".creator" template="/WEB-INF/views/layout/vipPlanLayout.jsp" />
+ 
     
     <definition name=".creator" template="/WEB-INF/views/layout/creatorLayout.jsp">
     	<put-attribute name="title" value="" />
@@ -23,6 +23,8 @@
     	<put-attribute name="header" value="/WEB-INF/views/common/forCreator/creatorHeader.jsp"/>
     	<put-attribute name="menu" value="/WEB-INF/views/common/forCreator/creatorMenu.jsp"/>
     	<put-attribute name="footer" value="/WEB-INF/views/common/forCreator/creatorFooter.jsp"/>
+    </definition>
+    
      <!-- (4) VIP플랜 가입 레이아웃 -->
     <definition name=".subscription" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
 
