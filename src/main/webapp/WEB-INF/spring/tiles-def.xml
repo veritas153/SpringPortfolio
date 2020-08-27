@@ -15,6 +15,7 @@
     <definition name=".vip" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
     	
     </definition>
+    <definition name=".creator" template="/WEB-INF/views/layout/vipPlanLayout.jsp" />
     
     <definition name=".creator" template="/WEB-INF/views/layout/creatorLayout.jsp">
     	<put-attribute name="title" value="" />
@@ -22,6 +23,11 @@
     	<put-attribute name="header" value="/WEB-INF/views/common/forCreator/creatorHeader.jsp"/>
     	<put-attribute name="menu" value="/WEB-INF/views/common/forCreator/creatorMenu.jsp"/>
     	<put-attribute name="footer" value="/WEB-INF/views/common/forCreator/creatorFooter.jsp"/>
+     <!-- (4) VIP플랜 가입 레이아웃 -->
+    <definition name=".subscription" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
+
+    	<put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
+   
     </definition>
     
     <!-- (2) 레이아웃을 적용하는화면-->
@@ -32,6 +38,13 @@
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
+    
+    
+   
+    
+    <definition name="/vipClass/subscription" extends=".subscription">      
+      <put-attribute name="body" value="/WEB-INF/views/vip/signPlan.jsp" />
+    </definition>
     
     <!-- (1) -->    
     <definition name="/login/*" extends=".login"> <!-- 여기서 definition은 setViewName 경로를 적어놓는거! -->

@@ -133,7 +133,9 @@ public class HomeController {
 	
 	// VIP플랜 신청
 	
+
 	// VIP플랜 회원 확인
+
 	@RequestMapping(value = "/vipClass/subscription", method = RequestMethod.GET)
 	public ModelAndView vipPlanSignUpGet(ModelAndView mv, HttpServletRequest request) {
 		
