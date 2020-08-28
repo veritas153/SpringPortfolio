@@ -1,38 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="jumbotron jumbotron-fluid mb-0">
-	<div class="footer-upperContainer">
-		<div class="footer-menuBox">
-			<div class="footer-menu">Aurts</div>
-			<div class="menu-float">
-				<a href="<%=request.getContextPath()%>/">홈</a>
-			<div class="menu-float">
-				<a href="<%=request.getContextPath()%>/about">About us</a>
-			</div>
-		</div>
-		</div>
-		<div class="footer-menuBox">
-			<div class="footer-menu">크리에이터&강사</div>
-			<div class="menu-float">
-				<a href="#">강의개설 신청</a>
-			</div>
-			<div class="menu-float">
-				<a href="#">크리에이터 파트너 신청</a>
-			</div>
-		</div>
-		<div class="footer-menuBox">
-			<div class="footer-menu">기타</div>
-			<div class="menu-float">
-				<a href="#">English</a>
-			</div>
-			<div class="menu-float">
-				<a href="#">채용</a>
-			</div>
-			<div class="menu-float">
-				<a href="#">사이트맵</a>
-			</div>
-		</div>
-	</div>
 	<div class="footer-lowerContainer">
 
 			<div class="company">

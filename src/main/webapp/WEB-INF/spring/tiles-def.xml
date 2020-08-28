@@ -12,11 +12,12 @@
         <put-attribute name="footer" value="" />
     </definition>
     
+    <!-- VIP플랜 신청 -->
     <definition name=".vip" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
     	
     </definition>
  
-    
+    <!-- 크리에이터 센터 템플릿 -->
     <definition name=".creator" template="/WEB-INF/views/layout/creatorLayout.jsp">
     	<put-attribute name="title" value="" />
     	<put-attribute name="sideMenu" value="/WEB-INF/views/common/forCreator/creatorSideMenu.jsp" />
@@ -24,6 +25,14 @@
     	<put-attribute name="menu" value="/WEB-INF/views/common/forCreator/creatorMenu.jsp"/>
     	<put-attribute name="footer" value="/WEB-INF/views/common/forCreator/creatorFooter.jsp"/>
     </definition>
+    
+     <definition name=".applyClass" template="/WEB-INF/views/layout/applyClassLayout.jsp">
+    	<put-attribute name="title" value="" />
+    	<put-attribute name="header" value="/WEB-INF/views/common/forCreator/creatorHeader.jsp"/>
+    	<put-attribute name="menu" value="/WEB-INF/views/common/forCreator/creatorMenu.jsp"/>
+    	
+    </definition>
+    
     
      <!-- (4) VIP플랜 가입 레이아웃 -->
     <definition name=".subscription" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
@@ -60,6 +69,11 @@
     <definition name="/creator/creatorCenter/*" extends=".creator">
     	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/{1}.jsp" />
     </definition>
+    
+    <definition name="/creator/creatorCenter/applyClassSteps/*" extends=".applyClass">
+    	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/applyClassSteps/{1}.jsp" />
+    </definition>
+    
  
     <!-- (2) -->
    <definition name="/*/*" extends=".root">      

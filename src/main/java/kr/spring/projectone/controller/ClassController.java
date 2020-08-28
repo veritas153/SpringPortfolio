@@ -51,8 +51,27 @@ public class ClassController {
 	
 	// 크리에이터 기본 옵션 구현
 	@RequestMapping(value = "/creator", method = RequestMethod.GET)
-	public ModelAndView creatorGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/creatorStatus");
+	public ModelAndView creatorGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		PrintWriter printWriter = response.getWriter();
+		
+		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) {
+			mv.setViewName("/creator/creatorCenter/creatorStatus");	
+		} 
+		
+		if (user == null || user.getSt_value().equals("STUDENT")) {
+			
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('허용되지 않은 접근입니다!'); history.back(); </script>");
+			printWriter.flush();
+			printWriter.close();
+		
+		}
+		
+	
 		
 		return mv;
 	}
@@ -91,6 +110,31 @@ public class ClassController {
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
 		
 		userService.getInstructor(user);
+		
+		return mv;
+	}
+	
+	// 클래스 제작 신청
+	@RequestMapping (value = "creator/applyClass", method = RequestMethod.GET)
+	public ModelAndView createClassGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		PrintWriter printWriter = response.getWriter();
+		
+		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) {
+			mv.setViewName("/creator/creatorCenter/applyClassSteps/applyClass");	
+		} 
+		
+		if (user == null || user.getSt_value().equals("STUDENT")) {
+			
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('허용되지 않은 접근입니다!'); history.back(); </script>");
+			printWriter.flush();
+			printWriter.close();
+		
+		}
 		
 		return mv;
 	}

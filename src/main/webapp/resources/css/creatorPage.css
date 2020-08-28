@@ -6,6 +6,13 @@
 	background-color: #F7F5F2;
 }
 
+span, i, div{
+	
+	background-color: transparent;
+	
+}
+
+
 /* 크리에이터 헤더 부분*/
 
 .creatorPage-headerMenu{
@@ -66,8 +73,8 @@
 	
 	position: fixed;
 	width: 250px;
-	background-color: skyblue;
 	height: 100%;
+	border-right: 1px solid lightgrey;
 	
 }
 
@@ -87,7 +94,7 @@
 .sidemenu{
 	
     
-	font-size: 13px;	
+	font-size: 12px;	
 }
 
 .sidemenu-link{
@@ -124,4 +131,187 @@
 	
 	vertical-align: top;
 	
+}
+
+/* 메인 페이지 파트*/
+
+.creatorMain-container{
+	
+	padding: 71px 0 0 0;
+	margin: 0 32px 71px auto;
+	width: calc(100% - 315px);
+	right: 0;
+	position: absolute;
+	
+}
+
+.status-container{
+	
+	margin: 30px 80px;
+	height: 600px;
+	
+}
+
+.statusManagement-container{
+	
+	display: inline-flex;
+	
+}
+
+
+.classList-container{
+	
+	width: 500px;
+	display: inline-block;
+	
+}
+
+.classList-title>span{
+	
+	font-size: 18px;
+	font-weight: bold;
+	left: 0;
+	
+}
+.addClass{
+	
+	color: royalblue;
+	float: right;
+	
+}
+.addClass:after{
+	
+	clear: both;
+	display: block;
+	content: '';
+	
+}
+
+.classList-lineUp{
+	
+	margin-top: 20px;
+	height: 400px;
+	overflow: scroll;
+	 -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    
+}
+
+.classList-lineUp::-webkit-scrollbar {
+    display: none; 
+}
+
+.classMenu{
+	
+	width: 100%;
+	height: 80px;
+	padding: 15px;
+	background-color: lavender;
+	display: block;
+	border: 1px solid turquoise;
+}
+
+.class-instructor{
+	
+	color: black;
+	font-size: 13px;
+	display: block;
+	
+}
+
+.class-name{
+	
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+	
+	
+}
+
+.classMenu-link:hover{
+	
+	text-decoration: none;
+	
+}
+
+.class-detail{
+	
+	font-size: 12px;
+	float: right;
+	line-height: 25px;
+}
+
+.individualGuide-container{
+	
+	margin-left: 72px;
+	width: 300px;
+	
+}
+
+.individualGuideline>header>span{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.individualGuideline-menu-container{
+	
+	margin-top: 20px;
+	border: 1px solid lightgrey;
+	
+}
+
+.individualGuideline-menu{
+	
+	padding: 20px;
+	
+}
+
+.guideline-menu>span{
+	
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+	
+}
+
+.sub-description{
+	
+	margin-top: 8px;
+    color: rgb(133, 138, 141);
+	font-size: 12px;
+	
+}
+.guideline-menu{
+	
+	margin-bottom: 20px;
+	
+}
+
+
+/* 클래스 신청 페이지 */
+
+.applyClass-leftContainer{
+	
+	width:350px;
+	padding-top: 70px;
+	border: 1px solid lightgrey;
+	display: inline-block;
+	
+}
+
+.applyClass-stepContainer{
+	
+	margin-top: 30px;
+	
+}
+
+
+/* 크리에이터 센터 푸터*/
+
+.jumbotron.jumbotron-fluid.mb-0{
+
+
+    position: absolute;
+    right: 0;
+    margin: 0 80px;
 }

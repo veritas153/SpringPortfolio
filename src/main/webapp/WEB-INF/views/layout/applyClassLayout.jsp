@@ -12,10 +12,10 @@
 <body>
     <tiles:insertAttribute name="header"/>
     <div class="body-container">
-    	<tiles:insertAttribute name="sideMenu"/> 
-    	<div class="creatorMain-container">       
+    	
+    	   
         	<tiles:insertAttribute name="body" />
-        	<tiles:insertAttribute name="footer" />
+        	
         </div>
     </div>                                                  
   
