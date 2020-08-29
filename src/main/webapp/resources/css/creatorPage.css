@@ -305,6 +305,76 @@ span, i, div{
 	
 }
 
+.applyClass-steps{
+	
+	padding: 12px 30px 12px 40px;
+    font-size: 20px;
+    color: cornflowerblue;
+	
+}
+
+.applyClass-steps:hover{
+	
+	background-color: rgb(133, 138, 141);
+	color: white;
+	
+}
+
+.applyClass-rightContainer{
+	
+	position: absolute;
+	display: inline-flex;
+	justify-content: center;
+	margin-top: 70px;
+	-webkit-box-pack: center;
+    
+	
+}
+.applyClass-classInfos, 
+.applyClass-introductionAndImage, 
+.applyClass-classSurvey, 
+.applyClass-creatorInfo, 
+.applyClass-classData, 
+.applyClass-confirmClasss{
+	
+	width: 900px;
+	padding: 30px;
+}
+
+.applyclass-basicInfo{
+	
+	
+}
+
+.progress-title{
+	
+	font-weight: bold;
+	font-size: 23px;
+	
+}
+
+.progress-description{
+	
+	margin-top: 12px;
+	color: dimgrey;
+}
+
+.basicInfo-title{
+	
+	margin-bottom: 25px;
+	
+}
+
+.menu-toggle{
+	display: none;
+}
+
+
+
+
+.applyClass-previewStatus{
+	
+}
 
 /* 크리에이터 센터 푸터*/
 

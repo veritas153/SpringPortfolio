@@ -143,7 +143,7 @@ public class ClassController {
 	// 집에서 작업할 백링크용!
 	@RequestMapping(value = "/backLink", method = RequestMethod.GET)
 	public ModelAndView backLinkGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/creatorStatus");
+		mv.setViewName("/creator/creatorCenter/applyClassSteps/applyClass");
 		
 		return mv;
 	}
