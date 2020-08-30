@@ -54,7 +54,7 @@
 						<option value="#">영상/편집</option>
 					</select>
 				</div>
-				<div class="progress-title">
+				<div>
 					<div>클래스 제목</div>
 					<input type="text" class="class_name" name="class_name" id="class_name" placeholder="클래스 제목을 입력하세요">
 				</div>
