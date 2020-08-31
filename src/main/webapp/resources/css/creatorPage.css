@@ -66,6 +66,13 @@ span, i, div{
 	
 }
 
+.logo-home{
+	
+	display: inline-block;
+	
+}
+
+
 
 /* 크리에이터 사이드 메뉴 */
 
@@ -305,6 +312,19 @@ span, i, div{
 	
 }
 
+#class-basicInfo{
+	
+	
+}
+
+#class-basicInfo:hover, 
+#class-introduction:hover,
+#class-creatorIntroduction:hover{
+	
+	text-decoration: none;
+	
+}
+
 .applyClass-steps{
 	
 	padding: 12px 30px 12px 40px;
@@ -331,10 +351,8 @@ span, i, div{
 	
 }
 .applyClass-classInfos, 
-.applyClass-introductionAndImage, 
-.applyClass-classSurvey, 
+.applyClass-introduction, 
 .applyClass-creatorInfo, 
-.applyClass-classData, 
 .applyClass-confirmClasss{
 	
 	width: 900px;
@@ -365,14 +383,49 @@ span, i, div{
 	
 }
 
-.menu-toggle{
-	display: none;
+
+/* 클래스 미리보기 */
+
+.applyClass-classPreview{
+	
+
+	
+}
+
+.applyClass-previewStatus{
+	
+	min-width: 310px;
+	
+}
+
+.image-previewImage{
+	
+
+	width: 100%;
+	
+}
+
+.col-md-4{
+	
+	max-width: 310px;
+	
+}
+
+.class-info{
+	
+	margin: 0px;
+    display: inline;
+    font-weight: bold;
+    font-size: 10px;
+    color: black;
+    padding: 20px;
 }
 
 
-
-
-.applyClass-previewStatus{
+#previewImage{
+	
+	width: 100%;
+	height: 210px;
 	
 }
 

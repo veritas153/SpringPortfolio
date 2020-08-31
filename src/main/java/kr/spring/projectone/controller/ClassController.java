@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.projectone.service.UserService;
@@ -147,7 +148,40 @@ public class ClassController {
 		
 		return mv;
 	}
-		
+	
+
+	@RequestMapping(value = "/backLink/firstStep", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView backLinkOneGet(ModelAndView mv) {
+		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/firstStep");
+	
+		return mv;
+	}
+	
+	@RequestMapping(value = "/backLink/secondStep", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView backLinkSecondGet(ModelAndView mv) {
+		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/secondStep");
+	
+		return mv;
+	}
+	
+	@RequestMapping(value = "/backLink/thirdStep", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView backLinkThirdGet(ModelAndView mv) {
+		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/thirdStep");
+	
+		return mv;
+	}
+	
+	
+	@RequestMapping(value = "/backLink/finalStep", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView backLinkFinalGet(ModelAndView mv) {
+		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/finalStep");
+	
+		return mv;
+	}
 	
 	
 }
