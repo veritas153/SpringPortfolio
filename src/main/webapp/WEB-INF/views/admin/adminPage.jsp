@@ -7,19 +7,16 @@
 			<div class="classList">
 				<header class="classList-title">
 					<span>클래스 신청 현황</span>
-					<a href="<%=request.getContextPath()%>/creator/applyClass">
-						<span class="addClass">
-							<i class="fas fa-plus"></i> 새로운 클래스
-						</span>
-					</a>
 				</header>
 				<div class="classList-lineUp">
 					<a href="#" class="classMenu-link">
 						<div class="classMenu">
-							<span class="class-instructor" name="st_name">김무스</span>
+							<span class="class-instructor" name="st_name"></span>
 							<div class="classTitle">
-								<span class="class-name" name="class_name">무스무스무스</span>
-								<span class="class-detail"><i class="fas fa-angle-double-right"></i>상세정보 확인</span>
+								<span class="class-name" name="class_name"></span>
+								<a href="javascript:void(0)">
+									<span class="class-detail"><i class="fas fa-angle-double-right"></i>상세정보 확인</span>
+								</a>	
 							</div>
 						</div>
 					</a>
