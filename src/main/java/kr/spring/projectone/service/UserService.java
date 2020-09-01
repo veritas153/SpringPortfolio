@@ -14,6 +14,6 @@ public interface UserService {
 	
 	UserVo getUser(String st_id);
 
-	UserVo getInstructor(UserVo user);
+	void getInstructor(UserVo user);
 
 }

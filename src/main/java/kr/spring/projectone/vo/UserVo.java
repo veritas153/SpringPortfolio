@@ -7,6 +7,7 @@ public class UserVo {
 	private String st_id;
 	private String st_password;
 	private String st_name;
+	private String st_creator;
 	private String st_phoneNumber;
 	private Date st_joinDate;
 	private String st_email;
@@ -32,6 +33,13 @@ public class UserVo {
 	}
 	public void setSt_name(String st_name) {
 		this.st_name = st_name;
+	}
+	
+	public String getSt_creator() {
+		return st_creator;
+	}
+	public void setSt_creator(String st_creator) {
+		this.st_creator = st_creator;
 	}
 	public String getSt_phoneNumber() {
 		return st_phoneNumber;
@@ -72,9 +80,9 @@ public class UserVo {
 	
 	@Override
 	public String toString() {
-		return "UserVo [st_id=" + st_id + ", st_password=" + st_password + ", st_name=" + st_name + ", st_phoneNumber="
-				+ st_phoneNumber + ", st_joinDate=" + st_joinDate + ", st_email=" + st_email + ", st_vip=" + st_vip
-				+ ", st_vipDue=" + st_vipDue + ", st_value=" + st_value + "]";
+		return "UserVo [st_id=" + st_id + ", st_password=" + st_password + ", st_name=" + st_name + ", st_creator="
+				+ st_creator + ", st_phoneNumber=" + st_phoneNumber + ", st_joinDate=" + st_joinDate + ", st_email="
+				+ st_email + ", st_vip=" + st_vip + ", st_vipDue=" + st_vipDue + ", st_value=" + st_value + "]";
 	}
 	
 	

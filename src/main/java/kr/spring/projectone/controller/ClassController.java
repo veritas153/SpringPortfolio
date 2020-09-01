@@ -106,12 +106,17 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "creator/joinCreator", method = RequestMethod.POST)
-	public ModelAndView joinCreatorPost(ModelAndView mv, HttpServletRequest request) {
+	public ModelAndView joinCreatorPost(ModelAndView mv, HttpServletRequest request, String st_creator) {
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
 		
-		userService.getInstructor(user);
-		
+		mv.setViewName("redirect:/");
+		if (user != null) {
+			user.setSt_creator(st_creator);
+			user.setSt_value("CREATOR");
+			userService.getInstructor(user);
+			request.getSession().setAttribute("user", user); // 해당 세션이 있으면 덮어쓰기 처리됨
+		}
 		return mv;
 	}
 	

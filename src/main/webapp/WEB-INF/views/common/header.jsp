@@ -24,6 +24,10 @@
 	</c:if>
 	<c:if test="${user != null}">
 		<div class="log-container">
+			<c:if test="${user.st_value == 'ADMIN'}">
+				<div class="">관리자 ON</div>
+				<a href="<%=request.getContextPath()%>/admin">관리자 페이지</a>
+			</c:if>
 			<c:if test="${user.st_value == 'CREATOR'}">
 				<a href="<%=request.getContextPath()%>/creator">크리에이터 센터</a>
 			</c:if>

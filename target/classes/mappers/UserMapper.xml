@@ -17,9 +17,10 @@
  
  	<update id="getInstructor">
  		update student 
- 			set st_value = 'CREATOR'
- 			where st_id = #{user.id};
+ 			set st_value = #{user.st_value}, st_creator = #{user.st_creator}
+ 			where st_id = #{user.st_id};
  	</update>
+ 
  
  
 </mapper>

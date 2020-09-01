@@ -3,14 +3,9 @@
 *{
 	margin: 0;
 	padding: 0;
-	background-color: #F7F5F2;
+
 }
 
-span, i, div{
-	
-	background-color: transparent;
-	
-}
 
 
 /* 크리에이터 헤더 부분*/
@@ -21,6 +16,7 @@ span, i, div{
 	width: 100%;
 	z-index: 1;
 	border-bottom: 1px solid lightgrey;
+	background-color: white;
 }
 
 .headerMenu-container{
@@ -78,6 +74,7 @@ span, i, div{
 
 .sideMenu-container{
 	
+	magin-top: 70px;
 	position: fixed;
 	width: 250px;
 	height: 100%;
@@ -86,8 +83,7 @@ span, i, div{
 }
 
 .sidemenu-area{
-	
-	margin: 70px 0 0;
+
 	padding-top: 15px;
 	
 }
@@ -300,7 +296,7 @@ span, i, div{
 .applyClass-leftContainer{
 	
 	width:350px;
-	padding-top: 70px;
+	margin-top: 70px;
 	border: 1px solid lightgrey;
 	display: inline-block;
 	
@@ -308,7 +304,7 @@ span, i, div{
 
 .applyClass-stepContainer{
 	
-	margin-top: 30px;
+	padding-top: 30px;
 	
 }
 
@@ -319,7 +315,8 @@ span, i, div{
 
 #class-basicInfo:hover, 
 #class-introduction:hover,
-#class-creatorIntroduction:hover{
+#class-creatorIntroduction:hover,
+#class-confirmFinal:hover{
 	
 	text-decoration: none;
 	
@@ -350,17 +347,15 @@ span, i, div{
     
 	
 }
-.applyClass-classInfos, 
-.applyClass-introduction, 
-.applyClass-creatorInfo, 
-.applyClass-confirmClasss{
+.applyClass-classInfos{
 	
 	width: 900px;
 	padding: 30px;
 }
 
-.applyclass-basicInfo{
+.display-toggle{
 	
+	display: none;
 	
 }
 
@@ -411,6 +406,12 @@ span, i, div{
 	
 }
 
+.col-md-4:hover{
+	
+		
+	
+}
+
 .class-info{
 	
 	margin: 0px;
@@ -428,6 +429,103 @@ span, i, div{
 	height: 210px;
 	
 }
+
+#type{
+	float: right;
+}
+
+
+.class-title{
+	
+	margin-top: 10px;
+	font-size: 18px;
+	
+}
+
+.class-info::after{
+	
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.class-image{
+	
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: inherit;
+    background-color: black;
+    
+}
+
+.class-image>img {
+    width: 100%;
+    height: 210px;
+    opacity: 1;
+    transition: 0.3s ease;
+}
+	
+.class-image>figcaption{
+	
+	position: absolute;
+    z-index: 1;
+    margin: 15px;
+    padding: 15px;
+    font-size: 13px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    border: 1px solid white;
+    transition: 0.3s ease;
+	
+}	
+
+
+.d-flex{
+	
+	margin: 15px;
+    float: right;
+    margin-top: 10px
+	
+}
+
+.d-flex::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.sub-group {
+    margin: 0;
+    display: inline-flex;
+    float: left;
+}
+
+.recommend-number, .like-number {
+    width: 60px;
+    height: 30px;
+    border: 1px solid grey;
+    background-color: honeydew;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption{
+	
+	opacity: 1;
+	
+}
+
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
 
 /* 크리에이터 센터 푸터*/
 

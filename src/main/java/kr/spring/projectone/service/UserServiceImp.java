@@ -72,10 +72,13 @@ public class UserServiceImp implements UserService{
 
 
 	@Override
-	public UserVo getInstructor(UserVo user) {
+	public void getInstructor(UserVo user) {
 		
-		return userDao.getInstructor(user);
+		userDao.getInstructor(user);
 	}
+
+
+	
 
 
 
