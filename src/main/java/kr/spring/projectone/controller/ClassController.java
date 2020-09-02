@@ -24,6 +24,8 @@ import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.utils.UploadFileUtils;
 import kr.spring.projectone.vo.TemporaryClassVo;
+import kr.spring.projectone.vo.TemporaryMainChapterVo;
+import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
 
 /**
@@ -153,7 +155,7 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "creator/applyClass", method = RequestMethod.POST)
-	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image) throws Exception {
+	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub) throws Exception {
 		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -182,6 +184,10 @@ public class ClassController {
 				mv.setViewName("redirect:/creator");
 				
 			}
+			if (ongoing == false) {
+				mv.setViewName("redirect:/creator/applyClass");
+			}
+			
 		} 
 		
 		return mv;

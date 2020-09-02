@@ -151,11 +151,11 @@ $(function(){
 	// 메인 챕터
 	$('#add-mainChapter').on('click', function(){
 					
-		var addMainInput = "<div class=\"section-wholeChapter\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\"></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
+		var addMainInput = "<div class=\"section-wholeChapter\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
 		$('#addCurriculum').append(addMainInput);
 		
 		// 소챕터
-		$('.add-subChapter').on('click', function(){
+		$('.add-subChapter').off("click").on('click', function(){ // off로 중복 적용 방지!
 					
 			var addInput = "<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a>"
 			$(this).prev().append(addInput);
@@ -169,13 +169,16 @@ $(function(){
 					
 		});
 		
-		$('.delete-subChapter').last().click(function(){
-			$(this).prev().remove();
-			$(this).remove();
+		// 메인챕터 삭제 구문
+		$('.delete-mainChapter').click(function(){
+			$(this).parents('.section-wholeChapter').remove();
+		
 			
 		});
 		
-		// 메인챕터
+	
+		
+		
 		
 					
 	});

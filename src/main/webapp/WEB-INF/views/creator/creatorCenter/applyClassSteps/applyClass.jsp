@@ -96,7 +96,7 @@
 								<option value="6">6개월</option>
 								<option value="12">12개월</option>
 							</select>
-							<input type="text" placeholder="가격을 입력해주세요" id="addClass_price" name="addClass_price">
+							<input type="number" placeholder="가격을 입력해주세요" id="addClass_price" name="addClass_price">
 						</div>
 					</div>
 					<div class="class-setPackage">
