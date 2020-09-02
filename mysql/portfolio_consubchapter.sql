@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `study`
+-- Table structure for table `consubchapter`
 --
 
-DROP TABLE IF EXISTS `study`;
+DROP TABLE IF EXISTS `consubchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `study` (
-  `study_chapter` varchar(50) NOT NULL,
-  `study_num` int DEFAULT NULL,
-  `study_title` varchar(255) DEFAULT NULL,
-  `study_class_code` varchar(50) NOT NULL,
-  PRIMARY KEY (`study_chapter`)
+CREATE TABLE `consubchapter` (
+  `conSubChapter_title` varchar(255) NOT NULL,
+  `conSubChapter_number` int NOT NULL,
+  `conSubChapter_content` longtext NOT NULL,
+  `conMainChapter_conSubchapter_title` varchar(255) NOT NULL,
+  PRIMARY KEY (`conSubChapter_title`),
+  KEY `conMainChapter_conSubChapter_title_idx` (`conMainChapter_conSubchapter_title`),
+  CONSTRAINT `conMainChapter_conSubChapter_title` FOREIGN KEY (`conMainChapter_conSubchapter_title`) REFERENCES `conmainchapter` (`conMainChapter_title`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `study`
+-- Dumping data for table `consubchapter`
 --
 
-LOCK TABLES `study` WRITE;
-/*!40000 ALTER TABLE `study` DISABLE KEYS */;
-/*!40000 ALTER TABLE `study` ENABLE KEYS */;
+LOCK TABLES `consubchapter` WRITE;
+/*!40000 ALTER TABLE `consubchapter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `consubchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-01 17:51:33
+-- Dump completed on 2020-09-02 17:45:40

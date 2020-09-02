@@ -42,7 +42,7 @@ $(function(){
 		$('.applyClass-basicInfo').removeClass('display-toggle');
 		$('.applyClass-introduction').addClass('display-toggle');
 		$('.applyClass-creatorInfo').addClass('display-toggle');
-		
+		$('.applyClass-classCheck').addClass('display-toggle');
 	});
 		
 	// 둘째 버튼
@@ -52,7 +52,7 @@ $(function(){
 		$('.applyClass-introduction').removeClass('display-toggle');
 		$('.applyClass-basicInfo').addClass('display-toggle');
 		$('.applyClass-creatorInfo').addClass('display-toggle');
-		
+		$('.applyClass-classCheck').addClass('display-toggle');
 	});
 	
 	// 셋째 버튼 추가
@@ -61,28 +61,32 @@ $(function(){
 		$('.applyClass-basicInfo').addClass('display-toggle');
 		$('.applyClass-introduction').addClass('display-toggle');
 		$('.applyClass-creatorInfo').removeClass('display-toggle');
-		
+		$('.applyClass-classCheck').addClass('display-toggle');
 	
 	});
 	
 	// 마지막 버튼 추가
 	$('#class-confirmFinal').on('click',function(){
-	
+		
+		$('.applyClass-basicInfo').addClass('display-toggle');
+		$('.applyClass-introduction').addClass('display-toggle');
+		$('.applyClass-creatorInfo').addClass('display-toggle');
+		$('.applyClass-classCheck').removeClass('display-toggle');
 		
 		
 	});
 	
 		// 카테고리 반영
 				
-				$("#classCategory").change(function(){
-					$("#type").text($("#classCategory").val());
+				$("#addClass_category").change(function(){
+					$("#type").text($("#addClass_category").val());
 				});
 				
 				// 제목 입력 반영
 				
-				$("#class_name").keyup(function(){
-					$("#class-title").text($("#class_name").val());
-					$("#image-container-title").text($("#class_name").val());
+				$("#addClass_name").keyup(function(){
+					$("#class-title").text($("#addClass_name").val());
+					$("#image-container-title").text($("#addClass_name").val());
 				});
 				
 				// 간단한 설명 반영
@@ -92,7 +96,7 @@ $(function(){
 				});
 				
 				// 썸네일
-				$("#imageFile").change(function() {
+				$("#addClass_image").change(function() {
    					getThumbNail(this);
 				});
 	
@@ -110,17 +114,17 @@ $(function(){
 	}
 	
 	// 패키지 유무 확인 스크립트
-	$('input[type=radio][name=setPackage]').on('click',function(){
+	$('input[type=radio][name=addClass_hasPackage]').on('click',function(){
 	
-		var value = $('input[type=radio][name=setPackage]:checked').val();
+		var value = $('input[type=radio][name=addClass_hasPackage]:checked').val();
 	
 		if (value == 'y'){
-			console.log(value);
+
 			$('.setPackageContent').css('display', 'block');
 		}
 		
 		if (value == 'n'){
-			console.log(value);
+
 			$('.setPackageContent').css('display', 'none');
 
 		}
@@ -131,8 +135,14 @@ $(function(){
 	// 소챕터
 	$('.add-subChapter').on('click', function(){
 					
-		var addInput = "<input type=\"text\" name=\"add-subChapter\" id=\"add-subChapter\"><a href=\"javascript:void(0)\" id=\"delete-subChapter\" name=\"delete-subChapter\"><i class=\"fas fa-times\"></i></a>"
+		var addInput = "<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a>"
 		$(this).prev().append(addInput);
+		
+		$('.delete-subChapter').last().click(function(){
+			$(this).prev().remove();
+			$(this).remove();
+			
+		});
 					
 					
 	});
@@ -141,26 +151,43 @@ $(function(){
 	// 메인 챕터
 	$('#add-mainChapter').on('click', function(){
 					
-		var addMainInput = "<div class=\"section-wholeChapter\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"mainChapter\" id=\"mainChapter\"></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"subChapter\" id=\"subChapter\"></div><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
+		var addMainInput = "<div class=\"section-wholeChapter\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\"></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
 		$('#addCurriculum').append(addMainInput);
-		$('.add-subChapter').last().on('click', function(){
+		
+		// 소챕터
+		$('.add-subChapter').on('click', function(){
 					
-			var addInput = "<input type=\"text\" name=\"add-subChapter\" id=\"add-subChapter\">"
+			var addInput = "<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a>"
 			$(this).prev().append(addInput);
-						
-						
+		
+			$('.delete-subChapter').last().click(function(){
+				$(this).prev().remove();
+				$(this).remove();
+			
+			});
+					
+					
 		});
+		
+		$('.delete-subChapter').last().click(function(){
+			$(this).prev().remove();
+			$(this).remove();
+			
+		});
+		
+		// 메인챕터
+		
 					
 	});
 
 
 	// 썸머노트 추가
 		
-	$('#packageList').summernote({
+	$('#addClass_setPackage').summernote({
 		
 	});
 	
-	$('#creatorIntroduction').summernote({
+	$('#addClass_creator').summernote({
 		
 	});
 		

@@ -17,9 +17,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
+import kr.spring.projectone.utils.UploadFileUtils;
+import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.UserVo;
 
 /**
@@ -32,6 +36,9 @@ public class ClassController {
 	
 	@Autowired
 	private UserService userService;
+	private ClassService classService;
+	
+	private String uploadPath = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -145,6 +152,43 @@ public class ClassController {
 		return mv;
 	}
 	
+	@RequestMapping (value = "creator/applyClass", method = RequestMethod.POST)
+	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image) throws Exception {
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		PrintWriter printWriter = response.getWriter();
+		
+		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) { // 예상치 못한 접근에 대비하기 위한 조건
+			
+			boolean ongoing = classService.submitClass(tempClass); // 이미지를 제외한 필수 정보 입력이 모두 완료된 상태이면 vo로 정보를 입력 한 다음 true로 돌려주는 함수
+			
+			if (ongoing == true) {
+				
+				// 여기서는 true로 반환된 경우에 한정되서 진행할 추가 작업.
+				
+				String file = UploadFileUtils.uploadFile(uploadPath, addClass_image.getOriginalFilename(), addClass_image.getBytes());
+				tempClass.setAddClass_image(file);
+				
+				
+			
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); </script>");
+				printWriter.flush();
+				printWriter.close();
+				
+				request.getSession().setAttribute("user", user);
+				mv.setViewName("redirect:/creator");
+				
+			}
+		} 
+		
+		return mv;
+	}
+	
+	
+	
 	
 	// 집에서 작업할 백링크용!
 	@RequestMapping(value = "/backLink", method = RequestMethod.GET)
@@ -154,39 +198,6 @@ public class ClassController {
 		return mv;
 	}
 	
-
-	@RequestMapping(value = "/backLink/firstStep", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView backLinkOneGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/firstStep");
-	
-		return mv;
-	}
-	
-	@RequestMapping(value = "/backLink/secondStep", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView backLinkSecondGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/secondStep");
-	
-		return mv;
-	}
-	
-	@RequestMapping(value = "/backLink/thirdStep", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView backLinkThirdGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/thirdStep");
-	
-		return mv;
-	}
-	
-	
-	@RequestMapping(value = "/backLink/finalStep", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView backLinkFinalGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/applyClassSteps/followingSteps/finalStep");
-	
-		return mv;
-	}
 	
 	
 }

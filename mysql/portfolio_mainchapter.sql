@@ -16,27 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `comment`
+-- Table structure for table `mainchapter`
 --
 
-DROP TABLE IF EXISTS `comment`;
+DROP TABLE IF EXISTS `mainchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `comment` (
-  `comment_num` int NOT NULL,
-  `comment_board_num` int NOT NULL,
-  `comment_content` longtext,
-  PRIMARY KEY (`comment_num`)
+CREATE TABLE `mainchapter` (
+  `mainChapter_chapter` varchar(50) NOT NULL,
+  `mainChapter_num` int DEFAULT NULL,
+  `mainChapter_title` varchar(255) DEFAULT NULL,
+  `mainChapter_class_code` varchar(50) NOT NULL,
+  PRIMARY KEY (`mainChapter_chapter`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `comment`
+-- Dumping data for table `mainchapter`
 --
 
-LOCK TABLES `comment` WRITE;
-/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+LOCK TABLES `mainchapter` WRITE;
+/*!40000 ALTER TABLE `mainchapter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mainchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-02 17:45:39
+-- Dump completed on 2020-09-02 17:45:41

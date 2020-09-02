@@ -23,9 +23,25 @@ DROP TABLE IF EXISTS `addclass`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `addclass` (
-  `addClass_code` varchar(255) NOT NULL,
+  `addClass_code` varchar(20) NOT NULL,
+  `addclass_title` varchar(255) NOT NULL,
+  `addclass_category` varchar(20) NOT NULL,
+  `addclass_thumbIntro` varchar(100) NOT NULL,
+  `addclass_image` varchar(255) DEFAULT NULL,
+  `addclass_introduction` longtext NOT NULL,
+  `addclass_monthly` int NOT NULL,
+  `addclass_price` int NOT NULL,
+  `addclass_hasPackage` varchar(1) NOT NULL,
+  `addclass_setPackage` longtext,
+  `addclass_difficulty` varchar(20) NOT NULL,
+  `addclass_creator` longtext NOT NULL,
+  `addclass_submitDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `addclass_confirm` varchar(1) NOT NULL DEFAULT 'W',
+  `addclass_openDate` datetime NOT NULL,
   `addClass_st_id` varchar(20) NOT NULL,
-  PRIMARY KEY (`addClass_code`)
+  PRIMARY KEY (`addClass_code`),
+  KEY `addClass_st_id_idx` (`addClass_st_id`),
+  CONSTRAINT `addClass_st_id` FOREIGN KEY (`addClass_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -47,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-01 17:51:35
+-- Dump completed on 2020-09-02 17:45:39

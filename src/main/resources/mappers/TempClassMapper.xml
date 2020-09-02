@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.projectone.dao.TempClassDao">
+
+	<insert id="submitTempClass">
+		select into
+			addClass(addClass_code,addClass_title,addClass_category,addClass_thumbIntro,addClass_introduction,addClass_monthly,addClass_price,addClass_hasPackage,addClass_setPackage,addClass_difficulty,addClass_creator,addClass_st_id)
+			values(${tempClass.addClass_code},${tempClass.addClass_title},${tempClass.addClass_category},${tempClass.addClass_thumbIntro},${tempClass.addClass_introduction},${tempClass.addClass_monthly},${tempClass.addClass_price},${tempClass.addClass_hasPackage},${tempClass.addClass_setPackage},${tempClass.addClass_difficulty},${tempClass.addClass_creator},${user.st_id});
+	</insert>
+	
+
+</mapper>

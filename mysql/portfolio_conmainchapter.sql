@@ -16,27 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `comment`
+-- Table structure for table `conmainchapter`
 --
 
-DROP TABLE IF EXISTS `comment`;
+DROP TABLE IF EXISTS `conmainchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `comment` (
-  `comment_num` int NOT NULL,
-  `comment_board_num` int NOT NULL,
-  `comment_content` longtext,
-  PRIMARY KEY (`comment_num`)
+CREATE TABLE `conmainchapter` (
+  `conMainChapter_title` varchar(255) NOT NULL,
+  `conMainChapter_num` int NOT NULL,
+  `conMainChapter_addClass_code` varchar(20) NOT NULL,
+  PRIMARY KEY (`conMainChapter_title`),
+  KEY `conMainChapter_addClass_code_idx` (`conMainChapter_addClass_code`),
+  CONSTRAINT `conMainChapter_addClass_code` FOREIGN KEY (`conMainChapter_addClass_code`) REFERENCES `addclass` (`addClass_code`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `comment`
+-- Dumping data for table `conmainchapter`
 --
 
-LOCK TABLES `comment` WRITE;
-/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+LOCK TABLES `conmainchapter` WRITE;
+/*!40000 ALTER TABLE `conmainchapter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conmainchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

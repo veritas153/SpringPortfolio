@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `subchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `subchapter` (
+  `subChapter_name` varchar(255) NOT NULL,
   `subChapter_num` varchar(10) NOT NULL,
-  `subChapter_name` varchar(255) DEFAULT NULL,
   `subChapter_content` longtext,
   `source_num` int NOT NULL,
   `subChapter_study_chapter` varchar(50) NOT NULL,
-  PRIMARY KEY (`subChapter_num`)
+  PRIMARY KEY (`subChapter_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-01 17:51:34
+-- Dump completed on 2020-09-02 17:45:41
