@@ -38,6 +38,7 @@ public class ClassController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
 	private ClassService classService;
 	
 	private String uploadPath = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
@@ -63,6 +64,8 @@ public class ClassController {
 	@RequestMapping(value = "/creator", method = RequestMethod.GET)
 	public ModelAndView creatorGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		// 요건 접근 제한 코드
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
@@ -81,8 +84,11 @@ public class ClassController {
 		
 		}
 		
-	
+		// 요건 신청한 데이터가 있으면 뿌려주는 거
 		
+		TemporaryClassVo tempClass = classService.getMySubmitClass(user.getSt_id());
+		mv.addObject("tempClass", tempClass);
+
 		return mv;
 	}
 	
@@ -155,27 +161,35 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "creator/applyClass", method = RequestMethod.POST)
-	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub) throws Exception {
+	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image2, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub) throws Exception {
 		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		System.out.println(tempClass);
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
 		PrintWriter printWriter = response.getWriter();
 		
 		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) { // 예상치 못한 접근에 대비하기 위한 조건
 			
+			tempClass.setAddClass_st_id(user.getSt_id());
 			boolean ongoing = classService.submitClass(tempClass); // 이미지를 제외한 필수 정보 입력이 모두 완료된 상태이면 vo로 정보를 입력 한 다음 true로 돌려주는 함수
+			
+			System.out.println(ongoing);
 			
 			if (ongoing == true) {
 				
 				// 여기서는 true로 반환된 경우에 한정되서 진행할 추가 작업.
 				
-				String file = UploadFileUtils.uploadFile(uploadPath, addClass_image.getOriginalFilename(), addClass_image.getBytes());
+				String file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(), addClass_image2.getBytes());
 				tempClass.setAddClass_image(file);
 				
-				
+				classService.insertImage(user.getSt_id(), file);
 			
+				
+				
+				
 				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); </script>");
 				printWriter.flush();
 				printWriter.close();

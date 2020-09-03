@@ -9,7 +9,7 @@
 				<img class="logo" src="<%=request.getContextPath()%>/resources/image/logo.png" width="200" height="40" >
 			</a>
 			<a class="logo-home" href="<%=request.getContextPath()%>/creator">
-				<img class="logo" src="<%=request.getContextPath()%>/resources/image/creatorCenterLogo.jpg" width="200" height="40" >
+				<img class="logo" src="<%=request.getContextPath()%>/resources/image/adminpageLogo.jpg" width="200" height="40" >
 			</a>
 		</div>
 	</div>

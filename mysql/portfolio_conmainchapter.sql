@@ -23,10 +23,11 @@ DROP TABLE IF EXISTS `conmainchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `conmainchapter` (
+  `conMainChapter_priNum` int NOT NULL AUTO_INCREMENT,
   `conMainChapter_title` varchar(255) NOT NULL,
   `conMainChapter_num` int NOT NULL,
   `conMainChapter_addClass_code` varchar(20) NOT NULL,
-  PRIMARY KEY (`conMainChapter_title`),
+  PRIMARY KEY (`conMainChapter_priNum`),
   KEY `conMainChapter_addClass_code_idx` (`conMainChapter_addClass_code`),
   CONSTRAINT `conMainChapter_addClass_code` FOREIGN KEY (`conMainChapter_addClass_code`) REFERENCES `addclass` (`addClass_code`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-02 17:45:39
+-- Dump completed on 2020-09-03 18:40:22

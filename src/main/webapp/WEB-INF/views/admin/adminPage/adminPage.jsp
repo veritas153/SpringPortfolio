@@ -2,60 +2,55 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+  
 <div class="status-container">
 	<div class="statusManagement-container">
 		<div class="classList-container">
-			<div class="classList">
+			<c:if test="${tempClass ne null}">
+				<div class="classList">
+					<header class="classList-title">
+						<span>클래스 신청 현황</span>
+					</header>
+					<form>
+						<div class="classList-lineUp">
+							<c:if test="${tempClass.size()!=0}">
+								<c:forEach var="tempClass" items="${tempClass}">
+									<a href="<%=request.getContextPath()%>/admin/tempClass?code=${tempClass.addClass_code}" class="classMenu-link">
+										<div class="classMenu">
+											<div class="class-upperRow">
+												<div class="class-instructor" name="st_name">${tempClass.addClass_st_id}</div>
+												<div class="tempClass-code">${tempClass.addClass_code}</div>
+											</div>
+											<div class="class-lowerRow">
+												<div class="classTitle">
+													<div class="class-name" name="class_name">${tempClass.addClass_title}</div>
+												</div>
+												<div class="tempClass-dueDate">
+													<div class="dueDate"><fmt:formatDate value="${tempClass.addClass_submitDate}" pattern="yyyy년 MM월 dd일"/></div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</c:forEach>
+							</c:if>
+						</div>
+					</form>
+				</div>
+			</c:if>
+			<c:if test="${tempClass eq null}">
 				<header class="classList-title">
-					<span>온라인 클래스</span>
-					<a href="<%=request.getContextPath()%>/creator/applyClass">
-						<span class="addClass">
-							<i class="fas fa-plus"></i> 새로운 클래스
-						</span>
-					</a>
+					<span>클래스 신청 현황</span>
 				</header>
 				<div class="classList-lineUp">
-					<a href="#" class="classMenu-link">
-						<div class="classMenu">
-							<span class="class-instructor" name="st_name">김무스</span>
-							<div class="classTitle">
-								<span class="class-name" name="class_name">무스무스무스</span>
-								<span class="class-detail"><i class="fas fa-angle-double-right"></i>상세정보 확인</span>
-							</div>
-						</div>
-					</a>
+					헐, 정말 없는거?		
 				</div>
-			</div>
-			<div class="classList-applyStatus">
-				<c:if test="${tempClass ne null}">
-					<header class="classList-title">
-						<span>클래스 신청 현황</span>
-					</header>
-					<a href="#" class="classMenu-link">
-						<div class="classMenu">
-							<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
-							<div class="classTitle">
-								<span class="class-name" name="class_name">${tempClass.addClass_title}</span>
-								<c:if test="${tempClass.addClass_confirm == 'W'.charAt(0)}">
-									<span class="class-detail"><i class="fas fa-angle-double-right"></i>대기중</span>
-								</c:if>
-							</div>
-						</div>
-					</a>
-				</c:if>
-				<c:if test="${tempClass eq null}">
-					<header class="classList-title">
-						<span>클래스 신청 현황</span>
-					</header>
-					<div>그런거 없다.</div>
-				</c:if>
-			</div>
+			</c:if>
 		</div>
 		<div class="individualGuide-container">
 			<div class="individualGuideline">
 				<header>
-					<span>클래스 도우미</span>
+					<span>메뉴</span>
 				</header>
 				<div class="individualGuideline-menu-container">
 					<div class="individualGuideline-menu">

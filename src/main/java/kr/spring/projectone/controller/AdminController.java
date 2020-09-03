@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
+import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.UserVo;
 
 /**
@@ -32,12 +34,14 @@ public class AdminController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ClassService classService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public ModelAndView adminPageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public ModelAndView adminPageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClassList) throws IOException{
        
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -46,7 +50,11 @@ public class AdminController {
 		PrintWriter printWriter = response.getWriter();
 		
 		if (user != null && user.getSt_value().equals("ADMIN")) {
-			mv.setViewName("/admin/adminPage");
+		
+			TemporaryClassVo tempClass = classService.wholeTempClass(tempClassList);
+			mv.addObject("tempClass", tempClass);
+	         
+			mv.setViewName("/admin/adminPage/adminPage");
 		} 
 		
 		else {
@@ -58,7 +66,6 @@ public class AdminController {
 		}
 		
 		
-         
         return mv;
     }
 

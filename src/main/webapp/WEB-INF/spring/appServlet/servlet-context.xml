@@ -46,6 +46,7 @@
 	    <interceptor>
 	        <mapping path="/vipClass/subscription/*"/>
 	        <mapping path="/joinCreator/*"/>
+	         <mapping path="/creator/*"/>
 	        <beans:ref bean="authInterceptor"/>
 	    </interceptor>
 	</interceptors>

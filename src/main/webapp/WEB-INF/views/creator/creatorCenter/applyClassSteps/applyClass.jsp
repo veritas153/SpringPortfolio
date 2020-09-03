@@ -61,7 +61,7 @@
 					</div>
 					<div>
 						<div>클래스 제목</div>
-						<input type="text" class="class_name" name="addClass_name" id="addClass_name" placeholder="클래스 제목을 입력하세요">
+						<input type="text" class="class_title" name="addClass_title" id="addClass_title" placeholder="클래스 제목을 입력하세요">
 					</div>
 					<div class="progress-shortIntro">
 						<div>짧은 소개글</div>
@@ -70,7 +70,7 @@
 					<div class="image-box">
 						<div>대표 이미지</div>
 						<span>.jpeg 계열(.jpg, .jpeg, .jpe, .jfif) 또는 png만 가능합니다.</span>
-						<input type="file" id="addClass_image" name="addClass_image" accept="image/jpeg, image/png">
+						<input type="file" id="addClass_image2" name="addClass_image2" accept="image/jpeg, image/png">
 					</div>
 				</div>
 				<div class="applyClass-introduction display-toggle">
@@ -88,7 +88,7 @@
 					<div class="class-setPrice">
 						<span>희망하시는 가격을 적어주세요.</span>
 						<div class="setPrice">
-							<select class="addClass_monthly" id="addClass_monthly" id="addClass_monthly">
+							<select class="addClass_monthly" name="addClass_monthly" id="addClass_monthly">
 								<option value="0">선택하세요</option>
 								<option value="1">일시불</option>
 								<option value="3">3개월</option>
@@ -131,6 +131,7 @@
 						 커리큘럼은 승인 이후에도 수정이 가능하니 이점 참고해 주십시요.</div>
 						<div class="addCurriculum" id="addCurriculum" name="addCurriculum">
 							<div class="section-wholeChapter">
+							<input type="text" name="sub_count" value="1">
 								<div class="section-mainChapter">
 									<input type="text" name="conMainChapter_title" id="conMainChapter_title">
 								</div>

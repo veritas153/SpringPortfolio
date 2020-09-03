@@ -3,17 +3,20 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
+<!DOCTYPE html>
 <html>
 <head>
-<title>로그인</title>
-<jsp:include page="/WEB-INF/views/include/head.jsp"></jsp:include>
+<title>관리자 창</title>
+<jsp:include page="/WEB-INF/views/include/adminHead.jsp"></jsp:include>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
-    <div class="container">        
-        <tiles:insertAttribute name="body" />
+    <div class="body-container">
+    	<tiles:insertAttribute name="sideMenu"/> 
+    	<div class="creatorMain-container">              
+        	<tiles:insertAttribute name="body" />
+        </div>
     </div>                                                  
-    <tiles:insertAttribute name="footer" />
+  
 </body>
 </html>
-

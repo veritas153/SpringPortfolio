@@ -4,13 +4,6 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
  
 <tiles-definitions>
-    <!-- (1) 레이아웃을 적용하지않는화면-->    
-    <definition name=".login" template="/WEB-INF/views/layout/loginLayout.jsp">
-        <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-        <put-attribute name="menu" value="" />        
-        <put-attribute name="footer" value="" />
-    </definition>
     
     <!-- VIP플랜 신청 -->
     <definition name=".vip" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
@@ -26,15 +19,23 @@
     	<put-attribute name="footer" value="/WEB-INF/views/common/forCreator/creatorFooter.jsp"/>
     </definition>
     
+    
+    <!-- 클래스 신청 -->
      <definition name=".applyClass" template="/WEB-INF/views/layout/applyClassLayout.jsp">
     	<put-attribute name="title" value="" />
     	<put-attribute name="header" value="/WEB-INF/views/common/forCreator/creatorHeader.jsp"/>
     	<put-attribute name="menu" value="/WEB-INF/views/common/forCreator/creatorMenu.jsp"/>
-    	
     </definition>
     
-    
-     <!-- (4) VIP플랜 가입 레이아웃 -->
+    <!-- 관리자 메뉴 -->
+    <definition name=".admin" template="/WEB-INF/views/layout/adminLayout.jsp">
+    	<put-attribute name="title" value="" />
+    	<put-attribute name="header" value="/WEB-INF/views/common/forAdmin/adminHeader.jsp"/>
+    	<put-attribute name="sideMenu" value="/WEB-INF/views/common/forAdmin/adminSideMenu.jsp" />
+    	<put-attribute name="menu" value="/WEB-INF/views/common/forAdmin/adminMenu.jsp"/>
+    </definition>
+     
+    <!-- VIP플랜 가입 -->
     <definition name=".subscription" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
 
     	<put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
@@ -72,6 +73,10 @@
     
     <definition name="/creator/creatorCenter/applyClassSteps/*" extends=".applyClass">
     	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/applyClassSteps/{1}.jsp" />
+    </definition>
+    
+     <definition name="/admin/adminPage/*" extends=".admin">
+    	<put-attribute name="body" value="/WEB-INF/views/admin/adminPage/{1}.jsp" />
     </definition>
     
  

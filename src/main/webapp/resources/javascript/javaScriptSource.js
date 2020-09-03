@@ -84,9 +84,9 @@ $(function(){
 				
 				// 제목 입력 반영
 				
-				$("#addClass_name").keyup(function(){
-					$("#class-title").text($("#addClass_name").val());
-					$("#image-container-title").text($("#addClass_name").val());
+				$("#addClass_title").keyup(function(){
+					$("#class-title").text($("#addClass_title").val());
+					$("#image-container-title").text($("#addClass_title").val());
 				});
 				
 				// 간단한 설명 반영
@@ -96,7 +96,7 @@ $(function(){
 				});
 				
 				// 썸네일
-				$("#addClass_image").change(function() {
+				$("#addClass_image2").change(function() {
    					getThumbNail(this);
 				});
 	
@@ -143,7 +143,9 @@ $(function(){
 			$(this).remove();
 			
 		});
-					
+		var count = $(this).parent().siblings('input[name=sub_count]').val();
+			count = parseInt(count)+1;
+		$(this).parent().siblings('input[name=sub_count]').val(count);	
 					
 	});
 				
@@ -151,7 +153,8 @@ $(function(){
 	// 메인 챕터
 	$('#add-mainChapter').on('click', function(){
 					
-		var addMainInput = "<div class=\"section-wholeChapter\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
+		var addMainInput = "<div class=\"section-wholeChapter\"><input type=\"text\" name=\"sub_count\" value=\"1\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
+		
 		$('#addCurriculum').append(addMainInput);
 		
 		// 소챕터
@@ -165,7 +168,9 @@ $(function(){
 				$(this).remove();
 			
 			});
-					
+			var count = $(this).parent().siblings('input[name=sub_count]').val();
+			count = parseInt(count)+1;
+			$(this).parent().siblings('input[name=sub_count]').val(count);
 					
 		});
 		
@@ -175,13 +180,11 @@ $(function(){
 		
 			
 		});
-		
-	
-		
-		
-		
 					
 	});
+
+	
+
 
 
 	// 썸머노트 추가
