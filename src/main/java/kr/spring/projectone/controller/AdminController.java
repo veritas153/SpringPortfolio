@@ -3,6 +3,7 @@ package kr.spring.projectone.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -41,7 +42,7 @@ public class AdminController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public ModelAndView adminPageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClassList) throws IOException{
+    public ModelAndView adminPageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException{
        
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -51,7 +52,8 @@ public class AdminController {
 		
 		if (user != null && user.getSt_value().equals("ADMIN")) {
 		
-			TemporaryClassVo tempClass = classService.wholeTempClass(tempClassList);
+			ArrayList<TemporaryClassVo>tempClass;
+			tempClass = classService.getTempClass();
 			mv.addObject("tempClass", tempClass);
 	         
 			mv.setViewName("/admin/adminPage/adminPage");

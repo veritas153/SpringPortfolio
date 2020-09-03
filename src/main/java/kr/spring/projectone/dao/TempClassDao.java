@@ -1,5 +1,7 @@
 package kr.spring.projectone.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Param;
 
 import kr.spring.projectone.vo.TemporaryClassVo;
@@ -16,8 +18,8 @@ public interface TempClassDao {
 
 	
 	// 관리자용
-	
-	TemporaryClassVo wholeTempClass(@Param("tempClass")TemporaryClassVo tempClassList);
+
+	ArrayList<TemporaryClassVo> getTempClass();
 
 	
 	

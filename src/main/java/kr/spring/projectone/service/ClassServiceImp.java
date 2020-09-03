@@ -1,5 +1,6 @@
 package kr.spring.projectone.service;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -90,11 +91,10 @@ public class ClassServiceImp implements ClassService {
 	// 여기서부턴 관리자용
 	
 	@Override
-	public TemporaryClassVo wholeTempClass(TemporaryClassVo tempClassList) {
-	
-		return tempClassDao.wholeTempClass(tempClassList);
+	public ArrayList<TemporaryClassVo> getTempClass() {
+		
+		return tempClassDao.getTempClass();
 	}
-
 
 
 

@@ -131,14 +131,14 @@
 						 커리큘럼은 승인 이후에도 수정이 가능하니 이점 참고해 주십시요.</div>
 						<div class="addCurriculum" id="addCurriculum" name="addCurriculum">
 							<div class="section-wholeChapter">
-							<input type="text" name="sub_count" value="1">
 								<div class="section-mainChapter">
 									<input type="text" name="conMainChapter_title" id="conMainChapter_title">
+									<input type="number" id="conMainChapter_num" name="conMainChapter_num" value="1">
 								</div>
 								<div class="section-subChapter">
 									<div class="subChapterArea" id="subChapterArea" name="subChapterArea">
 										<input type="text" name="conSubChapter_title" id="conSubChapter_title">
-										
+										<input type="number" id="conSubChapter_num" name="conSubChapter_num" value="1">
 									</div>
 									<a href="javascript:void(0)" id="add-subChapter" class="add-subChapter">
 										<div>소챕터 추가</div>					
