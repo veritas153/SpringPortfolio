@@ -43,7 +43,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES ('admin1','$2a$10$4xFqfLPNZbq.hGCA1aZL/.mNUlTlkL2MMfLUC5lZBnILSEydZYQQ6','관리자1',NULL,'00000000','2020-09-01 16:49:55','aaa@aaa.net',NULL,NULL,'ADMIN'),('chester1','$2a$10$LfXLiOIveGsEyjVAaGbIdOP3dmyo.3nMF3F5sCbawQHZIcEhEpr2.','본좌',NULL,'01000000000','2020-08-24 17:15:43','naver@naver.com',NULL,NULL,'STUDENT'),('nomal1','$2a$10$5hBf4TZieBLP5zxRG/zpvOLnUWtd7Ndo8Qm0Z6SO2NjoTRRGbHg..','김무스',NULL,'11111111111','2020-08-25 10:00:01','musu@naver.com',NULL,NULL,'CREATOR'),('test1','$2a$10$TneaLIK7GJbqDi6SXPPmqOeUdjmhWnQ2z2rASmnaUrSf2UHs8DBky','김김김','adfd','0000000','2020-08-26 12:47:15','djdj@naver.com',NULL,NULL,'CREATOR');
+INSERT INTO `student` VALUES ('admin1','$2a$10$4xFqfLPNZbq.hGCA1aZL/.mNUlTlkL2MMfLUC5lZBnILSEydZYQQ6','관리자1',NULL,'00000000','2020-09-01 16:49:55','aaa@aaa.net',NULL,NULL,'ADMIN'),('chester1','$2a$10$LfXLiOIveGsEyjVAaGbIdOP3dmyo.3nMF3F5sCbawQHZIcEhEpr2.','본좌',NULL,'01000000000','2020-08-24 17:15:43','naver@naver.com',NULL,NULL,'STUDENT'),('nanana','$2a$10$jrcprk0kEaE3U8YGqJkGcOPo3/ieSDe131v0Ga2WMes0ASJ3zsNCu','김김김','나나나','00000000000','2020-09-04 16:44:26','nanana@naver.com',NULL,NULL,'CREATOR'),('nomal1','$2a$10$5hBf4TZieBLP5zxRG/zpvOLnUWtd7Ndo8Qm0Z6SO2NjoTRRGbHg..','김무스',NULL,'11111111111','2020-08-25 10:00:01','musu@naver.com',NULL,NULL,'CREATOR'),('test1','$2a$10$TneaLIK7GJbqDi6SXPPmqOeUdjmhWnQ2z2rASmnaUrSf2UHs8DBky','김김김','adfd','0000000','2020-08-26 12:47:15','djdj@naver.com',NULL,NULL,'CREATOR');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-03 18:40:22
+-- Dump completed on 2020-09-04 17:52:53

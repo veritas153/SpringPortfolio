@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 
 import kr.spring.projectone.vo.TemporaryClassVo;
+import kr.spring.projectone.vo.TemporaryMainChapterVo;
+import kr.spring.projectone.vo.TemporarySubChapterVo;
 
 public interface TempClassDao {
 
@@ -16,10 +18,16 @@ public interface TempClassDao {
 	
 	void insertImage(@Param("id")String st_id, @Param("image")String file);
 
+	void insertTempChapter(@Param("tempMain")TemporaryMainChapterVo tempChapter);
+	
+	void insertSubChapter(@Param("tempSub")TemporarySubChapterVo tempSub);
+
 	
 	// 관리자용
 
 	ArrayList<TemporaryClassVo> getTempClass();
+
+	
 
 	
 	

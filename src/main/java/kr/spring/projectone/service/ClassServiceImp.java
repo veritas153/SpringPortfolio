@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.projectone.dao.TempClassDao;
 import kr.spring.projectone.vo.TemporaryClassVo;
+import kr.spring.projectone.vo.TemporaryMainChapterVo;
+import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
 
 @Service
@@ -87,6 +89,30 @@ public class ClassServiceImp implements ClassService {
 		
 	}
 
+	@Override
+	public boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub,TemporaryClassVo tempClass) {
+		
+		if (tempChapter.getConMainChapter_number() == null || tempChapter.getConMainChapter_number() == 0) {
+			return false;
+		}
+		if (tempChapter.getConMainChapter_title() == null || tempChapter.getConMainChapter_title().equals("")) {
+			return false;
+		}
+		if (tempSub.getConSubChapter_number() == null || tempSub.getConSubChapter_number() == 0) {
+			return false;
+		}
+		if (tempSub.getConSubChapter_title() == null || tempSub.getConSubChapter_title().equals("")) {
+			return false;
+		}
+		
+		tempChapter.setConMainChapter_addClass_code(tempClass.getAddClass_code());
+		tempClassDao.insertTempChapter(tempChapter);
+		tempSub.setConSubChapter_conMainChapter_priNum(tempChapter.getConMainChapter_priNum());
+		tempClassDao.insertSubChapter(tempSub);
+		return true;
+	}
+
+	
 	
 	// 여기서부턴 관리자용
 	
@@ -95,6 +121,8 @@ public class ClassServiceImp implements ClassService {
 		
 		return tempClassDao.getTempClass();
 	}
+
+
 
 
 

@@ -22,7 +22,21 @@
 		
 	</update>
 
-
+	<insert id="insertTempChapter" useGeneratedKeys="true" parameterType="kr.spring.projectone.vo.TemporaryMainChapterVo" keyProperty="tempMain.conMainChapter_priNum"> <!-- useGeneratedKeys 반환 하는 키 있음? parameterType 그 키 어디에 있음? keyProperty 그 키 이름 뭐임? 이거 없음 db 동시 적용 안됩니다!  -->
+	
+		insert into 
+			conmainchapter(conMainChapter_title, conMainChapter_number, conMainChapter_addClass_code)
+			values(#{tempMain.conMainChapter_title}, #{tempMain.conMainChapter_number}, #{tempMain.conMainChapter_addClass_code});
+	
+	</insert>
+	
+	<insert id="insertSubChapter">
+		
+		insert into
+			consubchapter(conSubChapter_title, conSubChapter_number, conSubchapter_conMainChapter_priNum)
+			values(#{tempSub.conSubChapter_title}, #{tempSub.conSubChapter_number}, #{tempSub.conSubChapter_conMainChapter_priNum});
+		
+	</insert>
 
 	<!-- 관리자 구역 -->
 	

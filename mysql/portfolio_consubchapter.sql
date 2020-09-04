@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `consubchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `consubchapter` (
-  `conSubChapter_PriNum` int NOT NULL AUTO_INCREMENT,
+  `conSubChapter_priNum` int NOT NULL AUTO_INCREMENT,
   `conSubChapter_title` varchar(255) NOT NULL,
   `conSubChapter_number` int NOT NULL,
-  `conSubChapter_content` longtext NOT NULL,
+  `conSubChapter_content` longtext,
   `conSubChapter_conMainChapter_priNum` int NOT NULL,
-  PRIMARY KEY (`conSubChapter_PriNum`),
+  PRIMARY KEY (`conSubChapter_priNum`),
   KEY `conSubChapter_conMainChapter_priNum_idx` (`conSubChapter_conMainChapter_priNum`),
   CONSTRAINT `conSubchapter_conMainChapter_priNum` FOREIGN KEY (`conSubChapter_conMainChapter_priNum`) REFERENCES `conmainchapter` (`conMainChapter_priNum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-03 18:40:23
+-- Dump completed on 2020-09-04 17:52:54

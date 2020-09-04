@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import kr.spring.projectone.vo.TemporaryClassVo;
+import kr.spring.projectone.vo.TemporaryMainChapterVo;
+import kr.spring.projectone.vo.TemporarySubChapterVo;
+import kr.spring.projectone.vo.UserVo;
 
 public interface ClassService {
 
@@ -14,11 +17,17 @@ public interface ClassService {
 
 	void insertImage(String st_id, String file);
 
+	boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, TemporaryClassVo tempClass);
+
+	
+
+	
 	
 	// 운영진 전용
 	
 	ArrayList<TemporaryClassVo> getTempClass();
 
+	
 
 
 

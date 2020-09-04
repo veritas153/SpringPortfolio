@@ -132,13 +132,15 @@
 						<div class="addCurriculum" id="addCurriculum" name="addCurriculum">
 							<div class="section-wholeChapter">
 								<div class="section-mainChapter">
+									<input type="number" class="conMainChapter_number" id="conMainChapter_number" name="conMainChapter_number2" value="1">
 									<input type="text" name="conMainChapter_title" id="conMainChapter_title">
-									<input type="number" id="conMainChapter_num" name="conMainChapter_num" value="1">
 								</div>
 								<div class="section-subChapter">
 									<div class="subChapterArea" id="subChapterArea" name="subChapterArea">
-										<input type="text" name="conSubChapter_title" id="conSubChapter_title">
-										<input type="number" id="conSubChapter_num" name="conSubChapter_num" value="1">
+										<div class="subChapter-container">
+											<input class="conSubChapter_number" id="conSubChapter_number" name="conSubChapter_number" value="1">
+											<input type="text" name="conSubChapter_title" id="conSubChapter_title">
+										</div>
 									</div>
 									<a href="javascript:void(0)" id="add-subChapter" class="add-subChapter">
 										<div>소챕터 추가</div>					

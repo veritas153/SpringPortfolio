@@ -131,61 +131,72 @@ $(function(){
 	
 	});
 	
-
+	
 	// 소챕터
-	$('.add-subChapter').on('click', function(){
-					
-		var addInput = "<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a><input type=\"number\" id=\"conSubChapter_num\" name=\"conSubChapter_num\" value=\"1\">"
-		$(this).prev().append(addInput);
-		
-		$('.delete-subChapter').last().click(function(){
-			$(this).prev().remove();
-			$(this).remove();
-			
-		});
-		var count = $(this).parent().siblings('input[name=conSubChapter_num]').val();
-			count += 1;
-		$(this).parent().siblings('input[name=conSubChapter_num]').val(count);	
-		console.log(count);
-					
-	});
+	
+	var subChapter;
+	
+	console.log(subChapter);
+	
+	subChapterClickEvent($('.add-subChapter'))
 				
 				
 	// 메인 챕터
-	$('#add-mainChapter').on('click', function(){
 	
-		var addMainInput = "<div class=\"section-wholeChapter\"><div class=\"section-mainChapter\"><input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a><input type=\"number\" id=\"conMainChapter_num\" name=\"conMainChapter_num\" value=\"2\"></div><div class=\"section-subChapter\"><div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\"><input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div><input type=\"number\" id=\"conSubChapter_num\" name=\"conSubChapter_num\" value=\"1\"><a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\"><div>소챕터 추가</div></a></div></div>"
+	var mainChapter;
+	
+	$('#add-mainChapter').on('click', function(){
+		mainChapter = $(this).parent().prev().find('.section-wholeChapter').length+1;	
+		console.log(mainChapter);
+		var addMainInput = "<div class=\"section-wholeChapter\">"
+		
+							+"<div class=\"section-mainChapter\">"
+							
+							+"<input type=\"number\" class=\"conMainChapter_number\" id=\"conMainChapter_number\" name=\"conMainChapter_number2\" value=\""+mainChapter+"\">"
+							
+							+"<input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\">"
+							
+							+"<a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\">"
+							
+							+"<i class=\"fas fa-times\"></i></a></div>"
+							
+							+"<div class=\"section-subChapter\">"
+							
+							+"<div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\">"
+							
+							+"<div class=\"subChapter-container\">"
+							
+							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number\" value=\""+subChapter+"\">"
+						
+							+"<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div></div>"
+							
+							+"<a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\">"
+							
+							+"<div>소챕터 추가</div></a>"
+							
+							+"</div>"
+							
+							+"</div>";
+									
+	
 		
 		$('#addCurriculum').append(addMainInput);
-		
-		var count = $(this).parent().siblings('input[name=conMainChapter_num]').val();
-				count += 1;
-		$(this).parent().siblings('input[name=conMainChapter_num]').val(count);	
-		console.log(count);
+			subChapter =$('#addCurriculum>.section-wholeChapter').last().find('.conSubChapter_number').length;	
+		$('#addCurriculum>.section-wholeChapter').last().find('.conSubChapter_number').val(subChapter)
 		
 		// 소챕터
-		$('.add-subChapter').off("click").on('click', function(){ // off로 중복 적용 방지!
-					
-			var addInput = "<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"><a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\"><i class=\"fas fa-times\"></i></a><input type=\"number\" id=\"conSubChapter_num\" name=\"conSubChapter_num\" value=\"1\">"
-			$(this).prev().append(addInput);
-		
-			$('.delete-subChapter').last().click(function(){
-				$(this).prev().remove();
-				$(this).remove();
-			
-			});
-			
-			var count = $(this).parent().siblings('input[name=conSubChapter_num]').val();
-					count += 1;
-			$(this).parent().siblings('input[name=conSubChapter_num]').val(count);	
-			console.log(count);
-					
-		});
+	
+		subChapterClickEvent($('.add-subChapter'))
 		
 		// 메인챕터 삭제 구문
 		$('.delete-mainChapter').click(function(){
-			$(this).parents('.section-wholeChapter').remove();
 		
+			var findMain = $(this).parents('.addCurriculum');
+			$(this).parents('.section-wholeChapter').remove();
+			$('.conMainChapter_number').each(function(i){
+        		$(this).val(i+1);
+       		});
+			
 			
 		});
 					
@@ -247,6 +258,37 @@ $(function(){
   		}
 	})
 
+	function subChapterClickEvent(obj){
+		obj.off("click").on('click', function(){
+			subChapter =$(this).prev().find('.subChapter-container').length+1;	
+			var addInput = "<div class=\"subChapter-container\">"
+			
+							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number\" value=\""+subChapter+"\">"
+							
+							+"<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\">"
+							
+							+"<a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\">"
+							
+							+"<i class=\"fas fa-times\"></i></a>";
+							
+							
+			$(this).prev().append(addInput);
+			
+			subChapterDeleteEvent();			
+
+		});
+	}
+	function subChapterDeleteEvent(){
+		$('.delete-subChapter').off('click').on('click',function(){
+			var box = $(this).parents('.subChapterArea');
+			$(this).parent('.subChapter-container').remove();
+				
+			box.find('.conSubChapter_number').each(function(i){
+    			$(this).val(i+1);
+       		});
+				
+		});
+		
+	}
 	
-	
-})
+});

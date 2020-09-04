@@ -161,7 +161,10 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "creator/applyClass", method = RequestMethod.POST)
-	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image2, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub) throws Exception {
+	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image2, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, Integer[]conMainChapter_number2) throws Exception {
+		
+		// 만약 목차, 챕터별 내용들 작업할 경우엔 변수를 배열로 설정해서 할것
+		
 		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -188,15 +191,23 @@ public class ClassController {
 				classService.insertImage(user.getSt_id(), file);
 			
 				
-				
-				
-				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); </script>");
-				printWriter.flush();
-				printWriter.close();
-				
-				request.getSession().setAttribute("user", user);
-				mv.setViewName("redirect:/creator");
-				
+			
+//				if (insertTemp == true) {
+//					
+//					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); </script>");
+//					printWriter.flush();
+//					printWriter.close();
+//					
+//					request.getSession().setAttribute("user", user);
+//					mv.setViewName("redirect:/creator");
+//					
+//				}
+//				
+//				if (insertTemp == false) {
+//					
+//					mv.setViewName("redirect:/creator/applyClass");
+//				}
+//				
 			}
 			if (ongoing == false) {
 				mv.setViewName("redirect:/creator/applyClass");
