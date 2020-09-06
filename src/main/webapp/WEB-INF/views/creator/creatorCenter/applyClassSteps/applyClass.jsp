@@ -132,7 +132,7 @@
 						<div class="addCurriculum" id="addCurriculum" name="addCurriculum">
 							<div class="section-wholeChapter">
 								<div class="section-mainChapter">
-									<input type="number" class="conMainChapter_number" id="conMainChapter_number" name="conMainChapter_number2" value="1">
+									<input type="number" class="conMainChapter_number" id="conMainChapter_number" name="conMainChapter_number" value="1">
 									<input type="text" name="conMainChapter_title" id="conMainChapter_title">
 								</div>
 								<div class="section-subChapter">

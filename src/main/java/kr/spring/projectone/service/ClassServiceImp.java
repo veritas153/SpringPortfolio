@@ -90,25 +90,59 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	@Override
-	public boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub,TemporaryClassVo tempClass) {
+	public boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, TemporaryClassVo tempClass, Integer[] conMainChapter_number, Integer[] conSubChapter_number) {
 		
-		if (tempChapter.getConMainChapter_number() == null || tempChapter.getConMainChapter_number() == 0) {
+		if (tempChapter.getConMainChapter_number() == null) {
+			System.out.println("1-1");
 			return false;
 		}
+			Integer detectNum = 0;
+			
+			for (Integer i : tempChapter.getConMainChapter_number()) {
+				if (i == detectNum) {
+					System.out.println("1-2");
+					return false;
+				
+				}
+		
+			}
 		if (tempChapter.getConMainChapter_title() == null || tempChapter.getConMainChapter_title().equals("")) {
+			System.out.println(2);
 			return false;
 		}
-		if (tempSub.getConSubChapter_number() == null || tempSub.getConSubChapter_number() == 0) {
+		if (tempSub.getConSubChapter_number() == null) {
+			System.out.println("3-1");
 			return false;
 		}
+		
+			
+			for (Integer i : tempSub.getConSubChapter_number()) {
+				if (i == detectNum) {
+					System.out.println("3-2");
+					return false;
+				
+				}
+			}
+		
 		if (tempSub.getConSubChapter_title() == null || tempSub.getConSubChapter_title().equals("")) {
+			System.out.println(4);
 			return false;
 		}
 		
 		tempChapter.setConMainChapter_addClass_code(tempClass.getAddClass_code());
+		
+		tempChapter.setConMainChapter_number(conMainChapter_number);
 		tempClassDao.insertTempChapter(tempChapter);
+			
+			
 		tempSub.setConSubChapter_conMainChapter_priNum(tempChapter.getConMainChapter_priNum());
+		
+		tempSub.setConSubChapter_number(conSubChapter_number);
 		tempClassDao.insertSubChapter(tempSub);
+
+	
+		
+		
 		return true;
 	}
 

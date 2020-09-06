@@ -28,23 +28,25 @@
 				</div>
 			</div>
 			<div class="classList-applyStatus">
-				<c:if test="${tempClass ne null}">
-					<header class="classList-title">
-						<span>클래스 신청 현황</span>
-					</header>
-					<a href="#" class="classMenu-link">
-						<div class="classMenu">
-							<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
-							<div class="classTitle">
-								<span class="class-name" name="class_name">${tempClass.addClass_title}</span>
-								<c:if test="${tempClass.addClass_confirm == 'W'.charAt(0)}">
-									<span class="class-detail"><i class="fas fa-angle-double-right"></i>대기중</span>
-								</c:if>
+				<c:if test="${tempClass.addClass_st_id == user.st_id}">
+					
+						<header class="classList-title">
+							<span>클래스 신청 현황</span>
+						</header>
+						<a href="#" class="classMenu-link">
+							<div class="classMenu">
+								<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
+								<div class="classTitle">
+									<span class="class-name" name="class_name">${tempClass.addClass_title}</span>
+									<c:if test="${tempClass.addClass_confirm == 'W'.charAt(0)}">
+										<span class="class-detail"><i class="fas fa-angle-double-right"></i>대기중</span>
+									</c:if>
+								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					
 				</c:if>
-				<c:if test="${tempClass eq null}">
+				<c:if test="${tempClass.addClass_st_id != user.st_id}">
 					<header class="classList-title">
 						<span>클래스 신청 현황</span>
 					</header>

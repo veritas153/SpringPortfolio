@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.SystemPropertyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,7 +42,9 @@ public class ClassController {
 	@Autowired
 	private ClassService classService;
 	
-	private String uploadPath = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
+	
+	private String uploadPathWin = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
+	private String uploadPathMac = "/Users/vanytas/Desktop/Coding/포트폴리오/SpringPortfolio/src/main/webapp/resources/uploadedImage";
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -49,7 +52,7 @@ public class ClassController {
 	@RequestMapping(value = "/class/all", method = RequestMethod.GET)
     public ModelAndView allClassGet(ModelAndView mv){
         mv.setViewName("/class/classList");
-         
+       
         return mv;
     }
 
@@ -161,7 +164,7 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "creator/applyClass", method = RequestMethod.POST)
-	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image2, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, Integer[]conMainChapter_number2) throws Exception {
+	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image2, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, Integer[]conMainChapter_number, Integer[]conSubChapter_number) throws Exception {
 		
 		// 만약 목차, 챕터별 내용들 작업할 경우엔 변수를 배열로 설정해서 할것
 		
@@ -185,29 +188,49 @@ public class ClassController {
 				
 				// 여기서는 true로 반환된 경우에 한정되서 진행할 추가 작업.
 				
-				String file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(), addClass_image2.getBytes());
-				tempClass.setAddClass_image(file);
+				// 이건 OS 종류에 따라 경로 저장 변경 하는 부분
 				
-				classService.insertImage(user.getSt_id(), file);
-			
+				String file = "";
+				
+				String detectOS = System.getProperty("os.name");
+				
+				if (detectOS.startsWith("Mac")) {
+					System.out.println(detectOS);
+					String uploadPath = uploadPathMac;
+					file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(), addClass_image2.getBytes());
+					tempClass.setAddClass_image(file);
+					classService.insertImage(user.getSt_id(), file);
+				}
+				if (detectOS.startsWith("Windows")) {
+					System.out.println(detectOS);
+					String uploadPath = uploadPathWin;
+					file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(), addClass_image2.getBytes());
+					tempClass.setAddClass_image(file);
+					classService.insertImage(user.getSt_id(), file);
+				}
+				
 				
 			
-//				if (insertTemp == true) {
-//					
-//					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); </script>");
-//					printWriter.flush();
-//					printWriter.close();
-//					
-//					request.getSession().setAttribute("user", user);
-//					mv.setViewName("redirect:/creator");
-//					
-//				}
-//				
-//				if (insertTemp == false) {
-//					
-//					mv.setViewName("redirect:/creator/applyClass");
-//				}
-//				
+				boolean insertTemp = classService.insertTempChapter(tempChapter, tempSub, tempClass, conMainChapter_number, conSubChapter_number);
+			
+				System.out.println(insertTemp);
+				
+				if (insertTemp == true) {
+					
+					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); </script>");
+					printWriter.flush();
+					printWriter.close();
+					
+					request.getSession().setAttribute("user", user);
+					mv.setViewName("redirect:/creator");
+					
+				}
+				
+				if (insertTemp == false) {
+					
+					mv.setViewName("redirect:/creator/applyClass");
+				}
+				
 			}
 			if (ongoing == false) {
 				mv.setViewName("redirect:/creator/applyClass");

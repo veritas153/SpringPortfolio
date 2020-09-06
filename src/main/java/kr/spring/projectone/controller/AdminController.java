@@ -70,5 +70,15 @@ public class AdminController {
 		
         return mv;
     }
+	
+	// 1차 심사 페이지
+	
+	@RequestMapping(value = "/admin/tempClass", method = RequestMethod.GET)
+	public ModelAndView tempClassCheckGet(ModelAndView mv) {
+		
+		mv.setViewName("/admin/adminPage/adminPreCheck");
+	
+		return mv;
+	}
 
 }

@@ -4,7 +4,7 @@ public class TemporaryMainChapterVo {
 
 	private int conMainChapter_priNum;
 	private String conMainChapter_title;
-	private Integer conMainChapter_number;
+	private Integer[] conMainChapter_number;
 	private String conMainChapter_addClass_code;
 	
 	public int getConMainChapter_priNum() {
@@ -19,10 +19,10 @@ public class TemporaryMainChapterVo {
 	public void setConMainChapter_title(String conMainChapter_title) {
 		this.conMainChapter_title = conMainChapter_title;
 	}
-	public Integer getConMainChapter_number() {
+	public Integer[] getConMainChapter_number() {
 		return conMainChapter_number;
 	}
-	public void setConMainChapter_number(Integer conMainChapter_number) {
+	public void setConMainChapter_number(Integer[] conMainChapter_number) {
 		this.conMainChapter_number = conMainChapter_number;
 	}
 	public String getConMainChapter_addClass_code() {

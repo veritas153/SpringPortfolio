@@ -17,7 +17,7 @@ public interface ClassService {
 
 	void insertImage(String st_id, String file);
 
-	boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, TemporaryClassVo tempClass);
+	boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, TemporaryClassVo tempClass, Integer[] conMainChapter_number, Integer[] conSubChapter_number);
 
 	
 
