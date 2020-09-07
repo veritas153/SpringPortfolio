@@ -44,5 +44,19 @@
 		select * from addclass where addClass_confirm = 'W';
 	</select>
 	
-
+	
+	<select id="getTempClassCode" resultType="kr.spring.projectone.vo.TemporaryClassVo">
+		select * from addClass where addClass_code = #{code};
+	</select>
+	
+	
+	<select id="detectChapterCode" resultType="kr.spring.projectone.vo.TemporaryMainChapterVo">
+		select * from conmainchapter where conMainChapter_addClass_code = #{tempMain};
+	</select>
+	
+	<select id="detectSubContain" resultType="kr.spring.projectone.vo.TemporarySubChapterVo">
+		select * from consubchapter where conSubChapter_conMainChapter_priNum = #{tempSub};
+	</select>
+	
+	
 </mapper>

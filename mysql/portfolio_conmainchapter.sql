@@ -30,7 +30,7 @@ CREATE TABLE `conmainchapter` (
   PRIMARY KEY (`conMainChapter_priNum`),
   KEY `conMainChapter_addClass_code_idx` (`conMainChapter_addClass_code`),
   CONSTRAINT `conMainChapter_addClass_code` FOREIGN KEY (`conMainChapter_addClass_code`) REFERENCES `addclass` (`addClass_code`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `conmainchapter` (
 
 LOCK TABLES `conmainchapter` WRITE;
 /*!40000 ALTER TABLE `conmainchapter` DISABLE KEYS */;
+INSERT INTO `conmainchapter` VALUES (1,'a',1,'20134506938291039503'),(2,'b',2,'20134506938291039503'),(3,'c',3,'20134506938291039503'),(4,'d',4,'20134506938291039503'),(5,'a',1,'10294856940393848543'),(6,'b',2,'10294856940393848543'),(7,'c',3,'10294856940393848543'),(8,'d',4,'10294856940393848543'),(9,'e',5,'10294856940393848543');
 /*!40000 ALTER TABLE `conmainchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-04 17:52:53
+-- Dump completed on 2020-09-07 18:47:36

@@ -7,7 +7,7 @@
 <div class="class-container">
 	<div class="class-description-container">
 		<div class="class-description">
-			<img src="<%=request.getContextPath()%>/resources/image/classImages/programming1.jpg"  width="627" height="417">
+			<img src="<%=request.getContextPath()%>/resources/uploadedImage${tempClass.addClass_image}"  width="627" height="417">
 			<div class="class-detail">
 				<div class="stickyTab">
 					<a class="btn-menu" href="#classInfo">클래스 소개</a>
@@ -24,12 +24,17 @@
 					</div>
 					<div class="plan-offer" id="curriculum">
 						<h3>커리큘럼</h3>
-						
+						<c:forEach var="tempMain" items="${tempMain}">
+							<div class="curriculumList">
+								<span>${tempMain.conMainChapter_number}</span>
+								<span>${tempMain.conMainChapter_title}</span>
+							</div>
+						</c:forEach>
 					</div>
 					<c:if test="${tempClass.addClass_hasPackage == 'n'.charAt(0)}">
 						<div class="plan-offer" id="package">
 							<h3>패키지</h3>
-							<p>해당 강의는 패키지 구매를 제공하지 않는 클래스입니다.</p>
+							<p>해당 강의는 패키지를 요구하지 않는 클래스입니다.</p>
 							<p>필요한 부분은 클래스 내에서 설명할 예정이니 참고하시면 됩니다.</p>
 						</div>
 					</c:if>
@@ -77,7 +82,7 @@
 						<div class="class-discount"></div>
 						<div class="price-detail">
 							<span class="class-price">
-								총 ${tempClass.addClass_price}
+								총 ${tempClass.addClass_price} 원
 							</span>
 							<span class="class-price-monthlyPay">
 								<a href="#" class="monthlyPay-rules">
@@ -87,7 +92,7 @@
 						</div>
 					</div>
 					<div class="class-specification">
-						<div class="class-content"><i class="fas fa-book"></i> 32개 강의 제공</div>
+						<div class="class-content"><i class="fas fa-book"></i> ${tempSub}</div>
 						<c:if test="${tempClass.addClass_hasPackage == 'n'.charAt(0)}">
 							<div class="class-package"><i class="fas fa-box-open"></i> 패키지 없음</div>
 						</c:if>
@@ -109,14 +114,17 @@
 					</div>
 				</div>
 				<form method="post" action="<%=request.getContextPath()%>/admin/tempClass?code=${tempClass.addClass_code}">
-					<div>
+					<div class="addClass_confirmContainer">
 						<select>
 							<option value="n" selected>불허 및 수정 요구</option>
 							<option value="y">1차 심사통과</option>
 						</select>
 					</div>
+					<div class="comment-container">
+						<textarea class="addclass_adminComment" name="addClass_adminComment" rows="3" cols="50" maxlength="150" placeholder="150자 내외로 크리에이터에게 답변해주세요."></textarea>
+					</div>
 					<div>
-						<input type="text">
+						<button>결과 송신</button>
 					</div>
 				</form>
 			</div>

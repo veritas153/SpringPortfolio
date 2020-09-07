@@ -153,8 +153,10 @@ $(function(){
 							+"<div class=\"section-mainChapter\">"
 							
 							+"<input type=\"number\" class=\"conMainChapter_number\" id=\"conMainChapter_number\" name=\"conMainChapter_number2\" value=\""+mainChapter+"\">"
+							//추가된
+							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\"1\">"
 							
-							+"<input type=\"text\" name=\"conMainChapter_title\" id=\"conMainChapter_title\">"
+							+"<input type=\"text\" name=\"conMainChapter_title2\" id=\"conMainChapter_title\">"
 							
 							+"<a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\">"
 							
@@ -166,9 +168,10 @@ $(function(){
 							
 							+"<div class=\"subChapter-container\">"
 							
-							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number\" value=\""+subChapter+"\">"
+							//삭제된
+							//+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\""+subChapter+"\">"
 						
-							+"<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\"></div></div>"
+							+"<input type=\"text\" name=\"conSubChapter_title2\" id=\"conSubChapter_title\"></div></div>"
 							
 							+"<a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\">"
 							
@@ -263,9 +266,9 @@ $(function(){
 			subChapter =$(this).prev().find('.subChapter-container').length+1;	
 			var addInput = "<div class=\"subChapter-container\">"
 			
-							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number\" value=\""+subChapter+"\">"
-							
-							+"<input type=\"text\" name=\"conSubChapter_title\" id=\"conSubChapter_title\">"
+							//+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\""+subChapter+"\">"
+							//삭제
+							+"<input type=\"text\" name=\"conSubChapter_title2\" id=\"conSubChapter_title\">"
 							
 							+"<a href=\"javascript:void(0)\" class=\"delete-subChapter\" name=\"delete-subChapter\" style=\"margin-left: 10px;\">"
 							
@@ -273,20 +276,26 @@ $(function(){
 							
 							
 			$(this).prev().append(addInput);
-			
+			var obj = $(this).parents('.section-wholeChapter').find('.conSubChapter_number');
+			var num = obj.val();
+			num = parseInt(num);
+			obj.val(num+1);
 			subChapterDeleteEvent();			
 
 		});
 	}
 	function subChapterDeleteEvent(){
 		$('.delete-subChapter').off('click').on('click',function(){
-			var box = $(this).parents('.subChapterArea');
+		
+			var obj = $(this).parents('.section-wholeChapter').find('.conSubChapter_number');
+       		var num = obj.val();
+       		num = parseInt(num);
+       		obj.val(num-1);
+			
+			
 			$(this).parent('.subChapter-container').remove();
 				
-			box.find('.conSubChapter_number').each(function(i){
-    			$(this).val(i+1);
-       		});
-				
+			
 		});
 		
 	}

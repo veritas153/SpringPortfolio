@@ -133,12 +133,12 @@
 							<div class="section-wholeChapter">
 								<div class="section-mainChapter">
 									<input type="number" class="conMainChapter_number" id="conMainChapter_number" name="conMainChapter_number2" value="1">
-									<input class="conSubChapter_number" id="conSubChapter_number" name="conSubChapter_number2" value="1">
 									<input type="text" name="conMainChapter_title2" id="conMainChapter_title">
 								</div>
 								<div class="section-subChapter">
 									<div class="subChapterArea" id="subChapterArea" name="subChapterArea">
 										<div class="subChapter-container">
+											<input class="conSubChapter_number" id="conSubChapter_number" name="conSubChapter_number2" value="1">
 											<input type="text" name="conSubChapter_title2" id="conSubChapter_title">
 										</div>
 									</div>

@@ -27,6 +27,12 @@ public interface TempClassDao {
 
 	ArrayList<TemporaryClassVo> getTempClass();
 
+	TemporaryClassVo getTempClassCode(@Param("code")String code);
+
+	ArrayList<TemporaryMainChapterVo> detectChapterCode(@Param("tempMain")String addClass_code);
+
+	ArrayList<TemporarySubChapterVo> detectSubContain(@Param("tempSub")ArrayList<TemporaryMainChapterVo> tempMain);
+
 	
 
 	

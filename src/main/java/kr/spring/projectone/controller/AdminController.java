@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.vo.TemporaryClassVo;
+import kr.spring.projectone.vo.TemporaryMainChapterVo;
+import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
 
 /**
@@ -74,11 +76,39 @@ public class AdminController {
 	// 1차 심사 페이지
 	
 	@RequestMapping(value = "/admin/tempClass", method = RequestMethod.GET)
-	public ModelAndView tempClassCheckGet(ModelAndView mv) {
+	public ModelAndView tempClassCheckGet(ModelAndView mv, String code) {
+		
+		
+		
+		TemporaryClassVo tempClass = null;
+		
+		if (code != null) {
+			tempClass = classService.getTempClassCode(code);
+			mv.addObject("tempClass", tempClass);
+			
+			if (tempClass != null) {
+				ArrayList<TemporaryMainChapterVo>tempMain = classService.detectChapterCode(tempClass.getAddClass_code());
+				mv.addObject("tempMain",tempMain);
+				
+//				if (tempMain != null) {
+//					
+//					ArrayList<TemporarySubChapterVo>tempSub = classService.detectSubContain();
+//					mv.addObject("tempSub", tempSub);
+//				}
+			}
+		}
+		
 		
 		mv.setViewName("/admin/adminPage/adminPreCheck");
 	
 		return mv;
 	}
 
+//	
+//	@RequestMapping(value = "/admin/tempClass", method = RequestMethod.POST)
+//	public ModelAndView tempClassCheckPost(ModelAndView mv, String addClass_adminComment, char addClass_confirm) {
+//	
+//		return mv;
+//	}
+	
 }
