@@ -75,9 +75,11 @@ public class AdminController {
 	
 	// 1차 심사 페이지
 	
+	
 	@RequestMapping(value = "/admin/tempClass", method = RequestMethod.GET)
 	public ModelAndView tempClassCheckGet(ModelAndView mv, String code) {
 		
+	
 		
 		
 		TemporaryClassVo tempClass = null;
@@ -89,12 +91,18 @@ public class AdminController {
 			if (tempClass != null) {
 				ArrayList<TemporaryMainChapterVo>tempMain = classService.detectChapterCode(tempClass.getAddClass_code());
 				mv.addObject("tempMain",tempMain);
+				ArrayList<TemporarySubChapterVo>tempSubList = new ArrayList<TemporarySubChapterVo>();
 				
-//				if (tempMain != null) {
-//					
-//					ArrayList<TemporarySubChapterVo>tempSub = classService.detectSubContain();
-//					mv.addObject("tempSub", tempSub);
-//				}
+				if (tempMain != null) {
+					for(TemporaryMainChapterVo tmp: tempMain) {
+						ArrayList<TemporarySubChapterVo>tempSub;
+						tempSub = classService.getSubChapter(tmp.getConMainChapter_priNum());
+						tempSubList.addAll(tempSub);
+						
+					}
+					
+					mv.addObject("tempSub", tempSubList);
+				}
 			}
 		}
 		
@@ -103,12 +111,41 @@ public class AdminController {
 	
 		return mv;
 	}
-
-//	
-//	@RequestMapping(value = "/admin/tempClass", method = RequestMethod.POST)
-//	public ModelAndView tempClassCheckPost(ModelAndView mv, String addClass_adminComment, char addClass_confirm) {
-//	
-//		return mv;
-//	}
+	
+	@RequestMapping(value = "/admin/tempClass", method = RequestMethod.POST)
+	public ModelAndView tempClassCheckPost(ModelAndView mv, String code, HttpServletRequest request, HttpServletResponse response, String addClass_adminComment2, char addClass_confirm2) throws IOException {
+	
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter printWriter = response.getWriter();
+		
+		TemporaryClassVo tempClass = classService.getTempClassCode(code);
+		String classCode = tempClass.getAddClass_code();
+		
+		
+		boolean firstConfirmResult = classService.firstConfirm(addClass_adminComment2, addClass_confirm2, code);
+		System.out.println(firstConfirmResult);
+		
+		if (firstConfirmResult == true) {
+			
+			request.getSession().getAttribute("tempClass");
+			
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('정보 갱신이 완료 되었습니다.'); location.href=''; </script>");
+			printWriter.flush();
+			printWriter.close();
+			
+		}
+		if (firstConfirmResult == false) {
+			
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('크리에이터에게 전달사항을 작성하지 않으셨거나 150자를 초과하셨습니다.'); history.back(); </script>");
+			printWriter.flush();
+			printWriter.close();
+			
+			
+		}
+			
+			
+		return mv;
+	}
 	
 }

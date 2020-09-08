@@ -540,6 +540,81 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
+/* 1차 심사 통과 후 작업 */
+
+.class-container{
+	
+	width: 1100px;
+    display: flex;
+    margin-top: 30px;
+	
+}
+
+
+
+/* 1차 심사 통과 후 오른 쪽*/
+
+.class-slidebar{
+	
+	width: 40%;
+    height: auto;
+    padding: 0 15px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+	
+}
+
+.class-description-container{
+	
+	margin: 0;
+    width: 60%;
+    height: auto;
+    padding: 0 15px;
+	
+}
+
+.class-detail{
+	
+	float: left;
+	margin-top: 20px;
+	
+}
+.class-detail::after{
+	
+	clear:both;
+	display: block;
+	content: '';
+	
+	
+}
+
+.content-division {
+    padding: 16px 0;
+}
+
+.plan-offer>a{
+	
+	font-weight: bold;
+	color: black;
+	
+}
+
+.plan-offer>a::hover{
+	
+	text-decoration: none;
+	text-decoration-line: none;
+	
+}
+
+/* 디스플레이 토글 */
+
+.display-toggle{
+	
+	display: none;
+	
+}
+
 /* 크리에이터 센터 푸터*/
 
 .jumbotron.jumbotron-fluid.mb-0{

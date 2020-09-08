@@ -31,6 +31,10 @@ public interface ClassService {
 
 	ArrayList<TemporaryMainChapterVo> detectChapterCode(String addClass_code);
 
+	ArrayList<TemporarySubChapterVo> getSubChapter(int i);
+
+	boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code);
+
 
 
 

@@ -3,6 +3,7 @@ package kr.spring.projectone.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -242,12 +243,35 @@ public class ClassController {
 	}
 	
 	
-	
-	
-	// 집에서 작업할 백링크용!
-	@RequestMapping(value = "/backLink", method = RequestMethod.GET)
-	public ModelAndView backLinkGet(ModelAndView mv) {
-		mv.setViewName("/creator/creatorCenter/applyClassSteps/applyClass");
+	@RequestMapping(value = "/creator/addContent", method = RequestMethod.GET)
+	public ModelAndView addContentGet(ModelAndView mv, String code) {
+		
+		
+		TemporaryClassVo tempClass = null;
+		
+		if (code != null) {
+			tempClass = classService.getTempClassCode(code);
+			mv.addObject("tempClass", tempClass);
+			
+			if (tempClass != null) {
+				ArrayList<TemporaryMainChapterVo>tempMain = classService.detectChapterCode(tempClass.getAddClass_code());
+				mv.addObject("tempMain",tempMain);
+				ArrayList<TemporarySubChapterVo>tempSubList = new ArrayList<TemporarySubChapterVo>();
+				
+				if (tempMain != null) {
+					for(TemporaryMainChapterVo tmp: tempMain) {
+						ArrayList<TemporarySubChapterVo>tempSub;
+						tempSub = classService.getSubChapter(tmp.getConMainChapter_priNum());
+						tempSubList.addAll(tempSub);
+						
+					}
+					
+					mv.addObject("tempSub", tempSubList);
+				}
+			}
+		}
+		
+		mv.setViewName("/creator/creatorCenter/tempClass/tempClassAddContent");
 		
 		return mv;
 	}

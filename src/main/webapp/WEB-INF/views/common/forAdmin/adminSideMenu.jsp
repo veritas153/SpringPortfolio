@@ -10,7 +10,7 @@
 				<a href="#" class="sidemenu-link">
 					<span class="myClass">
 						<i class="fas fa-book"></i>
-						<span>내 클래스</span>
+						<span>클래스 신청 현황</span>
 					</span>
 				</a>
 			</div>
@@ -18,7 +18,7 @@
 				<a href="#" class="sidemenu-link">
 					<span class="creator-announcement">
 						<i class="far fa-bell"></i>
-						<span>Aurts 공지사항</span>
+						<span>Aurts 공지</span>
 					</span>
 				</a>
 			</div>
@@ -26,7 +26,7 @@
 				<a href="#" class="sidemenu-link">
 					<span class="myClass">
 						<i class="far fa-clipboard"></i>
-						<span>제출과제 및 코칭권 관리</span>
+						<span>패키지 등록 </span>
 					</span>
 				</a>
 			</div>

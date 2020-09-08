@@ -66,11 +66,15 @@
     <definition name="/vip/signPlan" extends=".vip">
     	<put-attribute name="body" value="/WEB-INF/views/vip/signPlan.jsp" />
     </definition>
+     
+    <definition name="/creator/creatorCenter/tempClass/*" extends=".creator">
+    	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/tempClass/{1}.jsp" />
+    </definition>
     
     <definition name="/creator/creatorCenter/*" extends=".creator">
     	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/{1}.jsp" />
     </definition>
-    
+   
     <definition name="/creator/creatorCenter/applyClassSteps/*" extends=".applyClass">
     	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/applyClassSteps/{1}.jsp" />
     </definition>

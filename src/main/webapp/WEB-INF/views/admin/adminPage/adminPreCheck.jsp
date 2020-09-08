@@ -3,6 +3,8 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+ 
   
 <div class="class-container">
 	<div class="class-description-container">
@@ -28,7 +30,12 @@
 							<div class="curriculumList">
 								<span>${tempMain.conMainChapter_number}</span>
 								<span>${tempMain.conMainChapter_title}</span>
-							</div>
+								<c:forEach var="tempSub" items="${tempSub}">
+									<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
+										<p>${tempSub.conSubChapter_title }</p>
+									</c:if>
+								</c:forEach>
+							</div> 
 						</c:forEach>
 					</div>
 					<c:if test="${tempClass.addClass_hasPackage == 'n'.charAt(0)}">
@@ -92,7 +99,9 @@
 						</div>
 					</div>
 					<div class="class-specification">
-						<div class="class-content"><i class="fas fa-book"></i> ${tempSub}</div>
+						
+						<div class="class-content"><i class="fas fa-book"></i> ${fn:length(tempSub)}개의 클래스</div>
+					
 						<c:if test="${tempClass.addClass_hasPackage == 'n'.charAt(0)}">
 							<div class="class-package"><i class="fas fa-box-open"></i> 패키지 없음</div>
 						</c:if>
@@ -115,13 +124,13 @@
 				</div>
 				<form method="post" action="<%=request.getContextPath()%>/admin/tempClass?code=${tempClass.addClass_code}">
 					<div class="addClass_confirmContainer">
-						<select>
+						<select name="addClass_confirm2">
 							<option value="n" selected>불허 및 수정 요구</option>
 							<option value="y">1차 심사통과</option>
 						</select>
 					</div>
 					<div class="comment-container">
-						<textarea class="addclass_adminComment" name="addClass_adminComment" rows="3" cols="50" maxlength="150" placeholder="150자 내외로 크리에이터에게 답변해주세요."></textarea>
+						<textarea class="addclass_adminComment" name="addClass_adminComment2" rows="3" cols="50" maxlength="150" placeholder="150자 내외로 크리에이터에게 답변해주세요."></textarea>
 					</div>
 					<div>
 						<button>결과 송신</button>

@@ -29,22 +29,42 @@
 			</div>
 			<div class="classList-applyStatus">
 				<c:if test="${tempClass.addClass_st_id == user.st_id}">
-					
-						<header class="classList-title">
-							<span>클래스 신청 현황</span>
-						</header>
-						<a href="#" class="classMenu-link">
+					<header class="classList-title">
+						<span>클래스 신청 현황</span>
+					</header>
+					<div>
+						<c:if test="${tempClass.addClass_confirm == 'n'.charAt(0)}">
+							<a href="<%=request.getContextPath()%>/creator/modify" class="classMenu-link">		
+								<div class="classMenu">
+									<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
+									<div class="classTitle">
+										<span class="class-name" name="class_name">${tempClass.addClass_title}</span>
+										<span class="class-detail"><i class="fas fa-angle-double-right"></i>기준 미달 및 수정 요청</span>
+									</div>
+								</div>
+							</a>
+						</c:if>
+						<c:if test="${tempClass.addClass_confirm == 'y'.charAt(0)}">
+							<a href="<%=request.getContextPath()%>/creator/addContent?code=${tempClass.addClass_code}" class="classMenu-link">		
+								<div class="classMenu">
+								<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
+									<div class="classTitle">
+										<span class="class-name" name="class_name">${tempClass.addClass_title}</span>
+										<span class="class-detail"><i class="fas fa-angle-double-right"></i>1차 통과</span>
+									</div>
+								</div>
+							</a>
+						</c:if>
+						<c:if test="${tempClass.addClass_confirm == 'W'.charAt(0)}">
 							<div class="classMenu">
 								<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
 								<div class="classTitle">
 									<span class="class-name" name="class_name">${tempClass.addClass_title}</span>
-									<c:if test="${tempClass.addClass_confirm == 'W'.charAt(0)}">
-										<span class="class-detail"><i class="fas fa-angle-double-right"></i>대기중</span>
-									</c:if>
+									<span class="class-detail"><i class="fas fa-angle-double-right"></i>대기중</span>
 								</div>
 							</div>
-						</a>
-					
+						</c:if>	
+					</div>
 				</c:if>
 				<c:if test="${tempClass.addClass_st_id != user.st_id}">
 					<header class="classList-title">

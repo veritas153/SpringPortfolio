@@ -54,9 +54,17 @@
 		select * from conmainchapter where conMainChapter_addClass_code = #{tempMain};
 	</select>
 	
-	<select id="detectSubContain" resultType="kr.spring.projectone.vo.TemporarySubChapterVo">
-		select * from consubchapter where conSubChapter_conMainChapter_priNum = #{tempSub};
+	<select id="getSubChapter" resultType="kr.spring.projectone.vo.TemporarySubChapterVo">
+		select * from consubChapter where conSubChapter_conMainChapter_priNum = #{i} order by conSubChapter_number asc;
 	</select>
 	
+	<update id="firstConfirm">
+	
+		update addClass
+			set addClass_confirm = #{answer},
+			addClass_adminComment = #{comment}
+				where addClass_code = #{code};
+	
+	</update>
 	
 </mapper>

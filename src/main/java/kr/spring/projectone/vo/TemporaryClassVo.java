@@ -18,6 +18,7 @@ public class TemporaryClassVo {
 	private String addClass_creator;
 	private Date addClass_submitDate;
 	private char addClass_confirm;
+	private String addClass_adminComment;
 	private Date addClass_openDate;
 	private String addClass_st_id;
 	
@@ -107,6 +108,12 @@ public class TemporaryClassVo {
 	public void setAddClass_confirm(char addClass_confirm) {
 		this.addClass_confirm = addClass_confirm;
 	}
+	public String getAddClass_adminComment() {
+		return addClass_adminComment;
+	}
+	public void setAddClass_adminComment(String addClass_adminComment) {
+		this.addClass_adminComment = addClass_adminComment;
+	}
 	public Date getAddClass_openDate() {
 		return addClass_openDate;
 	}
@@ -128,9 +135,10 @@ public class TemporaryClassVo {
 				+ ", addClass_hasPackage=" + addClass_hasPackage + ", addClass_setPackage=" + addClass_setPackage
 				+ ", addClass_difficulty=" + addClass_difficulty + ", addClass_creator=" + addClass_creator
 				+ ", addClass_submitDate=" + addClass_submitDate + ", addClass_confirm=" + addClass_confirm
-				+ ", addClass_openDate=" + addClass_openDate + ", addClass_st_id=" + addClass_st_id + "]";
+				+ ", addClass_adminComment=" + addClass_adminComment + ", addClass_openDate=" + addClass_openDate
+				+ ", addClass_st_id=" + addClass_st_id + "]";
 	}
 	
-	
+
 	
 }

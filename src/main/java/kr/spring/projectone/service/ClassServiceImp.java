@@ -137,6 +137,24 @@ public class ClassServiceImp implements ClassService {
 		return tempClassDao.detectChapterCode(addClass_code);
 	}
 
+	@Override
+	public ArrayList<TemporarySubChapterVo> getSubChapter(int i) {
+		
+		return tempClassDao.getSubChapter(i);
+	}
+
+	@Override
+	public boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code) {
+
+		if (addClass_adminComment2 == null || addClass_adminComment2.equals("") || addClass_adminComment2.length() > 150) {
+			
+			return false;
+		}
+	
+		tempClassDao.firstConfirm(addClass_adminComment2, addClass_confirm2, code);
+		return true;
+	}
+
 
 
 	

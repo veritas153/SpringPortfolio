@@ -6,6 +6,7 @@ public class TemporaryMainChapterVo {
 	private String conMainChapter_title;
 	private Integer conMainChapter_number;
 	private String conMainChapter_addClass_code;
+	private int conMainChapter_countSubNum;
 	
 	public int getConMainChapter_priNum() {
 		return conMainChapter_priNum;
@@ -32,11 +33,18 @@ public class TemporaryMainChapterVo {
 		this.conMainChapter_addClass_code = conMainChapter_addClass_code;
 	}
 	
+	public int getConMainChapter_countSubNum() {
+		return conMainChapter_countSubNum;
+	}
+	public void setConMainChapter_countSubNum(int conMainChapter_countSubNum) {
+		this.conMainChapter_countSubNum = conMainChapter_countSubNum;
+	}
 	@Override
 	public String toString() {
 		return "TemporaryMainChapterVo [conMainChapter_priNum=" + conMainChapter_priNum + ", conMainChapter_title="
 				+ conMainChapter_title + ", conMainChapter_number=" + conMainChapter_number
-				+ ", conMainChapter_addClass_code=" + conMainChapter_addClass_code + "]";
+				+ ", conMainChapter_addClass_code=" + conMainChapter_addClass_code + ", conMainChapter_countSubNum="
+				+ conMainChapter_countSubNum + "]";
 	}
 	
 	

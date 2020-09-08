@@ -30,8 +30,10 @@ public interface TempClassDao {
 	TemporaryClassVo getTempClassCode(@Param("code")String code);
 
 	ArrayList<TemporaryMainChapterVo> detectChapterCode(@Param("tempMain")String addClass_code);
+	
+	ArrayList<TemporarySubChapterVo> getSubChapter(@Param("i")int i);
 
-	ArrayList<TemporarySubChapterVo> detectSubContain(@Param("tempSub")ArrayList<TemporaryMainChapterVo> tempMain);
+	void firstConfirm(@Param("comment")String addClass_adminComment2, @Param("answer")char addClass_confirm2, @Param("code")String code);
 
 	
 
