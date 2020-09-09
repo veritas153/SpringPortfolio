@@ -5,41 +5,54 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  
-<form method="post" action="<%=request.getContextPath()%>/admin/tempClass?code=${tempClass.addClass_code}">
+ 
+<form method="post" action="<%=request.getContextPath()%>/creator/addContent?code=${tempClass.addClass_code}">
 	<div class="class-container">
 		<div class="class-description-container">
 			<div class="class-description">
 				<img src="<%=request.getContextPath()%>/resources/uploadedImage${tempClass.addClass_image}"  width="627" height="417">
-				<div class="class-detail">
+				<div class="classContent-setting">
 					<div class="content-division">
 						<div class="plan-offer" id="curriculum">
 							<h3>클래스 컨텐츠 추가</h3>
+							<div class="curriculumList">
 							<c:forEach var="tempMain" items="${tempMain}">
 								<a href="javascript:void(0)" class="mainChapter-button">
-									<div class="curriculumList">
-										<div class="mainChapter-dropdownMenu">
-											<div class="mainChapter-titleContainer">
-												<span>${tempMain.conMainChapter_number}</span>
-												<span>${tempMain.conMainChapter_title}</span>
-											</div>
+									<div class="mainChapter-dropdownMenu">
+										<div class="mainChapter-titleContainer">
+											<span>${tempMain.conMainChapter_number}.</span>
+											<span>${tempMain.conMainChapter_title}</span>
 										</div>
-										<c:forEach var="tempSub" items="${tempSub}">
-											<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
-												<div>
-													<div class="subChapter-menuContainer display-toggle">
-														<input type="text" name="conSubChapter_title2" value="${tempSub.conSubChapter_title}">
-														<textarea name="conSubchapter_content2"></textarea>
-													</div>											
-												</div>
-											</c:if>
-										</c:forEach>
 									</div>
-								</a> 
+								</a>
+								<div class="subChapter-container display-toggle">
+									<c:forEach var="tempSub" items="${tempSub}">
+										<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
+											
+											<div class="subChapter-totalContainer">
+												<div class="subChapter-titleContainer">
+													<input type="text" class="conSubChapter_title" name="conSubChapter_title2" value="${tempSub.conSubChapter_title}">
+												</div>
+												<a href="javascript:void(0)" class="subChapter-button">
+													<div class="subChapter-contentOpen">
+														<i class="fas fa-angle-down"></i>
+													</div>
+												</a>
+											</div>
+											<div class="subChapter-menuContainer display-toggle">
+												<textarea class="conSubChapter_content" name="conSubChapter_content2"></textarea>
+											</div>
+										</c:if>
+									</c:forEach>
+								</div>	
+								
 							</c:forEach>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<button>컨텐츠 제출</button>
 		</div>
 		<div class="class-slidebar">
 			<div class="slidebar-boundary">

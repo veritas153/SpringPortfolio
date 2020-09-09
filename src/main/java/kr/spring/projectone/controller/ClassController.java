@@ -247,7 +247,7 @@ public class ClassController {
 	public ModelAndView addContentGet(ModelAndView mv, String code) {
 		
 		
-		TemporaryClassVo tempClass = null;
+		TemporaryClassVo tempClass;
 		
 		if (code != null) {
 			tempClass = classService.getTempClassCode(code);
@@ -276,6 +276,21 @@ public class ClassController {
 		return mv;
 	}
 	
+
+	@RequestMapping(value = "/creator/addContent", method = RequestMethod.POST)
+	public ModelAndView addContentPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass, TemporarySubChapterVo tempSub, TemporaryMainChapterVo tempChapter, String []conMainChapter_t,String []conSubChapter_title2, String []conSubChapter_content2) throws IOException {
 	
-	
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");	
+		
+		tempClass = (TemporaryClassVo) request.getSession().getAttribute("tempClass");
+		
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		PrintWriter printWriter = response.getWriter();
+			
+		classService.checkContent(tempSub, conSubChapter_title2, conSubChapter_content2);
+		
+		return mv;
+	}
 }

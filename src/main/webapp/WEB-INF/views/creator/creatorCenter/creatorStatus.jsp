@@ -33,7 +33,7 @@
 						<span>클래스 신청 현황</span>
 					</header>
 					<div>
-						<c:if test="${tempClass.addClass_confirm == 'n'.charAt(0)}">
+						<c:if test="${tempClass.addClass_confirm == 'N'.charAt(0)}">
 							<a href="<%=request.getContextPath()%>/creator/modify" class="classMenu-link">		
 								<div class="classMenu">
 									<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>
@@ -44,7 +44,7 @@
 								</div>
 							</a>
 						</c:if>
-						<c:if test="${tempClass.addClass_confirm == 'y'.charAt(0)}">
+						<c:if test="${tempClass.addClass_confirm == 'Y'.charAt(0)}">
 							<a href="<%=request.getContextPath()%>/creator/addContent?code=${tempClass.addClass_code}" class="classMenu-link">		
 								<div class="classMenu">
 								<span class="class-instructor" name="st_name">${tempClass.addClass_st_id}</span>

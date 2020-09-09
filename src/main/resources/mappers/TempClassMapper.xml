@@ -67,4 +67,13 @@
 	
 	</update>
 	
+	<update id="insertContent">
+	
+		update consubchapter
+			set conSubChapter_title = #{tempSub.conSubChapter_title},
+				conSubChapter_content = #{tempSub.conSubChapter_content}
+				where 
+	
+	</update>
+	
 </mapper>

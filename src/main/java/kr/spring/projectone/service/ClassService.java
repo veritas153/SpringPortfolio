@@ -35,6 +35,8 @@ public interface ClassService {
 
 	boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code);
 
+	boolean checkContent(TemporarySubChapterVo tempSub, String[] conSubChapter_title2, String[] conSubChapter_content2);
+
 
 
 

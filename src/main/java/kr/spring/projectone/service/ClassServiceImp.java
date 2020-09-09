@@ -114,6 +114,33 @@ public class ClassServiceImp implements ClassService {
 		
 		return true;
 	}
+	
+	
+	@Override
+	public boolean checkContent(TemporarySubChapterVo tempSub, String[] conSubChapter_title2, String[] conSubChapter_content2) {
+		
+		if (conSubChapter_title2 == null) {
+			return false;
+		}
+		if (conSubChapter_content2 == null || conSubChapter_content2.equals("")) {
+			return false;
+		}
+		
+		for (int i = 0; i <conSubChapter_title2.length; i++) {
+			
+			System.out.println("서브챕터 : "+conSubChapter_title2[i]);
+			tempSub.setConSubChapter_title(conSubChapter_title2[i]);
+			System.out.println("서브 내용 :"+conSubChapter_content2[i]);
+			tempSub.setConSubChapter_content(conSubChapter_content2[i]);
+			
+			tempClassDao.insertContent(tempSub);
+			
+		}
+		
+
+		return true;
+	}
+
 
 	
 	
@@ -155,6 +182,7 @@ public class ClassServiceImp implements ClassService {
 		return true;
 	}
 
+	
 
 
 	

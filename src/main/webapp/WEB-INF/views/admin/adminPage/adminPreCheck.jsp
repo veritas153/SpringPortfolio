@@ -38,14 +38,14 @@
 							</div> 
 						</c:forEach>
 					</div>
-					<c:if test="${tempClass.addClass_hasPackage == 'n'.charAt(0)}">
+					<c:if test="${tempClass.addClass_hasPackage == 'N'.charAt(0)}">
 						<div class="plan-offer" id="package">
 							<h3>패키지</h3>
 							<p>해당 강의는 패키지를 요구하지 않는 클래스입니다.</p>
 							<p>필요한 부분은 클래스 내에서 설명할 예정이니 참고하시면 됩니다.</p>
 						</div>
 					</c:if>
-					<c:if test="${tempClass.addClass_hasPackage == 'y'.charAt(0)}">
+					<c:if test="${tempClass.addClass_hasPackage == 'Y'.charAt(0)}">
 						<div class="plan-offer" id="package">
 							<h3>패키지</h3>
 							<div>${tempClass.addClass_setPackage}</div>
@@ -125,8 +125,8 @@
 				<form method="post" action="<%=request.getContextPath()%>/admin/tempClass?code=${tempClass.addClass_code}">
 					<div class="addClass_confirmContainer">
 						<select name="addClass_confirm2">
-							<option value="n" selected>불허 및 수정 요구</option>
-							<option value="y">1차 심사통과</option>
+							<option value="N" selected>불허 및 수정 요구</option>
+							<option value="Y">1차 심사통과</option>
 						</select>
 					</div>
 					<div class="comment-container">

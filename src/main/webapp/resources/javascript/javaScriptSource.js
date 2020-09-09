@@ -218,7 +218,31 @@ $(function(){
 	$('#addClass_creator').summernote({
 		
 	});
+	$('.conSubChapter_content').summernote({
+	
+		 height: 300,                 // 에디터 높이
+		 minHeight: null,             // 최소 높이
+		 maxHeight: null,             // 최대 높이
+		 focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		 lang: "ko-KR"
+	
+	});
 		
+	
+	// 컨텐츠 추가 구문
+	
+	$('.mainChapter-button').click(function(){
+		
+		$(this).next().toggleClass("display-toggle", 500);
+	
+	});
+	
+	$('.subChapter-button').click(function(){
+		
+		$(this).parent().next().toggleClass("display-toggle", 500);
+	
+	});
+	
 	
 	window.onscroll = function() {scrollFunction()};
 	
@@ -235,6 +259,10 @@ $(function(){
 		
 		}
 	}
+	
+	
+
+	
 	
 	
 	// 개인, 법인 카드에 따라 옵션 변화
