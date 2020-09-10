@@ -19,9 +19,9 @@ public interface ClassService {
 
 	boolean insertTempChapter(TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, TemporaryClassVo tempClass, Integer[] conMainChapter_number2, Integer[] conSubChapter_number2, String[] conMainChapter_title2, String[] conSubChapter_title2);
 
+	boolean updateContent(TemporarySubChapterVo tempSub, int[] conSubChapter_priNum2, String[] conSubChapter_title2, String[] conSubChapter_content2);
 	
-
-	
+	void notifyFinalStep(String code);
 	
 	// 운영진 전용
 	
@@ -35,7 +35,12 @@ public interface ClassService {
 
 	boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code);
 
-	boolean checkContent(TemporarySubChapterVo tempSub, String[] conSubChapter_title2, String[] conSubChapter_content2);
+	
+
+
+
+
+	
 
 
 

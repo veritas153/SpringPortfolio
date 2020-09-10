@@ -21,6 +21,10 @@ public interface TempClassDao {
 	void insertTempChapter(@Param("tempMain")TemporaryMainChapterVo tempChapter);
 	
 	void insertSubChapter(@Param("tempSub")TemporarySubChapterVo tempSub);
+	
+	void updateContent(@Param("priNum")int subPriNum, @Param("tempSub")TemporarySubChapterVo tempSub);
+	
+	void notifyFinalStep(@Param("classCode")String detectCode);
 
 	
 	// 관리자용
@@ -35,7 +39,9 @@ public interface TempClassDao {
 
 	void firstConfirm(@Param("comment")String addClass_adminComment2, @Param("answer")char addClass_confirm2, @Param("code")String code);
 
-	void insertContent(@Param("tempSub")TemporarySubChapterVo tempSub);
+	
+
+
 
 	
 

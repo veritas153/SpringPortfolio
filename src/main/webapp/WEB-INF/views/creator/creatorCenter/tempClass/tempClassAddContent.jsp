@@ -40,6 +40,7 @@
 												</a>
 											</div>
 											<div class="subChapter-menuContainer display-toggle">
+												<input type="text" name="conSubChapter_priNum2" value="${tempSub.conSubChapter_priNum}">
 												<textarea class="conSubChapter_content" name="conSubChapter_content2"></textarea>
 											</div>
 										</c:if>

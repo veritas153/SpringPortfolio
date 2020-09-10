@@ -37,6 +37,26 @@
 			values(#{tempSub.conSubChapter_title}, #{tempSub.conSubChapter_number}, #{tempSub.conSubChapter_conMainChapter_priNum});
 		
 	</insert>
+	
+	
+	<update id="updateContent">
+	
+		update consubchapter
+			set conSubChapter_title = #{tempSub.conSubChapter_title},
+				conSubChapter_content = #{tempSub.conSubChapter_content}
+			where conSubChapter_priNum = #{priNum};
+	
+	</update>
+	
+	<update id="notifyFinalStep">
+	
+		update addClass
+			set addClass_finalSubmit = "W"
+			where addClass_code = #{classCode};
+	
+	</update>
+	
+	
 
 	<!-- 관리자 구역 -->
 	
@@ -67,13 +87,5 @@
 	
 	</update>
 	
-	<update id="insertContent">
-	
-		update consubchapter
-			set conSubChapter_title = #{tempSub.conSubChapter_title},
-				conSubChapter_content = #{tempSub.conSubChapter_content}
-				where 
-	
-	</update>
 	
 </mapper>

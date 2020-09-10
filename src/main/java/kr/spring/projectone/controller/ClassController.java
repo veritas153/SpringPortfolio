@@ -267,6 +267,7 @@ public class ClassController {
 					}
 					
 					mv.addObject("tempSub", tempSubList);
+					
 				}
 			}
 		}
@@ -278,18 +279,28 @@ public class ClassController {
 	
 
 	@RequestMapping(value = "/creator/addContent", method = RequestMethod.POST)
-	public ModelAndView addContentPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass, TemporarySubChapterVo tempSub, TemporaryMainChapterVo tempChapter, String []conMainChapter_t,String []conSubChapter_title2, String []conSubChapter_content2) throws IOException {
+	public ModelAndView addContentPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporarySubChapterVo tempSub, int []conSubChapter_priNum2, String []conSubChapter_title2, String []conSubChapter_content2, String code) throws IOException {
 	
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");	
-		
-		tempClass = (TemporaryClassVo) request.getSession().getAttribute("tempClass");
-		
-		
-		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter printWriter = response.getWriter();
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		
+		
+		System.out.println(conSubChapter_priNum2);
+
+		boolean addContent = classService.updateContent(tempSub, conSubChapter_priNum2, conSubChapter_title2, conSubChapter_content2);
+		
+		if (addContent == true) {
+			classService.notifyFinalStep(code);
 			
-		classService.checkContent(tempSub, conSubChapter_title2, conSubChapter_content2);
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('컨텐츠 추가가 완료되었습니다. 최종 여부는 7일 이내에 결정되며 승인 후 즉시 또는 며칠 뒤에 개강 될 예정입니다.'); location.href=''; </script>");
+			printWriter.flush();
+			printWriter.close();
+			
+			request.getSession().setAttribute("user", user);	
+		}
+	
 		
 		return mv;
 	}

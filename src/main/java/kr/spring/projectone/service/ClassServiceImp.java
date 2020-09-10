@@ -116,29 +116,47 @@ public class ClassServiceImp implements ClassService {
 	}
 	
 	
-	@Override
-	public boolean checkContent(TemporarySubChapterVo tempSub, String[] conSubChapter_title2, String[] conSubChapter_content2) {
-		
-		if (conSubChapter_title2 == null) {
-			return false;
-		}
-		if (conSubChapter_content2 == null || conSubChapter_content2.equals("")) {
-			return false;
-		}
-		
-		for (int i = 0; i <conSubChapter_title2.length; i++) {
-			
-			System.out.println("서브챕터 : "+conSubChapter_title2[i]);
-			tempSub.setConSubChapter_title(conSubChapter_title2[i]);
-			System.out.println("서브 내용 :"+conSubChapter_content2[i]);
-			tempSub.setConSubChapter_content(conSubChapter_content2[i]);
-			
-			tempClassDao.insertContent(tempSub);
-			
-		}
-		
 
+	@Override
+	public boolean updateContent(TemporarySubChapterVo tempSub, int[] conSubChapter_priNum2, String[] conSubChapter_title2,
+			String[] conSubChapter_content2) {
+		
+		
+		for (int i = 0 ; i < conSubChapter_title2.length; i++) {
+			
+			if (conSubChapter_title2[i] == null) {
+				return false;
+			}
+			if (conSubChapter_content2[i] == null || conSubChapter_content2[i].equals("")) {
+				return false;
+			}
+			
+			int subPriNum = conSubChapter_priNum2[i];
+			System.out.println(subPriNum);
+			
+			tempSub.setConSubChapter_title(conSubChapter_title2[i]);
+			tempSub.setConSubChapter_content(conSubChapter_content2[i]);
+			System.out.println(tempSub);
+			tempClassDao.updateContent(subPriNum, tempSub);
+			
+		}
+		
+		
 		return true;
+	}
+
+	
+	
+	@Override
+	public void notifyFinalStep(String code) {
+		
+		TemporaryClassVo tempClass = tempClassDao.getTempClassCode(code);
+		
+		String detectCode = tempClass.getAddClass_code();
+		
+		tempClassDao.notifyFinalStep(detectCode);
+		
+		
 	}
 
 
@@ -181,8 +199,6 @@ public class ClassServiceImp implements ClassService {
 		tempClassDao.firstConfirm(addClass_adminComment2, addClass_confirm2, code);
 		return true;
 	}
-
-	
 
 
 	
