@@ -80,7 +80,7 @@ public class AdminController {
 	public ModelAndView tempClassCheckGet(ModelAndView mv, String code) {
 		
 	
-		
+		// 밑에 있는 부분, 서비스에서 함수화 구현 예정
 		
 		TemporaryClassVo tempClass = null;
 		
@@ -147,5 +147,65 @@ public class AdminController {
 			
 		return mv;
 	}
+	
+	
+	// 최종 컨펌 페이지
+	
+	@RequestMapping(value = "/admin/finalConfirm", method = RequestMethod.GET)
+	public ModelAndView finalConfirmGet(ModelAndView mv, String code) {
+	
+		
+		// 밑에 있는 부분, 서비스에서 함수화 구현 예정
+		
+		TemporaryClassVo tempClass = null;
+		
+		if (code != null) {
+			tempClass = classService.getTempClassCode(code);
+			mv.addObject("tempClass", tempClass);
+			
+			if (tempClass != null) {
+				ArrayList<TemporaryMainChapterVo>tempMain = classService.detectChapterCode(tempClass.getAddClass_code());
+				mv.addObject("tempMain",tempMain);
+				ArrayList<TemporarySubChapterVo>tempSubList = new ArrayList<TemporarySubChapterVo>();
+				
+				if (tempMain != null) {
+					for(TemporaryMainChapterVo tmp: tempMain) {
+						ArrayList<TemporarySubChapterVo>tempSub;
+						tempSub = classService.getSubChapter(tmp.getConMainChapter_priNum());
+						tempSubList.addAll(tempSub);
+						
+					}
+					
+					mv.addObject("tempSub", tempSubList);
+				}
+			}
+		}
+		
+		
+		mv.setViewName("/admin/adminPage/adminFinalConfirm");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "/admin/finalConfirm", method = RequestMethod.POST)
+	public ModelAndView finalConfirmPost(ModelAndView mv, TemporaryClassVo tempclass, String code, char addClass_finalSubmit2, String addClass_openDate2) {
+		
+		TemporaryClassVo tempClass = classService.getTempClassCode(code);
+		String classCode = tempClass.getAddClass_code();
+		
+		boolean startClass = classService.confirmClass(tempClass, code, addClass_finalSubmit2, addClass_openDate2);
+		
+		if (startClass == false) {
+			
+		}
+		
+		if (startClass == true) {
+			
+		}
+		
+		return mv;
+	}
+	
+	
 	
 }

@@ -1,6 +1,8 @@
 package kr.spring.projectone.vo;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 public class TemporaryClassVo {
 
@@ -19,6 +21,7 @@ public class TemporaryClassVo {
 	private Date addClass_submitDate;
 	private char addClass_confirm;
 	private String addClass_adminComment;
+	private char addClass_finalSubmit;
 	private Date addClass_openDate;
 	private String addClass_st_id;
 	
@@ -114,12 +117,40 @@ public class TemporaryClassVo {
 	public void setAddClass_adminComment(String addClass_adminComment) {
 		this.addClass_adminComment = addClass_adminComment;
 	}
-	public Date getAddClass_openDate() {
-		return addClass_openDate;
+	public char getAddClass_finalSubmit() {
+		return addClass_finalSubmit;
+	}
+	public void setAddClass_finalSubmit(char addClass_finalSubmit) {
+		this.addClass_finalSubmit = addClass_finalSubmit;
+	}
+	public String getAddClass_openDate() {
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyymmdd"); // DatePicker에서 받아오는 스트링 형태를 작성
+		return transFormat.format(addClass_openDate);
 	}
 	public void setAddClass_openDate(Date addClass_openDate) {
 		this.addClass_openDate = addClass_openDate;
 	}
+	public void setAddClass_openDate(String addClass_openDate) {
+		
+		SimpleDateFormat beforeTransFormat = new SimpleDateFormat("yyyymmdd"); // DatePicker에서 받아오는 스트링 형태를 작성
+		
+		SimpleDateFormat afterTransFormat = new SimpleDateFormat("yyyy-mm-dd"); // MYSQL에서 인식하는 형태로 작성
+		
+		java.util.Date tempDate = null; // 여기선 java.util.Date로 작성하지만, import는 java.sql.date로 불러와야 한다! 왜냐하면 java.util.date는 오라클과 연동되는 방식이 아니기 때문
+		
+		try {
+			tempDate = beforeTransFormat.parse(addClass_openDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String newFormat = afterTransFormat.format(tempDate);
+		
+		Date addClass_openDate2 = Date.valueOf(newFormat);
+		
+		this.addClass_openDate = addClass_openDate2;
+		
+	}
+	
 	public String getAddClass_st_id() {
 		return addClass_st_id;
 	}
@@ -135,9 +166,10 @@ public class TemporaryClassVo {
 				+ ", addClass_hasPackage=" + addClass_hasPackage + ", addClass_setPackage=" + addClass_setPackage
 				+ ", addClass_difficulty=" + addClass_difficulty + ", addClass_creator=" + addClass_creator
 				+ ", addClass_submitDate=" + addClass_submitDate + ", addClass_confirm=" + addClass_confirm
-				+ ", addClass_adminComment=" + addClass_adminComment + ", addClass_openDate=" + addClass_openDate
-				+ ", addClass_st_id=" + addClass_st_id + "]";
+				+ ", addClass_adminComment=" + addClass_adminComment + ", addClass_finalSubmit=" + addClass_finalSubmit
+				+ ", addClass_openDate=" + addClass_openDate + ", addClass_st_id=" + addClass_st_id + "]";
 	}
+	
 	
 
 	

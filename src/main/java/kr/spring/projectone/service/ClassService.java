@@ -35,6 +35,8 @@ public interface ClassService {
 
 	boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code);
 
+	boolean confirmClass(TemporaryClassVo tempClass, String code, char addClass_finalSubmit2, String addClass_openDate2);
+
 	
 
 

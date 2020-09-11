@@ -218,7 +218,7 @@ public class ClassController {
 				
 				if (insertTemp == true) {
 					
-					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); location.href='projectone/creator'; </script>");
+					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); location.href=''; </script>");
 					printWriter.flush();
 					printWriter.close();
 					

@@ -1,6 +1,7 @@
 package kr.spring.projectone.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,6 +68,10 @@ public class ClassServiceImp implements ClassService {
 		System.out.println(tempClassCode);
 		
 		tempClass.setAddClass_code(tempClassCode);
+		
+		char insertConfirm = 'W';
+		tempClass.setAddClass_confirm(insertConfirm);
+		
 		tempClassDao.submitTempClass(tempClass);
 		
 		return true;
@@ -198,6 +203,21 @@ public class ClassServiceImp implements ClassService {
 	
 		tempClassDao.firstConfirm(addClass_adminComment2, addClass_confirm2, code);
 		return true;
+	}
+
+	@Override
+	public boolean confirmClass(TemporaryClassVo tempClass, String code, char addClass_finalSubmit2, String addClass_openDate2) {
+		
+		if (addClass_finalSubmit2== 'N') {
+			return false;
+		}
+		
+		tempClass.setAddClass_finalSubmit(addClass_finalSubmit2);
+		tempClass.setAddClass_openDate(addClass_openDate2);
+		tempClassDao.finalConfirm(tempClass);
+		
+		return true;
+		
 	}
 
 

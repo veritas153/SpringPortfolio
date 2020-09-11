@@ -53,7 +53,7 @@ CREATE TABLE `addclass` (
 
 LOCK TABLES `addclass` WRITE;
 /*!40000 ALTER TABLE `addclass` DISABLE KEYS */;
-INSERT INTO `addclass` VALUES ('10294856940393848543','python 심화','프로그래밍','ㅁㅁㅁㅁ','/2020/09/07/ad67bbf1-4ebf-4321-bfa3-d2e8b1882b28_programming1.jpg','ㅇㅁㄻㅇㄻ',1,1111,'y','<p>1111</p><p>2222</p><p>3333</p><p>4444</p>','입문','<p>adfafdsfa</p>','2020-09-07 15:27:52','N','adfafdafrfew',NULL,NULL,'nanana'),('20134506938291039503','aaaaa','순수미술','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,1,'n','','입문','<p>adfa</p>','2020-09-07 15:21:14','Y','컨텐츠 추가하세요','W',NULL,'test1');
+INSERT INTO `addclass` VALUES ('00337612268083447727','adfa','프로그래밍','adfaf','/2020/09/11/be2f8d37-84ef-4f44-9a03-6ccd64c25f99_programming2.png','adafdsf',3,11111,'n','','입문','<p>adfadsfa</p>','2020-09-11 12:08:18','W',NULL,NULL,NULL,'nanana'),('10294856940393848543','python 심화','프로그래밍','ㅁㅁㅁㅁ','/2020/09/11/be2f8d37-84ef-4f44-9a03-6ccd64c25f99_programming2.png','ㅇㅁㄻㅇㄻ',1,1111,'y','<p>1111</p><p>2222</p><p>3333</p><p>4444</p>','입문','<p>adfafdsfa</p>','2020-09-07 15:27:52','N','adfafdafrfew',NULL,NULL,'nanana'),('20134506938291039503','aaaaa','순수미술','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,1,'n','','입문','<p>adfa</p>','2020-09-07 15:21:14','Y','컨텐츠 추가하세요','W',NULL,'test1');
 /*!40000 ALTER TABLE `addclass` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -66,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-10 18:12:32
+-- Dump completed on 2020-09-11 18:06:07

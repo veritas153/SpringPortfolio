@@ -483,4 +483,8 @@
 	background-color: cadetblue;
 }
 
-
+.display-toggle{
+	
+	display: none;
+	
+}
