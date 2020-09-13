@@ -33,6 +33,9 @@
 								<c:forEach var="tempSub" items="${tempSub}">
 									<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
 										<p>${tempSub.conSubChapter_title }</p>
+										<div class="subChapter-content">
+											${tempSub.conSubChapter_content}
+										</div>
 									</c:if>
 								</c:forEach>
 							</div> 

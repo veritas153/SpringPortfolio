@@ -214,7 +214,8 @@ public class ClassServiceImp implements ClassService {
 		
 		tempClass.setAddClass_finalSubmit(addClass_finalSubmit2);
 		tempClass.setAddClass_openDate(addClass_openDate2);
-		tempClassDao.finalConfirm(tempClass);
+		System.out.println(tempClass);
+		// tempClassDao.finalConfirm(tempClass);
 		
 		return true;
 		

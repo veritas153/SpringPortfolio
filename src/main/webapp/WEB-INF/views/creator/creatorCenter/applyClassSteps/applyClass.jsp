@@ -86,11 +86,12 @@
 						<textarea rows="5" cols="100%" style="resize: none;" id="addClass_introduction" name="addClass_introduction"></textarea>
 					</div>
 					<div class="class-setPrice">
-						<span>희망하시는 가격을 적어주세요.</span>
+						<span>예측 수강 기간을 선택해주세요.</span>
+						<p> 해당 기간에 따라 수업료가 할부로 책정 됩니다. (1개월 = 4주 / 3개월 = 12주 / 5개월 = 20주 / 6개월 = 25주 / 12개월 = 1년)</p>
 						<div class="setPrice">
 							<select class="addClass_monthly" name="addClass_monthly" id="addClass_monthly">
 								<option value="0">선택하세요</option>
-								<option value="1">일시불</option>
+								<option value="1">1개월</option>
 								<option value="3">3개월</option>
 								<option value="5">5개월</option>
 								<option value="6">6개월</option>
