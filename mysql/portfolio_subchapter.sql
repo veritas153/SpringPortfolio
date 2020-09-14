@@ -23,13 +23,15 @@ DROP TABLE IF EXISTS `subchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `subchapter` (
-  `subChapter_name` varchar(255) NOT NULL,
-  `subChapter_num` varchar(10) NOT NULL,
-  `subChapter_content` longtext,
-  `source_num` int NOT NULL,
-  `subChapter_study_chapter` varchar(50) NOT NULL,
-  PRIMARY KEY (`subChapter_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `subChapter_priNum` int NOT NULL AUTO_INCREMENT,
+  `subChapter_title` varchar(255) NOT NULL,
+  `subChapter_number` varchar(10) NOT NULL,
+  `subChapter_content` longtext NOT NULL,
+  `subChapter_mainChapter_priNum` int NOT NULL,
+  PRIMARY KEY (`subChapter_priNum`),
+  KEY `subChapter_mainChapter_priNum_idx` (`subChapter_mainChapter_priNum`),
+  CONSTRAINT `subChapter_mainChapter_priNum` FOREIGN KEY (`subChapter_mainChapter_priNum`) REFERENCES `mainchapter` (`mainChapter_priNum`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +40,7 @@ CREATE TABLE `subchapter` (
 
 LOCK TABLES `subchapter` WRITE;
 /*!40000 ALTER TABLE `subchapter` DISABLE KEYS */;
+INSERT INTO `subchapter` VALUES (1,'a1','1','<p>adfsa</p>',1),(2,'a2','2','<p>adfsa</p>',1),(3,'a3','3','<p>adsfa</p>',1),(4,'a4','4','<p>dadsfa</p>',1),(5,'a5','5','<p>dafas</p>',1),(6,'b1','1','<p>adfassfd</p>',2),(7,'c1','1','<p><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/tYM4oISacwY\" width=\"640\" height=\"360\" class=\"note-video-clip\"></iframe><br></p>',3),(8,'c2','2','<p>adfsf</p>',3),(9,'c3','3','<p>asfdsaf</p>',3),(10,'d1','1','<p>adfas</p>',4),(11,'d2','2','<p>adsfsa</p>',4);
 /*!40000 ALTER TABLE `subchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-11 18:06:08
+-- Dump completed on 2020-09-14 18:41:18

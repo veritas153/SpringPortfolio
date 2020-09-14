@@ -23,12 +23,14 @@ DROP TABLE IF EXISTS `mainchapter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mainchapter` (
-  `mainChapter_chapter` varchar(50) NOT NULL,
-  `mainChapter_num` int DEFAULT NULL,
-  `mainChapter_title` varchar(255) DEFAULT NULL,
-  `mainChapter_class_code` varchar(50) NOT NULL,
-  PRIMARY KEY (`mainChapter_chapter`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `mainChapter_priNum` int NOT NULL AUTO_INCREMENT,
+  `mainChapter_title` varchar(255) NOT NULL,
+  `mainChapter_number` varchar(50) NOT NULL,
+  `mainChapter_class_code` varchar(20) NOT NULL,
+  PRIMARY KEY (`mainChapter_priNum`),
+  KEY `mainChapter_study_code_idx` (`mainChapter_class_code`),
+  CONSTRAINT `mainChapter_study_code` FOREIGN KEY (`mainChapter_class_code`) REFERENCES `class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +39,7 @@ CREATE TABLE `mainchapter` (
 
 LOCK TABLES `mainchapter` WRITE;
 /*!40000 ALTER TABLE `mainchapter` DISABLE KEYS */;
+INSERT INTO `mainchapter` VALUES (1,'a','1','3smBBohC75Z8FNtN9wa6'),(2,'b','2','3smBBohC75Z8FNtN9wa6'),(3,'c','3','3smBBohC75Z8FNtN9wa6'),(4,'d','4','3smBBohC75Z8FNtN9wa6');
 /*!40000 ALTER TABLE `mainchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-11 18:06:08
+-- Dump completed on 2020-09-14 18:41:18

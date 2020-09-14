@@ -24,15 +24,23 @@ DROP TABLE IF EXISTS `class`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `class` (
   `class_code` varchar(50) NOT NULL,
-  `class_name` varchar(255) DEFAULT NULL,
+  `class_title` varchar(255) NOT NULL,
+  `class_category` varchar(20) NOT NULL,
+  `class_difficulty` varchar(10) NOT NULL,
+  `class_thumbIntro` varchar(100) NOT NULL,
+  `class_image` varchar(255) NOT NULL,
+  `class_introduction` longtext NOT NULL,
+  `class_monthlyPay` int NOT NULL,
+  `class_openDate` datetime NOT NULL,
+  `class_hasPackage` varchar(1) NOT NULL,
+  `class_packageSet` longtext,
+  `class_creatorDescription` longtext NOT NULL,
+  `class_studyDay` int NOT NULL,
   `class_st_id` varchar(20) NOT NULL,
-  `class_type` varchar(20) DEFAULT NULL,
-  `class_grade` varchar(10) DEFAULT NULL,
-  `class_package_code` varchar(50) NOT NULL,
-  `class_dueTime` int DEFAULT NULL,
-  `class_price` int DEFAULT NULL,
-  `class_addDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`class_code`)
+  `class_package_code` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`class_code`),
+  KEY `class_st_id_idx` (`class_st_id`),
+  CONSTRAINT `class_st_id` FOREIGN KEY (`class_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,6 +50,7 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
+INSERT INTO `class` VALUES ('3smBBohC75Z8FNtN9wa6','aaaaa','순수미술','입문','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,'2020-09-14 00:00:00','n','','<p>adfa</p>',28,'test1',NULL);
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-11 18:06:08
+-- Dump completed on 2020-09-14 18:41:18
