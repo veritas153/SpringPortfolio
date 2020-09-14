@@ -10,7 +10,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.spring.projectone.dao.ClassDao;
 import kr.spring.projectone.dao.TempClassDao;
+import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -21,6 +23,8 @@ public class ClassServiceImp implements ClassService {
 
 	@Autowired
 	private TempClassDao tempClassDao;
+	@Autowired
+	private ClassDao classDao;
 	
 	@Override
 	public boolean submitClass(TemporaryClassVo tempClass) {
@@ -206,19 +210,106 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	@Override
-	public boolean confirmClass(TemporaryClassVo tempClass, String code, char addClass_finalSubmit2, String addClass_openDate2) {
+	public String confirmClass(TemporaryClassVo tempClass, String code, char addClass_finalSubmit2, String addClass_openDate2) {
 		
 		if (addClass_finalSubmit2== 'N') {
-			return false;
+			return null;
 		}
 		
 		tempClass.setAddClass_finalSubmit(addClass_finalSubmit2);
 		tempClass.setAddClass_openDate(addClass_openDate2);
-		System.out.println(tempClass);
-		// tempClassDao.finalConfirm(tempClass);
 		
-		return true;
+		// 새로운 코드 적용 (임시클래스는 숫자로만 랜덤 20자, 본 클래스  코드는 숫자,대소문자로 구성된 랜덤 20자) 
 		
+		StringBuffer tmp = new StringBuffer();
+	    Random rnd = new Random();
+	      for (int i = 0; i < 20; i++) {
+	        int rIndex = rnd.nextInt(3);
+	        switch (rIndex) {
+	          case 0:
+	            // a-z
+	        	tmp.append((char) ((int) (rnd.nextInt(26)) + 97));
+	            break;
+	          case 1:
+	            // A-Z
+	        	tmp.append((char) ((int) (rnd.nextInt(26)) + 65));
+	            break;
+	          case 2:
+	            // 0-9
+	        	tmp.append((rnd.nextInt(10)));
+	            break;
+	        }
+	    }
+		
+	    // 우선 클래스 등록부터
+	    
+	    String classCode = tmp.substring(0);
+	    tempClass.setAddClass_code(classCode);
+	   
+	    
+	    int classWeek = tempClass.getAddClass_monthly();
+	    System.out.println(classWeek);
+	    
+	    Integer totalday = 0;
+	    
+	    if (classWeek == 1) {
+	    	totalday = 28;
+	    }
+	    if (classWeek == 3) {
+	    	totalday = 84;
+	    }
+	    if (classWeek == 5) {
+	    	totalday = 140;
+	    }
+	    if (classWeek == 6) {
+	    	totalday = 180;
+	    }
+	    if (classWeek == 12) {
+	    	totalday = 365;
+	    }
+	    
+	    tempClass.setAddClass_classWeek(totalday);
+	    System.out.println(tempClass);
+	    tempClassDao.finalConfirm(tempClass);
+	    
+	    
+	    // 다음은 메인 챕터
+	    
+	    ArrayList<TemporaryMainChapterVo> mainChapter = tempClassDao.detectChapterCode(code);
+	   
+	    for (int i = 0 ; i < mainChapter.size(); i++) {
+	    	
+	    	TemporaryMainChapterVo mainPart = mainChapter.get(i);
+	    	mainPart.setConMainChapter_addClass_code(classCode);
+	    	int priNum = mainPart.getConMainChapter_priNum();
+	    	System.out.println(mainChapter.get(i));
+	    	tempClassDao.setMainChapter(mainPart);
+	    	
+	    	ArrayList<TemporarySubChapterVo> subChapter = tempClassDao.getSubChapter(priNum);
+	    		    	
+	    	for (int j = 0 ; j < subChapter.size(); j ++) {
+	    	
+	    		TemporarySubChapterVo subPart = subChapter.get(j);
+		   	  	tempClassDao.setSubChapter(subPart);
+	    	
+	    	}
+	    	
+	    	System.out.println();
+	    	System.out.println(i);
+	    	System.out.println();
+	    }
+	    
+		return classCode;
+		
+	}
+
+	
+	// 여기서부턴 정식 클래스 관리
+	
+	@Override
+	public ClassVo getAllClass() {
+		
+		return classDao.getAllClass();
 	}
 
 

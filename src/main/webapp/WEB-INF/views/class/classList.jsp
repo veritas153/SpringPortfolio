@@ -128,5 +128,5 @@
 		
 	</div>
 	
-	
+	${classList}
 </div>

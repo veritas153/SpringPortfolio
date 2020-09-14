@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.utils.UploadFileUtils;
+import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -51,9 +52,13 @@ public class ClassController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/class/all", method = RequestMethod.GET)
-    public ModelAndView allClassGet(ModelAndView mv){
-        mv.setViewName("/class/classList");
-       
+    public ModelAndView allClassGet(ModelAndView mv, HttpServletRequest request){
+        
+		ClassVo classList = classService.getAllClass();
+		mv.addObject("classList", classList);
+		
+		mv.setViewName("/class/classList");
+        
         return mv;
     }
 

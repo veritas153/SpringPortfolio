@@ -14,6 +14,7 @@ public class TemporaryClassVo {
 	private String addClass_introduction;
 	private int addClass_monthly;
 	private Integer addClass_price;
+	private int addClass_classWeek;
 	private char addClass_hasPackage;
 	private String addClass_setPackage;
 	private String addClass_difficulty;
@@ -74,6 +75,12 @@ public class TemporaryClassVo {
 	}
 	public void setAddClass_price(Integer addClass_price) {
 		this.addClass_price = addClass_price;
+	}
+	public Integer getAddClass_classWeek() {
+		return addClass_classWeek;
+	}
+	public void setAddClass_classWeek(Integer addClass_classWeek) {
+		this.addClass_classWeek = addClass_classWeek;
 	}
 	public char getAddClass_hasPackage() {
 		return addClass_hasPackage;
@@ -157,17 +164,19 @@ public class TemporaryClassVo {
 	public void setAddClass_st_id(String addClass_st_id) {
 		this.addClass_st_id = addClass_st_id;
 	}
+	
 	@Override
 	public String toString() {
 		return "TemporaryClassVo [addClass_code=" + addClass_code + ", addClass_title=" + addClass_title
 				+ ", addClass_category=" + addClass_category + ", addClass_thumbIntro=" + addClass_thumbIntro
 				+ ", addClass_image=" + addClass_image + ", addClass_introduction=" + addClass_introduction
 				+ ", addClass_monthly=" + addClass_monthly + ", addClass_price=" + addClass_price
-				+ ", addClass_hasPackage=" + addClass_hasPackage + ", addClass_setPackage=" + addClass_setPackage
-				+ ", addClass_difficulty=" + addClass_difficulty + ", addClass_creator=" + addClass_creator
-				+ ", addClass_submitDate=" + addClass_submitDate + ", addClass_confirm=" + addClass_confirm
-				+ ", addClass_adminComment=" + addClass_adminComment + ", addClass_finalSubmit=" + addClass_finalSubmit
-				+ ", addClass_openDate=" + addClass_openDate + ", addClass_st_id=" + addClass_st_id + "]";
+				+ ", addClass_classWeek=" + addClass_classWeek + ", addClass_hasPackage=" + addClass_hasPackage
+				+ ", addClass_setPackage=" + addClass_setPackage + ", addClass_difficulty=" + addClass_difficulty
+				+ ", addClass_creator=" + addClass_creator + ", addClass_submitDate=" + addClass_submitDate
+				+ ", addClass_confirm=" + addClass_confirm + ", addClass_adminComment=" + addClass_adminComment
+				+ ", addClass_finalSubmit=" + addClass_finalSubmit + ", addClass_openDate=" + addClass_openDate
+				+ ", addClass_st_id=" + addClass_st_id + "]";
 	}
 	
 	

@@ -87,5 +87,40 @@
 	
 	</update>
 	
+	<insert id="finalConfirm">
+	
+		insert into
+			class(class_code, class_title, class_category, class_difficulty,
+			
+			class_thumbIntro, class_image, class_introduction, class_monthlyPay,
+			
+			class_openDate, class_hasPackage, class_packageSet, class_creatorDescription, class_studyDay, class_st_id)
+			
+			values(#{tempClass.addClass_code}, #{tempClass.addClass_title}, #{tempClass.addClass_category},#{tempClass.addClass_difficulty},
+			
+			#{tempClass.addClass_thumbIntro}, #{tempClass.addClass_image}, #{tempClass.addClass_introduction}, #{tempClass.addClass_monthly},
+			
+			#{tempClass.addClass_openDate}, #{tempClass.addClass_hasPackage}, #{tempClass.addClass_setPackage}, #{tempClass.addClass_creator}, 
+			
+			 #{tempClass.addClass_classWeek}, #{tempClass.addClass_st_id});
+	
+	</insert>
+	
+	<insert id="setMainChapter" useGeneratedKeys="true" parameterType="kr.spring.projectone.vo.MainChapterVo" keyProperty="conMain.conMainChapter_priNum">
+	
+		insert into
+			mainchapter(mainChapter_title, mainChapter_number, mainChapter_class_code)
+			values(#{conMain.conMainChapter_title},#{conMain.conMainChapter_number},#{conMain.conMainChapter_addClass_code});
+	
+	</insert>
+	
+	<insert id="setSubChapter">
+	
+		insert into
+			subChapter(subChapter_title, subChapter_number, subChapter_content, subChapter_mainChapter_priNum)
+			values(#{conSub.conSubChapter_title},#{conSub.conSubChapter_number},#{conSub.conSubChapter_content},#{conSub.conSubChapter_conMainChapter_priNum});
+	
+	</insert>
+	
 	
 </mapper>

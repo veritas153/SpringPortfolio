@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
+import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -188,20 +189,33 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/finalConfirm", method = RequestMethod.POST)
-	public ModelAndView finalConfirmPost(ModelAndView mv, TemporaryClassVo tempclass, String code, char addClass_finalSubmit2, String addClass_openDate2) {
+	public ModelAndView finalConfirmPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempclass, String code, char addClass_finalSubmit2, String addClass_openDate2) throws IOException {
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter printWriter = response.getWriter();
 		
 		TemporaryClassVo tempClass = classService.getTempClassCode(code);
 		String classCode = tempClass.getAddClass_code();
 		
-		boolean startClass = classService.confirmClass(tempClass, code, addClass_finalSubmit2, addClass_openDate2);
+		String startClass = classService.confirmClass(tempClass, code, addClass_finalSubmit2, addClass_openDate2);
 		
-		if (startClass == false) {
+		System.out.println(startClass);
+		
+		if (startClass != null) {
 			
+			ClassVo selectedClass = classService.getAllClass();
+			mv.addObject("classList", selectedClass);
+		
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('크리에이터에게 전달사항을 작성하지 않으셨거나 150자를 초과하셨습니다.'); history.back(); </script>");
+			printWriter.flush();
+			printWriter.close();
+			
+			mv.setViewName("redirect:/admin");
+
 		}
 		
-		if (startClass == true) {
-			
-		}
+		
 		
 		return mv;
 	}

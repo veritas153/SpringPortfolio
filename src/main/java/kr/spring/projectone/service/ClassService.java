@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -35,20 +36,11 @@ public interface ClassService {
 
 	boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code);
 
-	boolean confirmClass(TemporaryClassVo tempClass, String code, char addClass_finalSubmit2, String addClass_openDate2);
+	String confirmClass(TemporaryClassVo tempClass, String code, char addClass_finalSubmit2, String addClass_openDate2);
 
 	
-
-
-
-
+	// 여기서부턴 전체 클래스 받아오기!
 	
+	ClassVo getAllClass();
 
-
-
-
-
-	
-
-	
 }

@@ -9,6 +9,8 @@ import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
 
 public interface TempClassDao {
+	
+	// 임시클래스 구역
 
 	void submitTempClass(@Param("tempClass")TemporaryClassVo tempClass);
 
@@ -38,6 +40,12 @@ public interface TempClassDao {
 	ArrayList<TemporarySubChapterVo> getSubChapter(@Param("i")int i);
 
 	void firstConfirm(@Param("comment")String addClass_adminComment2, @Param("answer")char addClass_confirm2, @Param("code")String code);
+
+	void finalConfirm(@Param("tempClass")TemporaryClassVo tempClass);
+
+	void setMainChapter(@Param("conMain")TemporaryMainChapterVo mainPart);
+
+	void setSubChapter(@Param("conSub")TemporarySubChapterVo subPart);
 
 	
 

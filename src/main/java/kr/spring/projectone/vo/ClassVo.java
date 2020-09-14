@@ -16,7 +16,7 @@ public class ClassVo {
 	private String class_packageSet;
 	private String class_difficulty;
 	private String class_creatorDescription;
-	private int class_studyWeek;
+	private int class_studyDay;
 	private Date class_openDate;
 	private String class_st_id;
 	private String class_package_code;
@@ -94,11 +94,11 @@ public class ClassVo {
 	public void setClass_creatorDescription(String class_creatorDescription) {
 		this.class_creatorDescription = class_creatorDescription;
 	}
-	public int getClass_studyWeek() {
-		return class_studyWeek;
+	public int getClass_studyDay() {
+		return class_studyDay;
 	}
-	public void setClass_studyWeek(int class_studyWeek) {
-		this.class_studyWeek = class_studyWeek;
+	public void setClass_studyDay(int class_studyDay) {
+		this.class_studyDay = class_studyDay;
 	}
 	public Date getClass_openDate() {
 		return class_openDate;
@@ -127,7 +127,7 @@ public class ClassVo {
 				+ ", class_introduction=" + class_introduction + ", class_monthlyPay=" + class_monthlyPay
 				+ ", class_price=" + class_price + ", class_hasPackage=" + class_hasPackage + ", class_packageSet="
 				+ class_packageSet + ", class_difficulty=" + class_difficulty + ", class_creatorDescription="
-				+ class_creatorDescription + ", class_studyWeek=" + class_studyWeek + ", class_openDate="
+				+ class_creatorDescription + ", class_studyDay=" + class_studyDay + ", class_openDate="
 				+ class_openDate + ", class_st_id=" + class_st_id + "]";
 	}
 	
