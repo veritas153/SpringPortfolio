@@ -1,4 +1,4 @@
-package kr.spring.projectone.controller;
+	package kr.spring.projectone.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -64,7 +64,7 @@ public class ClassController {
         return mv;
     }
 
-	@RequestMapping (value = "/class/{classList}", method = RequestMethod.GET)
+	@RequestMapping (value = "/class/{classList.class_code}", method = RequestMethod.GET)
 	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request) {
 		
 		ClassVo classList = classService.getAllClass();

@@ -25,22 +25,23 @@
 				<div class="col-md-4">
 					<div class="card mb-4 shadow-sm">
 						<figure class="class-image">
-	  						<img src="<%=request.getContextPath()%>/resources/image/classImages/arts1.jpg">					
+	  						<img src="<%=request.getContextPath()%>/resources/uploadedImage${classList.class_image}">					
 	  						<figcaption>
-	  							<h6>지금 당장 시작하는 드로잉</h6>
-	  							<p>기초부터 정확하게 다지는 클래스!</p>
+	  							<h6>${classList.class_title}</h6>
+	  							<p>${classList.class_thumbIntro}</p>
 	  						</figcaption>
 						</figure>
 						<div class="class-info">
-							<span id="instructor">김무스무스</span>
-							<span id="type">순수미술</span>
-							<div class="class-title">지금 당장 시작하는 드로잉</div>
+							<span id="instructor"></span>
+							<span id="type">${classList.class_category}</span>
+							<div class="class-title">${classList.class_title}</div>
 						</div>
 						<div class="d-flex">
 							<div class="sub-group">
-								<div class="like-number"><i class="far fa-heart"></i> 330</div>
-								<div class="recommend-number"><i class="far fa-thumbs-up"></i> 100</div>
+								<div class="like-number"><i class="far fa-heart"></i> </div>
+								<div class="recommend-number"><i class="far fa-thumbs-up"></i> </div>
 							</div>
+							
 							<small class="text-muted">바로 수강 가능</small>
 						</div>
 					</div>
