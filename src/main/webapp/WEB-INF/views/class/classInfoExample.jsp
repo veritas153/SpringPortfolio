@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
- 
+
 <div class="class-container">
 	<div class="class-description-container">
 		<div class="class-description">
-			<img src="<%=request.getContextPath()%>/resources/uploadedImage${classList.class_image}"  width="627" height="417">
+			<img src="<%=request.getContextPath()%>/resources/image/classImages/programming1.jpg"  width="627" height="417">
 			<div class="class-detail">
 				<div class="stickyTab">
 					<a class="btn-menu" href="#classInfo">클래스 소개</a>
@@ -21,7 +17,9 @@
 				<div class="content-division">
 					<div class="class-title" id="classInfo">
 						<h3>클래스 소개</h3>
-						${classList.class_introduction}
+						<p>낯설기만한 코딩, 쉽고 빠르고 간단하게 시작해봐요!</p>
+						<p>옛날과 달리 지금은 프로그래머들이 만들어 놓은 명령어를 조합하면 간단한 프로그램을 만들 수 있습니다.</p>
+						<p>간단하겐 업무 보조용으로, 더 나아가 전문 프로그래머의 시작을 여는 걸 도와드리겠습니다.</p>
 					</div>
 					<div class="plan-offer" id="curriculum">
 						<h3>커리큘럼</h3>
@@ -34,7 +32,7 @@
 					</div>
 					<div class="plan-offer" id="instructor">
 						<h3>강사 소개</h3>
-						${classList.class_creatorDescription}
+						
 					</div>
 					<div class="questions" id="questions">
 						<h3>Q&A</h3>

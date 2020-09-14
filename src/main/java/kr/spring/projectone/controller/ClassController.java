@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
 import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.utils.UploadFileUtils;
@@ -62,9 +64,21 @@ public class ClassController {
         return mv;
     }
 
+	@RequestMapping (value = "/class/{classList}", method = RequestMethod.GET)
+	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request) {
+		
+		ClassVo classList = classService.getAllClass();
+		mv.addObject("classList", classList);
+		
+		mv.setViewName("class/classInfo");
+		
+		return mv;
+	}
+	
+	
 	@RequestMapping (value = "/class/programming/test", method = RequestMethod.GET)
 	public ModelAndView testGet(ModelAndView mv) {
-		mv.setViewName("/class/classInfo");
+		mv.setViewName("/class/classInfoExample");
 		
 		return mv;
 	}
