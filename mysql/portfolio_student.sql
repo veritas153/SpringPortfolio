@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES ('admin1','$2a$10$4xFqfLPNZbq.hGCA1aZL/.mNUlTlkL2MMfLUC5lZBnILSEydZYQQ6','관리자1',NULL,'00000000','2020-09-01 16:49:55','aaa@aaa.net',NULL,NULL,'ADMIN'),('chester1','$2a$10$LfXLiOIveGsEyjVAaGbIdOP3dmyo.3nMF3F5sCbawQHZIcEhEpr2.','본좌',NULL,'01000000000','2020-08-24 17:15:43','naver@naver.com',NULL,NULL,'STUDENT'),('nanana','$2a$10$jrcprk0kEaE3U8YGqJkGcOPo3/ieSDe131v0Ga2WMes0ASJ3zsNCu','김김김','나나나','00000000000','2020-09-04 16:44:26','nanana@naver.com',NULL,NULL,'CREATOR'),('nomal1','$2a$10$5hBf4TZieBLP5zxRG/zpvOLnUWtd7Ndo8Qm0Z6SO2NjoTRRGbHg..','김무스','eeeeee','11111111111','2020-08-25 10:00:01','musu@naver.com',NULL,NULL,'CREATOR'),('test1','$2a$10$TneaLIK7GJbqDi6SXPPmqOeUdjmhWnQ2z2rASmnaUrSf2UHs8DBky','김김김','adfd','0000000','2020-08-26 12:47:15','djdj@naver.com',NULL,NULL,'CREATOR'),('test2','$2a$10$.owqtz2ER25A7AFaX/5Zou7TAYIKfDJzXCoCWJCV5zEcn7mEF1.gu','김김김',NULL,'01000000000','2020-09-15 11:06:08','romaa@naver.com',NULL,NULL,'STUDENT');
+INSERT INTO `student` VALUES ('admin1','$2a$10$4xFqfLPNZbq.hGCA1aZL/.mNUlTlkL2MMfLUC5lZBnILSEydZYQQ6','관리자1',NULL,'00000000','2020-09-01 16:49:55','aaa@aaa.net',NULL,NULL,'ADMIN'),('chester1','$2a$10$LfXLiOIveGsEyjVAaGbIdOP3dmyo.3nMF3F5sCbawQHZIcEhEpr2.','본좌',NULL,'01000000000','2020-08-24 17:15:43','naver@naver.com',NULL,NULL,'STUDENT'),('chester2','$2a$10$9H3uPviW15dpII9Ne8akYuJGqjxgK9WCeCvnGpI6MZTH6Li7ToIZu','강강','조코딩','111','2020-09-16 00:56:01','aaa@naver.com',NULL,NULL,'CREATOR'),('nanana','$2a$10$jrcprk0kEaE3U8YGqJkGcOPo3/ieSDe131v0Ga2WMes0ASJ3zsNCu','김김김','나나나','00000000000','2020-09-04 16:44:26','nanana@naver.com',NULL,NULL,'CREATOR'),('nomal1','$2a$10$5hBf4TZieBLP5zxRG/zpvOLnUWtd7Ndo8Qm0Z6SO2NjoTRRGbHg..','김무스','eeeeee','11111111111','2020-08-25 10:00:01','musu@naver.com',NULL,NULL,'CREATOR'),('test1','$2a$10$TneaLIK7GJbqDi6SXPPmqOeUdjmhWnQ2z2rASmnaUrSf2UHs8DBky','김김김','adfd','0000000','2020-08-26 12:47:15','djdj@naver.com',NULL,NULL,'CREATOR'),('test2','$2a$10$.owqtz2ER25A7AFaX/5Zou7TAYIKfDJzXCoCWJCV5zEcn7mEF1.gu','김김김',NULL,'01000000000','2020-09-15 11:06:08','romaa@naver.com',NULL,NULL,'STUDENT');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-15 18:16:49
+-- Dump completed on 2020-09-16  7:41:22

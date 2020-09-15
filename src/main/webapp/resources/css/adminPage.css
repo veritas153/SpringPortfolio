@@ -135,6 +135,126 @@
 	vertical-align: top;
 	
 }
+/* 클래스 미리보기 부분 */
+
+
+.col-md-4{
+	
+	max-width: 310px;
+	
+}
+
+.cold-md-4::hover{
+	text-decoration: none;
+}
+
+
+.col-md-4:nth-of-type(1){
+	padding-left: 0;
+}
+
+.col-md-4::after{
+	
+	clear: both;
+	content: '';
+	display: block;
+	
+}
+
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img{
+	opacity: 0.5;
+	transform: scale(1.1);
+}
+
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption{
+	opacity: 1;
+}
+
+
+
+.class-info{
+	margin: 0px;
+	display: inline;
+	font-weight: bold;
+	font-size: 10px;
+	color: black;
+	padding: 20px;
+}
+
+
+.class-image{
+	
+	position: relative;
+	overflow: hidden;
+	width:100%;
+	display: inherit;
+	background-color: black;
+	
+}
+
+.class-image>img{
+	
+	width:100%;
+	height: 210px;
+	opacity: 1;
+	transition: 0.3s ease;
+	
+	
+}
+
+.class-image>figcaption{
+	
+	position: absolute;
+	z-index: 1;
+	margin: 15px;
+	padding: 15px;
+	font-size: 13px;
+	width: calc(100% - 30px);
+	height: calc(100% - 30px);
+	text-align: center;
+	color: white;
+	opacity: 0;
+	border: 1px solid white;
+	transition: 0.3s ease;
+	
+}
+
+
+#type{
+	
+	float: right;
+	
+}
+
+.class-title{
+	margin-top: 10px;
+	font-size: 18px;
+	
+}
+
+.class-info::after{
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.d-flex{
+	
+	margin: 15px;
+	float: right;
+	margin-top: 10px;
+	
+}
+
+.d-flex::after{
+	
+	clear: both;
+	content: '';
+	display: block;
+}
+
+
+
 
 /* 메인 페이지 파트*/
 

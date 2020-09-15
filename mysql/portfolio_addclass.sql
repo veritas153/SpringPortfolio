@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -54,7 +54,7 @@ CREATE TABLE `addclass` (
 
 LOCK TABLES `addclass` WRITE;
 /*!40000 ALTER TABLE `addclass` DISABLE KEYS */;
-INSERT INTO `addclass` VALUES ('10294856940393848543','python 심화','프로그래밍','ㅁㅁㅁㅁ','/2020/09/11/be2f8d37-84ef-4f44-9a03-6ccd64c25f99_programming2.png','ㅇㅁㄻㅇㄻ','나나나',1,1111,'y','<p>1111</p><p>2222</p><p>3333</p><p>4444</p>','입문','<p>adfafdsfa</p>','2020-09-07 15:27:52','N','adfafdafrfew',NULL,NULL,'nanana'),('20134506938291039503','aaaaa','순수미술','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa','adfd',1,1,'n','','입문','<p>adfa</p>','2020-09-07 15:21:14','Y','컨텐츠 추가하세요','W',NULL,'test1'),('30625084878507130016','Spring 개론','프로그래밍','스프링 배웁시다','/2020/09/15/3c58a418-9892-45da-8973-b8a7eae0a41f_programming2.png','스프링 처음부터 배워봅시다','eeeeee',5,55000,'n','','초급','<p>aaaaaaa</p>','2020-09-15 18:06:17','W',NULL,NULL,NULL,'nomal1');
+INSERT INTO `addclass` VALUES ('10294856940393848543','python 심화','프로그래밍','ㅁㅁㅁㅁ','/2020/09/11/be2f8d37-84ef-4f44-9a03-6ccd64c25f99_programming2.png','ㅇㅁㄻㅇㄻ','나나나',1,1111,'y','<p>1111</p><p>2222</p><p>3333</p><p>4444</p>','입문','<p>adfafdsfa</p>','2020-09-07 15:27:52','N','adfafdafrfew',NULL,NULL,'nanana'),('20134506938291039503','aaaaa','순수미술','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa','adfd',1,1,'n','','입문','<p>adfa</p>','2020-09-07 15:21:14','Y','컨텐츠 추가하세요','W',NULL,'test1'),('30625084878507130016','Spring 개론','프로그래밍','스프링 배웁시다','/2020/09/15/3c58a418-9892-45da-8973-b8a7eae0a41f_programming2.png','스프링 처음부터 배워봅시다','eeeeee',5,55000,'n','','초급','<p>aaaaaaa</p>','2020-09-15 18:06:17','W',NULL,NULL,NULL,'nomal1'),('34215274434507525338','파이선 입문','프로그래밍','파이선 제대로 시작!','/2020/09/16/641c215a-94e3-4418-80d5-31864b706044_programming1.jpg','한번 제대로 배워봐요','조코딩',5,55000,'n','','입문','<p>이 클래스는 파이선 입문자가 들으시면 됩니다.</p>','2020-09-16 00:59:01','W',NULL,NULL,NULL,'chester2');
 /*!40000 ALTER TABLE `addclass` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -67,4 +67,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-15 18:16:49
+-- Dump completed on 2020-09-16  7:41:23
