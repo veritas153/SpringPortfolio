@@ -31,6 +31,7 @@ CREATE TABLE `class` (
   `class_image` varchar(255) NOT NULL,
   `class_introduction` longtext NOT NULL,
   `class_monthlyPay` int NOT NULL,
+  `class_price` int NOT NULL,
   `class_openDate` datetime NOT NULL,
   `class_hasPackage` varchar(1) NOT NULL,
   `class_packageSet` longtext,
@@ -50,7 +51,7 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
-INSERT INTO `class` VALUES ('3smBBohC75Z8FNtN9wa6','aaaaa','순수미술','입문','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,'2020-09-14 00:00:00','n','','<p>adfa</p>',28,'test1',NULL);
+INSERT INTO `class` VALUES ('3smBBohC75Z8FNtN9wa6','aaaaa','순수미술','입문','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,0,'2020-09-14 00:00:00','n','','<p>adfa</p>',28,'test1',NULL);
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -63,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-14 18:41:18
+-- Dump completed on 2020-09-15 18:16:50

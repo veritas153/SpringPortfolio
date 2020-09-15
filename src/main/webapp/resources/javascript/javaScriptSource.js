@@ -244,6 +244,28 @@ $(function(){
 	});
 	
 	
+	
+	// 개인, 법인 카드에 따라 옵션 변화
+	
+	$('.card-option').change(function(){
+	
+		if ($(this).val() === "personal-card"){
+			
+			$('.vipPlan-infos').eq(5).find('.payment_birthday').removeClass('display-toggle');
+			$('.vipPlan-infos').eq(5).find('.payment_business').addClass('display-toggle');
+		
+		}
+		
+		if ($(this).val() === "business-card"){
+			
+			$('.vipPlan-infos').eq(5).find('.payment_birthday').addClass('display-toggle');
+			$('.vipPlan-infos').eq(5).find('.payment_business').removeClass('display-toggle');
+		}
+	
+	});
+	
+	
+	
 	window.onscroll = function() {scrollFunction()};
 	
 	
@@ -260,26 +282,7 @@ $(function(){
 		}
 	}
 	
-	
 
-	
-	
-	
-	// 개인, 법인 카드에 따라 옵션 변화
-	
-	cardType();
-	
-	function cardType() {
-	
-		var type = document.getElementById('card-option');
-		var vel = type.options[type.selectedIndex].value;
-		
-		$('#card-option').change(function(){
-			if ($('#card-option').val() === "business-card"){
-				
-			}
-		});
-	}
 	
 	
 	var waypoint = new Waypoint({

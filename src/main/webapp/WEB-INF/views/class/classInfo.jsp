@@ -63,7 +63,7 @@
 	<div class="class-slidebar">
 		<div class="slidebar-boundary">
 			<div class="class-instructor">By. 생활코딩</div>
-			<div class="class-name">Python 입문</div>
+			<div class="class-name">${classList.class_title}</div>
 			<div class="class-information">
 				<div class="class-service">
 					<div class="price-container">
@@ -88,13 +88,13 @@
 				</div>
 				<div class="class-sideService">
 					<button class="btn-recommend">
-						<div class="class-recommend-number"><i class="far fa-heart"></i> 222</div>
+						<div class="class-recommend-number"><i class="far fa-heart"></i> </div>
 					</button>
 					<button class="btn-share">
 						<div class="class-share"><i class="fas fa-share-alt"></i> 공유하기</div>
 					</button>
 				</div>
-				<a href="#" class="class-subscription">
+				<a href="<%=request.getContextPath()%>/applyClass" class="class-subscription">
 					<div class="class-subscription-button">수강 신청하기</div>
 				</a>
 			</div>

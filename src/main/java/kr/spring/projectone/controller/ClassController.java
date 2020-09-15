@@ -25,9 +25,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import kr.spring.projectone.service.ClassService;
+import kr.spring.projectone.service.PaymentService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.utils.UploadFileUtils;
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -45,6 +47,8 @@ public class ClassController {
 	private UserService userService;
 	@Autowired
 	private ClassService classService;
+	@Autowired
+	private PaymentService paymentService;
 	
 	
 	private String uploadPathWin = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
@@ -56,7 +60,8 @@ public class ClassController {
 	@RequestMapping(value = "/class/all", method = RequestMethod.GET)
     public ModelAndView allClassGet(ModelAndView mv, HttpServletRequest request){
         
-		ClassVo classList = classService.getAllClass();
+		ArrayList<ClassVo>classList = classService.getAllClass();
+		
 		mv.addObject("classList", classList);
 		
 		mv.setViewName("/class/classList");
@@ -65,15 +70,63 @@ public class ClassController {
     }
 
 	@RequestMapping (value = "/class/{classList.class_code}", method = RequestMethod.GET)
-	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request) {
+	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request, String class_code) {
+	
 		
-		ClassVo classList = classService.getAllClass();
+		ClassVo classList = classService.getSelectedClass(class_code);
 		mv.addObject("classList", classList);
 		
-		mv.setViewName("class/classInfo");
+		mv.setViewName("/class/classInfo");
 		
 		return mv;
 	}
+	
+	@RequestMapping (value = "/applyClass", method = RequestMethod.GET)
+	public ModelAndView applyClassGet(ModelAndView mv, HttpServletRequest request, String class_code) {
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		ClassVo classList = classService.getSelectedClass(class_code);
+		
+		mv.addObject("classList", classList);
+		
+		PaymentVo paymentInfo;
+		
+		
+		if (user == null) {
+			mv.setViewName("redirect:/login");
+		}
+		
+		if (user != null) {
+			mv.addObject("user", user);
+			
+			paymentInfo = paymentService.getPaymentInfo(user.getSt_id());
+			
+			if (paymentInfo != null) {
+				mv.addObject("paymentInfo",paymentInfo);
+			}
+				
+		}
+			
+			
+		mv.setViewName("/class/applyClass");
+		
+	
+		
+		return mv;
+	}
+	
+	@RequestMapping (value = "/applyClass", method = RequestMethod.POST)
+	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request) {
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		
+		
+		
+		
+		return mv;
+	}
+	
+	
 	
 	
 	@RequestMapping (value = "/class/programming/test", method = RequestMethod.GET)
@@ -96,6 +149,11 @@ public class ClassController {
 		PrintWriter printWriter = response.getWriter();
 		
 		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) {
+			
+			TemporaryClassVo tempClass = classService.getMySubmitClass(user.getSt_id());
+			mv.addObject("tempClass", tempClass);
+			System.out.println(tempClass);
+			
 			mv.setViewName("/creator/creatorCenter/creatorStatus");	
 		} 
 		
@@ -109,8 +167,7 @@ public class ClassController {
 		
 		// 요건 신청한 데이터가 있으면 뿌려주는 거
 		
-		TemporaryClassVo tempClass = classService.getMySubmitClass(user.getSt_id());
-		mv.addObject("tempClass", tempClass);
+	
 
 		return mv;
 	}
@@ -200,6 +257,7 @@ public class ClassController {
 		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) { // 예상치 못한 접근에 대비하기 위한 조건
 			
 			tempClass.setAddClass_st_id(user.getSt_id());
+			tempClass.setAddClass_creatorName(user.getSt_creator());
 			boolean ongoing = classService.submitClass(tempClass); // 이미지를 제외한 필수 정보 입력이 모두 완료된 상태이면 vo로 정보를 입력 한 다음 true로 돌려주는 함수
 			
 			System.out.println(ongoing);

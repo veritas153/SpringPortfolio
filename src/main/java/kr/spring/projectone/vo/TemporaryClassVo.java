@@ -12,6 +12,7 @@ public class TemporaryClassVo {
 	private String addClass_thumbIntro;
 	private String addClass_image;
 	private String addClass_introduction;
+	private String addClass_creatorName;
 	private int addClass_monthly;
 	private Integer addClass_price;
 	private int addClass_classWeek;
@@ -63,6 +64,12 @@ public class TemporaryClassVo {
 	}
 	public void setAddClass_introduction(String addClass_introduction) {
 		this.addClass_introduction = addClass_introduction;
+	}
+	public String getAddClass_creatorName() {
+		return addClass_creatorName;
+	}
+	public void setAddClass_creatorName(String addClass_creatorName) {
+		this.addClass_creatorName = addClass_creatorName;
 	}
 	public int getAddClass_monthly() {
 		return addClass_monthly;
@@ -170,14 +177,15 @@ public class TemporaryClassVo {
 		return "TemporaryClassVo [addClass_code=" + addClass_code + ", addClass_title=" + addClass_title
 				+ ", addClass_category=" + addClass_category + ", addClass_thumbIntro=" + addClass_thumbIntro
 				+ ", addClass_image=" + addClass_image + ", addClass_introduction=" + addClass_introduction
-				+ ", addClass_monthly=" + addClass_monthly + ", addClass_price=" + addClass_price
-				+ ", addClass_classWeek=" + addClass_classWeek + ", addClass_hasPackage=" + addClass_hasPackage
-				+ ", addClass_setPackage=" + addClass_setPackage + ", addClass_difficulty=" + addClass_difficulty
-				+ ", addClass_creator=" + addClass_creator + ", addClass_submitDate=" + addClass_submitDate
-				+ ", addClass_confirm=" + addClass_confirm + ", addClass_adminComment=" + addClass_adminComment
-				+ ", addClass_finalSubmit=" + addClass_finalSubmit + ", addClass_openDate=" + addClass_openDate
-				+ ", addClass_st_id=" + addClass_st_id + "]";
+				+ ", addClass_creatorName=" + addClass_creatorName + ", addClass_monthly=" + addClass_monthly
+				+ ", addClass_price=" + addClass_price + ", addClass_classWeek=" + addClass_classWeek
+				+ ", addClass_hasPackage=" + addClass_hasPackage + ", addClass_setPackage=" + addClass_setPackage
+				+ ", addClass_difficulty=" + addClass_difficulty + ", addClass_creator=" + addClass_creator
+				+ ", addClass_submitDate=" + addClass_submitDate + ", addClass_confirm=" + addClass_confirm
+				+ ", addClass_adminComment=" + addClass_adminComment + ", addClass_finalSubmit=" + addClass_finalSubmit
+				+ ", addClass_openDate=" + addClass_openDate + ", addClass_st_id=" + addClass_st_id + "]";
 	}
+	
 	
 	
 

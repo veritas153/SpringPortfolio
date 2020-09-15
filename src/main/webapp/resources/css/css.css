@@ -825,4 +825,8 @@ a>.log-container{
 }
 
 
-
+.display-toggle{
+	
+	display: none;
+	
+}

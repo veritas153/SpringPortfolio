@@ -10,4 +10,10 @@
 	
 	</select>
 
+	<select id="getSelectedClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class where class_code = #{class.class_code};
+		
+	</select>
+
 </mapper>

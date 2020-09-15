@@ -67,6 +67,10 @@
 						<div>짧은 소개글</div>
 						<input type="text" class="shortIntro" name="addClass_thumbIntro" id="addClass_thumbIntro" placeholder="100자 내외의 짧은 소개글을 작성해 주세요." maxlength="100"></input>
 					</div>
+					<div class="creator-name">
+						<div>크리에이터 이름</div>
+						<input type="text" id="addClass_creatorName2" name="addClass_creatorName2" value="${user.st_creator}" readonly>
+					</div>
 					<div class="image-box">
 						<div>대표 이미지</div>
 						<span>.jpeg 계열(.jpg, .jpeg, .jpe, .jfif) 또는 png만 가능합니다.</span>

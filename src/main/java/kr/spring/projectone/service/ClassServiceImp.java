@@ -307,9 +307,33 @@ public class ClassServiceImp implements ClassService {
 	// 여기서부턴 정식 클래스 관리
 	
 	@Override
-	public ClassVo getAllClass() {
+	public ArrayList<ClassVo> getAllClass() {
 		
 		return classDao.getAllClass();
+	}
+
+	@Override
+	public ClassVo getSelectedClass(String class_code) {
+		
+		ArrayList<ClassVo>classList = classDao.getAllClass();
+		
+		ClassVo detectClass = null;
+		
+		int i = 0;
+		
+		while (i < classList.size()) {
+			
+			detectClass = classList.get(i);
+			
+			if (detectClass.getClass_code() == class_code) {
+				break;
+			}
+			
+			i++;
+			
+		}
+		
+		return classDao.getSelectedClass(detectClass);
 	}
 
 

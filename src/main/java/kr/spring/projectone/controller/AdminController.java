@@ -204,7 +204,7 @@ public class AdminController {
 		
 		if (startClass != null) {
 			
-			ClassVo selectedClass = classService.getAllClass();
+			ArrayList<ClassVo> selectedClass = classService.getAllClass();
 			mv.addObject("classList", selectedClass);
 		
 			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('크리에이터에게 전달사항을 작성하지 않으셨거나 150자를 초과하셨습니다.'); history.back(); </script>");

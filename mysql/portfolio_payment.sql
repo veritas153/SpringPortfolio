@@ -23,12 +23,15 @@ DROP TABLE IF EXISTS `payment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment` (
+  `payment_priNum` int NOT NULL AUTO_INCREMENT,
   `payment_owner` varchar(10) NOT NULL,
+  `payment_cardNumber` int NOT NULL,
+  `payment_dueYear` int NOT NULL,
+  `payment_dueMonth` int NOT NULL,
   `payment_st_id` varchar(20) NOT NULL,
-  `payment_cardNumber` int DEFAULT NULL,
-  `payment_dueYear` int DEFAULT NULL,
-  `payment_dueMonth` int DEFAULT NULL,
-  PRIMARY KEY (`payment_owner`)
+  PRIMARY KEY (`payment_priNum`),
+  KEY `payment_st_id_idx` (`payment_st_id`),
+  CONSTRAINT `payment_st_id` FOREIGN KEY (`payment_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-14 18:41:16
+-- Dump completed on 2020-09-15 18:16:49

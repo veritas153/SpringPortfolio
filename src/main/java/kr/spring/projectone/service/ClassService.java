@@ -41,6 +41,8 @@ public interface ClassService {
 	
 	// 여기서부턴 전체 클래스 받아오기!
 	
-	ClassVo getAllClass();
+	ArrayList<ClassVo> getAllClass();
+
+	ClassVo getSelectedClass(String class_code);
 
 }

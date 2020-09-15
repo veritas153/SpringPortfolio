@@ -63,6 +63,10 @@
       <put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp" />
     </definition>
     
+     <definition name="/class/applyClass" extends=".vip">
+    	<put-attribute name="body" value="/WEB-INF/views/class/applyClass.jsp" />
+    </definition>
+    
     <definition name="/vip/signPlan" extends=".vip">
     	<put-attribute name="body" value="/WEB-INF/views/vip/signPlan.jsp" />
     </definition>
