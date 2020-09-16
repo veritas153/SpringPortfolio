@@ -94,7 +94,7 @@
 						<div class="class-share"><i class="fas fa-share-alt"></i> 공유하기</div>
 					</button>
 				</div>
-				<a href="<%=request.getContextPath()%>/applyClass" class="class-subscription">
+				<a href="<%=request.getContextPath()%>/applyClass?code=${classList.class_code}" class="class-subscription">
 					<div class="class-subscription-button">수강 신청하기</div>
 				</a>
 			</div>

@@ -113,11 +113,13 @@
 				<div class="applyClass-detail">
 					<div class="applyClass-monthly">
 						<span>할부개월: </span>
-						<c:if test="${classList.class_monthlyPay == 1}"><span>일시불</span></c:if>
-						<c:if test="${classList.class_monthlyPay == 3}"><span>3개월</span></c:if>
-						<c:if test="${classList.class_monthlyPay == 5}"><span>5개월</span></c:if>
-						<c:if test="${classList.class_monthlyPay == 6}"><span>6개월</span></c:if>
-						<c:if test="${classList.class_monthlyPay == 12}"><span>12개월</span></c:if>
+						<div class="applyClass-monthlyContainer">
+							<c:if test="${classList.class_monthlyPay == 1}"><span>일시불</span></c:if>
+							<c:if test="${classList.class_monthlyPay == 3}"><span>3개월</span></c:if>
+							<c:if test="${classList.class_monthlyPay == 5}"><span>5개월</span></c:if>
+							<c:if test="${classList.class_monthlyPay == 6}"><span>6개월</span></c:if>
+							<c:if test="${classList.class_monthlyPay == 12}"><span>12개월</span></c:if>
+						</div>
 					</div>
 					<div class="applyClass-price">
 						<span>가격: ${classList.class_price}</span>
