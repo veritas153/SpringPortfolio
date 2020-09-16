@@ -90,15 +90,15 @@
 	<insert id="finalConfirm">
 	
 		insert into
-			class(class_code, class_title, class_category, class_difficulty,
+			class(class_code, class_title, class_category, class_difficulty, class_creatorName,
 			
-			class_thumbIntro, class_image, class_introduction, class_monthlyPay,
+			class_thumbIntro, class_image, class_introduction, class_monthlyPay, class_price,
 			
 			class_openDate, class_hasPackage, class_packageSet, class_creatorDescription, class_studyDay, class_st_id)
 			
-			values(#{tempClass.addClass_code}, #{tempClass.addClass_title}, #{tempClass.addClass_category},#{tempClass.addClass_difficulty},
+			values(#{tempClass.addClass_code}, #{tempClass.addClass_title}, #{tempClass.addClass_category},#{tempClass.addClass_difficulty}, #{tempClass.addClass_creatorName},
 			
-			#{tempClass.addClass_thumbIntro}, #{tempClass.addClass_image}, #{tempClass.addClass_introduction}, #{tempClass.addClass_monthly},
+			#{tempClass.addClass_thumbIntro}, #{tempClass.addClass_image}, #{tempClass.addClass_introduction}, #{tempClass.addClass_monthly}, #{tempClass.addClass_price},
 			
 			#{tempClass.addClass_openDate}, #{tempClass.addClass_hasPackage}, #{tempClass.addClass_setPackage}, #{tempClass.addClass_creator}, 
 			

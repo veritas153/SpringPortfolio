@@ -7,6 +7,7 @@ public class ClassVo {
 	private String class_code;
 	private String class_title;
 	private String class_category;
+	private String class_creatorName;
 	private String class_thumbIntro;
 	private String class_image;
 	private String class_introduction;
@@ -39,6 +40,12 @@ public class ClassVo {
 	}
 	public void setClass_category(String class_category) {
 		this.class_category = class_category;
+	}
+	public String getClass_creatorName() {
+		return class_creatorName;
+	}
+	public void setClass_creatorName(String class_creatorName) {
+		this.class_creatorName = class_creatorName;
 	}
 	public String getClass_thumbIntro() {
 		return class_thumbIntro;
@@ -123,13 +130,15 @@ public class ClassVo {
 	@Override
 	public String toString() {
 		return "ClassVo [class_code=" + class_code + ", class_title=" + class_title + ", class_category="
-				+ class_category + ", class_thumbIntro=" + class_thumbIntro + ", class_image=" + class_image
-				+ ", class_introduction=" + class_introduction + ", class_monthlyPay=" + class_monthlyPay
-				+ ", class_price=" + class_price + ", class_hasPackage=" + class_hasPackage + ", class_packageSet="
-				+ class_packageSet + ", class_difficulty=" + class_difficulty + ", class_creatorDescription="
-				+ class_creatorDescription + ", class_studyDay=" + class_studyDay + ", class_openDate="
-				+ class_openDate + ", class_st_id=" + class_st_id + "]";
+				+ class_category + ", class_creatorName=" + class_creatorName + ", class_thumbIntro=" + class_thumbIntro
+				+ ", class_image=" + class_image + ", class_introduction=" + class_introduction + ", class_monthlyPay="
+				+ class_monthlyPay + ", class_price=" + class_price + ", class_hasPackage=" + class_hasPackage
+				+ ", class_packageSet=" + class_packageSet + ", class_difficulty=" + class_difficulty
+				+ ", class_creatorDescription=" + class_creatorDescription + ", class_studyDay=" + class_studyDay
+				+ ", class_openDate=" + class_openDate + ", class_st_id=" + class_st_id + ", class_package_code="
+				+ class_package_code + "]";
 	}
+	
 	
 	
 	

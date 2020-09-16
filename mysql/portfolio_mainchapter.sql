@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE `mainchapter` (
   PRIMARY KEY (`mainChapter_priNum`),
   KEY `mainChapter_study_code_idx` (`mainChapter_class_code`),
   CONSTRAINT `mainChapter_study_code` FOREIGN KEY (`mainChapter_class_code`) REFERENCES `class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `mainchapter` (
 
 LOCK TABLES `mainchapter` WRITE;
 /*!40000 ALTER TABLE `mainchapter` DISABLE KEYS */;
-INSERT INTO `mainchapter` VALUES (1,'a','1','3smBBohC75Z8FNtN9wa6'),(2,'b','2','3smBBohC75Z8FNtN9wa6'),(3,'c','3','3smBBohC75Z8FNtN9wa6'),(4,'d','4','3smBBohC75Z8FNtN9wa6');
+INSERT INTO `mainchapter` VALUES (1,'a','1','3smBBohC75Z8FNtN9wa6'),(2,'b','2','3smBBohC75Z8FNtN9wa6'),(3,'c','3','3smBBohC75Z8FNtN9wa6'),(4,'d','4','3smBBohC75Z8FNtN9wa6'),(5,'환영합니다','1','Z8aLm742oHRT4q5e21Ek'),(6,'헬로월드부터시작','2','Z8aLm742oHRT4q5e21Ek');
 /*!40000 ALTER TABLE `mainchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-16  7:41:25
+-- Dump completed on 2020-09-16 17:49:22

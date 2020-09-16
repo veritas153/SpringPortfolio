@@ -43,6 +43,6 @@ public interface ClassService {
 	
 	ArrayList<ClassVo> getAllClass();
 
-	ClassVo getSelectedClass(String class_code);
+	ClassVo getSelectedClass(String code);
 
 }

@@ -107,8 +107,8 @@
 					<div class="class-setPackage">
 						<span>패키지 유무</span>
 						<div class="class-isPackage">
-							<input type="radio" name="addClass_hasPackage" id="addClass_hasPackage" value="y"> 패키지 있음
-							<input type="radio" name="addClass_hasPackage" id="addClass_hasPackage" value="n"> 패키지 없음
+							<input type="radio" name="addClass_hasPackage" id="addClass_hasPackage" value="Y"> 패키지 있음
+							<input type="radio" name="addClass_hasPackage" id="addClass_hasPackage" value="N"> 패키지 없음
 						</div>
 						<div class="setPackageContent">
 							<span>클래스에 필요한 패키지 구성을 상세하게 작성해주세요.</span>

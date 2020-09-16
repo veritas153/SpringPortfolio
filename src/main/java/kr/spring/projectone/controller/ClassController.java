@@ -62,6 +62,7 @@ public class ClassController {
         
 		ArrayList<ClassVo>classList = classService.getAllClass();
 		
+		
 		mv.addObject("classList", classList);
 		
 		mv.setViewName("/class/classList");
@@ -69,11 +70,12 @@ public class ClassController {
         return mv;
     }
 
-	@RequestMapping (value = "/class/{classList.class_code}", method = RequestMethod.GET)
-	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request, String class_code) {
+	@RequestMapping (value = "/class", method = RequestMethod.GET)
+	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request, String code) {
 	
 		
-		ClassVo classList = classService.getSelectedClass(class_code);
+		ClassVo classList = classService.getSelectedClass(code);
+		
 		mv.addObject("classList", classList);
 		
 		mv.setViewName("/class/classInfo");
@@ -82,45 +84,37 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "/applyClass", method = RequestMethod.GET)
-	public ModelAndView applyClassGet(ModelAndView mv, HttpServletRequest request, String class_code) {
+	public ModelAndView applyClassGet(ModelAndView mv, HttpServletRequest request, String code) {
+		
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
-		ClassVo classList = classService.getSelectedClass(class_code);
-		
+		ClassVo classList = classService.getSelectedClass(code);
 		mv.addObject("classList", classList);
-		
-		PaymentVo paymentInfo;
-		
-		
+	
+		ArrayList<PaymentVo> paymentInfo;
+
 		if (user == null) {
 			mv.setViewName("redirect:/login");
 		}
-		
 		if (user != null) {
-			mv.addObject("user", user);
-			
 			paymentInfo = paymentService.getPaymentInfo(user.getSt_id());
-			
 			if (paymentInfo != null) {
 				mv.addObject("paymentInfo",paymentInfo);
-			}
-				
+			}	
+			mv.setViewName("/class/applyClass");
 		}
-			
-			
-		mv.setViewName("/class/applyClass");
-		
-	
-		
 		return mv;
 	}
 	
 	@RequestMapping (value = "/applyClass", method = RequestMethod.POST)
-	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request) {
+	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request, PaymentVo paymentStat) {
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
 		
+		if(user != null) {
+			paymentService.inputPaymentInfo(paymentStat,user.getSt_id());
 		
+		}
 		
 		
 		return mv;

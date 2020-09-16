@@ -62,7 +62,7 @@
 	</div>
 	<div class="class-slidebar">
 		<div class="slidebar-boundary">
-			<div class="class-instructor">By. 생활코딩</div>
+			<div class="class-instructor">${classList.class_creatorName}</div>
 			<div class="class-name">${classList.class_title}</div>
 			<div class="class-information">
 				<div class="class-service">

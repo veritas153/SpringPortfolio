@@ -69,7 +69,7 @@ public class ClassServiceImp implements ClassService {
 		
 			 
 		}
-		System.out.println(tempClassCode);
+		
 		
 		tempClass.setAddClass_code(tempClassCode);
 		
@@ -99,7 +99,7 @@ public class ClassServiceImp implements ClassService {
 	
 		for(int i = 0,j=0 ; i < conMainChapter_number2.length; i++) { // i: 메인 챕터 값, j: 서브 챕터 배열길이
 			
-			System.out.println("메인 챕터 : " + conMainChapter_title2[i]);
+			
 			
 			tempChapter.setConMainChapter_addClass_code(tempClass.getAddClass_code());
 			tempChapter.setConMainChapter_title(conMainChapter_title2[i]);
@@ -107,7 +107,7 @@ public class ClassServiceImp implements ClassService {
 			tempClassDao.insertTempChapter(tempChapter);
 			
 			for(int k = 0; k < conSubChapter_number2[i]; k++) {
-				System.out.println("서브 챕터 : " + conSubChapter_title2[j]);
+				
 				
 				tempSub.setConSubChapter_title(conSubChapter_title2[j++]);
 				tempSub.setConSubChapter_number(k+1);
@@ -141,11 +141,11 @@ public class ClassServiceImp implements ClassService {
 			}
 			
 			int subPriNum = conSubChapter_priNum2[i];
-			System.out.println(subPriNum);
+		
 			
 			tempSub.setConSubChapter_title(conSubChapter_title2[i]);
 			tempSub.setConSubChapter_content(conSubChapter_content2[i]);
-			System.out.println(tempSub);
+			
 			tempClassDao.updateContent(subPriNum, tempSub);
 			
 		}
@@ -248,7 +248,6 @@ public class ClassServiceImp implements ClassService {
 	   
 	    
 	    int classWeek = tempClass.getAddClass_monthly();
-	    System.out.println(classWeek);
 	    
 	    Integer totalday = 0;
 	    
@@ -269,7 +268,7 @@ public class ClassServiceImp implements ClassService {
 	    }
 	    
 	    tempClass.setAddClass_classWeek(totalday);
-	    System.out.println(tempClass);
+	   
 	    tempClassDao.finalConfirm(tempClass);
 	    
 	    
@@ -282,7 +281,7 @@ public class ClassServiceImp implements ClassService {
 	    	TemporaryMainChapterVo mainPart = mainChapter.get(i);
 	    	mainPart.setConMainChapter_addClass_code(classCode);
 	    	int priNum = mainPart.getConMainChapter_priNum();
-	    	System.out.println(mainChapter.get(i));
+	    	
 	    	tempClassDao.setMainChapter(mainPart);
 	    	
 	    	ArrayList<TemporarySubChapterVo> subChapter = tempClassDao.getSubChapter(priNum);
@@ -290,13 +289,13 @@ public class ClassServiceImp implements ClassService {
 	    	for (int j = 0 ; j < subChapter.size(); j ++) {
 	    	
 	    		TemporarySubChapterVo subPart = subChapter.get(j);
+	    	
+	    		subPart.setConSubChapter_conMainChapter_priNum(mainPart.getConMainChapter_priNum());
 		   	  	tempClassDao.setSubChapter(subPart);
 	    	
 	    	}
 	    	
-	    	System.out.println();
-	    	System.out.println(i);
-	    	System.out.println();
+	    
 	    }
 	    
 		return classCode;
@@ -313,23 +312,19 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	@Override
-	public ClassVo getSelectedClass(String class_code) {
+	public ClassVo getSelectedClass(String code) {
 		
 		ArrayList<ClassVo>classList = classDao.getAllClass();
 		
 		ClassVo detectClass = null;
 		
-		int i = 0;
-		
-		while (i < classList.size()) {
+		for (int i = 0; i < classList.size(); i++) {
 			
 			detectClass = classList.get(i);
 			
-			if (detectClass.getClass_code() == class_code) {
+			if (detectClass.getClass_code().equals(code)) {
 				break;
 			}
-			
-			i++;
 			
 		}
 		

@@ -2,7 +2,8 @@ package kr.spring.projectone.vo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
+import java.util.Date;
+
 
 public class TemporaryClassVo {
 
@@ -138,17 +139,17 @@ public class TemporaryClassVo {
 		this.addClass_finalSubmit = addClass_finalSubmit;
 	}
 	public String getAddClass_openDate() {
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyymmdd"); // DatePicker에서 받아오는 스트링 형태를 작성
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd"); // DatePicker에서 받아오는 스트링 형태를 작성
 		return transFormat.format(addClass_openDate);
 	}
 	public void setAddClass_openDate(Date addClass_openDate) {
 		this.addClass_openDate = addClass_openDate;
 	}
-	public void setAddClass_openDate(String addClass_openDate) {
+	public void setAddClass_openDate(String addClass_openDate)  {
+
+		SimpleDateFormat beforeTransFormat = new SimpleDateFormat("yyyyMMdd"); // DatePicker에서 받아오는 스트링 형태를 작성
 		
-		SimpleDateFormat beforeTransFormat = new SimpleDateFormat("yyyymmdd"); // DatePicker에서 받아오는 스트링 형태를 작성
-		
-		SimpleDateFormat afterTransFormat = new SimpleDateFormat("yyyy-mm-dd"); // MYSQL에서 인식하는 형태로 작성
+		SimpleDateFormat afterTransFormat = new SimpleDateFormat("yyyy-MM-dd"); // MYSQL에서 인식하는 형태로 작성
 		
 		java.util.Date tempDate = null; // 여기선 java.util.Date로 작성하지만, import는 java.sql.date로 불러와야 한다! 왜냐하면 java.util.date는 오라클과 연동되는 방식이 아니기 때문
 		
@@ -157,11 +158,19 @@ public class TemporaryClassVo {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
 		String newFormat = afterTransFormat.format(tempDate);
 		
-		Date addClass_openDate2 = Date.valueOf(newFormat);
-		
-		this.addClass_openDate = addClass_openDate2;
+		Date addClass_openDate2;
+		try {
+			addClass_openDate2 = afterTransFormat.parse(addClass_openDate);
+			this.addClass_openDate = addClass_openDate2;
+			System.out.println(addClass_openDate);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

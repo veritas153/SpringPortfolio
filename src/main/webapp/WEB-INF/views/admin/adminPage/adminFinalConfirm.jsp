@@ -84,15 +84,22 @@
 	</div>
 	<div class="class-slidebar">
 		<div class="slidebar-boundary">
-			<div class="class-instructor">By. 생활코딩</div>
+			<div class="class-instructor">${tempClass.addClass_creatorName}</div>
 			<div class="class-name">${tempClass.addClass_title}</div>
 			<div class="class-information">
 				<div class="class-service">
 					<div class="price-container">
 						<div class="class-discount"></div>
 						<div class="price-detail">
+							<span> 
+								<c:if test="${tempClass.addClass_monthly == 1}">일시불 </c:if>
+								<c:if test="${tempClass.addClass_monthly == 3}">3개월 할부</c:if>
+								<c:if test="${tempClass.addClass_monthly == 5}">5개월 할부</c:if>
+								<c:if test="${tempClass.addClass_monthly == 6}">6개월 할부</c:if>
+								<c:if test="${tempClass.addClass_monthly == 12}">12개월 할부</c:if>
+							</span>
 							<span class="class-price">
-								총 ${tempClass.addClass_price} 원
+								/ 총 ${tempClass.addClass_price} 원
 							</span>
 							<span class="class-price-monthlyPay">
 								<a href="#" class="monthlyPay-rules">

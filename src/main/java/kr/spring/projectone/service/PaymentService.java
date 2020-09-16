@@ -6,6 +6,10 @@ import kr.spring.projectone.vo.PaymentVo;
 
 public interface PaymentService {
 
-	PaymentVo getPaymentInfo(String st_id);
+	ArrayList<PaymentVo> getPaymentInfo(String st_id);
+
+	boolean inputPaymentInfo(PaymentVo paymentStat, String st_id);
+
+	void getAllPaymentInfo();
 
 }

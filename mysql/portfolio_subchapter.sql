@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `subchapter` (
   PRIMARY KEY (`subChapter_priNum`),
   KEY `subChapter_mainChapter_priNum_idx` (`subChapter_mainChapter_priNum`),
   CONSTRAINT `subChapter_mainChapter_priNum` FOREIGN KEY (`subChapter_mainChapter_priNum`) REFERENCES `mainchapter` (`mainChapter_priNum`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `subchapter` (
 
 LOCK TABLES `subchapter` WRITE;
 /*!40000 ALTER TABLE `subchapter` DISABLE KEYS */;
-INSERT INTO `subchapter` VALUES (1,'a1','1','<p>adfsa</p>',1),(2,'a2','2','<p>adfsa</p>',1),(3,'a3','3','<p>adsfa</p>',1),(4,'a4','4','<p>dadsfa</p>',1),(5,'a5','5','<p>dafas</p>',1),(6,'b1','1','<p>adfassfd</p>',2),(7,'c1','1','<p><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/tYM4oISacwY\" width=\"640\" height=\"360\" class=\"note-video-clip\"></iframe><br></p>',3),(8,'c2','2','<p>adfsf</p>',3),(9,'c3','3','<p>asfdsaf</p>',3),(10,'d1','1','<p>adfas</p>',4),(11,'d2','2','<p>adsfsa</p>',4);
+INSERT INTO `subchapter` VALUES (1,'a1','1','<p>adfsa</p>',1),(2,'a2','2','<p>adfsa</p>',1),(3,'a3','3','<p>adsfa</p>',1),(4,'a4','4','<p>dadsfa</p>',1),(5,'a5','5','<p>dafas</p>',1),(6,'b1','1','<p>adfassfd</p>',2),(7,'c1','1','<p><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/tYM4oISacwY\" width=\"640\" height=\"360\" class=\"note-video-clip\"></iframe><br></p>',3),(8,'c2','2','<p>adfsf</p>',3),(9,'c3','3','<p>asfdsaf</p>',3),(10,'d1','1','<p>adfas</p>',4),(11,'d2','2','<p>adsfsa</p>',4),(12,'파이선은 무엇?','1','<p><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/yytWGELNeOI\" width=\"640\" height=\"360\" class=\"note-video-clip\"></iframe><br></p>',5),(13,'설치','2','<p>ㅇㅇㅇ</p>',5),(14,'구동','3','<p>ㅇㅇㅇ</p>',5),(15,'헬로월드','1','<p><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/3R6vFdb7YI4\" width=\"640\" height=\"360\" class=\"note-video-clip\"></iframe><br></p>',6),(16,'덧셈도 추가','2','<p><iframe frameborder=\"0\" src=\"//www.youtube.com/embed/2FBX-JcZ2ks\" width=\"640\" height=\"360\" class=\"note-video-clip\"></iframe><br></p>',6);
 /*!40000 ALTER TABLE `subchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-16  7:41:25
+-- Dump completed on 2020-09-16 17:49:22

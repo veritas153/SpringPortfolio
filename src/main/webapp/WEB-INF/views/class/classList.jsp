@@ -21,7 +21,7 @@
 		<c:if test="${classList != null}">
 			<div class="classList-row">
 				<c:forEach var="classBox" items="${classList}">
-					<a class="class-link" href="<%=request.getContextPath()%>/class/${classBox.class_code}">
+					<a class="class-link" href="<%=request.getContextPath()%>/class?code=${classBox.class_code}">
 						<div class="col-md-4">
 							<div class="card mb-4 shadow-sm">
 								<figure class="class-image">
@@ -32,7 +32,7 @@
 			  						</figcaption>
 								</figure>
 								<div class="class-info">
-									<span id="instructor"></span>
+									<span id="instructor">${classBox.class_creatorName}</span>
 									<span id="type">${classBox.class_category}</span>
 									<div class="class-title">${classBox.class_title}</div>
 								</div>

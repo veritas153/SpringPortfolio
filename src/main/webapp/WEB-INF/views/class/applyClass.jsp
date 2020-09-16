@@ -1,9 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <header class="vipPlan-header">
 	<div class="vipPlan-headContent">
 		<span class="vipPlan-gotoHome">
@@ -107,6 +106,25 @@
 			   		</div>
 			   	</div>
 			</div>
+			
+			<div class="applyClass-info">
+				<div>결제 정보</div>
+				<div class="applyClass-title">클래스 명: ${classList.class_title}</div>
+				<div class="applyClass-detail">
+					<div class="applyClass-monthly">
+						<span>할부개월: </span>
+						<c:if test="${classList.class_monthlyPay == 1}"><span>일시불</span></c:if>
+						<c:if test="${classList.class_monthlyPay == 3}"><span>3개월</span></c:if>
+						<c:if test="${classList.class_monthlyPay == 5}"><span>5개월</span></c:if>
+						<c:if test="${classList.class_monthlyPay == 6}"><span>6개월</span></c:if>
+						<c:if test="${classList.class_monthlyPay == 12}"><span>12개월</span></c:if>
+					</div>
+					<div class="applyClass-price">
+						<span>가격: ${classList.class_price}</span>
+					</div>
+				</div>
+			</div>
+			
 			<div class="box-title">
 				<input type="checkbox">Aurts 결제 약관에 동의합니다.
 			</div>

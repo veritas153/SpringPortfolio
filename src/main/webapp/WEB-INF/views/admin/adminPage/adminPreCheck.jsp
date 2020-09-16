@@ -16,8 +16,6 @@
 					<a class="btn-menu" href="#curriculum">커리큘럼</a>
 					<a class="btn-menu" href="#package">패키지</a>
 					<a class="btn-menu" href="#instructor">강사</a>
-					<a class="btn-menu" href="#questions">Q&A</a>
-					<a class="btn-menu" href="#refund">환불 정책</a>
 				</div>
 				<div class="content-division">
 					<div class="class-title" id="classInfo">
@@ -32,7 +30,7 @@
 								<span>${tempMain.conMainChapter_title}</span>
 								<c:forEach var="tempSub" items="${tempSub}">
 									<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
-										<p>${tempSub.conSubChapter_title }</p>
+										<p>${tempSub.conSubChapter_title}</p>
 									</c:if>
 								</c:forEach>
 							</div> 
@@ -68,9 +66,14 @@
 					<div class="price-container">
 						<div class="class-discount"></div>
 						<div class="price-detail">
-							<span class="class-price">
-								총 ${tempClass.addClass_price} 원
+							<span> 
+								<c:if test="${tempClass.addClass_monthly == 1}">일시불 </c:if>
+								<c:if test="${tempClass.addClass_monthly == 3}">3개월 할부</c:if>
+								<c:if test="${tempClass.addClass_monthly == 5}">5개월 할부</c:if>
+								<c:if test="${tempClass.addClass_monthly == 6}">6개월 할부</c:if>
+								<c:if test="${tempClass.addClass_monthly == 12}">12개월 할부</c:if>
 							</span>
+							<span class="class-price">/ 총 ${tempClass.addClass_price} 원</span>
 							<span class="class-price-monthlyPay">
 								<a href="#" class="monthlyPay-rules">
 									<i class="far fa-question-circle"></i>
@@ -123,10 +126,10 @@
 			<div class="col-md-4">
 				<div class="card mb-4 shadow-sm">
 					<figure class="class-image">	
-						<img id="previewImage" src="#" alt="새 이미지" >
+						<img id="previewImage" src="<%=request.getContextPath()%>/resources/uploadedImage${tempClass.addClass_image}">
 	  					<figcaption name="image-container" id="image-container">
-	  						<h6 name="image-container-title" id="image-container-title"></h6>
-	  						<div name="smallDescription" id="smallDescription"></div>
+	  						<h6 name="image-container-title" id="image-container-title">${tempClass.addClass_title}</h6>
+	  						<div name="smallDescription" id="smallDescription">${tempClass.addClass_thumbIntro}</div>
 	  					</figcaption>
 					</figure>
 					<div class="class-info">

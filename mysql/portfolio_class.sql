@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -28,6 +28,7 @@ CREATE TABLE `class` (
   `class_category` varchar(20) NOT NULL,
   `class_difficulty` varchar(10) NOT NULL,
   `class_thumbIntro` varchar(100) NOT NULL,
+  `class_creatorName` varchar(20) NOT NULL,
   `class_image` varchar(255) NOT NULL,
   `class_introduction` longtext NOT NULL,
   `class_monthlyPay` int NOT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
-INSERT INTO `class` VALUES ('3smBBohC75Z8FNtN9wa6','aaaaa','순수미술','입문','aaaaaaaaa','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,0,'2020-09-14 00:00:00','n','','<p>adfa</p>',28,'test1',NULL);
+INSERT INTO `class` VALUES ('3smBBohC75Z8FNtN9wa6','aaaaa','순수미술','입문','aaaaaaaaa','adfd','/2020/09/07/c9d9280b-9af8-476a-85a3-cdb8d50b2d3f_programming1.jpg','aaaaaaaaaa',1,0,'2020-09-14 00:00:00','N','','<p>adfa</p>',28,'test1',NULL),('Z8aLm742oHRT4q5e21Ek','파이선 입문','프로그래밍','입문','파이선 제대로 시작!','조코딩','/2020/09/16/641c215a-94e3-4418-80d5-31864b706044_programming1.jpg','한번 제대로 배워봐요',5,55000,'2020-09-16 00:00:00','N','','<p>이 클래스는 파이선 입문자가 들으시면 됩니다.</p>',140,'chester2',NULL);
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,4 +65,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-16  7:41:25
+-- Dump completed on 2020-09-16 17:49:21
