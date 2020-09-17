@@ -56,41 +56,9 @@ public class PaymentServiceImp implements PaymentService {
 			i++;
 			
 		}
-			
-		if (paymentStat.getPayment_cardBrand() == null || paymentStat.getPayment_cardBrand().equals("")) {
-			return false;
-		}
-		if (paymentStat.getPayment_cardOption() == null) {
-			return false;
-		}
-		if (paymentStat.getPayment_cardOption() == "personal-card" && (paymentStat.getPayment_businessNumber() != null || paymentStat.getPayment_ownerBirthday() == null)) {
-			return false;
-		}
-		if (paymentStat.getPayment_cardOption() == "business-card" && (paymentStat.getPayment_ownerBirthday() != null || paymentStat.getPayment_businessNumber() == null)) {
-			return false;
-		}
-		try { // 숫자로 입력안하면 false로 돌려버림
-			int num = Integer.parseInt(paymentStat.getPayment_cardNumber());
-			int cvc = Integer.parseInt(paymentStat.getPayment_cardCVC());
-			int birthday = Integer.parseInt(paymentStat.getPayment_ownerBirthday());
-			int business = Integer.parseInt(paymentStat.getPayment_businessNumber());
-		}catch(Exception e) {
-			return false;
-		}
-		if (paymentStat.getPayment_cardNumber() == null || paymentStat.getPayment_cardNumber().equals("")) {
-			return false;
-		}
-		if (paymentStat.getPayment_cardCVC() == null || paymentStat.getPayment_cardCVC().equals("")) {
-			return false;			}
-		if (paymentStat.getPayment_dueMonth() == null || paymentStat.getPayment_dueYear() == null) {
-			return false;
-		}
-		if (paymentStat.getPayment_cardPassword() == null || paymentStat.getPayment_cardPassword().equals("")) {
-			return false;
-		}
-		
 		
 		if (detectInfo == null) { // 없으면 새로 작성
+		
 			paymentStat.setPayment_st_id(st_id);
 			System.out.println(paymentStat); // 작성 내용 보여줌
 			paymentDao.insertPaymentInfo(paymentStat);
@@ -98,6 +66,47 @@ public class PaymentServiceImp implements PaymentService {
 		}
 		
 		if(detectInfo != null) { // 있으면 달라진 걸로 새로 수정
+			
+			if (paymentStat.getPayment_cardBrand() == null || paymentStat.getPayment_cardBrand().equals("")) {
+				System.out.println(1);
+				return false;
+			}
+			if (paymentStat.getPayment_cardOption() == null) {
+				System.out.println(2);
+				return false;
+			}
+			if (paymentStat.getPayment_cardOption() == "personal-card" && (paymentStat.getPayment_businessNumber() != null || paymentStat.getPayment_ownerBirthday() == null)) {
+				System.out.println(3);
+				return false;
+			}
+			if (paymentStat.getPayment_cardOption() == "business-card" && (paymentStat.getPayment_ownerBirthday() != null || paymentStat.getPayment_businessNumber() == null)) {
+				System.out.println(4);
+				return false;
+			}
+			try { // 숫자로 입력안하면 false로 돌려버림
+				int num = Integer.parseInt(paymentStat.getPayment_cardNumber());
+				int cvc = Integer.parseInt(paymentStat.getPayment_cardCVC());
+				int birthday = Integer.parseInt(paymentStat.getPayment_ownerBirthday());
+				int business = Integer.parseInt(paymentStat.getPayment_businessNumber());
+			}catch(Exception e) {
+				return false;
+			}
+			if (paymentStat.getPayment_cardNumber() == null || paymentStat.getPayment_cardNumber().equals("")) {
+				System.out.println(5);
+				return false;
+			}
+			if (paymentStat.getPayment_cardCVC() == null || paymentStat.getPayment_cardCVC().equals("")) {
+				System.out.println(6);
+				return false;			}
+			if (paymentStat.getPayment_dueMonth() == null || paymentStat.getPayment_dueYear() == null) {
+				System.out.println(7);
+				return false;
+			}
+			if (paymentStat.getPayment_cardPassword() == null || paymentStat.getPayment_cardPassword().equals("")) {
+				System.out.println(8);
+				return false;
+			}
+			
 			
 			paymentStat.setPayment_businessNumber(payment_businessNumber);
 			paymentStat.setPayment_cardBrand(payment_cardBrand);
