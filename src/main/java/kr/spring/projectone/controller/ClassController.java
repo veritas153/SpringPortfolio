@@ -30,6 +30,7 @@ import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.utils.UploadFileUtils;
 import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.PaymentVo;
+import kr.spring.projectone.vo.PurchaseHistoryVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -83,37 +84,100 @@ public class ClassController {
 		return mv;
 	}
 	
+	// 클래스 결제 (작업 예정: 1. 이미 결제했는데 결제 들어가는 걸 막아주는 구문 )
+	
 	@RequestMapping (value = "/applyClass", method = RequestMethod.GET)
-	public ModelAndView applyClassGet(ModelAndView mv, HttpServletRequest request, String code) {
+	public ModelAndView applyClassGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, String code) throws IOException {
 		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter printWriter = response.getWriter();
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
 		ClassVo classList = classService.getSelectedClass(code);
 		mv.addObject("classList", classList);
-	
-		ArrayList<PaymentVo> paymentInfo;
 
+		ArrayList<PaymentVo> paymentInfo;
+		
 		if (user == null) {
 			mv.setViewName("redirect:/login");
 		}
 		if (user != null) {
-			paymentInfo = paymentService.getPaymentInfo(user.getSt_id());
-			if (paymentInfo != null) {
-				mv.addObject("paymentInfo",paymentInfo);
-			}	
-			mv.setViewName("/class/applyClass");
+			
+			if (user.getSt_id().equals(classList.getClass_st_id())) {  // 자기 클래스를 자신이 수강받는건 이상하잖어?
+				
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('이 클래스는 크리에이터님이 개설하신 수업입니다!'); history.back(); </script>");
+				printWriter.flush();
+				printWriter.close();
+				
+			}
+			
+			if (!user.getSt_id().equals(classList.getClass_st_id())) {
+				
+				paymentInfo = paymentService.getPaymentInfo(user.getSt_id());
+				
+				if (paymentInfo.contains("")) { // 그러니까 결제한 적이 없으면 그냥 패스
+			
+				}
+				if (paymentInfo.contains(user.getSt_id())){ // 결제 내역이 있으면 Attribute를 불러서 정보 불러옴
+					
+					mv.addObject("paymentInfo", paymentInfo);
+					
+				}
+				
+				mv.setViewName("/class/applyClass");
+			}
 		}
 		return mv;
 	}
 	
 	@RequestMapping (value = "/applyClass", method = RequestMethod.POST)
-	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request, PaymentVo paymentStat) {
+	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, PaymentVo paymentStat, String code, String payment_cardBrand, String payment_cardOption, String payment_cardNumber, String payment_dueMonth, String payment_dueYear, String payment_cardCVC, String payment_cardPassword, String payment_ownerBirthday, String payment_businessNumber) throws IOException {
+		
+		// 결제 정보를 받은 걸로 결제 진행은 현 시점에선 불가... 이건 나중에 확인할 예정
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter printWriter = response.getWriter();
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		ClassVo classList = classService.getSelectedClass(code);
+		
+		if(user == null) {
+			
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('허용되지 않은 접근입니다!'); location.href=\"login\"; </script>");
+			printWriter.flush();
+			printWriter.close();
+		
+		}
 		
 		if(user != null) {
-			paymentService.inputPaymentInfo(paymentStat,user.getSt_id());
-		
+			
+			boolean check = paymentService.detectPaymentInfo(paymentStat, classList, user.getSt_id(), payment_cardBrand, payment_cardOption, payment_cardNumber, payment_dueMonth, payment_dueYear, payment_cardCVC, payment_cardPassword, payment_ownerBirthday, payment_businessNumber);
+			
+			if (check == false) {
+				
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('누락된 정보가 있거나 정보를 잘못 입력하셨습니다.'); history.back(); </script>");
+				printWriter.flush();
+				printWriter.close();
+				
+			}
+			
+			if (check == true) {
+				
+				String purchaseCode = paymentService.inputHistory(code, user.getSt_id());
+				
+				
+				
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href=\"\"; </script>");
+				printWriter.flush();
+				printWriter.close();
+				
+				
+			}
+			
 		}
 		
 		
@@ -121,6 +185,19 @@ public class ClassController {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 여기서부턴 크리에이터 부분!
 	
 	// 크리에이터 기본 옵션 구현
 	@RequestMapping(value = "/creator", method = RequestMethod.GET)
@@ -202,7 +279,7 @@ public class ClassController {
 	}
 	
 	// 클래스 제작 신청
-	@RequestMapping (value = "creator/applyClass", method = RequestMethod.GET)
+	@RequestMapping (value = "creator/registerClass", method = RequestMethod.GET)
 	public ModelAndView createClassGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		response.setCharacterEncoding("UTF-8");
@@ -226,7 +303,7 @@ public class ClassController {
 		return mv;
 	}
 	
-	@RequestMapping (value = "creator/applyClass", method = RequestMethod.POST)
+	@RequestMapping (value = "creator/registerClass", method = RequestMethod.POST)
 	public ModelAndView createClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, TemporaryClassVo tempClass,  MultipartFile addClass_image2, TemporaryMainChapterVo tempChapter, TemporarySubChapterVo tempSub, Integer[]conMainChapter_number2, Integer[]conSubChapter_number2, String []conMainChapter_title2, String []conSubChapter_title2) throws Exception {
 		
 		// 만약 목차, 챕터별 내용들 작업할 경우엔 변수를 배열로 설정해서 할것
@@ -281,7 +358,7 @@ public class ClassController {
 				
 				if (insertTemp == true) {
 					
-					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); location.href=''; </script>");
+					printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); history.back(); </script>");
 					printWriter.flush();
 					printWriter.close();
 					

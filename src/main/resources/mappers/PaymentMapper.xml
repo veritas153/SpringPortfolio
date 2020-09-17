@@ -16,5 +16,46 @@
 	
 	</select>
 
+	<insert id="insertPaymentInfo">
+	
+		insert into 
+			payment(payment_owner, payment_cardBrand, payment_cardOption, payment_cardNumber, 
+					
+					payment_dueYear, payment_dueMonth, payment_ownerBirthday, payment_businessNumber, payment_st_id)
+					
+			values(#{user.payment_owner}, #{user.payment_cardBrand}, #{user.payment_cardOption}, #{user.payment_cardNumber},
+			
+					#{user.payment_dueYear}, #{user.payment_dueMonth}, #{user.payment_ownerBirthday}, #{user.payment_businessNumber}, #{user.payment_st_id});
+	
+	</insert>
+
+
+	<update id="updatePaymentInfo">
+	
+		update payment
+		
+			set payment_cardBrand = #{info.payment_cardBrand}, 
+				payment_cardOption = #{info.payment_cardOption}, 
+				payment_cardNumber = #{info.payment_cardNumber}, 
+				payment_dueYear = #{info.payment_dueYear}, 
+				payment_dueMonth = #{info.payment_dueMonth}, 
+				payment_ownerBirthday = #{info.payment_ownerBirthday}, 
+				payment_businessNumber = #{info.payment_businessNumber}
+
+			where payment_st_id == #{id};
+	</update>
+
+	<insert id="inputHistory">
+	
+		insert into
+			purchase(purchase_code, purchase_price, purchase_monthlyLeft, 
+			
+					purchase_class_code, purchae_package_code, purchase_vip_code, purchase_st_id)
+		
+			values(#{history.purchase_code}, #{history.purchase_price}, #{history.purchase_monthlyLeft},
+			
+					#{history.purchase_class_code}, #{history.purchase_package_code}, #{history.purchase_vip_code}, #{history.purchase_st_id});
+		
+	</insert>
 
 </mapper>

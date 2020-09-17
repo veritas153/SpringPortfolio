@@ -9,7 +9,7 @@
 			<div class="classList">
 				<header class="classList-title">
 					<span>온라인 클래스</span>
-					<a href="<%=request.getContextPath()%>/creator/applyClass">
+					<a href="<%=request.getContextPath()%>/creator/registerClass">
 						<span class="addClass">
 							<i class="fas fa-plus"></i> 새로운 클래스
 						</span>

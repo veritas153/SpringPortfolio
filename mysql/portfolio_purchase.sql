@@ -24,12 +24,20 @@ DROP TABLE IF EXISTS `purchase`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchase` (
   `purchase_code` varchar(255) NOT NULL,
-  `purchase_date` datetime DEFAULT NULL,
-  `purchase_class_code` varchar(50) NOT NULL,
-  `purchase_package_code` varchar(50) NOT NULL,
-  `purchase_payment_owner` varchar(10) NOT NULL,
-  `purchase_price` int DEFAULT NULL,
-  PRIMARY KEY (`purchase_code`)
+  `purchase_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `purchase_price` int NOT NULL,
+  `purchase_monthlyLeft` int DEFAULT NULL,
+  `purchase_class_code` varchar(50) DEFAULT NULL,
+  `purchase_package_code` varchar(50) DEFAULT NULL,
+  `purchase_vip_code` varchar(45) DEFAULT NULL,
+  `purchase_st_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`purchase_code`),
+  KEY `purchase_class_code_idx` (`purchase_class_code`),
+  KEY `purchase_st_id_idx` (`purchase_st_id`),
+  KEY `purchase_vip_code_idx` (`purchase_vip_code`),
+  CONSTRAINT `purchase_class_code` FOREIGN KEY (`purchase_class_code`) REFERENCES `class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `purchase_st_id` FOREIGN KEY (`purchase_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `purchase_vip_code` FOREIGN KEY (`purchase_vip_code`) REFERENCES `vipcodelist` (`vip_code`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-16 17:49:20
+-- Dump completed on 2020-09-17 18:35:23

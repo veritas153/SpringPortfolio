@@ -17,7 +17,7 @@ $(function(){
 	
 		for (var i = 1; i <= 9 ; i++){
 		
-			$('#payment_dueMonth').append('<option value="' + i + '">0' + i + '</option>');    
+			$('#payment_dueMonth').append('<option value="0' + i + '">0' + i + '</option>');    
 			
 		}
 		for (var i = 10; i <= 12 ; i++){
@@ -264,7 +264,20 @@ $(function(){
 	
 	});
 	
+	// 결제 창에서 약관 동의해야만 진행 가능하게 만드는 구문
 	
+	$('#agreement-term').click(function(){
+	
+		var pointer = $("input:checkbox[id='agreement-term']").is(":checked");
+	
+		if (pointer == true){
+			$(this).parents('.box-title').next().attr('disabled',false);
+		}
+		if (pointer == false){
+			$(this).parents('.box-title').next().attr('disabled',true);
+		}
+	
+	});
 	
 	window.onscroll = function() {scrollFunction()};
 	

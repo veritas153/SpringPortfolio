@@ -25,9 +25,13 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `payment_priNum` int NOT NULL AUTO_INCREMENT,
   `payment_owner` varchar(10) NOT NULL,
-  `payment_cardNumber` int NOT NULL,
-  `payment_dueYear` int NOT NULL,
-  `payment_dueMonth` int NOT NULL,
+  `payment_cardBrand` varchar(30) NOT NULL,
+  `payment_cardOption` varchar(10) NOT NULL,
+  `payment_cardNumber` varchar(16) NOT NULL,
+  `payment_dueYear` varchar(2) NOT NULL,
+  `payment_dueMonth` varchar(2) NOT NULL,
+  `payment_ownerBirthday` varchar(8) DEFAULT NULL,
+  `payment_businessNumber` varchar(10) DEFAULT NULL,
   `payment_st_id` varchar(20) NOT NULL,
   PRIMARY KEY (`payment_priNum`),
   KEY `payment_st_id_idx` (`payment_st_id`),
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-16 17:49:20
+-- Dump completed on 2020-09-17 18:35:22
