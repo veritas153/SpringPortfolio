@@ -42,7 +42,7 @@
 				payment_ownerBirthday = #{info.payment_ownerBirthday}, 
 				payment_businessNumber = #{info.payment_businessNumber}
 
-			where payment_st_id == #{id};
+			where payment_st_id = #{id};
 	</update>
 
 	<insert id="inputHistory">

@@ -8,9 +8,12 @@ public class PurchaseHistoryVo {
 	private Date purchase_date;
 	private int purchase_price;
 	private int purchase_monthlyLeft;
+	private String purcahse_vip_code;
 	private String purchase_class_code;
 	private String purchase_package_code;
 	private String purchase_st_id;
+	
+	
 	public String getPurchase_code() {
 		return purchase_code;
 	}
@@ -35,6 +38,12 @@ public class PurchaseHistoryVo {
 	public void setPurchase_monthlyLeft(int purchase_monthlyLeft) {
 		this.purchase_monthlyLeft = purchase_monthlyLeft;
 	}
+	public String getPurcahse_vip_code() {
+		return purcahse_vip_code;
+	}
+	public void setPurcahse_vip_code(String purcahse_vip_code) {
+		this.purcahse_vip_code = purcahse_vip_code;
+	}
 	public String getPurchase_class_code() {
 		return purchase_class_code;
 	}
@@ -58,9 +67,10 @@ public class PurchaseHistoryVo {
 	public String toString() {
 		return "PurchaseHistoryVo [purchase_code=" + purchase_code + ", purchase_date=" + purchase_date
 				+ ", purchase_price=" + purchase_price + ", purchase_monthlyLeft=" + purchase_monthlyLeft
-				+ ", purchase_class_code=" + purchase_class_code + ", purchase_package_code=" + purchase_package_code
-				+ ", purchase_st_id=" + purchase_st_id + "]";
+				+ ", purcahse_vip_code=" + purcahse_vip_code + ", purchase_class_code=" + purchase_class_code
+				+ ", purchase_package_code=" + purchase_package_code + ", purchase_st_id=" + purchase_st_id + "]";
 	}
+	
 	
 	
 	

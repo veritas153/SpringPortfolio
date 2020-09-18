@@ -8,7 +8,7 @@ import kr.spring.projectone.vo.PurchaseHistoryVo;
 
 public interface PaymentService {
 
-	ArrayList<PaymentVo> getPaymentInfo(String st_id);
+	PaymentVo getPaymentInfo(String st_id);
 
 	void getAllPaymentInfo();
 
@@ -17,6 +17,6 @@ public interface PaymentService {
 			String payment_cardCVC, String payment_cardPassword, String payment_ownerBirthday,
 			String payment_businessNumber, String payment_businessNumber2);
 
-	String inputHistory(String code, String st_id);
+	void inputHistory(PurchaseHistoryVo purchaseInfo, String code, String st_id);
 
 }

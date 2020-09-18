@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.projectone.dao.ClassDao;
 import kr.spring.projectone.dao.PaymentDao;
+import kr.spring.projectone.dao.PurchaseDao;
 import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
@@ -18,6 +19,8 @@ public class PaymentServiceImp implements PaymentService {
 	private PaymentDao paymentDao;
 	@Autowired
 	private ClassDao classDao;
+	@Autowired
+	private PurchaseDao purchaseDao;
 	
 	@Override
 	public void getAllPaymentInfo(){
@@ -26,7 +29,7 @@ public class PaymentServiceImp implements PaymentService {
 	
 	
 	@Override
-	public ArrayList<PaymentVo> getPaymentInfo(String st_id) {
+	public PaymentVo getPaymentInfo(String st_id) {
 		
 		return paymentDao.getPaymentInfo(st_id);
 	}
@@ -40,22 +43,8 @@ public class PaymentServiceImp implements PaymentService {
 			String payment_cardCVC, String payment_cardPassword, String payment_ownerBirthday,
 			String payment_businessNumber) {
 	
-		ArrayList<PaymentVo> paymentData = paymentDao.getAllPaymentInfo();
-		PaymentVo detectInfo = null;
 		
-		int i = 0;
-		
-		while (i < paymentData.size()) { // 결제 내역이 있는지 검사
-			
-			detectInfo = paymentData.get(i);
-			
-			if (detectInfo.getPayment_st_id() == st_id) {
-				break;
-			}
-			
-			i++;
-			
-		}
+		PaymentVo detectInfo = paymentDao.getPaymentInfo(st_id);
 		
 		if (detectInfo == null) { // 없으면 새로 작성
 		
@@ -65,60 +54,81 @@ public class PaymentServiceImp implements PaymentService {
 			
 		}
 		
+		System.out.println(detectInfo);
+		
 		if(detectInfo != null) { // 있으면 달라진 걸로 새로 수정
+	
 			
-			if (paymentStat.getPayment_cardBrand() == null || paymentStat.getPayment_cardBrand().equals("")) {
-				System.out.println(1);
+			if (payment_cardBrand == null || payment_cardBrand == "") {
+				System.out.println("1");
 				return false;
 			}
-			if (paymentStat.getPayment_cardOption() == null) {
-				System.out.println(2);
+			if (payment_cardOption == null || payment_cardOption == "") {
+				System.out.println("2");
 				return false;
 			}
-			if (paymentStat.getPayment_cardOption() == "personal-card" && (paymentStat.getPayment_businessNumber() != null || paymentStat.getPayment_ownerBirthday() == null)) {
-				System.out.println(3);
+			if (payment_cardOption == "personal-card" && payment_businessNumber != null ) {
+				
 				return false;
 			}
-			if (paymentStat.getPayment_cardOption() == "business-card" && (paymentStat.getPayment_ownerBirthday() != null || paymentStat.getPayment_businessNumber() == null)) {
-				System.out.println(4);
+			if (payment_cardOption == "business-card" ) {
+				System.out.println("4");
+				System.out.println("3");
+				try {
+					long business = Long.parseLong(payment_businessNumber);
+				} catch(Exception e){
+					return false;
+				}
+				
+			}
+			if (payment_cardNumber == null || payment_cardNumber == "") {
+				System.out.println("5");
+				return false;
+			}
+			if (payment_cardCVC == null || payment_cardCVC == "") {
+				System.out.println("6");
+				return false;			}
+			if (payment_dueMonth == null || payment_dueMonth == null) {
+				System.out.println("7");
+				return false;
+			}
+			if (payment_cardPassword == null || payment_cardPassword == "") {
+				System.out.println("8");
 				return false;
 			}
 			try { // 숫자로 입력안하면 false로 돌려버림
-				int num = Integer.parseInt(paymentStat.getPayment_cardNumber());
-				int cvc = Integer.parseInt(paymentStat.getPayment_cardCVC());
-				int birthday = Integer.parseInt(paymentStat.getPayment_ownerBirthday());
-				int business = Integer.parseInt(paymentStat.getPayment_businessNumber());
+				System.out.println("9:"+payment_cardNumber);
+				long num = Long.parseLong(payment_cardNumber); // 카드번호가
+				int cvc = Integer.parseInt(payment_cardCVC);
+				System.out.println("10");
+				int birthday = Integer.parseInt(payment_ownerBirthday);
+				System.out.println("11");
+				
+				System.out.println("12");
 			}catch(Exception e) {
-				return false;
-			}
-			if (paymentStat.getPayment_cardNumber() == null || paymentStat.getPayment_cardNumber().equals("")) {
-				System.out.println(5);
-				return false;
-			}
-			if (paymentStat.getPayment_cardCVC() == null || paymentStat.getPayment_cardCVC().equals("")) {
-				System.out.println(6);
-				return false;			}
-			if (paymentStat.getPayment_dueMonth() == null || paymentStat.getPayment_dueYear() == null) {
-				System.out.println(7);
-				return false;
-			}
-			if (paymentStat.getPayment_cardPassword() == null || paymentStat.getPayment_cardPassword().equals("")) {
-				System.out.println(8);
+				System.out.println("13");
 				return false;
 			}
 			
+			detectInfo.setPayment_businessNumber(payment_businessNumber); 
+			detectInfo.setPayment_cardBrand(payment_cardBrand); 
+			detectInfo.setPayment_cardCVC(payment_cardCVC); 
+			detectInfo.setPayment_cardNumber(payment_cardNumber); 
+			detectInfo.setPayment_cardOption(payment_cardOption); 
+			detectInfo.setPayment_cardPassword(payment_cardPassword); 
+			detectInfo.setPayment_dueMonth(payment_dueMonth); 
+			detectInfo.setPayment_dueYear(payment_dueYear); 
 			
-			paymentStat.setPayment_businessNumber(payment_businessNumber);
-			paymentStat.setPayment_cardBrand(payment_cardBrand);
-			paymentStat.setPayment_cardCVC(payment_cardCVC);
-			paymentStat.setPayment_cardNumber(payment_cardNumber);
-			paymentStat.setPayment_cardOption(payment_cardOption);
-			paymentStat.setPayment_cardPassword(payment_cardPassword);
-			paymentStat.setPayment_dueMonth(payment_dueMonth);
-			paymentStat.setPayment_dueYear(payment_dueYear);
-			paymentStat.setPayment_ownerBirthday(payment_ownerBirthday);
+			if (payment_ownerBirthday != null) {
+				detectInfo.setPayment_ownerBirthday(payment_ownerBirthday);
+			}
+			if (payment_businessNumber != null) {
+				detectInfo.setPayment_businessNumber(payment_businessNumber);
+			}
 			
-			paymentDao.updatePaymentInfo(paymentStat, st_id);
+			System.out.println(detectInfo);
+			
+			paymentDao.updatePaymentInfo(detectInfo, st_id);
 		}
 		
 		return true;
@@ -127,7 +137,7 @@ public class PaymentServiceImp implements PaymentService {
 
 
 	@Override
-	public String inputHistory(String code, String st_id) {
+	public void inputHistory(PurchaseHistoryVo historyInfo, String code, String st_id) {
 		
 		String tempCode = "";
 		
@@ -139,7 +149,7 @@ public class PaymentServiceImp implements PaymentService {
 	      
 	    }
 
-	    PurchaseHistoryVo historyInfo = null;
+	    
 	    
 	    historyInfo.setPurchase_code(tempCode);
 	    historyInfo.setPurchase_st_id(st_id);
@@ -162,8 +172,9 @@ public class PaymentServiceImp implements PaymentService {
 	    }
 	    // VIP플랜, 패키지 코드 여부는 해당 VO가 구현된 뒤에 진행할 예정
 	 
-	    paymentDao.inputHistory(historyInfo);
-		return tempCode;
+	    System.out.println(historyInfo);
+	    purchaseDao.inputHistory(historyInfo);
+	
 	}
 
 

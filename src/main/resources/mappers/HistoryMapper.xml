@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.projectone.dao.PurchaseDao">
+
+	<select id="getAllHistory" resultType="kr.spring.projectone.vo.PurchaseHistoryVo">
+	
+		select * from purchase;
+	
+	</select>
+	
+	<select id="searchHistory" resultType="kr.spring.projectone.vo.PurchaseHistoryVo">
+	
+		select * from purchase where purchase_st_id = #{id};
+	
+	</select>
+
+	<insert id="inputHistory">
+	
+		insert into
+			purchase(purchase_code, purchase_price, purchase_monthlyLeft, purchase_vip_code, purchase_class_code, purchase_package_code, purchase_st_id)
+			values(#{history.purchase_code},#{history.purchase_price},#{history.purchase_monthlyLeft},#{history.purchase_vip_code},#{history.purchase_class_code},#{history.purchase_package_code},#{history.purchase_st_id});
+	
+	</insert>
+
+</mapper>

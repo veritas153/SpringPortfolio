@@ -98,7 +98,7 @@ public class ClassController {
 		ClassVo classList = classService.getSelectedClass(code);
 		mv.addObject("classList", classList);
 
-		ArrayList<PaymentVo> paymentInfo;
+		PaymentVo paymentInfo; // 만약 같은 회원이 정보를 추가하는걸 반영하고 싶으면 배열로 써야 하지만, 그냥 같은 회원 정보를 갱신하는 식으로 진행하기 때문에 배열로 처리할 필요 X
 		
 		if (user == null) {
 			mv.setViewName("redirect:/login");
@@ -117,10 +117,12 @@ public class ClassController {
 				
 				paymentInfo = paymentService.getPaymentInfo(user.getSt_id());
 				
-				if (paymentInfo.contains("")) { // 그러니까 결제한 적이 없으면 그냥 패스
-			
+				
+				if (paymentInfo.getPayment_st_id() == null) { // 그러니까 결제한 적이 없으면 그냥 패스
+					
 				}
-				if (paymentInfo.contains(user.getSt_id())){ // 결제 내역이 있으면 Attribute를 불러서 정보 불러옴
+				if (paymentInfo.getPayment_st_id() != null){ // 결제 내역이 있으면 Attribute를 불러서 정보 불러옴
+					
 					
 					mv.addObject("paymentInfo", paymentInfo);
 					
@@ -133,7 +135,10 @@ public class ClassController {
 	}
 	
 	@RequestMapping (value = "/applyClass", method = RequestMethod.POST)
-	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, PaymentVo paymentStat, String code, String payment_cardBrand, String payment_cardOption, String payment_cardNumber, String payment_dueMonth, String payment_dueYear, String payment_cardCVC, String payment_cardPassword, String payment_ownerBirthday, String payment_businessNumber) throws IOException {
+	public ModelAndView applyClassPost(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, PaymentVo paymentStat, 
+			PurchaseHistoryVo purchaseInfo, String code, String payment_cardBrand, String payment_cardOption, 
+			String payment_cardNumber, String payment_dueMonth, String payment_dueYear, String payment_cardCVC, 
+			String payment_cardPassword, String payment_ownerBirthday, String payment_businessNumber) throws IOException {
 		
 		// 결제 정보를 받은 걸로 결제 진행은 현 시점에선 불가... 이건 나중에 확인할 예정
 		
@@ -156,7 +161,7 @@ public class ClassController {
 		if(user != null) {
 			
 			boolean check = paymentService.detectPaymentInfo(paymentStat, classList, user.getSt_id(), payment_cardBrand, payment_cardOption, payment_cardNumber, payment_dueMonth, payment_dueYear, payment_cardCVC, payment_cardPassword, payment_ownerBirthday, payment_businessNumber);
-			
+			System.out.println(check);
 			if (check == false) {
 				
 				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('누락된 정보가 있거나 정보를 잘못 입력하셨습니다.'); history.back(); </script>");
@@ -167,7 +172,8 @@ public class ClassController {
 			
 			if (check == true) {
 				
-				String purchaseCode = paymentService.inputHistory(code, user.getSt_id());
+
+				paymentService.inputHistory(purchaseInfo, code, user.getSt_id());
 				
 				
 				
