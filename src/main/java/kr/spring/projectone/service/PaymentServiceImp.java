@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import kr.spring.projectone.dao.ClassDao;
 import kr.spring.projectone.dao.PaymentDao;
 import kr.spring.projectone.dao.PurchaseDao;
+import kr.spring.projectone.dao.VipDao;
 import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
+import kr.spring.projectone.vo.VipCodeListVo;
 
 @Service
 public class PaymentServiceImp implements PaymentService {
@@ -21,6 +23,8 @@ public class PaymentServiceImp implements PaymentService {
 	private ClassDao classDao;
 	@Autowired
 	private PurchaseDao purchaseDao;
+	@Autowired
+	private VipDao vipDao;
 	
 	@Override
 	public void getAllPaymentInfo(){
@@ -137,7 +141,7 @@ public class PaymentServiceImp implements PaymentService {
 
 
 	@Override
-	public void inputHistory(PurchaseHistoryVo historyInfo, String code, String st_id) {
+	public void inputHistory(PurchaseHistoryVo purchaseInfo, String code, String st_id) {
 		
 		String tempCode = "";
 		
@@ -151,8 +155,8 @@ public class PaymentServiceImp implements PaymentService {
 
 	    
 	    
-	    historyInfo.setPurchase_code(tempCode);
-	    historyInfo.setPurchase_st_id(st_id);
+	    purchaseInfo.setPurchase_code(tempCode);
+	    purchaseInfo.setPurchase_st_id(st_id);
 	    
 	    // 코드가 어디서 왔는지 확인하는 과정
 
@@ -160,20 +164,32 @@ public class PaymentServiceImp implements PaymentService {
 	    for (int i = 0 ; i < classList.size() ; i++) {
 	    	
 	    	if (classList.get(i).getClass_code().equals(code)) {
-	    		historyInfo.setPurchase_class_code(code);
-	    		historyInfo.setPurchase_price(classList.get(i).getClass_price());
+	    		purchaseInfo.setPurchase_class_code(code);
+	    		purchaseInfo.setPurchase_price(classList.get(i).getClass_price());
 	    		
 	    		int num = classList.get(i).getClass_monthlyPay();
-	    		historyInfo.setPurchase_monthlyLeft(num-1);
+	    		purchaseInfo.setPurchase_monthlyLeft(num-1);
 	    		
 	    		break;
 	    	}
 	    	
 	    }
-	    // VIP플랜, 패키지 코드 여부는 해당 VO가 구현된 뒤에 진행할 예정
+	    ArrayList<VipCodeListVo>vipCodeList = vipDao.getVipCode(st_id);
+	    for (int i = 0 ; i < vipCodeList.size() ; i++) {
+	    	
+	    	if (vipCodeList.get(i).getVip_code().equals(code)) {
+	    		purchaseInfo.setPurcahse_vip_code(code);
+	    		// 여긴 vip 플랜 가격 명시 해야 되는 부분 (작업 예정) 
+	    		
+	    		purchaseInfo.setPurchase_monthlyLeft(11);
+	    		
+	    		break;
+	    	}
+	    	
+	    }
 	 
-	    System.out.println(historyInfo);
-	    purchaseDao.inputHistory(historyInfo);
+	    System.out.println(purchaseInfo);
+	    purchaseDao.inputHistory(purchaseInfo);
 	
 	}
 

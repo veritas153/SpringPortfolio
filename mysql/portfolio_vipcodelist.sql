@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -26,7 +26,10 @@ CREATE TABLE `vipcodelist` (
   `vip_code` varchar(255) NOT NULL,
   `vip_dueDate` datetime NOT NULL,
   `vip_purchase_code` varchar(255) NOT NULL,
-  PRIMARY KEY (`vip_code`)
+  `vip_st_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`vip_code`),
+  KEY `vip_st_id_idx` (`vip_st_id`),
+  CONSTRAINT `vip_st_id` FOREIGN KEY (`vip_st_id`) REFERENCES `student` (`st_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-18 18:11:32
+-- Dump completed on 2020-09-21  8:18:56

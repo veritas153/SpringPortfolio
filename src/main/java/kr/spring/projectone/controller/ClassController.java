@@ -118,10 +118,10 @@ public class ClassController {
 				paymentInfo = paymentService.getPaymentInfo(user.getSt_id());
 				
 				
-				if (paymentInfo.getPayment_st_id() == null) { // 그러니까 결제한 적이 없으면 그냥 패스
+				if (paymentInfo == null) { // 그러니까 결제한 적이 없으면 그냥 패스
 					
 				}
-				if (paymentInfo.getPayment_st_id() != null){ // 결제 내역이 있으면 Attribute를 불러서 정보 불러옴
+				if (paymentInfo != null){ // 결제 내역이 있으면 Attribute를 불러서 정보 불러옴
 					
 					
 					mv.addObject("paymentInfo", paymentInfo);

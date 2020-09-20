@@ -12,7 +12,7 @@ public interface PurchaseDao {
 
 	PurchaseHistoryVo searchHistory(@Param("id")String st_id);
 	
-	void inputHistory(@Param("history")PurchaseHistoryVo historyInfo);
+	void inputHistory(@Param("history")PurchaseHistoryVo purchaseInfo);
 
 	
 
