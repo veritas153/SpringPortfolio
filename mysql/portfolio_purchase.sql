@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -27,9 +27,9 @@ CREATE TABLE `purchase` (
   `purchase_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `purchase_price` int NOT NULL,
   `purchase_monthlyLeft` int DEFAULT NULL,
-  `purchase_class_code` varchar(50) DEFAULT NULL,
+  `purchase_class_code` varchar(20) DEFAULT NULL,
   `purchase_package_code` varchar(50) DEFAULT NULL,
-  `purchase_vip_code` varchar(45) DEFAULT NULL,
+  `purchase_vip_code` varchar(25) DEFAULT NULL,
   `purchase_st_id` varchar(20) NOT NULL,
   PRIMARY KEY (`purchase_code`),
   KEY `purchase_class_code_idx` (`purchase_class_code`),
@@ -47,6 +47,7 @@ CREATE TABLE `purchase` (
 
 LOCK TABLES `purchase` WRITE;
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
+INSERT INTO `purchase` VALUES ('CQDYMKXSJEVSAWEXBCXP','2020-09-21 17:09:32',125000,11,NULL,NULL,'53CMdepyXAolQAHqI8TkoLEH3','chester2'),('WXJEQOUBHUANBFWYITSZ','2020-09-21 12:44:20',0,0,'3smBBohC75Z8FNtN9wa6',NULL,NULL,'chester2');
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-21  8:18:54
+-- Dump completed on 2020-09-21 18:26:26

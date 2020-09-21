@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `vipcodelist`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vipcodelist` (
   `vip_code` varchar(255) NOT NULL,
-  `vip_dueDate` datetime NOT NULL,
-  `vip_purchase_code` varchar(255) NOT NULL,
+  `vip_submitDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `vip_dueDate` datetime DEFAULT NULL,
   `vip_st_id` varchar(20) NOT NULL,
   PRIMARY KEY (`vip_code`),
   KEY `vip_st_id_idx` (`vip_st_id`),
-  CONSTRAINT `vip_st_id` FOREIGN KEY (`vip_st_id`) REFERENCES `student` (`st_id`)
+  CONSTRAINT `vip_st_id` FOREIGN KEY (`vip_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,6 +39,7 @@ CREATE TABLE `vipcodelist` (
 
 LOCK TABLES `vipcodelist` WRITE;
 /*!40000 ALTER TABLE `vipcodelist` DISABLE KEYS */;
+INSERT INTO `vipcodelist` VALUES ('53CMdepyXAolQAHqI8TkoLEH3','2020-09-21 17:09:32','2021-09-21 00:00:00','chester2');
 /*!40000 ALTER TABLE `vipcodelist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-21  8:18:56
+-- Dump completed on 2020-09-21 18:26:27

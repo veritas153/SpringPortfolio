@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.projectone.dao.VipDao">
+
+	<select id="getVipCode" resultType="kr.spring.projectone.vo.VipCodeListVo">
+	
+		select * from vipcodelist where vip_st_id = #{id};
+	
+	</select>
+	
+	<insert id="insertVipCode">
+	
+		insert into
+			vipcodelist (vip_code, vip_dueDate, vip_st_id)
+			values (#{vipList.vip_code}, #{vipList.vip_dueDate}, #{vipList.vip_st_id});
+		
+	</insert>
+
+</mapper>

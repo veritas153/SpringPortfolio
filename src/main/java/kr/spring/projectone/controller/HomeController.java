@@ -3,6 +3,7 @@ package kr.spring.projectone.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -24,11 +25,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.PaymentService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.service.VipService;
+import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
+import kr.spring.projectone.vo.TemporaryMainChapterVo;
+import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
 import kr.spring.projectone.vo.VipCodeListVo;
 
@@ -45,6 +51,8 @@ public class HomeController {
 	private PaymentService paymentService;
 	@Autowired
 	private VipService vipService;
+	@Autowired
+	private ClassService classService;
 	
 	
 	
@@ -211,8 +219,28 @@ public class HomeController {
 		}
 		if (user != null) {
 			
-			vipService.insertVipCode(user.getSt_id());
+			String code = vipService.insertVipCode(vipCodeList, user.getSt_id());
 			
+			
+			if (code == null) {
+				
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('입력하신 정보에 오류가 있습니다!'); history.back(); </script>");
+				printWriter.flush();
+				printWriter.close();
+				
+			}
+			
+			
+			if (code != null) {
+
+				paymentService.inputHistory(purchaseInfo, code, user.getSt_id());
+				
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href=\"\"; </script>");
+				printWriter.flush();
+				printWriter.close();
+				
+				
+			}
 			
 			
 		}
@@ -221,6 +249,29 @@ public class HomeController {
 		
 		return mv;
 	}
+	
+	// 개인정보 열람
+	
+	
+	@RequestMapping(value = "/studentInfo", method = RequestMethod.GET)
+	public ModelAndView studentInfoGet (ModelAndView mv, HttpServletRequest request) {
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		
+		if (user != null) {
+			
+			ArrayList<ClassVo> classList = classService.getMyClass(user.getSt_id());
+			System.out.println(classList);
+			mv.addObject("classList", classList);
+			
+			
+		} 
+		
+		
+		return mv;
+	}
+	
+	
 
 	// about us 접속
 	

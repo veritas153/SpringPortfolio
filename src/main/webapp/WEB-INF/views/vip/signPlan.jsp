@@ -21,7 +21,7 @@
 	</div>
 </header>
 <div class="signUp-container">
-	<form method="post" action="<%=request.getContextPath()%>/signVip">
+	<form method="post" action="<%=request.getContextPath()%>/vipClass/subscription">
 		<div class="welcome-container">
 			<div class="welcome-container">
 				<section class="greetingMessage">
@@ -42,6 +42,7 @@
 					</div>
 					<div class="applyClass-price">
 						<span>가격: 125,000원</span>
+						<input type="text" name="purchase_price" value="125000" readonly style="visibility: hidden;">
 					</div>
 				</div>
 			</div>
@@ -138,6 +139,7 @@
 					</div>
 					<div class="applyClass-price">
 						<span>가격: 125,000원</span>
+						<input type="text" name="purchase_price" value="125000" readonly style="visibility: hidden;">
 					</div>
 				</div>
 			</div>

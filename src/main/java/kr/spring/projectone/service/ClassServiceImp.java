@@ -331,6 +331,15 @@ public class ClassServiceImp implements ClassService {
 		return classDao.getSelectedClass(detectClass);
 	}
 
+	
+	
+	// 회원 클래스 관리
+	@Override
+	public ArrayList<ClassVo> getMyClass(String st_id) {
+		
+		return classDao.getMyClass(st_id);
+	}
+
 
 	
 

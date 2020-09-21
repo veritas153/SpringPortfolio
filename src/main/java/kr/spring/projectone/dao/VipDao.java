@@ -9,6 +9,8 @@ import kr.spring.projectone.vo.VipCodeListVo;
 public interface VipDao {
 	
 	ArrayList<VipCodeListVo> getVipCode(@Param("id")String st_id);
+
+	void insertVipCode(@Param("vipList")VipCodeListVo vipCodeList);
 	
 	
 

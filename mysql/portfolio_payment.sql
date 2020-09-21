@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
-INSERT INTO `payment` VALUES (1,'김김김','KB국민카드','personal-card','1234567890123456','20','01','12345678','','nanana'),(2,'강강','신한카드','personal-card','1344567890123456','24','05','13321321','','chester2');
+INSERT INTO `payment` VALUES (1,'김김김','KB국민카드','personal-card','1234567890123456','20','01','12345678','','nanana'),(2,'강강','신한카드','personal-card','1344567890123456','20','01','13321321','','chester2');
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-21  8:18:53
+-- Dump completed on 2020-09-21 18:26:25

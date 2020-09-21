@@ -45,4 +45,6 @@ public interface ClassService {
 
 	ClassVo getSelectedClass(String code);
 
+	ArrayList<ClassVo> getMyClass(String st_id);
+
 }

@@ -12,6 +12,8 @@ public interface ClassDao {
 
 	ClassVo getSelectedClass(@Param("class")ClassVo detectClass);
 
+	ArrayList<ClassVo> getMyClass(@Param("id")String st_id);
+
 	
 	
 }

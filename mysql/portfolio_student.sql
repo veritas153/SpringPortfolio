@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.20, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio
 -- ------------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE `student` (
   `st_phoneNumber` varchar(13) NOT NULL,
   `st_joinDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `st_email` varchar(50) NOT NULL,
-  `st_vip` varchar(255) DEFAULT NULL,
+  `st_vip` varchar(25) DEFAULT NULL,
   `st_vipDue` datetime DEFAULT NULL,
   `st_value` varchar(20) NOT NULL DEFAULT 'STUDENT',
   PRIMARY KEY (`st_id`)
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-21  8:18:52
+-- Dump completed on 2020-09-21 18:26:25

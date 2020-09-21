@@ -153,41 +153,66 @@ public class PaymentServiceImp implements PaymentService {
 	      
 	    }
 
-	    
-	    
+	   
 	    purchaseInfo.setPurchase_code(tempCode);
 	    purchaseInfo.setPurchase_st_id(st_id);
 	    
 	    // 코드가 어디서 왔는지 확인하는 과정
-
+	    
+	    // 셋중 하나가 y로 변경되면 바로 반복문 탈출 / 사실 break가 있긴 하지만 혹시 모르니까...
+	    
+	    char classFound = 'n';
+	    char vipFound = 'n';
+	    char packageFound = 'n'; // 요건 잠시 냅둠. 아직 패키지 구현이 안된 상황이라...
+	    
+	    String vipDetect = null; // vip코드자체를 탐색하기 위한 변수
 	    ArrayList<ClassVo>classList = classDao.getAllClass(); // 만약 코드가 클래스 코드에서 온거면 여기서 찾을 수 있게끔 동작
-	    for (int i = 0 ; i < classList.size() ; i++) {
-	    	
-	    	if (classList.get(i).getClass_code().equals(code)) {
-	    		purchaseInfo.setPurchase_class_code(code);
-	    		purchaseInfo.setPurchase_price(classList.get(i).getClass_price());
-	    		
-	    		int num = classList.get(i).getClass_monthlyPay();
-	    		purchaseInfo.setPurchase_monthlyLeft(num-1);
-	    		
-	    		break;
-	    	}
-	    	
-	    }
 	    ArrayList<VipCodeListVo>vipCodeList = vipDao.getVipCode(st_id);
-	    for (int i = 0 ; i < vipCodeList.size() ; i++) {
-	    	
-	    	if (vipCodeList.get(i).getVip_code().equals(code)) {
-	    		purchaseInfo.setPurcahse_vip_code(code);
-	    		// 여긴 vip 플랜 가격 명시 해야 되는 부분 (작업 예정) 
-	    		
-	    		purchaseInfo.setPurchase_monthlyLeft(11);
-	    		
-	    		break;
-	    	}
-	    	
+	    
+	    
+	    
+	    while (classFound == 'n' && vipFound == 'n') {
+	   
+		    for (int i = 0 ; i < classList.size() ; i++) {
+		    	
+		    	System.out.println(classList.get(i));
+		    	
+		    	if (classList.get(i).getClass_code().equals(code)) {
+		    		
+		    		System.out.println(code);
+		    		
+		    		purchaseInfo.setPurchase_class_code(code);
+		    		purchaseInfo.setPurchase_price(classList.get(i).getClass_price());
+		    		
+		    		int num = classList.get(i).getClass_monthlyPay();
+		    		purchaseInfo.setPurchase_monthlyLeft(num-1);
+		    		classFound = 'y';
+		    		break;
+		    	}	
+		    	
+		    }
+		   
+		    for (int i = 0 ; i < vipCodeList.size() ; i++) {
+		    	
+		    	vipDetect = vipCodeList.get(i).getVip_code();
+		    	
+		    	System.out.println(vipDetect);
+		    	
+		    	if (vipCodeList.get(i).getVip_code().equals(code)) {
+		    		
+		    		System.out.println(code);
+		    		
+		    		purchaseInfo.setPurchase_vip_code(code);
+		    		// 여긴 vip 플랜 가격 명시 해야 되는 부분 (작업 예정) 
+		    		
+		    		purchaseInfo.setPurchase_monthlyLeft(11);
+		    		vipFound = 'y';
+		    		
+		    		break;
+		    	}
+		    }
 	    }
-	 
+	   
 	    System.out.println(purchaseInfo);
 	    purchaseDao.inputHistory(purchaseInfo);
 	

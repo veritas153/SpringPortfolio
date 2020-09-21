@@ -151,16 +151,6 @@ public class TemporaryClassVo {
 		
 		SimpleDateFormat afterTransFormat = new SimpleDateFormat("yyyy-MM-dd"); // MYSQL에서 인식하는 형태로 작성
 		
-		java.util.Date tempDate = null; // 여기선 java.util.Date로 작성하지만, import는 java.sql.date로 불러와야 한다! 왜냐하면 java.util.date는 오라클과 연동되는 방식이 아니기 때문
-		
-		try {
-			tempDate = beforeTransFormat.parse(addClass_openDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		String newFormat = afterTransFormat.format(tempDate);
-		
 		Date addClass_openDate2;
 		try {
 			addClass_openDate2 = afterTransFormat.parse(addClass_openDate);

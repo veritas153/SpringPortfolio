@@ -6,6 +6,6 @@ public interface VipService {
 
 	VipCodeListVo checkVip(String st_id);
 
-	boolean insertVipCode(String st_id);
+	String insertVipCode(VipCodeListVo vipCodeList, String st_id);
 
 }

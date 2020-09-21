@@ -1,6 +1,9 @@
 package kr.spring.projectone.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,9 +38,46 @@ public class VipServiceImp implements VipService {
 	}
 
 	@Override
-	public boolean insertVipCode(String st_id) {
-		// TODO Auto-generated method stub
-		return false;
+	public String insertVipCode(VipCodeListVo vipCodeList, String st_id) {
+		
+		StringBuffer vipCode1 = new StringBuffer();
+	    Random rnd = new Random();
+	      for (int i = 0; i < 25; i++) {
+	        int rIndex = rnd.nextInt(3);
+	        switch (rIndex) {
+	          case 0:
+	            // a-z
+	        	vipCode1.append((char) ((int) (rnd.nextInt(26)) + 97));
+	            break;
+	          case 1:
+	            // A-Z
+	        	vipCode1.append((char) ((int) (rnd.nextInt(26)) + 65));
+	            break;
+	          case 2:
+	            // 0-9
+	        	vipCode1.append((rnd.nextInt(10)));
+	            break;
+	        }
+	    }
+	      
+	    String vipCode = vipCode1.substring(0);
+		
+	    vipCodeList.setVip_st_id(st_id);
+	    vipCodeList.setVip_code(vipCode);
+	    
+	    System.out.println(vipCode);
+	    Date today = new Date();
+	    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	    String date = df.format(today);
+	    
+	    vipCodeList.setVip_dueDate(date);
+	    System.out.println(vipCodeList);
+
+	    
+	    vipDao.insertVipCode(vipCodeList);
+	    
+		return vipCode;
+		
 	}
 
 }
