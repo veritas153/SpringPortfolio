@@ -264,7 +264,14 @@ public class HomeController {
 			System.out.println(classList);
 			mv.addObject("classList", classList);
 			
+			VipCodeListVo vipList = vipService.checkVip(user.getSt_id());
+			if (vipList.getVip_st_id() != null) {
+				mv.addObject("vipList", vipList);
+			}
 			
+			
+			
+			mv.setViewName("/member/studentInformation/studentInfo");
 		} 
 		
 		

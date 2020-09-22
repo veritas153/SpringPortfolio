@@ -830,3 +830,173 @@ a>.log-container{
 	display: none;
 	
 }
+
+/* 개인 정보 관리 */
+
+
+
+.sideMenu-container{
+	width: 20%;
+	height: auto;
+	float: left;
+}
+.sideMenu-container:after{
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.user-container{
+	
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 25px;
+	text-align: center;
+	
+}
+
+.user-imageContainer{
+	
+	margin-top: 20px;
+	
+}
+
+.image-part{
+	
+	width: 70px;
+	height: 70px;
+	border: 1px solid lightgrey;
+	border-radius: 70px;
+	font-size: 30px;
+	line-height: 60px;
+	
+}
+
+.image-part>span>i{
+	
+	color: lightskyblue;
+	margin-left: 21px;
+}	
+
+.image-insert{
+	
+	width: 20px;
+    height: 20px;
+    font-size: 10px;
+    color: lightgrey;
+    border: 1px solid lightgrey;
+    float: right;
+    margin-top: 50px;
+    border-radius: 10px;
+    z-index: 1;
+    background-color: white;
+}
+
+.image-insert>span{
+	
+	margin-right: 10px;
+	
+}
+
+.image-insert>span>i{
+	
+	position: absolute;
+	line-height: 18px;
+	color: cadetblue;
+	font-size: 12px;
+}
+
+.user-shortInfoContainer{
+	
+	margin-top: 15px;
+	font-color: lightgrey;
+	
+}
+.userName-container{
+	
+	font-weight: bold;
+	
+}
+
+.sidemenu{
+	margin-bottom: 10px;
+	line-height: 30px;
+	height: 30px;
+	padding: 0 10px;
+}
+
+
+.student-basicContainer{
+	
+	padding: 30px;
+	float: right;
+	width: 80%;
+	
+}
+.student-basicContainer:after{
+
+	content: '';
+	display: block;
+	clear: both;
+	
+}
+
+.student-currentClass{
+	display: inline-block;
+}
+
+.currentClass-container{
+	float: left;
+	height: 300px;
+    overflow: scroll;
+     -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.currentClass-container::-webkit-scrollbar {
+    display: none; 
+}
+
+
+.currentClass-title{
+
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+
+.classBox{
+	
+	border: 1px solid grey;
+	width: 500px;
+	height: 100px;
+	background-color: lightblue;
+	padding: 10px;
+	
+}
+
+
+.currentClass-name{
+	
+	color: white;
+	font-weight: bold;
+	left: 0;
+	
+	
+}
+.currentClass-code{
+	float:right;
+}
+
+.class-startDateContainer{
+	
+	margin-top: 10px;
+	color: black;
+	
+}
+.listenClass-link{
+	
+	float: right;
+	display: inline;
+}

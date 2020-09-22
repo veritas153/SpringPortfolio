@@ -35,6 +35,14 @@
     	<put-attribute name="menu" value="/WEB-INF/views/common/forAdmin/adminMenu.jsp"/>
     </definition>
      
+     <!-- 사용자 정보 수정 및 확인 -->
+      <definition name=".studentInfo" template="/WEB-INF/views/layout/infoLayout.jsp">
+     	<put-attribute name="title" value="" />
+    	<put-attribute name="header" value="/WEB-INF/views/common/forEveryone/studentHeader.jsp"/>
+    	<put-attribute name="sideMenu" value="/WEB-INF/views/common/forEveryone/studentSideMenu.jsp" />
+    	<put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
+     </definition>
+     
     <!-- VIP플랜 가입 -->
     <definition name=".subscription" template="/WEB-INF/views/layout/vipPlanLayout.jsp">
 
@@ -51,8 +59,7 @@
     </definition>
     
     
-    
-   
+  
     
     <definition name="/vipClass/subscription" extends=".subscription">      
       <put-attribute name="body" value="/WEB-INF/views/vip/signPlan.jsp" />
@@ -86,6 +93,11 @@
      <definition name="/admin/adminPage/*" extends=".admin">
     	<put-attribute name="body" value="/WEB-INF/views/admin/adminPage/{1}.jsp" />
     </definition>
+    
+    <definition name="/member/studentInformation/*" extends=".studentInfo">
+   		<put-attribute name="body" value="/WEB-INF/views/member/studentInformation/{1}.jsp" />
+   </definition> 
+   
     
  
     <!-- (2) -->
