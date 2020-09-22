@@ -261,11 +261,15 @@ public class HomeController {
 		if (user != null) {
 			
 			ArrayList<ClassVo> classList = classService.getMyClass(user.getSt_id());
-			System.out.println(classList);
-			mv.addObject("classList", classList);
+			ClassVo class;
+			if (classList != null) {
+				System.out.println(classList);
+				mv.addObject("classList", classList);
+			}
+			
 			
 			VipCodeListVo vipList = vipService.checkVip(user.getSt_id());
-			if (vipList.getVip_st_id() != null) {
+			if (vipList != null) {
 				mv.addObject("vipList", vipList);
 			}
 			

@@ -15,25 +15,30 @@
 		<div class="student-currentClass">
 			<div class="currentClass-title">현재 수강중 클래스</div>
 			<div class="currentClass-container">
-				<c:forEach var="currentClass" items="${classList}">
-					<div class="classBox">
-						<a href="<%=request.getContextPath()%>/studentInfo?code=${currentClass.class_code}" class="classLink">
-							<div class="currentClass-name">
-								<span>${currentClass.class_title}</span>
-								<span class="currentClass-code">${currentClass.class_code}</span>
-							</div>
-							<div class="class-startDateContainer">
-								<span>수강시작 날짜: </span>
-							</div>
-							<a class="listenClass-link" href="<%=request.getContextPath()%>/">
-								<div class="">
-									<span>수업 듣기</span>
-									<span><i class="fas fa-angle-double-right"></i></span>
+				<c:if test="${classList != null}">
+					<c:forEach var="currentClass" items="${classList}">
+						<div class="classBox">
+							<a href="<%=request.getContextPath()%>/studentInfo?code=${currentClass.class_code}" class="classLink">
+								<div class="currentClass-name">
+									<span>${currentClass.class_title}</span>
+									<span class="currentClass-code">${currentClass.class_code}</span>
 								</div>
+								<div class="class-startDateContainer">
+									<span>수강시작 날짜: </span>
+								</div>
+								<a class="listenClass-link" href="<%=request.getContextPath()%>/">
+									<div class="">
+										<span>수업 듣기</span>
+										<span><i class="fas fa-angle-double-right"></i></span>
+									</div>
+								</a>
 							</a>
-						</a>
-					</div>
-				</c:forEach>	
+						</div>
+					</c:forEach>
+				</c:if>
+				<c:if test="${classList == null}">
+					<div>등록하신 클래스가 없습니다.</div>
+				</c:if>		
 			</div>
 		</div>
 		<div class="currentVipPlan-container">
