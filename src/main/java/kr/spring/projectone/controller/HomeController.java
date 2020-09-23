@@ -305,7 +305,11 @@ public class HomeController {
 					System.out.println(mainChapterCheck);
 					mv.addObject("mainChapter", mainChapterCheck);
 					
-					ArrayList<SubChapterVo> subChapterCheck = classService.getSubChapter();
+					ArrayList<SubChapterVo> subChapterCheck = new ArrayList<SubChapterVo>();
+					
+					for (SubChapterVo subChapter : subChapterCheck) {
+						ArrayList<SubChapterVo> sub = classService.findSubChapter(subChapter.getSubChapter_mainChapter_priNum());
+					}
 					
 					
 					

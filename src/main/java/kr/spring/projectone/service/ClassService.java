@@ -8,6 +8,7 @@ import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
+import kr.spring.projectone.vo.SubChapterVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -51,6 +52,8 @@ public interface ClassService {
 	ArrayList<PurchaseHistoryVo> getMyClass(String st_id);
 
 	ArrayList<MainChapterVo> getMainChapters(String class_code);
+
+	ArrayList<SubChapterVo> findSubChapter(Integer subChapter_mainChapter_priNum);
 	
 	
 }
