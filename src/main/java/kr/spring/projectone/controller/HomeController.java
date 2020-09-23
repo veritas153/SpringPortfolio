@@ -33,6 +33,7 @@ import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
+import kr.spring.projectone.vo.SubChapterVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
@@ -260,11 +261,11 @@ public class HomeController {
 		
 		if (user != null) {
 			
-			ArrayList<ClassVo> classList = classService.getMyClass(user.getSt_id());
-			ClassVo class;
-			if (classList != null) {
-				System.out.println(classList);
-				mv.addObject("classList", classList);
+			ArrayList<PurchaseHistoryVo> paymentCheck = classService.getMyClass(user.getSt_id());
+			
+			if (paymentCheck != null) {
+				System.out.println(paymentCheck);
+				mv.addObject("classList", paymentCheck);
 			}
 			
 			
@@ -282,8 +283,41 @@ public class HomeController {
 		return mv;
 	}
 	
+	// 클래스 현황 체크 부분
+	@RequestMapping(value = "/studentInfo/classInfo", method = RequestMethod.GET)
+	public ModelAndView classInfoGet (ModelAndView mv, HttpServletRequest request, String code) {
 	
-
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		
+		if (user != null) {
+			
+			ClassVo classList = classService.getSelectedClass(code);
+			mv.addObject("classList", classList);
+			
+			ArrayList<MainChapterVo> mainChapterCheck;
+			
+			if (classList != null) {
+				
+				mainChapterCheck = classService.getMainChapters(classList.getClass_code());
+				
+				if (mainChapterCheck != null) {
+					
+					System.out.println(mainChapterCheck);
+					mv.addObject("mainChapter", mainChapterCheck);
+					
+					ArrayList<SubChapterVo> subChapterCheck = classService.getSubChapter();
+					
+					
+					
+				}
+			}
+			
+			
+			mv.setViewName("/member/studentInformation/studentClassInfo");
+		}
+		return mv;
+	}
+	
 	// about us 접속
 	
 	@RequestMapping(value = "/about", method = RequestMethod.GET)

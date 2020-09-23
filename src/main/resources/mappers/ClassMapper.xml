@@ -10,16 +10,27 @@
 	
 	</select>
 	
-	<select id="getMyClass" resultType="kr.spring.projectone.vo.ClassVo">
 	
-		select * from class where class_st_id = #{id};
-	
-	</select>
-	
-
 	<select id="getSelectedClass" resultType="kr.spring.projectone.vo.ClassVo">
 	
 		select * from class where class_code = #{class.class_code};
+	
+	
+	</select>
+	
+	
+	<select id="getMyClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from purchase join class
+			where purchase_class_code = class_code
+			and purchase_st_id = #{id};
+		
+	</select>
+	
+
+	<select id="getMainChapter" resultType="kr.spring.projectone.vo.MainChapterVo">
+	
+		select * from mainchapter where mainChapter_class_code = #{code};
 		
 	</select>
 

@@ -11,8 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.spring.projectone.dao.ClassDao;
+import kr.spring.projectone.dao.PaymentDao;
+import kr.spring.projectone.dao.PurchaseDao;
 import kr.spring.projectone.dao.TempClassDao;
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.MainChapterVo;
+import kr.spring.projectone.vo.PaymentVo;
+import kr.spring.projectone.vo.PurchaseHistoryVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -25,6 +30,8 @@ public class ClassServiceImp implements ClassService {
 	private TempClassDao tempClassDao;
 	@Autowired
 	private ClassDao classDao;
+	@Autowired
+	private PurchaseDao purchaseDao;
 	
 	@Override
 	public boolean submitClass(TemporaryClassVo tempClass) {
@@ -327,18 +334,45 @@ public class ClassServiceImp implements ClassService {
 			}
 			
 		}
-		
+
 		return classDao.getSelectedClass(detectClass);
 	}
 
-	
+	@Override
+	public ArrayList<MainChapterVo> getMainChapters(String class_code) {
+		
+		ArrayList<MainChapterVo> allMain = classDao.getMainChapter(class_code);
+		MainChapterVo checkClass;
+		
+		for (int i = 0 ; i < allMain.size(); i++) {
+			
+			checkClass = allMain.get(i);
+			
+			if (checkClass.getMainChapter_class_code() == class_code) {
+				classDao.getMainChapter(class_code);
+			}
+			
+		}
+		return allMain;
+
+		
+		
+	}
 	
 	// 회원 클래스 관리
 	@Override
-	public ArrayList<ClassVo> getMyClass(String st_id) {
+	public ArrayList<PurchaseHistoryVo> getMyClass(String st_id) {
 		
-		return classDao.getMyClass(st_id);
+		ArrayList<PurchaseHistoryVo> purchaseList = classDao.getMyClass(st_id);
+		
+		if (purchaseList.isEmpty()) {
+			purchaseList = null;
+		}
+		
+		return purchaseList;
 	}
+
+	
 
 
 	

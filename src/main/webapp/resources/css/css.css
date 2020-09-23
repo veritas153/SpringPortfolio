@@ -1000,3 +1000,17 @@ a>.log-container{
 	float: right;
 	display: inline;
 }
+
+.vipStatus-container{
+	
+	margin-top: 15px;
+	
+}
+
+.vipStatus-title{
+	
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+	
+}

@@ -18,7 +18,7 @@
 				<c:if test="${classList != null}">
 					<c:forEach var="currentClass" items="${classList}">
 						<div class="classBox">
-							<a href="<%=request.getContextPath()%>/studentInfo?code=${currentClass.class_code}" class="classLink">
+							<a href="<%=request.getContextPath()%>/studentInfo/classInfo?code=${currentClass.class_code}" class="classLink">
 								<div class="currentClass-name">
 									<span>${currentClass.class_title}</span>
 									<span class="currentClass-code">${currentClass.class_code}</span>
@@ -43,7 +43,7 @@
 		</div>
 		<div class="currentVipPlan-container">
 			<div class="vipStatus-container">
-				<div>VIP플랜 현황</div>
+				<div class="vipStatus-title">VIP플랜 현황</div>
 				<c:if test="${vipList == null}">
 					<div class="vipStatus">
 						<span>VIP플랜에 가입되어 있지 않습니다.</span>
@@ -52,7 +52,8 @@
 				<c:if test="${vipList != null}">
 					<div class="vipStatus">
 						<div class="vipDuedate">
-							<span>${vipList.vip_dueDate}</span>
+							<span>만료 기간: </span>
+							<fmt:formatDate value="${vipList.vip_dueDate}" pattern="yyyy년 MM월 dd일"/>
 						</div>
 					</div>
 				</c:if>

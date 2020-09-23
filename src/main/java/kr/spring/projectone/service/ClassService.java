@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.MainChapterVo;
+import kr.spring.projectone.vo.PaymentVo;
+import kr.spring.projectone.vo.PurchaseHistoryVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -45,6 +48,9 @@ public interface ClassService {
 
 	ClassVo getSelectedClass(String code);
 
-	ArrayList<ClassVo> getMyClass(String st_id);
+	ArrayList<PurchaseHistoryVo> getMyClass(String st_id);
 
+	ArrayList<MainChapterVo> getMainChapters(String class_code);
+	
+	
 }
