@@ -25,7 +25,19 @@
 					</div>
 					<div class="plan-offer" id="curriculum">
 						<h3>커리큘럼</h3>
-						
+						<c:forEach var="main" items="${mainChapter}">
+							<div class="mainChapter-container">
+								<div class="mainChapter-title">${main.mainChapter_number}. ${main.mainChapter_title}</div>
+								<c:forEach var="sub" items="${subChapter}">
+									<c:if test="${sub.subChapter_mainChapter_priNum == main.mainChapter_priNum}">
+										<div class="subChapter-container">
+											<span class="subChapter-number">${main.mainChapter_number}-${sub.subChapter_number}.</span>
+											<span class="subChapter-title"> ${sub.subChapter_title}</span>
+										</div>	
+									</c:if>
+								</c:forEach>
+							</div>
+						</c:forEach>
 					</div>
 					<div class="plan-offer" id="package">
 						<h3>패키지</h3>
@@ -70,9 +82,9 @@
 						<div class="class-discount"></div>
 						<div class="price-detail">
 							<span class="class-price">
-								총 48,500원
+								${classList.class_price}원
 							</span>
-							<span class="class-price-monthlyPay">
+							<span class="class-price-monthlyPay"> / ${classList.class_monthlyPay}개월
 								<a href="#" class="monthlyPay-rules">
 									<i class="far fa-question-circle"></i>
 								</a>
@@ -81,8 +93,28 @@
 					</div>
 					<div class="class-specification">
 						<div class="class-content"><i class="fas fa-book"></i> 32개 강의 제공</div>
-						<div class="class-package"><i class="fas fa-box-open"></i> 패키지 없음</div>
-						<div class="class-difficulty"><i class="far fa-user"></i> 입문자 대상</div>
+						<div class="class-package"><i class="fas fa-box-open"></i>
+							<c:if test="${classList.class_hasPackage == 'N'.charAt(0)}">
+								패키지 없음
+							</c:if>
+							<c:if test="${classList.class_hasPackage == 'Y'.charAt(0)}">
+								패키지 제공
+							</c:if>
+						</div>
+						<div class="class-difficulty"><i class="far fa-user"></i> 
+							<c:if test="${classList.class_difficulty == '입문'}">
+								입문자 대상
+							</c:if>
+							<c:if test="${classList.class_difficulty == '초급'}">
+								초급자 대상
+							</c:if>
+							<c:if test="${classList.class_difficulty == '중급'}">
+								중급자 대상
+							</c:if>
+							<c:if test="${classList.class_difficulty == '상급'}">
+								상급자 대상
+							</c:if>
+						</div>
 						<div class="class-rate"><i class="far fa-thumbs-up"></i> 95%</div>
 					</div>
 				</div>
@@ -94,9 +126,21 @@
 						<div class="class-share"><i class="fas fa-share-alt"></i> 공유하기</div>
 					</button>
 				</div>
-				<a href="<%=request.getContextPath()%>/applyClass?code=${classList.class_code}" class="class-subscription">
-					<div class="class-subscription-button">수강 신청하기</div>
-				</a>
+				<c:if test="${classCode == null && vipCode == null}">
+					<a href="<%=request.getContextPath()%>/applyClass?code=${classList.class_code}" class="class-subscription">
+						<div class="class-subscription-button">수강 신청하기</div>
+					</a>
+				</c:if>
+				<c:if test="${classCode != null}">
+					<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="class-subscription">
+						<div class="class-subscription-button">클래스 수강하기</div>
+					</a>
+				</c:if>
+				<c:if test="${classCode == null && vipCode != null}">
+						<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="class-subscription">
+							<div class="class-subscription-button">클래스 수강하기</div>
+						</a>
+				</c:if>
 			</div>
 		</div>
 	</div>

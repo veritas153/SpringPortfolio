@@ -24,4 +24,11 @@
 	
 	</insert>
 
+	<select id="searchPurchasehistory" resultType="kr.spring.projectone.vo.PurchaseHistoryVo">
+	
+		select * from purchase where purchase_st_id = #{id} and purchase_class_code = #{code};		
+	
+	</select>
+
+
 </mapper>

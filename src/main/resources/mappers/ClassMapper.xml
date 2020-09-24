@@ -33,5 +33,13 @@
 		select * from mainchapter where mainChapter_class_code = #{code};
 		
 	</select>
+	
+	
+	<select id="findSubChapter" resultType="kr.spring.projectone.vo.SubChapterVo">
+	
+		select * from subchapter where subChapter_mainChapter_priNum = #{i};
+	
+	</select>
+	
 
 </mapper>

@@ -219,4 +219,12 @@ public class PaymentServiceImp implements PaymentService {
 	}
 
 
+	@Override
+	public PurchaseHistoryVo searchPurchaseHistory(String st_id, String code) {
+		
+		return purchaseDao.searchPurchasehistory(st_id, code);
+		
+	}
+
+
 }

@@ -16,30 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `list`
+-- Table structure for table `classhistory`
 --
 
-DROP TABLE IF EXISTS `list`;
+DROP TABLE IF EXISTS `classhistory`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `list` (
-  `list_num` int NOT NULL,
-  `list_st_id` varchar(20) NOT NULL,
-  `list_startDate` datetime DEFAULT NULL,
-  `list_dueDate` datetime DEFAULT NULL,
-  `list_subChapter_num` varchar(10) NOT NULL,
-  `purchase_code` varchar(255) NOT NULL,
-  PRIMARY KEY (`list_num`)
+CREATE TABLE `classhistory` (
+  `classHistory_priNum` int NOT NULL AUTO_INCREMENT,
+  `classHistory_isDone` varchar(1) NOT NULL DEFAULT 'N',
+  `classHistory_finishDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `classHistory_st_id` varchar(20) NOT NULL,
+  `classHistory_subChapter_priNum` int NOT NULL,
+  PRIMARY KEY (`classHistory_priNum`),
+  KEY `classHistory_st_id_idx` (`classHistory_st_id`),
+  KEY `classHistory_subChapter_priNum_idx` (`classHistory_subChapter_priNum`),
+  CONSTRAINT `classHistory_st_id` FOREIGN KEY (`classHistory_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `classHistory_subChapter_priNum` FOREIGN KEY (`classHistory_subChapter_priNum`) REFERENCES `subchapter` (`subChapter_priNum`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `list`
+-- Dumping data for table `classhistory`
 --
 
-LOCK TABLES `list` WRITE;
-/*!40000 ALTER TABLE `list` DISABLE KEYS */;
-/*!40000 ALTER TABLE `list` ENABLE KEYS */;
+LOCK TABLES `classhistory` WRITE;
+/*!40000 ALTER TABLE `classhistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -205,7 +205,6 @@ $(function(){
 					
 	});
 
-	
 
 
 
@@ -279,6 +278,15 @@ $(function(){
 	
 	});
 	
+	
+	$('#detail-btn').click(function(){
+	
+		$('.detail-box').toggleClass('display-toggle');
+	
+	});
+	
+	
+	
 	window.onscroll = function() {scrollFunction()};
 	
 	
@@ -295,7 +303,7 @@ $(function(){
 		}
 	}
 	
-
+	
 	
 	
 	var waypoint = new Waypoint({

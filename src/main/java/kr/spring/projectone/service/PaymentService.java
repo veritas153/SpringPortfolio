@@ -19,5 +19,7 @@ public interface PaymentService {
 
 	void inputHistory(PurchaseHistoryVo purchaseInfo, String code, String st_id);
 
+	PurchaseHistoryVo searchPurchaseHistory(String st_id, String code);
+
 	
 }

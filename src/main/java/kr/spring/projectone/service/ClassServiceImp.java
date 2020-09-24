@@ -18,6 +18,7 @@ import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
+import kr.spring.projectone.vo.SubChapterVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -358,6 +359,16 @@ public class ClassServiceImp implements ClassService {
 		
 		
 	}
+
+	
+	
+	@Override
+	public ArrayList<SubChapterVo> findSubChapter(int i) {
+		
+		return classDao.findSubChapter(i);
+	}
+
+	
 	
 	// 회원 클래스 관리
 	@Override
@@ -371,14 +382,6 @@ public class ClassServiceImp implements ClassService {
 		
 		return purchaseList;
 	}
-
-	
-
-
-	
-
-
-
 
 
 }

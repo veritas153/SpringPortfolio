@@ -53,7 +53,7 @@ public interface ClassService {
 
 	ArrayList<MainChapterVo> getMainChapters(String class_code);
 
-	ArrayList<SubChapterVo> findSubChapter(Integer subChapter_mainChapter_priNum);
+	ArrayList<SubChapterVo> findSubChapter(int i);
 	
 	
 }

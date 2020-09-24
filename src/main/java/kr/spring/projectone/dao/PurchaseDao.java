@@ -14,6 +14,8 @@ public interface PurchaseDao {
 	
 	void inputHistory(@Param("history")PurchaseHistoryVo purchaseInfo);
 
+	PurchaseHistoryVo searchPurchasehistory(@Param("id")String st_id, @Param("code")String code);
+
 	
 
 

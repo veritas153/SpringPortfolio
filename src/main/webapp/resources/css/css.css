@@ -1,391 +1,344 @@
 @charset "UTF-8";
 
-
-*{
+* {
 	padding: 0;
 	margin: 0 auto;
 }
-form{
-	display: inline-block;
 
+form {
+	display: inline-block;
 }
 
-
-a:hover{
+a:hover {
 	text-decoration: none;
 }
 /* 헤어 부분*/
-.logo-home{
+.logo-home {
 	height: 100%;
-
 }
 
-.head-wrapper{
-	
+.head-wrapper {
 	width: 1100px;
 	height: 100px;
 	margin: 0 auto;
 }
-.logo-container{
+
+.logo-container {
 	line-height: 100px;
 	position: relative;
 	display: inline-block;
 	left: -15px;
 }
 
-.logo{
+.logo {
 	object-fit: cover;
 }
-.search-box{
+
+.search-box {
 	width: 250px;
-	height: 30px;	
+	height: 30px;
 	border: solid grey 1px;
 	padding: 4px;
 }
-.search-icon{
+
+.search-icon {
 	width: 20px;
 	height: 20px;
 	float: left;
 	text-align: center;
 	margin-top: 2px;
 }
-.search{
+
+.search {
 	margin-left: 5px;
 	border: 2px solid lightgrey;
 	border-radius: 4px;
 	font-size: 16px;
 	top: 2px;
 	height: 20px;
-
 }
-.search-box:focus{
+
+.search-box:focus {
 	width: 400px;
 }
-.search:focus{
+
+.search:focus {
 	outline: none;
 }
 
-.log-container{
+.log-container {
 	margin-top: 10px;
 	float: right;
 }
-a>.log-container{
+
+a>.log-container {
 	margin-left: 10px;
 }
 
-.head-wrapper::after{
+.head-wrapper::after {
 	contain: '';
 	box-sizing: border-box;
 }
 
-#collapsibleNavbar{
+#collapsibleNavbar {
 	height: 30px;
 	line-height: 35px;
 }
 
-.navbar-nav{
+.navbar-nav {
 	position: absolute;
-	
 }
 
-.dropdown-menu{
+.dropdown-menu {
 	margin-top: -4px;
 	margin-left: -1px;
 }
 
 /* 메인 페이지*/
-
-.main-container{
+.main-container {
 	width: 1100px;
-	
 }
 /*vip플랜 페이지*/
-
-.vipPlan-advertisement{
+.vipPlan-advertisement {
 	margin-top: 50px;
 }
 
-.vipPlan-link{
+.vipPlan-link {
 	
 }
 
-.vipPlan{
+.vipPlan {
 	height: 100px;
 	background-color: lightskyblue;
 	margin-left: -4px;
-    margin-right: 4px;
-    color: white;
-	
-	
+	margin-right: 4px;
+	color: white;
 }
 
-.stickyTab{
+.stickyTab {
 	display: flex;
 	background-color: lightskyblue;
 }
 
 .stickyTab a {
-	
 	color: f2f2f2;
 	display: block;
-  	text-align: center;
-  	padding: 14px 16px;
-  	text-decoration: none;
-  	font-size: 17px;
-
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .stickyTab.sticky {
 	position: fixed;
-  	top: 0;
-  	width: 628px;
-	
+	top: 0;
+	width: 628px;
 }
 
-
-.content-division{
+.content-division {
 	padding: 16px 0;
 }
 
-.sticky + .content-division{
+.sticky+.content-division {
 	padding-top: 60px;
 }
 
 /*VIP 신청*/
-
-
-.signUp-container>form{
+.signUp-container>form {
 	display: block;
 }
 
-
-.vipPlan-container{
+.vipPlan-container {
 	max-width: 600px;
 	border: 1px solid lightgrey;
-	
 }
 
-.vipPlan-header{
+.vipPlan-header {
 	margin: 0;
-		
 }
 
-
-.vipPlan-headContent{
-	
+.vipPlan-headContent {
 	display: flex;
 	padding: 16px 8px;
-	
 }
 
-.vipPlan-gotoHome{
+.vipPlan-gotoHome {
 	margin: 0;
 }
 
-.vipPlan-iconMenu{
+.vipPlan-iconMenu {
 	width: 40px;
-    margin-right: 0;
-    display: inline-flex;
+	margin-right: 0;
+	display: inline-flex;
 	line-height: 40px;
 	font-size: 25px;
 	color: lightskyblue;
 }
 
-
-.vipPlan-menu{
-	
-
+.vipPlan-menu {
 	
 }
 
-
-.vipPlan-header:after{
+.vipPlan-header:after {
 	clear: both;
 	display: table;
 	content: '';
 }
 
-
-.signUp-container>form{
+.signUp-container>form {
 	display: block;
 }
 
-
-.signUp-container{
-	
+.signUp-container {
 	margin-top: 20px;
 	padding: 16px 25px;
-	
 }
 
-.greetingMessage{
+.greetingMessage {
 	font-size: 18px;
 	font-weight: bold;
 }
 
-.vipPlan-infos{
+.vipPlan-infos {
 	margin-top: 15px;
-	
 }
 
-.vipPlan-infos:nth-of-type(6), .vipPlan-infos:nth-of-type(7){
-	
+.vipPlan-infos:nth-of-type(6), .vipPlan-infos:nth-of-type(7) {
 	display: inline-flex;
-
 }
 
-.vipPlan-infos:nth-of-type(6)>div>.signup-box>select{
-	
+.vipPlan-infos:nth-of-type(6)>div>.signup-box>select {
 	margin-right: 16px;
-
 }
 
-.card-maker, .card-option{
-	
+.card-maker, .card-option {
 	width: 100%;
 	height: 40px;
-	
-	
 }
 
-.card-toggle{
-	
+.card-toggle {
 	display: none;
-	
 }
 
-.box-title{
+.box-title {
 	margin-bottom: 6px;
 }
 
 /* 클래스 페이지*/
-
-.class-container{
+.class-container {
 	width: 1100px;
 	display: flex;
 	margin-top: 30px;
 }
 
-
-
-.class-description-container{
+.class-description-container {
 	margin: 0;
 	width: 60%;
 	height: auto;
 	padding: 0 15px;
-	
-	
 }
 
-.class-description-container::after{
+.class-description-container::after {
 	content: '';
 	both: clear;
 	display: table;
 }
 
-.class-description{
+.class-description {
 	
 }
 
-.class-slidebar{
+.class-slidebar {
 	width: 40%;
 	height: auto;
 	padding: 0 15px;
 	position: -webkit-sticky;
-  	position: sticky;
-  	top: 0;
-  	
+	position: sticky;
+	top: 0;
 }
 
-.class-slidebar.sticky{
+.class-slidebar.sticky {
 	width: 440px;
 	top: 0;
 	position: fixed;
 }
 
-.slidebar-boundary{
+.slidebar-boundary {
 	padding: 15px;
 	border: 1px solid grey;
 }
 
-.class-slidebar.sticky{
+.class-slidebar.sticky {
 	position: fixed;
 	width: 440px;
 	top: 0;
 }
 
-.class-instructor{
+.class-instructor {
 	font-weight: bold;
 	font-size: 15px;
-	
 }
 
-.class-name{
+.class-name {
 	font-size: 30px;
 	color: mediumturquoise;
 	font-weight: bold;
-	
-}
-.class-information{
-	margin-top: 20px;	
 }
 
-.class-service{
+.class-information {
+	margin-top: 20px;
+}
+
+.class-service {
 	margin-bottom: 50px;
 }
 
-.class-specification{
+.class-specification {
 	margin: 0;
 	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	
 }
 
-.class-specification>div{
+.class-specification>div {
 	margin-bottom: 15px;
 	width: 50%;
 }
 
-.class-specification-division{
+.class-specification-division {
 	margin-bottom: 10px;
 	font-size: 15px;
-	
 }
 
-.btn-recommend, .btn-share{
-	
+.btn-recommend, .btn-share {
 	text-align: center;
 	border: none;
 	height: 35px;
 	width: calc(50% - 10px);
 	line-height: 20px;
-	
 }
 
-.btn-recommend:hover, .btn-share:hover{
-	
+.btn-recommend:hover, .btn-share:hover {
 	background-color: darkgrey;
-	
 }
 
-.class-sideService{
+.class-sideService {
 	margin-bottom: 30px;
 }
 
-.class-detail{
+.class-detail {
 	margin-top: 20px;
 }
 
-.price-detail{
+.price-detail {
 	display: inline-block;
 }
 
-.class-price-monthlyPay{
+.class-price-monthlyPay {
 	font-size: 12px;
 }
 
-.class-subscription{
+.class-subscription {
 	width: 100%;
 	height: 35px;
 	color: white;
@@ -393,108 +346,98 @@ a>.log-container{
 	line-height: 35px;
 }
 
-.class-subscription:hover{
+.class-subscription:hover {
 	text-decoration: none;
 	color: white;
 }
 
-.class-subscription-button{
+.class-subscription-button {
 	background-color: cadetblue;
 }
 
 /* 로그인 페이지*/
-
-.login-container{
-	
+.login-container {
 	margin: 0;
-	
 }
 
 /* 고객센터 페이지 */
-
-.customerService-container{
+.customerService-container {
 	
 }
 
-.customerService-container-row{
-	
+.customerService-container-row {
 	display: flex;
 	text-align: center;
 	margin-top: 30px;
 }
 
-.customerService-container-row>a{
-	width: calc(100% / 3);
+.customerService-container-row>a {
+	width: calc(100%/ 3);
 }
 
-.customerService-icon{
-	
+.customerService-icon {
 	width: 160px;
 	height: 160px;
 	border: 1px solid grey;
 	border-radius: 160px;
 	text-align: center;
+}
 
+.col-lg-4:hover {
+	box-shadow: 0 1px 3px 0 rgba(60, 64, 67, .30), 0 4px 8px 3px
+		rgba(60, 64, 67, .15)
+}
+
+.customerService-category-container {
 	
 }
 
-.col-lg-4:hover{
-	box-shadow: 0 1px 3px 0 rgba(60, 64, 67, .30), 0 4px 8px 3px rgba(60, 64, 67, .15)
-}
-
-.customerService-category-container{
-	
-}
-
-.customerService-icon>svg, .customerService-icon>i{
-	
+.customerService-icon>svg, .customerService-icon>i {
 	font-size: 100px;
 	color: powderblue;
 	margin-top: 30px;
-	
 }
 
-
-.col-lg-4{
+.col-lg-4 {
 	max-width: 330px;
 }
 
-
-
 /* 푸터 페이지 */
-
-.footer-upperContainer{
+.footer-upperContainer {
 	width: 1100px;
 	display: flex;
-
 }
-.footer-menuBox{
+
+.footer-menuBox {
 	margin: 0;
 	margin-inline-end: auto;
 	display: table-cell;
 }
-.footer-lowerContainer{
+
+.footer-lowerContainer {
 	margin-top: 50px;
 	width: 1100px;
 	display: flex;
 	margin-inline-end: auto;
 }
-.menu-float{
-	
+
+.menu-float {
 	display: block;
 	margin-top: 3px;
 }
 
-.company{
+.company {
 	width: 35%;
 	margin: 0;
 	position: relative;
 	display: inline-block;
 }
-.company-detail{
-	margin-right: 30px;	
+
+.company-detail {
+	margin-right: 30px;
 }
-.companyDescription{
+
+.companyDescription {
 	width: 65%;
 	margin: 0;
 	position: relative;
@@ -502,163 +445,133 @@ a>.log-container{
 	font-size: 12px;
 	margin-top: 38px;
 }
-.footer-menu{
+
+.footer-menu {
 	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
 
-
 /* About Us 페이지*/
-
-.aboutUs-description{
-	
+.aboutUs-description {
 	width: 100%;
 	height: auto;
 	margin-top: 100px;
-	
 }
 
-.aboutUs-belief{
-	
+.aboutUs-belief {
 	background-color: lavender;
 	margin-bottom: 200px;
 }
 
-.belief-section>span>p>span{
-	
+.belief-section>span>p>span {
 	margin: 0;
 	width: 500px;
 	background: lightskyblue;
 	display: block;
 	height: 5px;
 	margin-top: 10px;
-	
-	
 }
 
-.belief-section>img{
+.belief-section>img {
 	position: absolute;
 }
 
-.belief-section>img:nth-of-type(1){
+.belief-section>img:nth-of-type(1) {
 	width: 313px;
 	right: 0;
 	top: 700px;
-	
 }
-.belief-section>img:nth-of-type(2){
+
+.belief-section>img:nth-of-type(2) {
 	width: 333px;
 	left: 1000px;
 	top: 800px;
-	
 }
 
-.aboutUs-belief::after{
+.aboutUs-belief::after {
 	clear: both;
 	content: '';
-	
 }
 
 /* 클래스 목록 페이지*/
-
-.classType-container{
-
+.classType-container {
 	margin-top: 50px;
-	
 }
-.classType{
-	
+
+.classType {
 	font-size: 30px;
 	font-weight: bold;
-	
 }
 
-.classList-container{
-	
+.classList-container {
 	margin-top: 20px;
 	height: auto;
-	
 }
 
-#classList-name{
-	
+#classList-name {
 	font-size: 15px;
 	font-weight: bold;
 	display: block;
 }
 
-.class-selectbox{
+.class-selectbox {
 	float: right;
-
 }
-.class-selectbox::after{
+
+.class-selectbox::after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
-.classList{
-	
+.classList {
 	margin-top: 100px;
 	float: left;
-	
 }
 
-.classList-row{
-	
+.classList-row {
 	display: flex;
-	
 }
 
-.classList-container::after{
+.classList-container::after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
-.class-link{
-	
+.class-link {
 	font-decoration: none;
-	
-	
 }
 
-.col-md-4{
-	
+.col-md-4 {
 	max-width: 310px;
-	
 }
 
-.cold-md-4::hover{
+.cold-md-4::hover {
 	text-decoration: none;
 }
 
-
-.col-md-4:nth-of-type(1){
+.col-md-4:nth-of-type(1) {
 	padding-left: 0;
 }
 
-.col-md-4::after{
-	
+.col-md-4::after {
 	clear: both;
 	content: '';
 	display: block;
-	
 }
 
-.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img{
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img {
 	opacity: 0.5;
 	transform: scale(1.1);
 }
 
-.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption{
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption {
 	opacity: 1;
 }
 
-
-
-.class-info{
+.class-info {
 	margin: 0px;
 	display: inline;
 	font-weight: bold;
@@ -667,29 +580,22 @@ a>.log-container{
 	padding: 20px;
 }
 
-
-.class-image{
-	
+.class-image {
 	position: relative;
 	overflow: hidden;
-	width:100%;
+	width: 100%;
 	display: inherit;
 	background-color: black;
-	
 }
 
-.class-image>img{
-	
-	width:100%;
+.class-image>img {
+	width: 100%;
 	height: 210px;
 	opacity: 1;
 	transition: 0.3s ease;
-	
-	
 }
 
-.class-image>figcaption{
-	
+.class-image>figcaption {
 	position: absolute;
 	z-index: 1;
 	margin: 15px;
@@ -702,60 +608,46 @@ a>.log-container{
 	opacity: 0;
 	border: 1px solid white;
 	transition: 0.3s ease;
-	
 }
 
-
-#type{
-	
+#type {
 	float: right;
-	
 }
 
-.class-title{
+.class-title {
 	margin-top: 10px;
 	font-size: 18px;
-	
 }
 
-.class-info::after{
+.class-info::after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
-.d-flex{
-	
+.d-flex {
 	margin: 15px;
 	float: right;
 	margin-top: 10px;
-	
 }
 
-.d-flex::after{
-	
+.d-flex::after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
-.sub-group{
-	
+.sub-group {
 	margin: 0;
 	display: inline-flex;
 	float: left;
-	
 }
 
-.text-muted{
-	
-	
+.text-muted {
 	right: 0;
-	
 }
 
-.recommend-number, .like-number{
-	
+.recommend-number, .like-number {
 	width: 60px;
 	height: 30px;
 	border: 1px solid grey;
@@ -764,42 +656,30 @@ a>.log-container{
 	line-height: 30px;
 	text-align: center;
 	margin-right: 10px;
-	
 }
-
 
 /* 회원가입 페이지*/
-
-.signup-container{
+.signup-container {
 	margin-top: 100px;
 	text-align: center;
-	
 }
 
-
-.signup-infos{
-	
+.signup-infos {
 	width: 300px;
 	margin: 0;
-	
-	
 }
 
-
-.signup-box{
-	
+.signup-box {
 	display: flex;
 	margin-bottom: 15px;
 }
 
-.signup-box>input{
-	
+.signup-box>input {
 	width: 100%;
 	font-size: 20px;
 }
 
-
-.joinIn{
+.joinIn {
 	width: 100%;
 	height: 40px;
 	line-height: 30px;
@@ -810,207 +690,230 @@ a>.log-container{
 	font-weight: bold;
 }
 
-.signup-infos:after{
-	
+.signup-infos:after {
 	clear: both;
 	content: '';
 	display: block;
 	margin-bottom: 50px;
-	
 }
 
-.content-division>div{
-	padding-top:53px;
-	margin-top:-53px;
+.content-division>div {
+	padding-top: 53px;
+	margin-top: -53px;
 }
 
-
-.display-toggle{
-	
+.display-toggle {
 	display: none;
-	
 }
 
 /* 개인 정보 관리 */
-
-
-
-.sideMenu-container{
+.sideMenu-container {
 	width: 20%;
 	height: auto;
 	float: left;
 }
-.sideMenu-container:after{
+
+.sideMenu-container:after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
-.user-container{
-	
+.user-container {
 	width: 100%;
 	padding: 15px;
 	margin-bottom: 25px;
 	text-align: center;
-	
 }
 
-.user-imageContainer{
-	
+.user-imageContainer {
 	margin-top: 20px;
-	
 }
 
-.image-part{
-	
+.image-part {
 	width: 70px;
 	height: 70px;
 	border: 1px solid lightgrey;
 	border-radius: 70px;
 	font-size: 30px;
 	line-height: 60px;
-	
 }
 
-.image-part>span>i{
-	
+.image-part>span>i {
 	color: lightskyblue;
 	margin-left: 21px;
-}	
+}
 
-.image-insert{
-	
+.image-insert {
 	width: 20px;
-    height: 20px;
-    font-size: 10px;
-    color: lightgrey;
-    border: 1px solid lightgrey;
-    float: right;
-    margin-top: 50px;
-    border-radius: 10px;
-    z-index: 1;
-    background-color: white;
+	height: 20px;
+	font-size: 10px;
+	color: lightgrey;
+	border: 1px solid lightgrey;
+	float: right;
+	margin-top: 50px;
+	border-radius: 10px;
+	z-index: 1;
+	background-color: white;
 }
 
-.image-insert>span{
-	
+.image-insert>span {
 	margin-right: 10px;
-	
 }
 
-.image-insert>span>i{
-	
+.image-insert>span>i {
 	position: absolute;
 	line-height: 18px;
 	color: cadetblue;
 	font-size: 12px;
 }
 
-.user-shortInfoContainer{
-	
+.user-shortInfoContainer {
 	margin-top: 15px;
 	font-color: lightgrey;
-	
-}
-.userName-container{
-	
-	font-weight: bold;
-	
 }
 
-.sidemenu{
+.userName-container {
+	font-weight: bold;
+}
+
+.sidemenu {
 	margin-bottom: 10px;
 	line-height: 30px;
 	height: 30px;
 	padding: 0 10px;
 }
 
-
-.student-basicContainer{
-	
+.student-basicContainer {
 	padding: 30px;
 	float: right;
 	width: 80%;
-	
 }
-.student-basicContainer:after{
 
+.student-basicContainer:after {
 	content: '';
 	display: block;
 	clear: both;
-	
 }
 
-.student-currentClass{
+.student-currentClass {
 	display: inline-block;
 }
 
-.currentClass-container{
+.currentClass-container {
 	float: left;
 	height: 300px;
-    overflow: scroll;
-     -ms-overflow-style: none; 
-    scrollbar-width: none; 
+	overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 .currentClass-container::-webkit-scrollbar {
-    display: none; 
+	display: none;
 }
 
-
-.currentClass-title{
-
+.currentClass-title {
 	font-weight: bold;
 	font-size: 20px;
 	margin-bottom: 10px;
 }
 
-
-.classBox{
-	
+.classBox {
 	border: 1px solid grey;
 	width: 500px;
 	height: 100px;
 	background-color: lightblue;
 	padding: 10px;
-	
 }
 
-
-.currentClass-name{
-	
+.currentClass-name {
 	color: white;
 	font-weight: bold;
 	left: 0;
-	
-	
-}
-.currentClass-code{
-	float:right;
 }
 
-.class-startDateContainer{
-	
+.currentClass-code {
+	float: right;
+}
+
+.class-startDateContainer {
 	margin-top: 10px;
 	color: black;
-	
 }
-.listenClass-link{
-	
+
+.listenClass-link {
 	float: right;
 	display: inline;
 }
 
-.vipStatus-container{
-	
+.vipStatus-container {
 	margin-top: 15px;
-	
 }
 
-.vipStatus-title{
-	
+.vipStatus-title {
 	font-weight: bold;
 	font-size: 20px;
 	margin-bottom: 10px;
-	
+}
+
+/* 클래스 상세 부분 처리 */
+.classInfo-box {
+	display: inline-block;
+	margin-top: 30px;
+	border: 1px solid lightgrey;
+	width: 600px;
+	padding: 20px 30px;
+}
+
+.classStatus-title {
+	display: inline-flex;
+	margin-bottom: 15px;
+}
+
+.classInfo-description {
+	margin-left: 30px;
+	color: dimgrey;
+	line-height: initial;
+}
+
+.classInfo-description>span {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.detail-description {
+	margin-bottom: 13px;
+	color: dimgrey;
+	line-height: initial;
+}
+
+.classStatus-specificMenu {
+	float: right;
+	font-size: 28px;
+	line-height: 33px;
+}
+
+.classStatus-specificMenu>a>div>svg {
+	color: dimgrey;
+}
+
+.detail-box {
+	width: 120px;
+	height: 35px;
+	border: 1px solid lightgray;
+	position: relative;
+	float: right;
+	top: 40px;
+	right: -58px;
+	line-height: 32px;
+	text-align: center;
+	border-right: none;
+	box-shadow: rgba(41, 42, 43, 0.2) 0px 8px 10px 0px;
+}
+
+.classStatus-classNumber{
+	display: inline-flex;
+}
+.classStatus-totalNumber, .classStatus-totalChapterNumber{
+	margin-right: 80px;
 }
