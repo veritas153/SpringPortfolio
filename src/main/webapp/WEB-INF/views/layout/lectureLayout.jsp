@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Aurts 개인 정보센터</title>
-<jsp:include page="/WEB-INF/views/include/head.jsp"></jsp:include>
+<title>Aurts 강의실</title>
+<jsp:include page="/WEB-INF/views/include/lectureHead.jsp"></jsp:include>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>

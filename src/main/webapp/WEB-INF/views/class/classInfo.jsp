@@ -131,15 +131,10 @@
 						<div class="class-subscription-button">수강 신청하기</div>
 					</a>
 				</c:if>
-				<c:if test="${classCode != null}">
+				<c:if test="${classCode != null || vipCode != null}">
 					<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="class-subscription">
 						<div class="class-subscription-button">클래스 수강하기</div>
 					</a>
-				</c:if>
-				<c:if test="${classCode == null && vipCode != null}">
-						<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="class-subscription">
-							<div class="class-subscription-button">클래스 수강하기</div>
-						</a>
 				</c:if>
 			</div>
 		</div>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import kr.spring.projectone.vo.CurrentClassVo;
 import kr.spring.projectone.vo.ClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
@@ -13,6 +14,7 @@ import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
+import kr.spring.projectone.vo.VipCodeListVo;
 
 public interface ClassService {
 
@@ -54,6 +56,18 @@ public interface ClassService {
 	ArrayList<MainChapterVo> getMainChapters(String class_code);
 
 	ArrayList<SubChapterVo> findSubChapter(int i);
+
+	void inputClass(String code, String st_id, String string, int i);
+
+	ArrayList<CurrentClassVo> searchHistory(String st_id);
+
+	ArrayList<CurrentClassVo> searchPurchaseHistory(String st_id, String code);
+
+	void vipInsertClass(String st_id, VipCodeListVo vipList, String class_title, String code);
+
+	CurrentClassVo checkVipSelected(String vip_code);
+
+	
 	
 	
 }

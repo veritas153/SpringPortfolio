@@ -108,7 +108,7 @@
    </definition> 
    
     <definition name="/class/lecture/*" extends=".lecture">
-   		<put-attribute name="body" value="/WEB-INF/views/member/studentInformation/{1}.jsp" />
+   		<put-attribute name="body" value="/WEB-INF/views/class/lecture/{1}.jsp" />
    </definition> 
    
     

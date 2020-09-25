@@ -30,6 +30,7 @@ import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.service.VipService;
 import kr.spring.projectone.utils.UploadFileUtils;
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.CurrentClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
@@ -82,11 +83,12 @@ public class ClassController {
 
 		if (user != null) { // vip플랜 사용하거나 해당 클래스 결제 확인. 만약 둘 중 하나를 만족하면 결제 대신 클래스 수강하는 처리
 
-			PurchaseHistoryVo purchaseHistory = paymentService.searchPurchaseHistory(user.getSt_id(), code);
-			
-			if (purchaseHistory != null){
+			ArrayList<CurrentClassVo> purchaseHistory = classService.searchPurchaseHistory(user.getSt_id(), code);
+
+			if (purchaseHistory != null) {
 				System.out.println(purchaseHistory);
 				mv.addObject("classCode", purchaseHistory);
+
 			}
 
 			VipCodeListVo vipCode = vipService.checkVip(user.getSt_id());
@@ -104,35 +106,28 @@ public class ClassController {
 			mv.addObject("classList", classList);
 
 			ArrayList<MainChapterVo> mainChapter = classService.getMainChapters(code);
-			
+
 			if (!mainChapter.isEmpty()) {
-				
+
 				mv.addObject("mainChapter", mainChapter);
-				
+
 				ArrayList<SubChapterVo> subChapter = new ArrayList<SubChapterVo>();
-				
+
 				for (MainChapterVo main : mainChapter) {
 					ArrayList<SubChapterVo> subTmp;
 					subTmp = classService.findSubChapter(main.getMainChapter_priNum());
 					subChapter.addAll(subTmp);
-					
+
 				}
-				
+
 				mv.addObject("subChapter", subChapter);
-				
+
 			}
 
 		}
 
 		mv.setViewName("/class/classInfo");
 
-		return mv;
-	}
-	
-	@RequestMapping(value = "/class", method = RequestMethod.POST)
-	public ModelAndView classPost(ModelAndView mv, HttpServletRequest request, String code) { // VIP플랜 한정! 결제창으로 건너가지 않고 바로 수강 시작처리하기 위한 구문
-
-	
 		return mv;
 	}
 
@@ -232,6 +227,9 @@ public class ClassController {
 
 				paymentService.inputHistory(purchaseInfo, code, user.getSt_id());
 
+				classService.inputClass(code, user.getSt_id(), classList.getClass_title(),
+						classList.getClass_monthlyPay());
+
 				printWriter.println(
 						"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href=\"\"; </script>");
 				printWriter.flush();
@@ -247,12 +245,146 @@ public class ClassController {
 	// 여기서부턴 클래스 수강 작업!
 
 	@RequestMapping(value = "/lecture", method = RequestMethod.GET)
-	public ModelAndView lectureGet(ModelAndView mv, String code) {
+	public ModelAndView lectureGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response,
+			String code) throws IOException {
 
-		mv.setViewName("/class/lecture/lecturePage");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
+		PrintWriter printWriter = response.getWriter();
+
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+
+		if (user == null) {
+
+			printWriter.println(
+					"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('허용되지 않은 접근입니다!'); location.href=\"login\"; </script>");
+			printWriter.flush();
+			printWriter.close();
+
+		}
+
+		if (user != null) {
+
+			// 만약 VIP 회원인데 이 클래스를 처음 듣는 경우
+
+			VipCodeListVo vipList = vipService.checkVip(user.getSt_id());
+
+			if (vipList != null) {
+
+				CurrentClassVo checkVipSelected = classService.checkVipSelected(vipList.getVip_code());
+
+				if (checkVipSelected != null) {
+
+					// 여긴 이미 vip회원이 수강 신청을 했음에도 중복 신청되는 걸 방지하는 코드
+
+					Date checkExpired = checkVipSelected.getCurrentClass_dueDate();
+					Date today = new Date();
+
+					System.out.println(checkExpired);
+					System.out.println(today);
+
+					int compare = checkExpired.compareTo(today);
+
+					System.out.println(compare);
+
+					if (compare <= 0) { // compare가 0이거나 -1인 경우만 적용되어야함
+
+						printWriter.println(
+								"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('VIP플랜이 이미 만료되었습니다! 클래스를 개별적으로 구매하시거나 VIP 등록을 새로 해주세요!'); location.href=\"login\"; </script>");
+						printWriter.flush();
+						printWriter.close();
+
+					}
+
+				}
+
+				if (checkVipSelected == null) {
+					ClassVo classList = classService.getSelectedClass(code);
+					classService.vipInsertClass(user.getSt_id(), vipList, classList.getClass_title(), code);
+				}
+			}
+
+			// 여기서 부턴 공통 작업
+
+			ClassVo classList = classService.getSelectedClass(code);
+			mv.addObject("classList", classList);
+			
+			ArrayList<MainChapterVo> mainChapterCheck;
+			
+			if (classList != null) {
+				
+				mainChapterCheck = classService.getMainChapters(classList.getClass_code());
+				
+				if (mainChapterCheck != null) {
+					
+					mv.addObject("mainChapter", mainChapterCheck);
+					
+					ArrayList<SubChapterVo> subChapterCheck = new ArrayList<SubChapterVo>();
+					
+					for (MainChapterVo main : mainChapterCheck) {
+						ArrayList<SubChapterVo> tempSubContainer;
+						tempSubContainer = classService.findSubChapter(main.getMainChapter_priNum());
+						subChapterCheck.addAll(tempSubContainer);
+					}
+					
+					mv.addObject("subChapter", subChapterCheck);
+					
+				}
+			}
+			
+			mv.setViewName("/class/lecture/lecturePage");
+		}
 
 		return mv;
 	}
+	
+	// 각 서브챕터 프라임 번호에 따라 출력 결과 조정 하는 구문 (근데 여기서 막힘)
+	@RequestMapping(value = "/lecture/num", method = RequestMethod.GET)
+	public ModelAndView lecturePageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, String code, int num) {
+		
+
+		ClassVo classList = classService.getSelectedClass(code);
+		mv.addObject("classList", classList);
+		
+		ArrayList<MainChapterVo> mainChapterCheck;
+		
+		if (classList != null) {
+			
+			mainChapterCheck = classService.getMainChapters(classList.getClass_code());
+			
+			if (mainChapterCheck != null) {
+				
+				mv.addObject("mainChapter", mainChapterCheck);
+				
+				ArrayList<SubChapterVo> subChapterCheck = new ArrayList<SubChapterVo>();
+				
+				for (MainChapterVo main : mainChapterCheck) {
+					ArrayList<SubChapterVo> tempSubContainer;
+					tempSubContainer = classService.findSubChapter(main.getMainChapter_priNum());
+					subChapterCheck.addAll(tempSubContainer);
+				}
+				
+				
+				
+				mv.addObject("subChapter", subChapterCheck);
+		
+			}
+		}
+		
+		mv.setViewName("/class/lecture/lecturePage");
+		
+		
+		return mv;
+	}
+
+	
+	
+	
+	
+	
+	
+	
 
 	// 여기서부턴 크리에이터 부분!
 

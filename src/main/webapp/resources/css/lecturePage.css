@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0 auto;
+}
+
+form {
+	display: inline-block;
+}
+
+a:hover {
+	text-decoration: none;
+}
+/* 헤어 부분*/
+.logo-home {
+	height: 100%;
+}
+
+.head-wrapper {
+	width: 1100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.logo-container {
+	line-height: 100px;
+	position: relative;
+	display: inline-block;
+	left: -15px;
+}
+
+.logo {
+	object-fit: cover;
+}
+
+.search-box {
+	width: 250px;
+	height: 30px;
+	border: solid grey 1px;
+	padding: 4px;
+}
+
+.search-icon {
+	width: 20px;
+	height: 20px;
+	float: left;
+	text-align: center;
+	margin-top: 2px;
+}
+
+.search {
+	margin-left: 5px;
+	border: 2px solid lightgrey;
+	border-radius: 4px;
+	font-size: 16px;
+	top: 2px;
+	height: 20px;
+}
+
+
+
+.log-container {
+	margin-top: 10px;
+	float: right;
+}
+
+a>.log-container {
+	margin-left: 10px;
+}
+
+.head-wrapper::after {
+	contain: '';
+	box-sizing: border-box;
+}
+
+#collapsibleNavbar {
+	height: 30px;
+	line-height: 35px;
+}
+
+.navbar-nav {
+	position: absolute;
+}
+
+.dropdown-menu {
+	margin-top: -4px;
+	margin-left: -1px;
+}
+
+/* 사이드 메뉴 */
+
+.sideMenu-container {
+	width: 20%;
+	height: 1000px;
+	float: left;
+}
+
+.sideMenu-container:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.user-container {
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.user-imageContainer {
+	margin-top: 20px;
+}
+
+.image-part {
+	width: 70px;
+	height: 70px;
+	border: 1px solid lightgrey;
+	border-radius: 70px;
+	font-size: 30px;
+	line-height: 60px;
+}
+
+.image-part>span>i {
+	color: lightskyblue;
+}
+
+
+.user-shortInfoContainer {
+	margin-top: 15px;
+	font-color: lightgrey;
+}
+
+.userName-container {
+	font-weight: bold;
+}
+
+.lecture-title{
+	text-align: center;
+	font-weight: bold;
+	color: skyblue;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.mainChapter-titleContainer{
+	font-size: 20px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+}
+.subChapter-titleContainer{
+	margin-left: 25px;
+	font-size: 15px;
+	margin-bottom: 10px;
+}

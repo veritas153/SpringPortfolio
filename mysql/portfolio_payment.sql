@@ -36,7 +36,7 @@ CREATE TABLE `payment` (
   PRIMARY KEY (`payment_priNum`),
   KEY `payment_st_id_idx` (`payment_st_id`),
   CONSTRAINT `payment_st_id` FOREIGN KEY (`payment_st_id`) REFERENCES `student` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
-INSERT INTO `payment` VALUES (1,'김김김','KB국민카드','personal-card','1234567890123456','20','01','12345678','','nanana'),(2,'강강','신한카드','personal-card','1344567890123456','20','01','13321321','','chester2');
+INSERT INTO `payment` VALUES (1,'김김김','KB국민카드','personal-card','1234567890123456','20','01','12345678','','nanana'),(2,'강강','신한카드','personal-card','1344567890123456','20','01','13321321','','chester2'),(3,'김김김','비씨카드','personal-card','1321321321321321','20','01','13211333','','test1');
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-24 18:49:29
+-- Dump completed on 2020-09-25 18:48:12

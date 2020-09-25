@@ -30,6 +30,7 @@ import kr.spring.projectone.service.PaymentService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.service.VipService;
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.CurrentClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
@@ -166,13 +167,15 @@ public class HomeController {
 		PrintWriter printWriter = response.getWriter();
 		
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		System.out.println(user);
 		
 		if (user == null) {
 			mv.setViewName("redirect:/login");
 		}
 		if (user != null) {
 			
-			 VipCodeListVo vipCode  = vipService.checkVip(st_id);
+			 VipCodeListVo vipCode  = vipService.checkVip(user.getSt_id());
+			 System.out.println(vipCode);
 			 
 			 if (vipCode != null) {
 				 
@@ -261,11 +264,13 @@ public class HomeController {
 		
 		if (user != null) {
 			
-			ArrayList<PurchaseHistoryVo> paymentCheck = classService.getMyClass(user.getSt_id());
+			ArrayList<CurrentClassVo> classCheck = classService.searchHistory(user.getSt_id());
 			
-			if (paymentCheck != null) {
-				System.out.println(paymentCheck);
-				mv.addObject("classList", paymentCheck);
+			System.out.println(classCheck);
+			
+			if (classCheck != null) {
+				System.out.println(classCheck);
+				mv.addObject("classList", classCheck);
 			}
 			
 			

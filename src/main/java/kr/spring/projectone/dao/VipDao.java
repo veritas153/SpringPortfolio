@@ -11,6 +11,8 @@ public interface VipDao {
 	ArrayList<VipCodeListVo> getVipCode(@Param("id")String st_id);
 
 	void insertVipCode(@Param("vipList")VipCodeListVo vipCodeList);
+
+	ArrayList<VipCodeListVo> getVipList();
 	
 	
 

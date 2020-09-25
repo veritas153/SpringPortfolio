@@ -41,5 +41,39 @@
 	
 	</select>
 	
-
+	<insert id="inputClass">
+	
+		insert into
+			currentclass (currentClass_class_title,currentClass_dueDate, currentClass_st_id, currentClass_class_code)
+			values (#{class.currentClass_class_title},#{class.currentClass_dueDate}, #{class.currentClass_st_id}, #{class.currentClass_class_code});
+	
+	</insert>
+	
+	<select id="searchHistory" resultType="kr.spring.projectone.vo.CurrentClassVo">
+	
+		select * from currentclass where currentClass_st_id = #{id};
+	
+	</select>
+	
+	<select id="searchPurchaseHistory" resultType="kr.spring.projectone.vo.CurrentClassVo">
+	
+		select * from currentclass where currentClass_st_id = #{id} and currentClass_class_code = #{code};
+	
+	</select>
+	
+	<insert id="vipInsertClass">
+	
+		insert into
+			currentclass(currentClass_dueDate, currentClass_class_title, currentClass_st_id, currentClass_class_code, currentClass_vip_code)
+			values(#{vip.currentClass_dueDate},#{vip.currentClass_class_title},#{vip.currentClass_st_id},#{vip.currentClass_class_code},#{vip.currentClass_vip_code});
+	
+	</insert>
+	
+	<select id="checkVipSelected" resultType="kr.spring.projectone.vo.CurrentClassVo">
+	
+		select * from currentclass where currentClass_vip_code = #{code};
+	
+	</select>
+	
+	
 </mapper>

@@ -10,14 +10,7 @@
 		<a class="logo-home" href="<%=request.getContextPath()%>/">
 			<img class="logo" src="<%=request.getContextPath()%>/resources/image/logo.png" width="200" height="40" >
 		</a>
-		<form>
-			<div class="search-box">
-				<div class="search-icon">
-					<i class="fas fa-search"></i>
-				</div>
-				<input type="text" class="search" placeholder="검색어를 입력하세요">
-			</div>
-		</form>
+		
 	</div>
 	<c:if test="${user == null}">
 		<div class="log-container">

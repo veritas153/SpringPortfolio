@@ -1,5 +1,6 @@
 package kr.spring.projectone.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -15,6 +16,7 @@ import kr.spring.projectone.dao.PaymentDao;
 import kr.spring.projectone.dao.PurchaseDao;
 import kr.spring.projectone.dao.TempClassDao;
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.CurrentClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
@@ -23,6 +25,7 @@ import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
 import kr.spring.projectone.vo.UserVo;
+import kr.spring.projectone.vo.VipCodeListVo;
 
 @Service
 public class ClassServiceImp implements ClassService {
@@ -311,6 +314,9 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	
+
+	
+	
 	// 여기서부턴 정식 클래스 관리
 	
 	@Override
@@ -369,6 +375,28 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	
+	// 여긴 구매 성공 한 후에 현재 수강중인 클래스를 받아오는 구문 (1. 만약 구매코드와 클래스로만 관리하면, VIP클래스는 뭘 들었는지 확인할 길이 없기 때문. (사실 이제 가장 큰 이유) / 2. 조인으로 처리가 가능하긴 하지만 어쨌든 처리 속도가 더 빠르긴 해서 이렇게 처리
+	
+		@Override
+		public void inputClass(String code, String st_id, String string,int i) {
+			
+			CurrentClassVo currentClass = new CurrentClassVo();
+			
+			currentClass.setCurrentClass_st_id(st_id);
+			currentClass.setCurrentClass_class_code(code);
+			currentClass.setCurrentClass_class_title(string);
+			
+			Date today = new Date();
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			String date = df.format(today);
+			currentClass.setCurrentClass_dueDate(date, i);			
+			System.out.println(currentClass);
+			
+			classDao.inputClass(currentClass);
+		}
+	
+	
+	
 	
 	// 회원 클래스 관리
 	@Override
@@ -383,5 +411,40 @@ public class ClassServiceImp implements ClassService {
 		return purchaseList;
 	}
 
+	@Override
+	public ArrayList<CurrentClassVo> searchHistory(String st_id) {
+		
+		return classDao.searchHistory(st_id);
+	}
+
+	@Override
+	public ArrayList<CurrentClassVo> searchPurchaseHistory(String st_id, String code) {
+		
+		return classDao.searchPurchaseHistory(st_id, code);
+	}
+
+	@Override
+	public void vipInsertClass(String st_id, VipCodeListVo vipList, String class_title, String code) {
+		
+		CurrentClassVo vipClass = new CurrentClassVo();
+		
+		vipClass.setCurrentClass_class_code(code);
+		vipClass.setCurrentClass_class_title(class_title);
+		vipClass.setCurrentClass_vip_code(vipList.getVip_code());
+		vipClass.setCurrentClass_dueDate(vipList.getVip_dueDate());
+		vipClass.setCurrentClass_st_id(st_id);
+		
+		classDao.vipInsertClass(vipClass);
+	}
+
+	@Override
+	public CurrentClassVo checkVipSelected(String vip_code) {
+	
+		return classDao.checkVipSelected(vip_code);
+	}
+
+
+	
+	
 
 }

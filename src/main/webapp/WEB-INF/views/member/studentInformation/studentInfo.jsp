@@ -18,15 +18,18 @@
 				<c:if test="${classList != null}">
 					<c:forEach var="currentClass" items="${classList}">
 						<div class="classBox">
-							<a href="<%=request.getContextPath()%>/studentInfo/classInfo?code=${currentClass.class_code}" class="classLink">
+							<a href="<%=request.getContextPath()%>/studentInfo/classInfo?code=${currentClass.currentClass_class_code}" class="classLink">
 								<div class="currentClass-name">
-									<span>${currentClass.class_title}</span>
-									<span class="currentClass-code">${currentClass.class_code}</span>
+									<span>${currentClass.currentClass_class_title}</span>
+									<span class="currentClass-code">${currentClass.currentClass_class_code}</span>
 								</div>
 								<div class="class-startDateContainer">
-									<span>수강시작 날짜: </span>
+									<span>수강시작 날짜: <fmt:formatDate value="${currentClass.currentClass_startDate}" pattern="yyyy년 MM월 dd일"/></span>
 								</div>
-								<a class="listenClass-link" href="<%=request.getContextPath()%>/">
+								<div class="class-endDateContainer">
+									<span>수강 만료일: <fmt:formatDate value="${currentClass.currentClass_dueDate}" pattern="yyyy년 MM월 dd일"/></span>
+								</div>
+								<a class="listenClass-link" href="<%=request.getContextPath()%>/lecture?code=${currentClass.currentClass_class_code}">
 									<div class="">
 										<span>수업 듣기</span>
 										<span><i class="fas fa-angle-double-right"></i></span>

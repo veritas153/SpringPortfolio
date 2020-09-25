@@ -10,6 +10,13 @@
 	
 	</select>
 	
+	<select id="getVipList" resultType="kr.spring.projectone.vo.VipCodeListVo">
+	
+		select * from vipcodelist;
+	
+	</select>
+	
+	
 	<insert id="insertVipCode">
 	
 		insert into
