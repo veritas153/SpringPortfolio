@@ -34,12 +34,43 @@
   </a>
 </div>
 
-<input type="hidden" id="isLogin" value="${isLogin}">
-<script>
+<div class="classType-container">
+	<div class="classType">전체 클래스</div>
+</div>
 
-	if ($('#isLogin').val() == 'true'){
-			alert('회원가입이 완료되었습니다.');
-			$('#isLogin').val('')
-		}
-</script>
-
+<div class="classList-container">
+	<div class="classList">
+		<c:if test="${classList != null}">
+			<div class="classList-row">
+				<c:forEach var="classBox" items="${classList}">
+					<a class="class-link" href="<%=request.getContextPath()%>/class?code=${classBox.class_code}">
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<figure class="class-image">
+			  						<img src="<%=request.getContextPath()%>/resources/uploadedImage${classBox.class_image}">					
+			  						<figcaption>
+			  							<h6>${classBox.class_title}</h6>
+			  							<p>${classBox.class_thumbIntro}</p>
+			  						</figcaption>
+								</figure>
+								<div class="class-info">
+									<span id="instructor">${classBox.class_creatorName}</span>
+									<span id="type">${classBox.class_category}</span>
+									<div class="class-title">${classBox.class_title}</div>
+								</div>
+								<div class="d-flex">
+									<div class="sub-group">
+										<div class="like-number"><i class="far fa-heart"></i> </div>
+										<div class="recommend-number"><i class="far fa-thumbs-up"></i> </div>
+									</div>
+									
+									<small class="text-muted">바로 수강 가능</small>
+								</div>
+							</div>
+						</div>
+					</a>
+				</c:forEach>
+			</div>
+		</c:if>
+	</div>
+</div>

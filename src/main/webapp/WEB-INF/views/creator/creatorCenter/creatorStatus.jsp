@@ -16,15 +16,19 @@
 					</a>
 				</header>
 				<div class="classList-lineUp">
-					<a href="#" class="classMenu-link">
-						<div class="classMenu">
-							<span class="class-instructor" name="st_name">김무스</span>
-							<div class="classTitle">
-								<span class="class-name" name="class_name">무스무스무스</span>
-								<span class="class-detail"><i class="fas fa-angle-double-right"></i>상세정보 확인</span>
+					<c:forEach var="mainClass" items="${classList}">
+						<a href="#" class="classMenu-link">
+							<div class="classMenu">
+								<span class="class-instructor" name="st_name">${mainClass.class_creatorName}</span>
+								<div class="classTitle">
+									<span class="class-name" name="class_name">${mainClass.class_title}</span>
+									<a href="<%=request.getContextPath()%>/class?code=${mainClass.class_code}">
+										<span class="class-detail"><i class="fas fa-angle-double-right"></i>상세정보 확인</span>
+									</a>
+								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="classList-applyStatus">

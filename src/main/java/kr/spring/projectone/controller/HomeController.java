@@ -63,6 +63,12 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home(ModelAndView mv){
+	
+		ArrayList<ClassVo> classList = classService.getAllClass();
+
+		mv.addObject("classList", classList);
+		
+		
 		mv.setViewName("/main/home");
         
         return mv;

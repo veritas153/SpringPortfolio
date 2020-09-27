@@ -32,6 +32,10 @@ public interface ClassDao {
 
 	CurrentClassVo checkVipSelected(@Param("code")String vip_code);
 
+	SubChapterVo returnContent(@Param("priNum")int subChapter);
+
+	ArrayList<ClassVo> checkMyClass(@Param("id")String st_id);
+
 
 
 	

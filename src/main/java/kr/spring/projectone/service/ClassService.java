@@ -67,6 +67,10 @@ public interface ClassService {
 
 	CurrentClassVo checkVipSelected(String vip_code);
 
+	SubChapterVo returnContent(int subChapter);
+
+	ArrayList<ClassVo> checkMyClass(String st_id);
+
 	
 	
 	

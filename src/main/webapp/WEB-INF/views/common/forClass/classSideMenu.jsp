@@ -23,13 +23,18 @@
 	</div>
 	<div class="sidemenu-area">
 		<div class="lecture-title">${classList.class_title}</div>
+		<div class="mainPage-container">
+		<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}">
+			<span>메인 페이지로 이동</span>
+		</a>
+		</div>
 		<div class="sidemenu-list">
 			<c:forEach var="main" items="${mainChapter}">
 				<div class="Chapter-container">
 					<div class="mainChapter-titleContainer">${main.mainChapter_number}. ${main.mainChapter_title}</div>
 					<c:forEach var="sub" items="${subChapter}">
 						<c:if test="${sub.subChapter_mainChapter_priNum == main.mainChapter_priNum}">
-							<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}/${sub.subChapter_priNum}">
+							<a href="<%=request.getContextPath()%>/lecture/lesson?code=${classList.class_code}&subChapter=${sub.subChapter_priNum}">
 								<div class="subChapter-titleContainer">${main.mainChapter_number}-${sub.subChapter_number}. ${sub.subChapter_title}</div>
 							</a>
 						</c:if>
@@ -37,5 +42,10 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+	<div class="quit-container">
+		<a href="<%=request.getContextPath()%>/">
+			<span>홈 이동</span>
+		</a>
 	</div>
 </div>

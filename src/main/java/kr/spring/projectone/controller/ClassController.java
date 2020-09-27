@@ -246,7 +246,7 @@ public class ClassController {
 
 	@RequestMapping(value = "/lecture", method = RequestMethod.GET)
 	public ModelAndView lectureGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response,
-			String code) throws IOException {
+			String code, String num) throws IOException {
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -333,6 +333,8 @@ public class ClassController {
 				}
 			}
 			
+
+			
 			mv.setViewName("/class/lecture/lecturePage");
 		}
 
@@ -340,9 +342,10 @@ public class ClassController {
 	}
 	
 	// 각 서브챕터 프라임 번호에 따라 출력 결과 조정 하는 구문 (근데 여기서 막힘)
-	@RequestMapping(value = "/lecture/num", method = RequestMethod.GET)
-	public ModelAndView lecturePageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, String code, int num) {
+	@RequestMapping(value = "/lecture/lesson", method = RequestMethod.GET)
+	public ModelAndView lecturePageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, String code, int subChapter) {
 		
+		System.out.println(subChapter);
 
 		ClassVo classList = classService.getSelectedClass(code);
 		mv.addObject("classList", classList);
@@ -365,24 +368,21 @@ public class ClassController {
 					subChapterCheck.addAll(tempSubContainer);
 				}
 				
+				SubChapterVo subChapterContent = classService.returnContent(subChapter);
 				
+				mv.addObject("subContent", subChapterContent);
+		
 				
 				mv.addObject("subChapter", subChapterCheck);
 		
 			}
 		}
 		
-		mv.setViewName("/class/lecture/lecturePage");
+		mv.setViewName("/class/lecture/lectureSub");
 		
 		
 		return mv;
 	}
-
-	
-	
-	
-	
-	
 	
 	
 
@@ -403,6 +403,12 @@ public class ClassController {
 
 		if (user != null && (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))) {
 
+			ArrayList<ClassVo> classList = classService.checkMyClass(user.getSt_id());
+			
+				
+			mv.addObject("classList", classList);
+			
+			
 			TemporaryClassVo tempClass = classService.getMySubmitClass(user.getSt_id());
 			mv.addObject("tempClass", tempClass);
 			System.out.println(tempClass);

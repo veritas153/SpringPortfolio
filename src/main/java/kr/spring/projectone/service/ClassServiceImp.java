@@ -443,6 +443,18 @@ public class ClassServiceImp implements ClassService {
 		return classDao.checkVipSelected(vip_code);
 	}
 
+	@Override
+	public SubChapterVo returnContent(int subChapter) {
+		
+		return classDao.returnContent(subChapter);
+	}
+
+	@Override
+	public ArrayList<ClassVo> checkMyClass(String st_id) {
+		
+		return classDao.checkMyClass(st_id);
+	}
+
 
 	
 	

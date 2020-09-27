@@ -18,6 +18,11 @@
 	
 	</select>
 	
+	<select id="checkMyClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class where class_st_id = #{id};
+	
+	</select>
 	
 	<select id="getMyClass" resultType="kr.spring.projectone.vo.ClassVo">
 	
@@ -75,5 +80,10 @@
 	
 	</select>
 	
+	<select id="returnContent" resultType="kr.spring.projectone.vo.SubChapterVo">
+	
+		select * from subChapter where subChapter_priNum = #{priNum};
+		
+	</select>
 	
 </mapper>
