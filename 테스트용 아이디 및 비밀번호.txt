@@ -1,0 +1,15 @@
+포트폴리오 계정 일람
+
+운영자
+
+아이디: admin1
+비밀번호: admin!@1
+
+크리에이터
+
+아이디: painter1, movie1, gemini1, program1, music1,
+비밀번호: !a111111 모두 동일
+
+학생
+아이디: student1, student2 (student2는 vip플랜 가입자)
+비밀번호: !a111111
