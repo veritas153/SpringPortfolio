@@ -1,6 +1,7 @@
 package kr.spring.projectone.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -39,13 +40,15 @@ public interface TempClassDao {
 	
 	ArrayList<TemporarySubChapterVo> getSubChapter(@Param("i")int i);
 
-	void firstConfirm(@Param("comment")String addClass_adminComment2, @Param("answer")char addClass_confirm2, @Param("code")String code);
+	void firstConfirm(@Param("comment")String addClass_adminComment2, @Param("answer")char addClass_confirm2, @Param("today")Date today, @Param("code")String code);
 
 	void finalConfirm(@Param("tempClass")TemporaryClassVo tempClass);
 
 	void setMainChapter(@Param("conMain")TemporaryMainChapterVo mainPart);
 
 	void setSubChapter(@Param("conSub")TemporarySubChapterVo subPart);
+	
+	void deteleTempClass(@Param("code")String code);
 
 	
 

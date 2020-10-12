@@ -15,7 +15,7 @@
 				</a>
 			</div>
 			<div class="sidemenu">
-				<a href="#" class="sidemenu-link">
+				<a href="<%=request.getContextPath()%>/admin/announcement/list" class="sidemenu-link">
 					<span class="creator-announcement">
 						<i class="far fa-bell"></i>
 						<span>Aurts 공지</span>

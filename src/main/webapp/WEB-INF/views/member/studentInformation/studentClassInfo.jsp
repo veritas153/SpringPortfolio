@@ -48,7 +48,7 @@
 				<div></div>
 			</div>
 		</div>
-		<a href="#" class="getToClassLink">
+		<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="getToClassLink">
 			<div>클래스 수강하기</div>
 		</a>
 	</div>

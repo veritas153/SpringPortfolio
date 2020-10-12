@@ -48,6 +48,8 @@ public interface ClassService {
 	// 여기서부턴 전체 클래스 받아오기!
 	
 	ArrayList<ClassVo> getAllClass();
+	
+	ArrayList<ClassVo> getFutureClass();
 
 	ClassVo getSelectedClass(String code);
 
@@ -70,6 +72,28 @@ public interface ClassService {
 	SubChapterVo returnContent(int subChapter);
 
 	ArrayList<ClassVo> checkMyClass(String st_id);
+
+	void deteleTempClass(String code);
+
+	ArrayList<ClassVo> getCurrentClass();
+
+	ArrayList<ClassVo> getArtsCurrentClass();
+
+	ArrayList<ClassVo> getIllustrationCurrentClass();
+
+	ArrayList<ClassVo> getCraftCurrentClass();
+
+	ArrayList<ClassVo> getSportCurrentClass();
+
+	ArrayList<ClassVo> getHumanitiesCurrentClass();
+
+	ArrayList<ClassVo> getMusicCurrentClass();
+
+	ArrayList<ClassVo> getProgrammingCurrentClass();
+
+	ArrayList<ClassVo> getFilmCurrentClass();
+
+	
 
 	
 	

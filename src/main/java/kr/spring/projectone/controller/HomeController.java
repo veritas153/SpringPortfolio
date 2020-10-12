@@ -64,10 +64,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home(ModelAndView mv){
 	
-		ArrayList<ClassVo> classList = classService.getAllClass();
-
+		ArrayList<ClassVo> classList = classService.getCurrentClass();
 		mv.addObject("classList", classList);
 		
+		ArrayList<ClassVo> futureClassList = classService.getFutureClass();
+		mv.addObject("futureClassList", futureClassList);
 		
 		mv.setViewName("/main/home");
         
@@ -128,7 +129,9 @@ public class HomeController {
 	@ResponseBody
 	public Map<Object, Object> idCheck(@RequestBody String st_id){
 		 Map<Object, Object> map = new HashMap<Object, Object>();
-		 map.put("check", userService.getUser(st_id) == null);
+		 UserVo user = userService.getUser(st_id);
+		 boolean check = user == null ? true : false;
+		 map.put("check",check);
 		 
 		 return map;
 	}
@@ -153,7 +156,23 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/vipClass/plan", method = RequestMethod.GET)
-	public ModelAndView vipPlanGet(ModelAndView mv) {
+	public ModelAndView vipPlanGet(ModelAndView mv, HttpServletRequest request) {
+		
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		
+		if (user == null) {
+			
+		}
+		
+		if (user != null) {
+				VipCodeListVo vipCode = vipService.checkVip(user.getSt_id());
+				System.out.println(vipCode);
+				
+			if (vipCode != null) {
+				mv.addObject("vipCode", vipCode);
+				
+			}
+		}
 		mv.setViewName("/vip/planExplanation");
 		
 		return mv;
@@ -245,7 +264,7 @@ public class HomeController {
 
 				paymentService.inputHistory(purchaseInfo, code, user.getSt_id());
 				
-				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href=\"\"; </script>");
+				printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href='/projectone'; </script>");
 				printWriter.flush();
 				printWriter.close();
 				
@@ -274,7 +293,7 @@ public class HomeController {
 			
 			System.out.println(classCheck);
 			
-			if (classCheck != null) {
+			if (!classCheck.isEmpty()) {
 				System.out.println(classCheck);
 				mv.addObject("classList", classCheck);
 			}

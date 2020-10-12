@@ -82,6 +82,7 @@
 	
 		update addClass
 			set addClass_confirm = #{answer},
+			addClass_submitDate = #{today},
 			addClass_adminComment = #{comment}
 				where addClass_code = #{code};
 	
@@ -121,6 +122,12 @@
 			values(#{conSub.conSubChapter_title},#{conSub.conSubChapter_number},#{conSub.conSubChapter_content},#{conSub.conSubChapter_conMainChapter_priNum});
 	
 	</insert>
+	
+	<delete id="deteleTempClass">
+	
+		delete from addClass where addClass_code = #{code};
+	
+	</delete>
 	
 	
 </mapper>

@@ -136,7 +136,8 @@ a>.log-container {
 	font-weight: bold;
 }
 
-.lecture-title{
+.lecture-title,
+.class-titleContainer{
 	text-align: center;
 	font-weight: bold;
 	color: skyblue;
@@ -153,4 +154,12 @@ a>.log-container {
 	margin-left: 25px;
 	font-size: 15px;
 	margin-bottom: 10px;
+}
+
+/* 메인 부분 */
+
+.chapterContent-container{
+	width: 800px;
+	margin-left: 300px;
+	
 }

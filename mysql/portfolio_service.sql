@@ -23,12 +23,23 @@ DROP TABLE IF EXISTS `service`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `service` (
-  `service_num` int NOT NULL,
-  `service_st_id` varchar(20) NOT NULL,
-  `service_type` varchar(20) DEFAULT NULL,
-  `service_title` varchar(50) DEFAULT NULL,
-  `service_content` longtext,
-  PRIMARY KEY (`service_num`)
+  `service_priNum` int NOT NULL AUTO_INCREMENT,
+  `service_title` varchar(50) NOT NULL,
+  `service_content` longtext NOT NULL,
+  `service_private` varchar(1) NOT NULL DEFAULT 'N',
+  `service_password` varchar(8) DEFAULT NULL,
+  `service_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `service_type` varchar(20) NOT NULL,
+  `service_st_id` varchar(20) DEFAULT NULL,
+  `service_class_code` varchar(20) DEFAULT NULL,
+  `service_vip_code` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`service_priNum`),
+  KEY `service_class_class_code_idx` (`service_class_code`),
+  KEY `service_vip_code_idx` (`service_vip_code`),
+  KEY `service_st_id_idx` (`service_st_id`),
+  CONSTRAINT `service_class_code` FOREIGN KEY (`service_class_code`) REFERENCES `class` (`class_code`),
+  CONSTRAINT `service_st_id` FOREIGN KEY (`service_st_id`) REFERENCES `student` (`st_id`),
+  CONSTRAINT `service_vip_code` FOREIGN KEY (`service_vip_code`) REFERENCES `vipcodelist` (`vip_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-28  7:40:42
+-- Dump completed on 2020-10-12 10:16:53

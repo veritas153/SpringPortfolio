@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.projectone.service.ClassService;
+import kr.spring.projectone.service.ServiceService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.vo.ClassVo;
+import kr.spring.projectone.vo.ServiceVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
 import kr.spring.projectone.vo.TemporarySubChapterVo;
@@ -40,6 +42,8 @@ public class AdminController {
 	private UserService userService;
 	@Autowired
 	private ClassService classService;
+	@Autowired
+	private ServiceService serviceService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -73,6 +77,29 @@ public class AdminController {
 		
         return mv;
     }
+	
+	@RequestMapping(value = "/admin/announcement/list", method = RequestMethod.GET)
+    public ModelAndView adminAnnouncementGet(ModelAndView mv, HttpServletRequest request){
+	
+		ArrayList<ServiceVo> adminAnnouncement = serviceService.getAdminAnnouncement();
+		
+		if (!(adminAnnouncement.isEmpty())) {
+			mv.addObject("adminList", adminAnnouncement);
+		}
+		
+		mv.setViewName("/admin/adminPage/adminAnnouncement");
+	
+		return mv;
+	}
+	
+	@RequestMapping(value = "/admin/announcement/write", method = RequestMethod.GET)
+    public ModelAndView adminAnnouncementWriteGet(ModelAndView mv, HttpServletRequest request){
+	
+		
+		mv.setViewName("/admin/adminPage/adminTool/serviceWrite");
+	
+		return mv;
+	}
 	
 	// 1차 심사 페이지
 	
@@ -131,7 +158,7 @@ public class AdminController {
 			
 			request.getSession().getAttribute("tempClass");
 			
-			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('정보 갱신이 완료 되었습니다.'); location.href=''; </script>");
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('정보 갱신이 완료 되었습니다.'); location.href='/projectone/admin'; </script>");
 			printWriter.flush();
 			printWriter.close();
 			
@@ -202,20 +229,30 @@ public class AdminController {
 		
 		System.out.println(startClass);
 		
+		
+		
 		if (startClass != null) {
+			classService.deteleTempClass(code);
 			
 			ArrayList<ClassVo> selectedClass = classService.getAllClass();
 			mv.addObject("classList", selectedClass);
-		
-			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('크리에이터에게 전달사항을 작성하지 않으셨거나 150자를 초과하셨습니다.'); history.back(); </script>");
+			
+
+
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('클래스 개설이 완료되었습니다.'); location.href='/projectone/admin'; </script>");
 			printWriter.flush();
 			printWriter.close();
-			
-			mv.setViewName("redirect:/admin");
+		
 
 		}
 		
-		
+		if (startClass == null) {
+
+			printWriter.println("<script type=\"text/javascript\" charset=\"UTF-8\"> alert('크리에이터에게 전달사항을 작성하지 않으셨거나 150자를 초과하셨습니다.'); history.back(); </script>");
+			printWriter.flush();
+			printWriter.close();
+	
+		}
 		
 		return mv;
 	}

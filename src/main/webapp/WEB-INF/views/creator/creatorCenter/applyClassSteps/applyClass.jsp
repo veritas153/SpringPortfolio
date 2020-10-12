@@ -39,10 +39,10 @@
 <div class="applyClass-rightContainer">
 	<div class="applyClass-classInfos">
 		<div id="pageView">
-			<form method="post" action="<%=request.getContextPath()%>/creator/applyClass" enctype="multipart/form-data">
+			<form method="post" action="<%=request.getContextPath()%>/creator/registerClass" enctype="multipart/form-data">
 				<div class="applyClass-basicInfo">
 					<div class="basicInfo-title">
-						<span class="progress-title">당신의 클래스를 알려주세요.</span>
+						<span class="progress-title">클래스 기본 정보</span>
 						<div class="progress-description">당신이 가르치고 싶은 분야와 특징들을 간단하게 알려주세요. </div>
 					</div>
 					<div class="progress-title">카테고리</div>
@@ -61,11 +61,11 @@
 					</div>
 					<div>
 						<div>클래스 제목</div>
-						<input type="text" class="class_title" name="addClass_title" id="addClass_title" placeholder="클래스 제목을 입력하세요">
+						<input type="text" class="class_title" name="addClass_title" id="addClass_title" placeholder="클래스 제목을 입력하세요" style="width: 500px;">
 					</div>
 					<div class="progress-shortIntro">
 						<div>짧은 소개글</div>
-						<input type="text" class="shortIntro" name="addClass_thumbIntro" id="addClass_thumbIntro" placeholder="100자 내외의 짧은 소개글을 작성해 주세요." maxlength="100"></input>
+						<input type="text" class="shortIntro" name="addClass_thumbIntro" id="addClass_thumbIntro" placeholder="100자 내외의 짧은 소개글을 작성해 주세요." maxlength="100"  style="width: 500px;"></input>
 					</div>
 					<div class="creator-name">
 						<div>크리에이터 이름</div>
@@ -79,17 +79,17 @@
 				</div>
 				<div class="applyClass-introduction display-toggle">
 					<div class="basicInfo-title">
-						<span class="progress-title">그래서 구성은 어떻게 되십니까?</span>
+						<span class="progress-title">클래스 상세 소개</span>
 						<div class="progress-description">일단, 커리큘럼을 간단하게 작성하세요. <br>
 											자세한 사항은 저희 Aurts가 수정 및 협의를 제안할 예정입니다.</div>
 					</div>
-					<div class="class-detailedIntroduction">클래스 소개
-						<div class="">
-							<span>누가, 어떤 목적으로, 어떤 사람이 내 클래스를 들어야 하는지 적어주세요.</span>
-						</div>
+					<div class="class-detailedIntroduction">
+						<div class="detailedIntroduction-title">1. 클래스 소개</div>
+						<span>누가, 어떤 목적으로, 어떤 사람이 내 클래스를 들어야 하는지 적어주세요.</span>
 						<textarea rows="5" cols="100%" style="resize: none;" id="addClass_introduction" name="addClass_introduction"></textarea>
 					</div>
 					<div class="class-setPrice">
+						<div class="setPrice-title">2. 클래스 가격 책정</div>
 						<span>예측 수강 기간을 선택해주세요.</span>
 						<p> 해당 기간에 따라 수업료가 할부로 책정 됩니다. (1개월 = 4주 / 3개월 = 12주 / 5개월 = 20주 / 6개월 = 25주 / 12개월 = 1년)</p>
 						<div class="setPrice">
@@ -105,7 +105,7 @@
 						</div>
 					</div>
 					<div class="class-setPackage">
-						<span>패키지 유무</span>
+						<div class="setPackage-title">3. 패키지 유무</div>
 						<div class="class-isPackage">
 							<input type="radio" name="addClass_hasPackage" id="addClass_hasPackage" value="Y"> 패키지 있음
 							<input type="radio" name="addClass_hasPackage" id="addClass_hasPackage" value="N"> 패키지 없음
@@ -116,10 +116,8 @@
 						</div>
 					</div>
 					<div class="class-classDifficulty">
-						<span>클래스 난이도</span>
-						<div class="">
-							<span>클래스 수준을 설정해주세요.</span>
-						</div>
+						<div class="classDifficulty-title">4. 클래스 난이도</div>
+						<span>클래스 수준을 설정해주세요.</span>
 						<div class="classDifficulty">
 							<select id="addClass_difficulty" name="addClass_difficulty">
 								<option value="#">선택하세요</option>
@@ -131,19 +129,23 @@
 						</div>
 					</div>
 					<div class="class-curriculum">
+						<div class="curriculum-title">5. 챕터 제목 작성</div>
 						<span>수업 과정을 챕터별로 작성해주세요.</span>
-						<div class="">본격적인 콘텐츠는 개설 승인 이후 업로드가 가능합니다. 때문에 신청 전에 수업 구성 및 순서를 먼저 정해주시고 작성해 주세요. <br>
-						 커리큘럼은 승인 이후에도 수정이 가능하니 이점 참고해 주십시요.</div>
+						<div class="">본격적인 콘텐츠 추가는 1차 승인 이후에 가능합니다. 이점을 고려해서 신청 전, 수업 구성 및 순서를 먼저 정해주시고 작성해 주세요. <br>
+						매인 챕터 및 서브 챕터는 내림차 순으로 번호가 자동으로 매겨집니다. </div>
 						<div class="addCurriculum" id="addCurriculum" name="addCurriculum">
 							<div class="section-wholeChapter">
 								<div class="section-mainChapter">
-									<input type="number" class="conMainChapter_number" id="conMainChapter_number" name="conMainChapter_number2" value="1">
-									<input class="conSubChapter_number" id="conSubChapter_number" name="conSubChapter_number2" value="1">
+									<div class="mainChapter-title">메인 챕터
+										<input type="number" class="conMainChapter_number" id="conMainChapter_number" name="conMainChapter_number2" value="1" readonly>
+									</div>
 									<input type="text" name="conMainChapter_title2" id="conMainChapter_title">
+									<input class="conSubChapter_number" id="conSubChapter_number" name="conSubChapter_number2" value="1" readonly>
 								</div>
 								<div class="section-subChapter">
+									<div class="conSubChapter-titleContainer">서브 챕터 목록</div>
 									<div class="subChapterArea" id="subChapterArea" name="subChapterArea">
-										<div class="subChapter-container">
+										<div class="subChapter-title">
 											<input type="text" name="conSubChapter_title2" id="conSubChapter_title">
 										</div>
 									</div>
@@ -161,7 +163,8 @@
 					</div>
 				</div>
 				<div class="applyClass-creatorInfo display-toggle">
-					<div>
+					<div class="creatorIntroduction-title">크리에이터 소개</div>
+					<div class="creatorIntroduction-description">
 						이제 당신을 멋들어지게 소개하세요!
 						<span>누구보다 색다르게 남들과는 다른 크리에이터님을 표현해보세요!</span>
 					</div>
@@ -171,8 +174,9 @@
 				<!-- 마지막 부분 추가 예정 -->
 				
 				<div class="applyClass-classCheck display-toggle">
-					<div class="">
-						<div class="">
+					<div class="clssCheck-title">신청 전 확인</div>
+					<div>
+						<div>
 							<span>이제 거의 다 됐습니다!</span>
 						</div>
 						<div class="applyClass-notification-container">

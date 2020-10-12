@@ -50,5 +50,8 @@
 				</c:forEach>
 			</div>
 		</c:if>
+		<c:if test="${classList == null}">
+			<span>클래스 준비 중입니다. 기대해주세요! </span>
+		</c:if>
 	</div>
 </div>

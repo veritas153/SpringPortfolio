@@ -211,12 +211,14 @@ public class ClassServiceImp implements ClassService {
 	@Override
 	public boolean firstConfirm(String addClass_adminComment2, char addClass_confirm2, String code) {
 
-		if (addClass_adminComment2 == null || addClass_adminComment2.equals("") || addClass_adminComment2.length() > 150) {
+		if (addClass_adminComment2 == null || addClass_adminComment2.equals("") || addClass_adminComment2.length() == 0) {
 			
 			return false;
 		}
+		Date today = new Date();
+		
 	
-		tempClassDao.firstConfirm(addClass_adminComment2, addClass_confirm2, code);
+		tempClassDao.firstConfirm(addClass_adminComment2, addClass_confirm2, today, code);
 		return true;
 	}
 
@@ -309,6 +311,8 @@ public class ClassServiceImp implements ClassService {
 	    
 	    }
 	    
+	
+	    
 		return classCode;
 		
 	}
@@ -324,6 +328,77 @@ public class ClassServiceImp implements ClassService {
 		
 		return classDao.getAllClass();
 	}
+	
+	@Override
+	public ArrayList<ClassVo> getCurrentClass() {
+		// TODO Auto-generated method stub
+		return classDao.getCurrentClass();
+	}
+	
+	@Override
+	public ArrayList<ClassVo> getFutureClass() {
+		
+		return classDao.getFutureClass();
+	}
+
+	
+
+	@Override
+	public ArrayList<ClassVo> getArtsCurrentClass() {
+		// TODO Auto-generated method stub
+		return classDao.getArtsCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getIllustrationCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getIllustrationCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getCraftCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getCraftCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getSportCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getSportCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getHumanitiesCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getHumanitiesCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getMusicCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getMusicCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getProgrammingCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getProgrammingCurrentClass();
+	}
+
+	@Override
+	public ArrayList<ClassVo> getFilmCurrentClass() {
+		// TODO Auto-generated method stub
+
+		return classDao.getFilmCurrentClass();
+	}
+
+
 
 	@Override
 	public ClassVo getSelectedClass(String code) {
@@ -453,6 +528,12 @@ public class ClassServiceImp implements ClassService {
 	public ArrayList<ClassVo> checkMyClass(String st_id) {
 		
 		return classDao.checkMyClass(st_id);
+	}
+
+	@Override
+	public void deteleTempClass(String code) {
+		
+		tempClassDao.deteleTempClass(code);	
 	}
 
 

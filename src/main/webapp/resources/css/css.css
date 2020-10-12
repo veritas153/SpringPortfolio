@@ -494,6 +494,29 @@ a>.log-container {
 	content: '';
 }
 
+/* 크리에이터 신청 페이지 */
+.creatorConfirm-container{
+	width: 450px;
+	margin-bottom: 40px;
+}
+.confirm-title{
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 30px;
+}
+.user-name,
+.user-phoneNumber,
+.user-creatorName{
+	width: 450px;
+	margin-bottom: 20px;
+}
+.user-name>input,
+.user-phoneNumber>input,
+.user-creatorName>input{
+	float: right;
+}
+
 /* 클래스 목록 페이지*/
 .classType-container {
 	margin-top: 50px;
@@ -526,7 +549,7 @@ a>.log-container {
 }
 
 .classList {
-	margin-top: 100px;
+	margin-top: 20px;
 	float: left;
 }
 

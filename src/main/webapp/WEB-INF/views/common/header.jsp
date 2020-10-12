@@ -43,14 +43,14 @@
 		        	<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">전체 강의</a>
 		        	<div class="dropdown-menu">
 		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/all">전체</a>
-		        		<a class="dropdown-item" href="#">순수미술</a>
-		        		<a class="dropdown-item" href="#">일러스트레이션</a>
-		        		<a class="dropdown-item" href="#">공예</a>
-		        		<a class="dropdown-item" href="#">운동</a>
-		        		<a class="dropdown-item" href="#">인문학</a>
-		        		<a class="dropdown-item" href="#">음악</a>
-		        		<a class="dropdown-item" href="#">프로그래밍</a>
-		        		<a class="dropdown-item" href="#">영상/편집</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/arts">순수미술</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/illustration">일러스트레이션</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/craft">공예</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/sport">운동</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/humanities">인문학</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/music">음악</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/programming">프로그래밍</a>
+		        		<a class="dropdown-item" href="<%=request.getContextPath()%>/class/film">영상/편집</a>
 		        	</div>
 		      	</li>
 		      	<li class="nav-item">

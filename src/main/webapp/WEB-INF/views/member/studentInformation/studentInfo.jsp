@@ -7,7 +7,7 @@
  
 <c:if test="${user == null}">
 <div>
-	<span>왜 있냐?</span>
+	<span>유저 정보가 없습니다. 로그인해주십시오.</span>
 </div>
 </c:if>
 <c:if test="${user != null}">

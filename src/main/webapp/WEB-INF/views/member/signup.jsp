@@ -8,11 +8,12 @@
     <form method="post" action="<%=request.getContextPath()%>/signup">
     	<div class="signup-infos">
 	    	<div class="signup-box">
-	    		<input type="text" id="id" name="st_id" class="id-box" placeholder="아이디" style="width: 70%; margin-right: 22px;">
-	    		<button class="check-id">중복확인</button>
+	    		<input type="text" id="st_id" name="st_id" class="id-box" placeholder="아이디" style="width: 70%; margin-right: 22px;">
+	    		<label for="st_id" class="id-error" id="id-error"></label>
 	    	</div>
 	    	<div class="signup-box">
 	    		<input type="password" id="password" name="st_password" class="password-box" placeholder="숫자,글자,특수문자조합으로 8자이상">
+	    		<label for="st_password" class="pw-error" id="error"></label>
 	    	</div>
 	    	
 	    	<div class="signup-box">
@@ -24,10 +25,10 @@
 	    	</div>
 	    	
 	    	<div class="signup-box">
-	    		<input type="text" id="name" name="st_name" class="user-name" placeholder="성함">
+	    		<input type="text" id="st_name" name="st_name" class="user-name" placeholder="성함">
 	    	</div>
 	    	<div class="signup-box">
-	    		<input type="text" id="email" name="st_email" class="email-box" placeholder="e-mail 입력">
+	    		<input type="text" id="st_email" name="st_email" class="email-box" placeholder="e-mail 입력">
 	    	</div>
 	    	<button class="joinIn">가입</button>
 	    </div>

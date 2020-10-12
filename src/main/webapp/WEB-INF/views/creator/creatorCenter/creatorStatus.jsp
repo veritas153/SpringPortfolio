@@ -16,6 +16,11 @@
 					</a>
 				</header>
 				<div class="classList-lineUp">
+					<c:if test="${classList eq null}">
+						
+								개강하신 클래스가 없습니다.
+				
+					</c:if>
 					<c:forEach var="mainClass" items="${classList}">
 						<a href="#" class="classMenu-link">
 							<div class="classMenu">
@@ -74,7 +79,7 @@
 					<header class="classList-title">
 						<span>클래스 신청 현황</span>
 					</header>
-					<div>그런거 없다.</div>
+					<div>신청한 클래스가 없습니다.</div>
 				</c:if>
 			</div>
 		</div>

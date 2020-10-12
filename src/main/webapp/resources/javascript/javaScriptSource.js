@@ -1,4 +1,37 @@
 $(function(){
+
+	// 회원 가입 체크 구문
+	
+	$('input[name=st_id]').keyup(function(){
+		var id = $(this).val();
+		
+		if(id.length >= 3){
+			$.ajax({
+				async: true,
+				type: 'POST',
+				data: id,
+				url: '<%=request.getContextPath()%>/idCheck',
+				dataType: "json",
+				contentType: "application/json; charset=UTF-8",
+				success: function(data){
+							var str;
+							if (data['res']){
+								str =  '<p style="color:green;">사용 가능한 아아디입니다.</p>'
+							} else {
+								str =  '<p style="color:red;">이미 가입되있거나 탈퇴한 아이디입니다.</p>'
+							}
+							$('#id-error').html(str);
+							
+				}
+			});
+		}
+		if (id.length == 0){
+			$('#id-error').html('아이디를 입력해주세요.');
+		}
+		if (id.length < 3){
+			$('#id-error').html('아이디는 세글자 이상 입력하셔야 합니다.');
+		}
+	});
 	
 	// 현재 날짜 확인
 	
@@ -118,12 +151,12 @@ $(function(){
 	
 		var value = $('input[type=radio][name=addClass_hasPackage]:checked').val();
 	
-		if (value == 'y'){
+		if (value == 'Y'){
 
 			$('.setPackageContent').css('display', 'block');
 		}
 		
-		if (value == 'n'){
+		if (value == 'N'){
 
 			$('.setPackageContent').css('display', 'none');
 
@@ -152,25 +185,30 @@ $(function(){
 		
 							+"<div class=\"section-mainChapter\">"
 							
-							+"<input type=\"number\" class=\"conMainChapter_number\" id=\"conMainChapter_number\" name=\"conMainChapter_number2\" value=\""+mainChapter+"\">"
-							//추가된
-							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\"1\">"
+							+"<div class=\"mainChapter-title\">메인 챕터"
+							
+							+"<input type=\"number\" class=\"conMainChapter_number\" id=\"conMainChapter_number\" name=\"conMainChapter_number2\" value=\""+mainChapter+"\" readonly>"
+					
+							+"</div>"
 							
 							+"<input type=\"text\" name=\"conMainChapter_title2\" id=\"conMainChapter_title\">"
 							
 							+"<a href=\"javascript:void(0)\" class=\"delete-mainChapter\" name=\"delete-mainChapter\" style=\"margin-left: 10px;\">"
 							
-							+"<i class=\"fas fa-times\"></i></a></div>"
+							+"<i class=\"fas fa-times\"></i></a>"
+							
+							+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\"1\" readonly>"
+							
+							+"</div>"
 							
 							+"<div class=\"section-subChapter\">"
 							
+							+"<div class=\"consubChapter-titleContainer\">서브 챕터 목록</div>"
+							
 							+"<div class=\"subChapterArea\" id=\"subChapterArea\" name=\"subChapterArea\">"
 							
-							+"<div class=\"subChapter-container\">"
+							+"<div class=\"subChapter-title\">"
 							
-							//삭제된
-							//+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\""+subChapter+"\">"
-						
 							+"<input type=\"text\" name=\"conSubChapter_title2\" id=\"conSubChapter_title\"></div></div>"
 							
 							+"<a href=\"javascript:void(0)\" id=\"add-subChapter\" class=\"add-subChapter\">"
@@ -232,13 +270,13 @@ $(function(){
 	
 	$('.mainChapter-button').click(function(){
 		
-		$(this).next().toggleClass("display-toggle", 500);
+		$(this).next().slideToggle(300, 'linear');
 	
 	});
 	
 	$('.subChapter-button').click(function(){
 		
-		$(this).parent().next().toggleClass("display-toggle", 500);
+		$(this).next().slideToggle(300, 'linear');
 	
 	});
 	
@@ -315,8 +353,8 @@ $(function(){
 
 	function subChapterClickEvent(obj){
 		obj.off("click").on('click', function(){
-			subChapter =$(this).prev().find('.subChapter-container').length+1;	
-			var addInput = "<div class=\"subChapter-container\">"
+			subChapter =$(this).prev().find('.subChapter-title').length+1;	
+			var addInput = "<div class=\"subChapter-title\">"
 			
 							//+"<input class=\"conSubChapter_number\" id=\"conSubChapter_number\" name=\"conSubChapter_number2\" value=\""+subChapter+"\">"
 							//삭제
@@ -345,7 +383,7 @@ $(function(){
        		obj.val(num-1);
 			
 			
-			$(this).parent('.subChapter-container').remove();
+			$(this).parent('.subChapter-title').remove();
 				
 			
 		});

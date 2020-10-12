@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import kr.spring.projectone.service.ClassService;
 import kr.spring.projectone.service.PaymentService;
+import kr.spring.projectone.service.ServiceService;
 import kr.spring.projectone.service.UserService;
 import kr.spring.projectone.service.VipService;
 import kr.spring.projectone.utils.UploadFileUtils;
@@ -34,6 +35,7 @@ import kr.spring.projectone.vo.CurrentClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PaymentVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
+import kr.spring.projectone.vo.ServiceVo;
 import kr.spring.projectone.vo.SubChapterVo;
 import kr.spring.projectone.vo.TemporaryClassVo;
 import kr.spring.projectone.vo.TemporaryMainChapterVo;
@@ -57,6 +59,8 @@ public class ClassController {
 	private PaymentService paymentService;
 	@Autowired
 	private VipService vipService;
+	@Autowired
+	private ServiceService serviceService;
 
 	private String uploadPathWin = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
 	private String uploadPathMac = "/Users/vanytas/Desktop/Coding/포트폴리오/SpringPortfolio/src/main/webapp/resources/uploadedImage";
@@ -67,7 +71,7 @@ public class ClassController {
 	@RequestMapping(value = "/class/all", method = RequestMethod.GET)
 	public ModelAndView allClassGet(ModelAndView mv, HttpServletRequest request) {
 
-		ArrayList<ClassVo> classList = classService.getAllClass();
+		ArrayList<ClassVo> classList = classService.getCurrentClass();
 
 		mv.addObject("classList", classList);
 
@@ -75,6 +79,118 @@ public class ClassController {
 
 		return mv;
 	}
+	
+	@RequestMapping(value = "/class/arts", method = RequestMethod.GET)
+	public ModelAndView artsClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getArtsCurrentClass();
+		
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/illustration", method = RequestMethod.GET)
+	public ModelAndView illustrationClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getIllustrationCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/craft", method = RequestMethod.GET)
+	public ModelAndView craftClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getCraftCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/sport", method = RequestMethod.GET)
+	public ModelAndView sportClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getSportCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/humanities", method = RequestMethod.GET)
+	public ModelAndView humanitiesClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getHumanitiesCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/music", method = RequestMethod.GET)
+	public ModelAndView musicClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getMusicCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/programming", method = RequestMethod.GET)
+	public ModelAndView programmingClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getProgrammingCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/class/film", method = RequestMethod.GET)
+	public ModelAndView filmClassGet(ModelAndView mv, HttpServletRequest request) {
+
+		ArrayList<ClassVo> classList = classService.getFilmCurrentClass();
+
+		if (!classList.isEmpty()) {
+			mv.addObject("classList", classList);
+		}
+
+		mv.setViewName("/class/classList");
+
+		return mv;
+	}
+	
 
 	@RequestMapping(value = "/class", method = RequestMethod.GET)
 	public ModelAndView classGet(ModelAndView mv, HttpServletRequest request, String code) {
@@ -85,7 +201,7 @@ public class ClassController {
 
 			ArrayList<CurrentClassVo> purchaseHistory = classService.searchPurchaseHistory(user.getSt_id(), code);
 
-			if (purchaseHistory != null) {
+			if (!purchaseHistory.isEmpty()) { // 배열로 지정했는데 없으면 null 이 아닌 []로 뜨기 때문에 == null 이 아니라 isEmpty()를 써야 올바르게 작동 
 				System.out.println(purchaseHistory);
 				mv.addObject("classCode", purchaseHistory);
 
@@ -112,7 +228,7 @@ public class ClassController {
 				mv.addObject("mainChapter", mainChapter);
 
 				ArrayList<SubChapterVo> subChapter = new ArrayList<SubChapterVo>();
-
+				
 				for (MainChapterVo main : mainChapter) {
 					ArrayList<SubChapterVo> subTmp;
 					subTmp = classService.findSubChapter(main.getMainChapter_priNum());
@@ -231,7 +347,7 @@ public class ClassController {
 						classList.getClass_monthlyPay());
 
 				printWriter.println(
-						"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href=\"\"; </script>");
+						"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('결제가 완료되었습니다! 즐거운 시간 되십시오.'); location.href='class?code="+code+"'	;</script>");
 				printWriter.flush();
 				printWriter.close();
 
@@ -255,8 +371,10 @@ public class ClassController {
 
 		UserVo user = (UserVo) request.getSession().getAttribute("user");
 
+		ClassVo classList = classService.getSelectedClass(code);
+		
 		if (user == null) {
-
+			
 			printWriter.println(
 					"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('허용되지 않은 접근입니다!'); location.href=\"login\"; </script>");
 			printWriter.flush();
@@ -265,49 +383,63 @@ public class ClassController {
 		}
 
 		if (user != null) {
+			
+	
+			
+			if (user.getSt_id().equals(classList.getClass_st_id())) { // 자기 클래스를 자신이 수강받는건 이상하잖어?
 
-			// 만약 VIP 회원인데 이 클래스를 처음 듣는 경우
+				
 
-			VipCodeListVo vipList = vipService.checkVip(user.getSt_id());
+			}
+			
+			if (!user.getSt_id().equals(classList.getClass_st_id())) { 
 
-			if (vipList != null) {
+				// 만약 VIP 회원인데 이 클래스를 처음 듣는 경우
 
-				CurrentClassVo checkVipSelected = classService.checkVipSelected(vipList.getVip_code());
+				VipCodeListVo vipList = vipService.checkVip(user.getSt_id());
 
-				if (checkVipSelected != null) {
+				if (vipList != null) {
 
-					// 여긴 이미 vip회원이 수강 신청을 했음에도 중복 신청되는 걸 방지하는 코드
+					CurrentClassVo checkVipSelected = classService.checkVipSelected(vipList.getVip_code());
 
-					Date checkExpired = checkVipSelected.getCurrentClass_dueDate();
-					Date today = new Date();
+					if (checkVipSelected != null) {
 
-					System.out.println(checkExpired);
-					System.out.println(today);
+						// 여긴 이미 vip회원이 수강 신청을 했음에도 중복 신청되는 걸 방지하는 코드
 
-					int compare = checkExpired.compareTo(today);
+						Date checkExpired = checkVipSelected.getCurrentClass_dueDate();
+						Date today = new Date();
 
-					System.out.println(compare);
+						System.out.println(checkExpired);
+						System.out.println(today);
 
-					if (compare <= 0) { // compare가 0이거나 -1인 경우만 적용되어야함
+						int compare = checkExpired.compareTo(today);
 
-						printWriter.println(
-								"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('VIP플랜이 이미 만료되었습니다! 클래스를 개별적으로 구매하시거나 VIP 등록을 새로 해주세요!'); location.href=\"login\"; </script>");
-						printWriter.flush();
-						printWriter.close();
+						System.out.println(compare);
+
+						if (compare <= 0) { // compare가 0이거나 -1인 경우만 적용되어야함
+
+							printWriter.println(
+									"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('VIP플랜이 이미 만료되었습니다! 클래스를 개별적으로 구매하시거나 VIP 등록을 새로 해주세요!'); location.href=\"login\"; </script>");
+							printWriter.flush();
+							printWriter.close();
+
+						}
 
 					}
 
+					if (checkVipSelected == null) {
+						classList = classService.getSelectedClass(code);
+						classService.vipInsertClass(user.getSt_id(), vipList, classList.getClass_title(), code);
+					}
 				}
 
-				if (checkVipSelected == null) {
-					ClassVo classList = classService.getSelectedClass(code);
-					classService.vipInsertClass(user.getSt_id(), vipList, classList.getClass_title(), code);
-				}
+
 			}
 
+			
 			// 여기서 부턴 공통 작업
 
-			ClassVo classList = classService.getSelectedClass(code);
+			classList = classService.getSelectedClass(code);
 			mv.addObject("classList", classList);
 			
 			ArrayList<MainChapterVo> mainChapterCheck;
@@ -341,7 +473,6 @@ public class ClassController {
 		return mv;
 	}
 	
-	// 각 서브챕터 프라임 번호에 따라 출력 결과 조정 하는 구문 (근데 여기서 막힘)
 	@RequestMapping(value = "/lecture/lesson", method = RequestMethod.GET)
 	public ModelAndView lecturePageGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, String code, int subChapter) {
 		
@@ -405,9 +536,9 @@ public class ClassController {
 
 			ArrayList<ClassVo> classList = classService.checkMyClass(user.getSt_id());
 			
-				
-			mv.addObject("classList", classList);
-			
+			if (!classList.isEmpty())	{
+				mv.addObject("classList", classList);
+			}
 			
 			TemporaryClassVo tempClass = classService.getMySubmitClass(user.getSt_id());
 			mv.addObject("tempClass", tempClass);
@@ -471,6 +602,46 @@ public class ClassController {
 		}
 		return mv;
 	}
+	
+	// 크리에이터 공지사항
+	@RequestMapping(value = "creator/announcement", method = RequestMethod.GET)
+	public ModelAndView creatorAnnouncementGet(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
+		UserVo user = (UserVo) request.getSession().getAttribute("user");
+		PrintWriter printWriter = response.getWriter();
+		
+		
+		if (user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN")){
+			
+			ArrayList<ServiceVo> adminAnnouncement = serviceService.getAdminAnnouncement();
+			
+			if (!(adminAnnouncement.isEmpty())) {
+				mv.addObject("adminList", adminAnnouncement);
+			}
+
+			System.out.println(user.getSt_value());
+			mv.setViewName("/creator/creatorCenter/announcement");
+		}
+		
+		
+		if (!(user.getSt_value().equals("CREATOR") || user.getSt_value().equals("ADMIN"))){
+			
+
+			printWriter.println(
+					"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('허용되지 않은 접근입니다!'); history.back(); </script>");
+			printWriter.flush();
+			printWriter.close();
+			
+		}
+		
+		
+		
+		return mv;
+	}
+	
 
 	// 클래스 제작 신청
 	@RequestMapping(value = "creator/registerClass", method = RequestMethod.GET)
@@ -561,7 +732,7 @@ public class ClassController {
 				if (insertTemp == true) {
 
 					printWriter.println(
-							"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); history.back(); </script>");
+							"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('개설 신청이 완료되었습니다. 1차 승인 여부는 7일 이내에 결정 되므로 기다려 주시면 감사하겠습니다.'); location.href='/projectone/creator'; </script>");
 					printWriter.flush();
 					printWriter.close();
 
@@ -637,7 +808,7 @@ public class ClassController {
 			classService.notifyFinalStep(code);
 
 			printWriter.println(
-					"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('컨텐츠 추가가 완료되었습니다. 최종 여부는 7일 이내에 결정되며 승인 후 즉시 또는 며칠 뒤에 개강 될 예정입니다.'); location.href=''; </script>");
+					"<script type=\"text/javascript\" charset=\"UTF-8\"> alert('컨텐츠 추가가 완료되었습니다. 최종 여부는 7일 이내에 결정되며 승인 후 즉시 또는 며칠 뒤에 개강 될 예정입니다.'); location.href='/projectone/creator'; </script>");
 			printWriter.flush();
 			printWriter.close();
 

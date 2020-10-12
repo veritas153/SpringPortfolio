@@ -9,11 +9,32 @@ import kr.spring.projectone.vo.CurrentClassVo;
 import kr.spring.projectone.vo.MainChapterVo;
 import kr.spring.projectone.vo.PurchaseHistoryVo;
 import kr.spring.projectone.vo.SubChapterVo;
+import kr.spring.projectone.vo.TemporaryClassVo;
 
 public interface ClassDao {
 
 	ArrayList<ClassVo> getAllClass();
 
+	ArrayList<ClassVo> getCurrentClass();
+	
+	ArrayList<ClassVo> getFutureClass();
+	
+	ArrayList<ClassVo> getArtsCurrentClass();
+
+	ArrayList<ClassVo> getIllustrationCurrentClass();
+
+	ArrayList<ClassVo> getCraftCurrentClass();
+
+	ArrayList<ClassVo> getSportCurrentClass();
+
+	ArrayList<ClassVo> getHumanitiesCurrentClass();
+
+	ArrayList<ClassVo> getMusicCurrentClass();
+
+	ArrayList<ClassVo> getProgrammingCurrentClass();
+
+	ArrayList<ClassVo> getFilmCurrentClass();
+	
 	ClassVo getSelectedClass(@Param("class")ClassVo detectClass);
 
 	ArrayList<PurchaseHistoryVo> getMyClass(@Param("id")String st_id);
@@ -35,6 +56,10 @@ public interface ClassDao {
 	SubChapterVo returnContent(@Param("priNum")int subChapter);
 
 	ArrayList<ClassVo> checkMyClass(@Param("id")String st_id);
+
+	
+
+
 
 
 

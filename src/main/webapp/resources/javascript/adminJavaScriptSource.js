@@ -1,33 +1,46 @@
-$(function(){
+j3(function(){
 
-	$('.addClass_finalSubmit').change(function(){ 
+	j3('.addClass_finalSubmit').change(function(){ 
 	
-		if ($(this).val() == 'Y'){
+		if (j3(this).val() == 'Y'){
 			
-			$(this).parents().find('.openDate-container').removeClass('display-toggle');
+			j3(this).parents().find('.openDate-container').removeClass('display-toggle');
 		}
 		
-		if ($(this).val() == 'N'){
+		if (j3(this).val() == 'N'){
 	
-			$(this).parents().find('.openDate-container').addClass('display-toggle');
+			j3(this).parents().find('.openDate-container').addClass('display-toggle');
 		}
 
 	});
-
-	$( "#addClass_openDate" ).datepicker({
-	                      
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true, 
-		changeYear: true,
-		nextText: '다음 달',
-		prevText: '이전 달', 
-		dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-		monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		minDate: 0,        
-		maxDate: 14          
-	 
+	
+	
+	j3('.mainChapterButton').click(function(){
+		j3(this).siblings('.curriculum-subChapterContainer').slideToggle(300, 'linear');
 	});
 
+	j3('.subChapterButton').click(function(){
+		j3(this).next('.subChapter-content').slideToggle(300, 'linear');
+	});
+	
+	j3('#summernote').summernote({
+	
+	
+	});
+	
+	j3('#service_private').change(function(){
+	
+		if (j3(this).is(":checked") == true) {
+			j3(this).val() == 'Y';
+			j3(this).next().toggleClass('display-toggle');
+		}
+		
+		if (j3(this).is(":checked") == false) {
+			j3(this).val() == 'N';
+			j3(this).next().toggleClass('display-toggle');
+		}
+	
+	});
+	
+	
 });

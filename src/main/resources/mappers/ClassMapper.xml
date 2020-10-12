@@ -6,10 +6,93 @@
 
 	<select id="getAllClass" resultType="kr.spring.projectone.vo.ClassVo">
 	
-		select * from class;
+		select * from class order by class_openDate desc;
 	
 	</select>
 	
+	<select id="getCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class where class_openDate <![CDATA[ <= ]]> now() order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getFutureClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class where class_openDate <![CDATA[ > ]]> now() order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getArtsCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "순수미술"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getIllustrationCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "일러스트레이션"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getCraftCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "공예"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getSportCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "운동"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getHumanitiesCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "인문학"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getMusicCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "음악"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getProgrammingCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "프로그래밍"
+			order by class_openDate desc;
+	
+	</select>
+	
+	<select id="getFilmCurrentClass" resultType="kr.spring.projectone.vo.ClassVo">
+	
+		select * from class 
+			where class_openDate <![CDATA[ <= ]]> now() 
+			and class_category = "영상/편집"
+			order by class_openDate desc;
+	
+	</select>
 	
 	<select id="getSelectedClass" resultType="kr.spring.projectone.vo.ClassVo">
 	

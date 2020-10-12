@@ -4,6 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<c:set var="today" value="<%=new java.util.Date()%>"/>
+
+ 
  
 <div class="class-container">
 	<div class="class-description-container">
@@ -41,8 +44,7 @@
 					</div>
 					<div class="plan-offer" id="package">
 						<h3>패키지</h3>
-						<p>패키지는 공부하실 컴퓨터만 있으면 됩니다.</p>
-						<p>프로그램 설치 및 세팅은 강의에서 설명할 예정이니 잘 따라하시면 됩니다.</p>
+						
 					</div>
 					<div class="plan-offer" id="instructor">
 						<h3>강사 소개</h3>
@@ -58,10 +60,7 @@
 						<p><b>A3.</b> 수강 진행도가 80%를 넘긴 강의 한정으로 플랜이 끝나도 완강 예정 기간동안에는 이용이 가능합니다. 자세한 사항은 플랜 설명 참고 및 고객 센터에 문의해주세요.</p>
 						<p><b>Q4.</b> 현재 소유하고 있는 포인트를 통해 클래스 연장은 가능한가요?</p>
 						<p><b>A4.</b> 네. 50포인트에 1주일 수강 연장 가능합니다. 단, 포인트는 사용하면 환불이 불가능하니 신중하게 결정해주세요.</p>
-						<p><b>Q5.</b> 코드 리뷰는 얼마인가요?</p>
-						<p><b>A5.</b> 처음 1회는 무료, 그 이후엔 1회당 5,000원 또는 10포인트에 이용 할 수 있습니다. VIP플랜 신청자는 무료입니다.</p>
-						<p><b>Q6.</b> 정말로 돈 받는건가요?</p>
-						<p><b>A6.</b> 아뇨... 포트폴리오용 홈페이지인데 왜 받나요? (혹시나 물어보는 분들을 위해) 생활코딩 홈피로 가셔서 무료도 들어보세요!</p>
+					
 					</div>
 					<div class="class-refund" id="refund">
 						<h3>환불 정책</h3>
@@ -87,12 +86,12 @@
 							<span class="class-price-monthlyPay"> / ${classList.class_monthlyPay}개월
 								<a href="#" class="monthlyPay-rules">
 									<i class="far fa-question-circle"></i>
-								</a>
+								</a>	
 							</span>
 						</div>
 					</div>
 					<div class="class-specification">
-						<div class="class-content"><i class="fas fa-book"></i> 32개 강의 제공</div>
+						<div class="class-content"><i class="fas fa-book"></i> ${fn:length(subChapter)}개 강의 제공</div>
 						<div class="class-package"><i class="fas fa-box-open"></i>
 							<c:if test="${classList.class_hasPackage == 'N'.charAt(0)}">
 								패키지 없음
@@ -126,15 +125,20 @@
 						<div class="class-share"><i class="fas fa-share-alt"></i> 공유하기</div>
 					</button>
 				</div>
-				<c:if test="${classCode == null && vipCode == null}">
-					<a href="<%=request.getContextPath()%>/applyClass?code=${classList.class_code}" class="class-subscription">
-						<div class="class-subscription-button">수강 신청하기</div>
-					</a>
+				<c:if test="${today > classList.class_openDate}">
+					<c:if test="${classCode == null && vipCode == null}">
+						<a href="<%=request.getContextPath()%>/applyClass?code=${classList.class_code}" class="class-subscription">
+							<div class="class-subscription-button">수강 신청하기</div>
+						</a>
+					</c:if>
+					<c:if test="${classCode != null || vipCode != null}">
+						<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="class-subscription">
+							<div class="class-subscription-button">클래스 수강하기</div>
+						</a>
+					</c:if>
 				</c:if>
-				<c:if test="${classCode != null || vipCode != null}">
-					<a href="<%=request.getContextPath()%>/lecture?code=${classList.class_code}" class="class-subscription">
-						<div class="class-subscription-button">클래스 수강하기</div>
-					</a>
+				<c:if test="${today < classList.class_openDate}">
+					<div class="class-subscription-button">오픈 예정일 : <fmt:formatDate value="${classList.class_openDate}" pattern="MM/dd" /></div>
 				</c:if>
 			</div>
 		</div>

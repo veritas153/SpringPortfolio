@@ -1,5 +1,10 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+ 
 
 <div class="class-container">
 	<div class="class-description-container">
@@ -81,7 +86,7 @@
 						<div class="class-discount"></div>
 						<div class="price-detail">
 							<span class="class-price">
-								월 59,900원
+								월 125,000원
 							</span>
 							<span class="class-price-monthlyPay">
 								12개월 할부시
@@ -95,9 +100,14 @@
 				<div class="class-recommend-number">
 					
 				</div>
-				<a href="<%=request.getContextPath()%>/vipClass/subscription" class="class-subscription">
-					<div class="class-subscription-button">가입하기</div>
-				</a>
+				<c:if test="${vipCode == null}">	
+					<a href="<%=request.getContextPath()%>/vipClass/subscription" class="class-subscription">
+						<div class="class-subscription-button">가입하기</div>
+					</a>
+				</c:if>
+				<c:if test="${vipCode != null}">
+					<div>플랜에 이미 가입했습니다. (만료일: <fmt:formatDate value="${vipCode.vip_dueDate}" pattern="yyyy년 MM월 dd일"/>)</div>
+				</c:if>
 			</div>
 		</div>
 	</div>

@@ -59,7 +59,7 @@
 	</div>
 	<div class="class-slidebar">
 		<div class="slidebar-boundary">
-			<div class="class-instructor">${tempClass.addClass_creatorName}</div>
+			<div class="class-creatorName">${tempClass.addClass_creatorName}</div>
 			<div class="class-name">${tempClass.addClass_title}</div>
 			<div class="class-information">
 				<div class="class-service">
@@ -113,7 +113,7 @@
 						</select>
 					</div>
 					<div class="comment-container">
-						<textarea class="addclass_adminComment" name="addClass_adminComment2" rows="3" cols="50" maxlength="150" placeholder="150자 내외로 크리에이터에게 답변해주세요."></textarea>
+						<textarea class="addclass_adminComment" name="addClass_adminComment2" rows="3" maxlength="150" placeholder="150자 내외로 크리에이터에게 답변해주세요." style="width: 100%; resize: none;"></textarea>
 					</div>
 					<div>
 						<button>결과 송신</button>
@@ -122,31 +122,31 @@
 			</div>
 		</div>
 		<div class="applyClass-classPreview">
-		<div class="applyClass-previewStatus">
-			<div class="col-md-4">
-				<div class="card mb-4 shadow-sm">
-					<figure class="class-image">	
-						<img id="previewImage" src="<%=request.getContextPath()%>/resources/uploadedImage${tempClass.addClass_image}">
-	  					<figcaption name="image-container" id="image-container">
-	  						<h6 name="image-container-title" id="image-container-title">${tempClass.addClass_title}</h6>
-	  						<div name="smallDescription" id="smallDescription">${tempClass.addClass_thumbIntro}</div>
-	  					</figcaption>
-					</figure>
-					<div class="class-info">
-						<span id="instructor">${tempClass.addClass_creatorName}</span>
-						<span id="type">${tempClass.addClass_category}</span>
-						<div class="class-title" id="class-title" name="class-title">${tempClass.addClass_title}</div>
-					</div>
-					<div class="d-flex">
-						<div class="sub-group">
-							<div class="like-number"><i class="far fa-heart" aria-hidden="true"></i> 0</div>
-							<div class="recommend-number"><i class="far fa-thumbs-up" aria-hidden="true"></i> 0</div>
+			<div class="applyClass-previewStatus">
+				<div class="col-md-4" style="margin: 0 auto;">
+					<div class="card mb-4 shadow-sm" style="width: 330px;">
+						<figure class="class-image">	
+							<img id="previewImage" src="<%=request.getContextPath()%>/resources/uploadedImage${tempClass.addClass_image}">
+		  					<figcaption name="image-container" id="image-container">
+		  						<h6 name="image-container-title" id="image-container-title">${tempClass.addClass_title}</h6>
+		  						<div name="smallDescription" id="smallDescription">${tempClass.addClass_thumbIntro}</div>
+		  					</figcaption>
+						</figure>
+						<div class="class-info">
+							<span id="instructor">${tempClass.addClass_creatorName}</span>
+							<span id="type">${tempClass.addClass_category}</span>
+							<div class="class-title" id="class-title" name="class-title">${tempClass.addClass_title}</div>
 						</div>
-						<small class="text-muted"></small>
+						<div class="d-flex">
+							<div class="sub-group">
+								<div class="like-number"><i class="far fa-heart" aria-hidden="true"></i> 0</div>
+								<div class="recommend-number"><i class="far fa-thumbs-up" aria-hidden="true"></i> 0</div>
+							</div>
+							<small class="text-muted"></small>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </div>

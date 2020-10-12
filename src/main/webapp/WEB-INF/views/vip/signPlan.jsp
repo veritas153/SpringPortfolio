@@ -89,7 +89,7 @@
 			<div class="vipPlan-infos">
 				<div class="box-title">카드번호</div>
 				<div class="signup-box">
-			    	<input type="text" id="name" name="payment_cardNumber" class="user-name">
+			    	<input type="text" id="name" name="payment_cardNumber" class="user-name" maxlength="16">
 			    </div>
 			</div>
 			<div class="vipPlan-infos">
@@ -103,19 +103,19 @@
 		  	</div>
 			<div class="box-title">CVC</div>
 			<div class="signup-box">
-		  		<input type="text" id="payment_cardCVC" name="payment_cardCVC" class="user-name" maxlength="3" placeholder="카드 뒷면 7자리 숫자중 뒤에 3자리 입력">
+		  		<input type="text" id="payment_cardCVC" name="payment_cardCVC" class="user-name" maxlength="3" placeholder="카드 뒷면 7자리 숫자중 뒤에 3자리 입력" maxlength="3">
 		   	</div>	
 			<div class="vipPlan-infos card-extraInfo">
 				<div>
 					<div class="box-title">비밀번호</div>
 					<div class="signup-box">
-						<input type="text" id="payment_cardPassword" name="payment_cardPassword" maxlength="16" class="user-name">
+						<input type="text" id="payment_cardPassword" name="payment_cardPassword" class="user-name" maxlength="4">
 					</div>
 				</div>
 				<div class = "payment_birthday">
 					<div class="box-title" id="birthday">생년월일</div>
 					<div class="signup-box">
-						<input type="text" id="payment_ownerBirthday" name="payment_ownerBirthday" class="user-name" maxlength="8" placeholder="'/'없이 숫자로만 입력. 예) '19901201'">
+						<input type="text" id="payment_ownerBirthday" name="payment_ownerBirthday" class="user-name" maxlength="8" placeholder="'/'없이 숫자로만 입력. 예) '19901201'" maxlength="8">
 					</div>
 				</div>
 				<div class = "payment_business display-toggle">

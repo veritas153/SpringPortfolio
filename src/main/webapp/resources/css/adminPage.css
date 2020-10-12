@@ -1,17 +1,12 @@
 @charset "UTF-8";
 
-*{
+* {
 	margin: 0;
 	padding: 0;
-
 }
 
-
-
 /* 크리에이터 헤더 부분*/
-
-.creatorPage-headerMenu{
-	
+.creatorPage-headerMenu {
 	position: fixed;
 	width: 100%;
 	z-index: 1;
@@ -19,31 +14,23 @@
 	background-color: white;
 }
 
-.headerMenu-container{
-	
+.headerMenu-container {
 	padding: 15px 30px;
 	float: left;
-	
-	
 }
 
-.headerMenu-container:after{
-
+.headerMenu-container:after {
 	both: clear;
 	display: block;
 	content: '';
-	
 }
 
-.creator-personalMenu{
-	
+.creator-personalMenu {
 	display: flex;
 	float: right;
-	
 }
 
-.creator-personalMenu>div{
-	
+.creator-personalMenu>div {
 	width: 50px;
 	height: 50px;
 	font-size: 30px;
@@ -51,128 +38,112 @@
 	text-align: center;
 	margin-right: 20px;
 	color: skyblue;
-	
 }
 
-.creator-personalMenu:after{
-	
+.creator-personalMenu:after {
 	both: clear;
 	display: block;
 	content: '';
-	
 }
 
-.logo-home{
-	
+.logo-home {
 	display: inline-block;
-	
 }
-
-
 
 /* 크리에이터 사이드 메뉴 */
-
-.sideMenu-container{
-	
+.sideMenu-container {
 	margin-top: 70px;
 	position: fixed;
 	width: 250px;
 	height: 100%;
 	border-right: 1px solid lightgrey;
-	
 }
 
-.sidemenu-area{
-
+.sidemenu-area {
 	padding-top: 15px;
-	
 }
 
-.sidemenu-list{
-	
+.sidemenu-list {
 	padding: 0 27px;
-	
 }
 
-.sidemenu{
-	
-    
-	font-size: 12px;	
+.sidemenu {
+	font-size: 12px;
 }
 
-.sidemenu-link{
+.sidemenu-link {
 	padding: 10px 25px 10px 10px;
 	display: inherit;
 }
 
-.sidemenu-link:hover{
-	
+.sidemenu-link:hover {
 	text-decoration-line: none;
 	background-color: lightgrey;
-	
 }
 
-
-.sidemenu>a>span>span{
+.sidemenu>a>span>span {
 	color: black;
 }
 
-.sidemenu>a>span>span:hover{
+.sidemenu>a>span>span:hover {
 	background-color: lightgrey;
 }
 
-
-.sidemenu>a>span>i{
-	
+.sidemenu>a>span>i {
 	margin-right: 5px;
 	color: skyblue;
 	font-size: 20px;
-	
 }
 
-.sidemenu>a>span>span{
-	
+.sidemenu>a>span>span {
 	vertical-align: top;
-	
 }
 /* 클래스 미리보기 부분 */
 
-
-.col-md-4{
+.applyClass-classPreview{
 	
-	max-width: 310px;
+	margin-top: 30px;
 	
 }
 
-.cold-md-4::hover{
+.appyClass-classTitleContainer{
+	
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 0 auto;
+	display: inline;
+	
+}
+
+.col-md-4 {
+	max-width: 310px;
+}
+
+.cold-md-4::hover {
 	text-decoration: none;
 }
 
-
-.col-md-4:nth-of-type(1){
+.col-md-4:nth-of-type(1) {
 	padding-left: 0;
 }
 
-.col-md-4::after{
-	
+.col-md-4::after {
 	clear: both;
 	content: '';
 	display: block;
-	
 }
 
-.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img{
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>img {
 	opacity: 0.5;
 	transform: scale(1.1);
 }
 
-.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption{
+.col-md-4:hover>.card.mb-4.shadow-sm>.class-image>figcaption {
 	opacity: 1;
 }
 
-
-
-.class-info{
+.class-info {
 	margin: 0px;
 	display: inline;
 	font-weight: bold;
@@ -181,29 +152,22 @@
 	padding: 20px;
 }
 
-
-.class-image{
-	
+.class-image {
 	position: relative;
 	overflow: hidden;
-	width:100%;
+	width: 100%;
 	display: inherit;
 	background-color: black;
-	
 }
 
-.class-image>img{
-	
-	width:100%;
+.class-image>img {
+	width: 100%;
 	height: 210px;
 	opacity: 1;
 	transition: 0.3s ease;
-	
-	
 }
 
-.class-image>figcaption{
-	
+.class-image>figcaption {
 	position: absolute;
 	z-index: 1;
 	margin: 15px;
@@ -216,377 +180,343 @@
 	opacity: 0;
 	border: 1px solid white;
 	transition: 0.3s ease;
-	
 }
 
-
-#type{
-	
+#type {
 	float: right;
-	
 }
 
-.class-title{
+.class-title {
 	margin-top: 10px;
 	font-size: 18px;
-	
 }
 
-.class-info::after{
+.class-info::after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
-.d-flex{
-	
+.d-flex {
 	margin: 15px;
 	float: right;
 	margin-top: 10px;
-	
 }
 
-.d-flex::after{
-	
+.d-flex::after {
 	clear: both;
 	content: '';
 	display: block;
 }
 
+.sub-group {
+	margin: 0;
+	display: inline-flex;
+	float: left;
+}
 
+.text-muted {
+	right: 0;
+}
 
+.recommend-number, .like-number {
+	width: 60px;
+	height: 30px;
+	border: 1px solid grey;
+	background-color: honeydew;
+	border-radius: 5px;
+	line-height: 30px;
+	text-align: center;
+	margin-right: 10px;
+}
 
 /* 메인 페이지 파트*/
-
-.creatorMain-container{
-	
+.creatorMain-container {
 	padding: 71px 0 0 0;
 	margin: 0 32px 71px auto;
 	width: calc(100% - 315px);
 	right: 0;
 	position: absolute;
-	
 }
 
-.status-container{
-	
+.status-container {
 	margin: 30px 80px;
 	height: 600px;
-	
 }
 
-.statusManagement-container{
-	
+.statusManagement-container {
 	display: inline-flex;
-	
 }
 
-
-.classList-container{
-	
+.classList-container {
 	width: 500px;
 	display: inline-block;
-	
 }
 
-.classList-title>span{
-	
+.classList-title>span {
 	font-size: 18px;
 	font-weight: bold;
 	left: 0;
-	
-}
-.addClass{
-	
-	color: royalblue;
-	float: right;
-	
-}
-.addClass:after{
-	
-	clear: both;temp
-	display: block;
-	content: '';
-	
 }
 
-.classList-lineUp{
-	
+.addClass {
+	color: royalblue;
+	float: right;
+}
+
+.addClass:after {
+	clear: both;
+	temp display: block;
+	content: '';
+}
+
+.classList-lineUp {
 	margin-top: 20px;
-	height: 250px;
+	height: 330px;
 	overflow: scroll;
-	 -ms-overflow-style: none; 
-    scrollbar-width: none; 
-    
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 .classList-lineUp::-webkit-scrollbar {
-    display: none; 
+	display: none;
 }
 
-.classMenu{
-	
+.classMenu {
 	width: 100%;
-	height: 80px;
+	height: 110px;
 	padding: 15px;
 	background-color: lavender;
 	display: block;
 	border: 1px solid turquoise;
 }
 
-.class-upperRow{
-	
+.class-upperRow {
 	display: inline;
-	
-	
 }
 
-.tempClass-code{
-	
+.tempClass-code {
 	float: right;
-	
+	color: black;
+	font-size: 11px;
 }
 
-.class-upperRow::after{
-	
+.class-upperRow::after {
 	clear: both;
 	content: '';
 	display: block;
-	
 }
 
-
-.class-instructor{
-	
+.class-instructor {
 	color: black;
+	font-weight: bold;
 	font-size: 13px;
 	display: inline;
-	
 }
 
-.class-name{
-	
+.classTitle {
+	display: inline;
+}
+
+.class-name {
 	color: black;
 	font-size: 15px;
 	font-weight: bold;
-	
-	
+	display: inline;
 }
 
-.classMenu-link:hover{
-	
-	text-decoration: none;
-	
-}
-
-.class-detail{
-	
-	font-size: 12px;
+.tempClass-dueDate {
 	float: right;
+	color: black;
+}
+
+.tempClass-dueDate::after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.classMenu-link:hover {
+	text-decoration: none;
+}
+
+.class-detail {
+	font-size: 12px;
+	f loat: right;
 	line-height: 25px;
 }
 
-.individualGuide-container{
-	
+.individualGuide-container {
 	margin-left: 72px;
 	width: 300px;
-	
 }
 
-.individualGuideline>header>span{
+.individualGuideline>header>span {
 	font-size: 18px;
 	font-weight: bold;
 }
 
-.individualGuideline-menu-container{
-	
+.individualGuideline-menu-container {
 	margin-top: 20px;
 	border: 1px solid lightgrey;
-	
 }
 
-.individualGuideline-menu{
-	
+.individualGuideline-menu {
 	padding: 20px;
-	
 }
 
-.guideline-menu>span{
-	
+.guideline-menu>span {
 	font-size: 14px;
 	font-weight: bold;
 	color: black;
-	
 }
 
-.sub-description{
-	
+.sub-description {
 	margin-top: 8px;
-    color: rgb(133, 138, 141);
+	color: rgb(133, 138, 141);
 	font-size: 12px;
-	
-}
-.guideline-menu{
-	
-	margin-bottom: 20px;
-	
 }
 
+.guideline-menu {
+	margin-bottom: 20px;
+}
 
 /* 클래스 미리보기 */
-
-
-.stickyTab{
+.stickyTab {
 	display: flex;
 	background-color: lightskyblue;
 }
 
 .stickyTab a {
-	
 	color: f2f2f2;
 	display: block;
-  	text-align: center;
-  	padding: 14px 16px;
-  	text-decoration: none;
-  	font-size: 17px;
-
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .stickyTab.sticky {
 	position: fixed;
-  	top: 0;
-  	width: 628px;
-	
+	top: 0;
+	width: 628px;
 }
 
-
-
-.class-container{
+.class-container {
 	width: 1100px;
 	display: flex;
 	margin-top: 30px;
 }
 
-
-
-.class-description-container{
+.class-description-container {
 	margin: 0;
 	width: 60%;
 	height: auto;
 	padding: 0 15px;
-	
-	
 }
 
-.class-description-container::after{
+.class-description-container::after {
 	content: '';
 	both: clear;
 	display: table;
 }
 
-.class-description{
+.class-description {
 	
 }
 
-.class-slidebar{
+.class-slidebar {
 	width: 40%;
 	height: auto;
 	padding: 0 15px;
 	position: -webkit-sticky;
-  	position: sticky;
-  	top: 0;
-  	
+	position: sticky;
+	top: 0;
 }
 
-.class-slidebar.sticky{
+.class-slidebar.sticky {
 	width: 440px;
 	top: 0;
 	position: fixed;
 }
 
-.slidebar-boundary{
+.slidebar-boundary {
 	padding: 15px;
 	border: 1px solid grey;
 }
 
-.class-slidebar.sticky{
+.class-slidebar.sticky {
 	position: fixed;
 	width: 440px;
 	top: 0;
 }
 
-.class-instructor{
+.class-creatorName {
 	font-weight: bold;
 	font-size: 15px;
-	
+	display: block;
 }
 
-.class-name{
+.class-name {
 	font-size: 30px;
 	color: mediumturquoise;
 	font-weight: bold;
-	
-}
-.class-information{
-	margin-top: 20px;	
 }
 
-.class-service{
+.class-information {
+	margin-top: 20px;
+}
+
+.class-service {
 	margin-bottom: 50px;
 }
 
-.class-specification{
+.class-specification {
 	margin: 0;
 	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	
 }
 
-.class-specification>div{
+.class-specification>div {
 	margin-bottom: 15px;
 	width: 50%;
 }
 
-.class-specification-division{
+.class-specification-division {
 	margin-bottom: 10px;
 	font-size: 15px;
-	
 }
 
-.btn-recommend, .btn-share{
-	
+.btn-recommend, .btn-share {
 	text-align: center;
 	border: none;
 	height: 35px;
 	width: calc(50% - 10px);
 	line-height: 20px;
-	
 }
 
-.btn-recommend:hover, .btn-share:hover{
-	
+.btn-recommend:hover, .btn-share:hover {
 	background-color: darkgrey;
-	
 }
 
-.class-sideService{
+.class-sideService {
 	margin-bottom: 30px;
 }
 
-.class-detail{
+.class-detail {
 	margin-top: 20px;
 }
 
-.price-detail{
+.price-detail {
 	display: inline-block;
 }
 
-.class-price-monthlyPay{
+.class-price-monthlyPay {
 	font-size: 12px;
 }
 
-.class-subscription{
+.class-subscription {
 	width: 100%;
 	height: 35px;
 	color: white;
@@ -594,17 +524,83 @@
 	line-height: 35px;
 }
 
-.class-subscription:hover{
+.class-subscription:hover {
 	text-decoration: none;
 	color: white;
 }
 
-.class-subscription-button{
+.class-subscription-button {
 	background-color: cadetblue;
 }
 
-.display-toggle{
+
+/* 클래스 최종 점검 부분 */
+
+.curriculumList{
+	margin-bottom: 25px;
+}
+.curriculum-mainChapterContainer>a:hover,
+.curriculum-subChapterContainer>a:hover{
+
+	text-decoration: none;
+}
+
+.curriculum-mainChapterButton{
 	
+	width: 100%;
+	background-color: mediumturquoise;
+	border: 1px solid lightskyblue;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	height: 40px;
+	padding: 5px 10px;
+	line-height: 25px;
+}
+
+.curriculum-mainChapterButton>span,
+.curriculum-subChapterButton>span{
+	float: right;
+}
+
+.curriculum-subChapterContainer{
+	margin-top: 30px;
+	margin-left: 20px;
 	display: none;
+}
+
+.curriculum-subChapterButton{
+	width: 100%;
+	margin-bottom: 15px;
+	border: 1px solid dimgrey;
+	background-color: aquamarine;
+	color: black;
+	font-size: 15px;
+	height: 30px;
+	padding: 5px;
+	line-height: 16px;	
+	box-sizing: content-box;
 	
+}
+
+.subChapter-content{
+	display:none;
+}
+
+.finalConfirmButton{
+	margin-top: 15px;
+}
+
+/* 공지 사항 및 질문응답 부분 */
+
+.adminAnnouncement-container{
+	
+	margin: 0 auto;
+	width: 900px;
+	height: auto;
+	
+}
+
+.display-toggle {
+	display: none;
 }

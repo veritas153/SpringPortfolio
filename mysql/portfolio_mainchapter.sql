@@ -30,7 +30,7 @@ CREATE TABLE `mainchapter` (
   PRIMARY KEY (`mainChapter_priNum`),
   KEY `mainChapter_study_code_idx` (`mainChapter_class_code`),
   CONSTRAINT `mainChapter_study_code` FOREIGN KEY (`mainChapter_class_code`) REFERENCES `class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `mainchapter` (
 
 LOCK TABLES `mainchapter` WRITE;
 /*!40000 ALTER TABLE `mainchapter` DISABLE KEYS */;
-INSERT INTO `mainchapter` VALUES (1,'a','1','3smBBohC75Z8FNtN9wa6'),(2,'b','2','3smBBohC75Z8FNtN9wa6'),(3,'c','3','3smBBohC75Z8FNtN9wa6'),(4,'d','4','3smBBohC75Z8FNtN9wa6'),(5,'환영합니다','1','Z8aLm742oHRT4q5e21Ek'),(6,'헬로월드부터시작','2','Z8aLm742oHRT4q5e21Ek');
+INSERT INTO `mainchapter` VALUES (1,'환영합니다!','1','CV5UoGxw3R0Hbh18022E'),(2,'파이선 기초','2','CV5UoGxw3R0Hbh18022E'),(3,'파이선 입력과 출력','3','CV5UoGxw3R0Hbh18022E'),(4,'마무리','4','CV5UoGxw3R0Hbh18022E'),(5,'그림 잘 그리는 법','1','K8TgjR72f964GkQNuT3Q'),(6,'기타 등등','2','K8TgjR72f964GkQNuT3Q'),(7,'일단 환영합니다!','1','m9Zb66c19N0oy46BjCH0'),(8,'영상 제작','2','m9Zb66c19N0oy46BjCH0'),(9,'영상 제작 요소들','3','m9Zb66c19N0oy46BjCH0'),(10,'1부 마무리','4','m9Zb66c19N0oy46BjCH0'),(11,'신디사이징 기초','1','4p330782dTfE93Uw4wVC'),(12,'소개','1','hF2DF1Ty86Z3uM455l18'),(13,'모션 그래픽','2','hF2DF1Ty86Z3uM455l18'),(14,'간단팁들','3','hF2DF1Ty86Z3uM455l18'),(15,'시작','1','x84eIkd6TaWk7LKR74i3'),(16,'자바스크립트 실행','2','x84eIkd6TaWk7LKR74i3'),(17,'숫자와 문자','3','x84eIkd6TaWk7LKR74i3');
 /*!40000 ALTER TABLE `mainchapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-28  7:40:44
+-- Dump completed on 2020-10-12 10:16:56

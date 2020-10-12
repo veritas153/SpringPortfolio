@@ -99,8 +99,12 @@
     	<put-attribute name="body" value="/WEB-INF/views/creator/creatorCenter/applyClassSteps/{1}.jsp" />
     </definition>
     
-     <definition name="/admin/adminPage/*" extends=".admin">
+    <definition name="/admin/adminPage/*" extends=".admin">
     	<put-attribute name="body" value="/WEB-INF/views/admin/adminPage/{1}.jsp" />
+    </definition>
+    
+    <definition name="/admin/adminPage/adminTool/*" extends=".admin">
+    	<put-attribute name="body" value="/WEB-INF/views/admin/adminPage/adminTool/{1}.jsp" />
     </definition>
     
     <definition name="/member/studentInformation/*" extends=".studentInfo">

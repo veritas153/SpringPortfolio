@@ -28,16 +28,27 @@
 						<h3>커리큘럼</h3>
 						<c:forEach var="tempMain" items="${tempMain}">
 							<div class="curriculumList">
-								<span>${tempMain.conMainChapter_number}</span>
-								<span>${tempMain.conMainChapter_title}</span>
-								<c:forEach var="tempSub" items="${tempSub}">
-									<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
-										<p>${tempSub.conSubChapter_title }</p>
-										<div class="subChapter-content">
-											${tempSub.conSubChapter_content}
+								<div class="curriculum-mainChapterContainer">
+									<a href="javascript:void(0)" class="mainChapterButton">
+										<div class="curriculum-mainChapterButton">${tempMain.conMainChapter_number}. ${tempMain.conMainChapter_title}
+											<span><i class="fas fa-caret-down"></i></span>
 										</div>
-									</c:if>
-								</c:forEach>
+									</a>
+									<div class="curriculum-subChapterContainer">
+										<c:forEach var="tempSub" items="${tempSub}">
+											<c:if test="${tempSub.conSubChapter_conMainChapter_priNum == tempMain.conMainChapter_priNum}">
+												<a href="javascript:void(0)" class="subChapterButton">
+													<div class="curriculum-subChapterButton">${tempMain.conMainChapter_number}-${tempSub.conSubChapter_number}. ${tempSub.conSubChapter_title}
+														<span><i class="fas fa-caret-down"></i></span>
+													</div>
+												</a>
+												<div class="subChapter-content">
+													${tempSub.conSubChapter_content}
+												</div>
+											</c:if>
+										</c:forEach>
+									</div>
+								</div>
 							</div> 
 						</c:forEach>
 					</div>
@@ -84,7 +95,7 @@
 	</div>
 	<div class="class-slidebar">
 		<div class="slidebar-boundary">
-			<div class="class-instructor">${tempClass.addClass_creatorName}</div>
+			<div class="class-creatorName">${tempClass.addClass_creatorName}</div>
 			<div class="class-name">${tempClass.addClass_title}</div>
 			<div class="class-information">
 				<div class="class-service">
@@ -143,7 +154,7 @@
 						<input type="text" class="addClass_openDate" id="addClass_openDate" name="addClass_openDate2" readonly>
 					</div>
 					<div>
-						<button>결과 송신</button>
+						<button class="finalConfirmButton">결과 송신</button>
 					</div>
 				</form>
 			</div>
