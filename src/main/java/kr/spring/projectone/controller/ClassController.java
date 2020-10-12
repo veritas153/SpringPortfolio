@@ -400,7 +400,7 @@ public class ClassController {
 
 				if (vipList != null) {
 
-					CurrentClassVo checkVipSelected = classService.checkVipSelected(vipList.getVip_code());
+					CurrentClassVo checkVipSelected = classService.checkVipSelected(vipList.getVip_code(),code);
 
 					if (checkVipSelected != null) {
 
@@ -424,6 +424,8 @@ public class ClassController {
 							printWriter.close();
 
 						}
+						
+						
 
 					}
 

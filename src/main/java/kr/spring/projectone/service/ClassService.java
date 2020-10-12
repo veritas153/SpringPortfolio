@@ -67,7 +67,7 @@ public interface ClassService {
 
 	void vipInsertClass(String st_id, VipCodeListVo vipList, String class_title, String code);
 
-	CurrentClassVo checkVipSelected(String vip_code);
+	CurrentClassVo checkVipSelected(String vip_code, String code);
 
 	SubChapterVo returnContent(int subChapter);
 

@@ -513,9 +513,9 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	@Override
-	public CurrentClassVo checkVipSelected(String vip_code) {
+	public CurrentClassVo checkVipSelected(String vip_code, String code) {
 	
-		return classDao.checkVipSelected(vip_code);
+		return classDao.checkVipSelected(vip_code,code);
 	}
 
 	@Override

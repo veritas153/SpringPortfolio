@@ -51,7 +51,7 @@ public interface ClassDao {
 
 	void vipInsertClass(@Param("vip")CurrentClassVo vipClass);
 
-	CurrentClassVo checkVipSelected(@Param("code")String vip_code);
+	CurrentClassVo checkVipSelected(@Param("code")String vip_code, @Param("class")String code);
 
 	SubChapterVo returnContent(@Param("priNum")int subChapter);
 

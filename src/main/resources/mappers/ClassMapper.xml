@@ -159,7 +159,7 @@
 	
 	<select id="checkVipSelected" resultType="kr.spring.projectone.vo.CurrentClassVo">
 	
-		select * from currentclass where currentClass_vip_code = #{code};
+		select * from currentclass where currentClass_vip_code = #{code} and currentClass_class_code = #{class};
 	
 	</select>
 	
