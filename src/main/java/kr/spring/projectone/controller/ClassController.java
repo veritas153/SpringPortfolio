@@ -61,10 +61,7 @@ public class ClassController {
 	private VipService vipService;
 	@Autowired
 	private ServiceService serviceService;
-
-	private String uploadPathWin = "D:\\jk\\git\\포트폴리오전용\\SpringPortfolio\\src\\main\\webapp\\resources\\uploadedImage";
-	private String uploadPathMac = "/Users/vanytas/Desktop/Coding/포트폴리오/SpringPortfolio/src/main/webapp/resources/uploadedImage";
-
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -425,8 +422,6 @@ public class ClassController {
 
 						}
 						
-						
-
 					}
 
 					if (checkVipSelected == null) {
@@ -434,7 +429,6 @@ public class ClassController {
 						classService.vipInsertClass(user.getSt_id(), vipList, classList.getClass_title(), code);
 					}
 				}
-
 
 			}
 
@@ -467,7 +461,6 @@ public class ClassController {
 				}
 			}
 			
-
 			
 			mv.setViewName("/class/lecture/lecturePage");
 		}
@@ -707,29 +700,13 @@ public class ClassController {
 
 				String file = "";
 
-				String detectOS = System.getProperty("os.name");
-
-				if (detectOS.startsWith("Mac")) {
-					System.out.println(detectOS);
-					String uploadPath = uploadPathMac;
-					file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(),
-							addClass_image2.getBytes());
-					tempClass.setAddClass_image(file);
-					classService.insertImage(user.getSt_id(), file);
-				}
-				if (detectOS.startsWith("Windows")) {
-					System.out.println(detectOS);
-					String uploadPath = uploadPathWin;
-					file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(),
-							addClass_image2.getBytes());
-					tempClass.setAddClass_image(file);
-					classService.insertImage(user.getSt_id(), file);
-				}
-
+				String uploadPath = System.getProperty("user.dir") + "/src/main/webapp/resources/uploadedImage";
+				file = UploadFileUtils.uploadFile(uploadPath, addClass_image2.getOriginalFilename(),
+						addClass_image2.getBytes());
+				tempClass.setAddClass_image(file);
+					
 				boolean insertTemp = classService.insertTempChapter(tempChapter, tempSub, tempClass,
 						conMainChapter_number2, conSubChapter_number2, conMainChapter_title2, conSubChapter_title2);
-
-				System.out.println(insertTemp);
 
 				if (insertTemp == true) {
 
